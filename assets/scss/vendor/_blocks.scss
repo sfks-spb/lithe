@@ -1,0 +1,42 @@
+@use "sass:color";
+
+.wp-block-image img {
+    height: auto;
+}
+
+.wp-block-image .alignleft,
+.wp-block-image .alignright {
+    width: 100%;
+    float: none;
+
+    @include respond-to('aussie') {
+        width: auto;
+        max-width: 50%;
+    }
+}
+
+.wp-block-image .alignright {
+    margin-left: 0;
+
+    @include respond-to('aussie') {
+        margin-left: 1em;
+        float: right;
+    }
+}
+
+.wp-block-image .alignleft {
+    @include respond-to('aussie') {
+        float: left;
+    }
+}
+
+.single-post .wp-block-image > figure {
+    max-width: 100%;
+
+    @include respond-to('labrador') {
+        max-width: 75%;
+        float: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

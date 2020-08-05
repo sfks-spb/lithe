@@ -1,0 +1,159 @@
+////
+/// @author Denis Paavilainen
+////
+
+/// @access public
+/// @param {string} $breakpoint - breakpoint name
+/// @content
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media (min-width: #{$query}) {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. Please make sure it is defined.';
+  }
+}
+
+/// @access public
+/// @param {bool} $color - element color on hover and active
+/// @content
+@mixin hover-active() {
+    &:hover,
+    &:active {
+        @content;
+    }
+}
+
+/// @access public
+/// @param {string} $slug - color class slug
+/// @param {color} $color - color value for the classes
+@mixin has-color($slug, $color) {
+    .has-#{$slug}-background-color {
+        background-color: $color;
+    }
+
+    .has-#{$slug}-color {
+        color: $color;
+    }
+
+    .has-#{$slug}-border-color {
+        border-color: $color;
+    }
+}
+
+/// @access public
+/// @param {color} $primary [var(--lt-brand-blue-color)] - primary link color
+/// @param {color} $active [false] - active link color
+/// @param {color} $visited [$primary] - visited link color
+/// @content
+@mixin link($primary: var(--lt-brand-blue-color), $active: false, $visited: $primary) {
+    a {
+        color: $primary;
+
+        a:visited {
+            color: $visited;
+        }
+
+        @if $active {
+            @include hover-active() {
+                color: $active;
+            }
+        }
+
+        @content
+    }
+}
+
+/// @access public
+/// @param {color} $primary [var(--lt-brand-blue-color)] - primary link color
+/// @param {color} $active [false] - active link color
+/// @param {color} $visited [$primary] - visited link color
+/// @content
+@mixin undecorated-link($primary: var(--lt-brand-blue-color), $active: false, $visited: $primary) {
+    @include link($primary, $active, $visited) {
+        text-decoration: none;
+        @content
+    }
+}
+
+/// @access public
+/// @param {string} $direction [both] - centering axis
+/// @param {string} $position [relative] - element position
+@mixin center($direction: "both", $position: "relative") {
+    position: unquote($position);
+
+    @if $direction == "vertically" {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @if $direction == "horizontally" {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @if $direction == "both" {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/// @access public
+@mixin ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/// @access public
+/// @param {string} $size [medium] - size of svg icon
+/// @content
+@mixin svg-icon($size: "medium") {
+    svg {
+        overflow: visible;
+        display: inline-block;
+        width: 1.25em;
+        height: 1em;
+
+        @if $size == "medium" {
+            vertical-align: -.125em;
+            font-size: inherit;
+        }
+
+        @if $size == "large" {
+            vertical-align: -.225em;
+            font-size: 1.3333333333em;
+            line-height: .75em;
+        }
+
+        @content;
+    }
+}
+
+/// @access public
+/// @param [string] $size [5px] - expand element from the container
+@mixin expand($size: "5px") {
+    margin-left: -$size;
+    width: calc(100% + #{$size * 2});
+    position: relative;
+    z-index: z('expanded');
+}
+
+/// @access public
+@mixin unstyled-list {
+    ul, li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+}

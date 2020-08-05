@@ -1,0 +1,47 @@
+.dark-theme {
+    --lt-text-color:                    #dedede;
+    --lt-white-color:                   #4b4b4b;
+    --lt-very-light-gray-color:         #3f3f3f;
+    --lt-light-gray-color:              #333333;
+    --lt-gray-color:                    #959595;
+    --lt-dark-gray-color:               #f3f3f3;
+    --lt-very-dark-gray-color:          #fefefe;
+    --lt-brand-blue-color:              #fefefe;
+    --lt-bg-gradient-start-color:       #333333;
+    --lt-bg-gradient-end-color:         #212121;
+    --lt-header-gradient-start-color:   #3f3f3f;
+    --lt-header-gradient-middle1-color: #444444;
+    --lt-header-gradient-middle2-color: #444444;
+    --lt-header-gradient-end-color:     #3f3f3f;
+    --lt-input-color:                   #dedede;
+    --lt-input-background-color:        #6a6a6a;
+    --lt-button-background-color:       #fefefe;
+    --lt-button-border-color:           #959595;
+    --lt-active-button-color:           #fefefe;
+    --lt-active-button-border-color:    #fefefe;
+    --lt-entry-meta-background-color:   #3f3f3f;
+    --lt-bullet-color:                  #dedede;
+    --lt-tldr-color:                    #3f3f3f;
+    --lt-tldr-background-color:         rgba(255, 255, 255, .9);
+    --lt-aside-nav-background-color:    #fefefe;
+    --lt-tags-color:                    #fefefe;
+    --lt-tags-count-color:              #fefefe;
+    --lt-blockquote-background-color:   #3f3f3f;
+
+    select {
+        background-image: get_icon( 'chevron', #fefefe );
+
+        &:focus {
+            background-image: get_icon( 'chevron', #fefefe, 'transform: rotate(180deg); transform-origin: 50% 50%;' );
+        }
+    }
+
+    .theme-switcher-item.light {
+        display: inline-block;
+    }
+
+    .theme-switcher-item.dark {
+        display: none;
+    }
+}
+

@@ -1,0 +1,119 @@
+.related-wrapper {
+    margin: 2.2em 0;
+    padding: 15px;
+    background: var(--lt-entry-meta-background-color);
+    @include unstyled-list();
+}
+
+h2#related-title {
+    margin-top: 0;
+    margin-left: 1rem;
+    text-align: center;
+}
+
+ul.related-posts {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to('labrador') {
+        flex-direction: row;
+    }
+}
+
+ul.related-posts > li {
+    width: 100%;
+    padding: 10px;
+    flex: 0 0 33.333%;
+
+    &:before {
+        display: none;
+    }
+
+    @include undecorated-link($primary: var(--lt-text-color)) {
+        overflow: hidden;
+        border-radius: 10px;
+        background: var(--lt-white-color);
+        display: flex;
+        flex-direction: row;
+        transform: translate3d(0, 0, 0);
+        transition: transform .3s $ease-out-quartic;
+        box-shadow: 0 0 6px var(--lt-light-blue-shadow-color);
+
+        @include hover-active() {
+            color: var(--lt-text-color);
+        }
+
+        @include respond-to('labrador') {
+            flex-direction: column;
+
+            @include hover-active() {
+                transform: translate3d(0, -10px, 0);
+            }
+        }
+    }
+}
+
+.related-post-thumbnail {
+    overflow: hidden;
+    position: relative;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+    background: var(--lt-related-background-color) get_icon('logo', white, 'opacity: .2') 50% 50% no-repeat;
+    background-size: 50%;
+    flex-shrink: 0;
+
+    @include respond-to('labrador') {
+        height: 150px;
+        width: auto;
+        margin-right: 0;
+    }
+
+    img {
+        min-height: 100%;
+        min-width: 100%;
+        position: absolute;
+        margin: auto;
+        left: -100%;
+        right: -100%;
+        top: -100%;
+        bottom: -100%;
+    }
+}
+
+ul.related-post-meta,
+ul.related-post-meta > li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.related-post-meta {
+    padding: 0 10px;
+
+    @include respond-to('labrador') {
+        padding: 10px 20px 20px;
+    }
+
+    > li:before {
+        display: none;
+    }
+
+    .related-post-date {
+        color: var(--lt-gray-color);
+        padding: 10px 0;
+    }
+
+    .related-post-title {
+        font-size: $font-size-large;
+        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 4rem;
+        line-height: 2rem;
+    }
+}
+

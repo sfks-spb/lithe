@@ -1,0 +1,80 @@
+#comments,
+#comments li {
+    list-style: none;
+}
+
+.comment-consent {
+    font-size: $font-size-small;
+    color: var(--lt-gray-color);
+}
+
+.comments-wrapper {
+    margin-top: 5rem;
+}
+
+textarea#comment {
+    resize: vertical;
+    min-height: 50px;
+    max-height: 300px;
+}
+
+ul.children {
+    margin-top: 1.9em;
+
+    li:before {
+        display: none;
+    }
+}
+
+li.comment {
+    padding: 20px 0;
+    padding-right: 21px;
+}
+
+.comment-body {
+    position: relative;
+    padding-left: 95px;
+}
+
+.comment-author,
+.comment-metadata {
+    @include respond-to('aussie') {
+        display: inline-block;
+    }
+}
+
+.comment-author {
+    .avatar {
+        left: 20px;
+        @include center('vertically', 'absolute');
+        background: var(--lt-white-color);
+        box-shadow: 0 0 18px var(--lt-light-blue-shadow-color);
+        box-sizing: content-box;
+        padding: 10px;
+        border-radius: 50%;
+        border: 1px solid var(--lt-light-gray-color);
+    }
+
+    .url {
+        text-decoration: none;
+    }
+
+    .says {
+        display: none;
+    }
+}
+
+.comment-metadata {
+    margin: 5px 0;
+    font-size: $font-size-small;
+
+    @include respond-to('aussie') {
+        margin: 0;
+        margin-left: 10px;
+    }
+
+    > a {
+        color: var(--lt-gray-color);
+        text-decoration: none;
+    }
+}

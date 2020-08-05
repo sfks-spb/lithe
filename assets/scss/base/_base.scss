@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+:root {
+    ::-moz-selection,
+    ::selection {
+        background: var(--lt-brand-blue-color);
+        color: var(--lt-very-light-gray-color);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--lt-brand-blue-color);
+    }
+
+    nav {
+        @include unstyled-list;
+    }
+
+    @include link($primary: var(--lt-brand-blue-color), $active: var(--lt-brand-red-color));
+    @include has-color('white',           var(--lt-white-color));
+    @include has-color('very-light-gray', var(--lt-very-light-gray-color));
+    @include has-color('light-gray',      var(--lt-light-gray-color));
+    @include has-color('gray',            var(--lt-gray-color));
+    @include has-color('dark-gray',       var(--lt-dark-gray-color));
+    @include has-color('very-dark-gray',  var(--lt-very-dark-gray-color));
+    @include has-color('dark-blue',       var(--lt-brand-blue-color));
+    @include has-color('dark-red',        var(--lt-brand-red-color));
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--lt-text-color);
+    background: var(--lt-white-color);
+
+    @include respond-to('labrador') {
+        background: radial-gradient(ellipse at bottom, var(--lt-bg-gradient-start-color) 0%, var(--lt-bg-gradient-end-color) 100%) no-repeat;
+    }
+}

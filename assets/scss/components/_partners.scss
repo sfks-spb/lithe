@@ -1,0 +1,17 @@
+.sidebar-widget .partners,
+.sidebar-widget .partners > li {
+    list-style: none;
+    margin: 0;
+    border-bottom-width: 0;
+}
+
+.partners > li {
+    text-align: center;
+    padding: 5px 0;
+    font-size: $font-size-small;
+
+    a {
+        display: block;
+        margin: 5px auto;
+    }
+}

@@ -1,0 +1,37 @@
+.post-tags  {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to('aussie') {
+        flex-direction: row;
+    }
+
+    a {
+        padding: 15px 20px;
+        margin: 5px 0;
+        text-transform: capitalize;
+        font-weight: $font-weight-bold;
+        color: var(--lt-tags-color);
+        width: 100%;
+
+        @extend .button-outline;
+
+        @include hover-active() {
+            color: var(--lt-brand-red-color);
+
+            .tag-count {
+                color: var(--lt-brand-red-color);
+            }
+        }
+
+        @include respond-to('aussie') {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .tag-count {
+            color: var(--lt-tags-count-color);
+            font-weight: $font-weight-normal;
+        }
+    }
+}

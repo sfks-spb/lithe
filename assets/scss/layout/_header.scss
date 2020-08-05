@@ -1,0 +1,68 @@
+#logo-ribbon {
+	height: $header-logo-height;
+	line-height: $header-logo-height;
+	color: var(--lt-light-gray-color);
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .text-align-right {
+        flex: 1;
+    }
+
+    @include respond-to('labrador') {
+        padding: 0 20px;
+    }
+
+    .theme-switcher {
+        margin-left: 20px;
+        color: var(--lt-gray-color);
+        padding: 0;
+        line-height: $header-logo-height;
+        background: none;
+        display: none;
+
+        @include svg-icon('large');
+
+        @include respond-to('labrador') {
+            display: inline-block;
+        }
+
+        @include hover-active() {
+            color: var(--lt-dark-gray-color);
+        }
+    }
+}
+
+#site-title {
+    margin: 0;
+    padding-right: 15px;
+    font-size: 30px;
+
+    @include undecorated-link() {
+        font-weight: $font-weight-bold;
+    }
+
+    svg {
+        width: 40px;
+        height: 40px;
+        margin: 20px 10px;
+        vertical-align: top;
+        color: var(--lt-logo-color);
+    }
+}
+
+#site-description {
+    display: none;
+
+    @include respond-to('aussie') {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        max-width: 200px;
+        display: block;
+        color: var(--lt-gray-color);
+        border-left: 1px solid var(--lt-gray-color);
+        padding-left: 15px;
+    }
+}

@@ -1,0 +1,72 @@
+#site-sidebar {
+    display: block;
+    flex: 0 0 auto;
+    padding: 0;
+    width: 100vw;
+
+    @include respond-to('aussie') {
+        width: auto;
+        flex-basis: 280px;
+    }
+
+    @include respond-to('labrador') {
+        padding-right: 20px;
+
+        &.mobile-menu {
+            display: none;
+        }
+    }
+}
+
+.sidebar-widget {
+    overflow: hidden;
+    padding: 5px 10px;
+    border-width: 1px;
+    border-style: solid;
+    margin: 15px 10px;
+    transition: transform .3s $ease-out-quartic;
+    transform: translate3d(0, 0, 0);
+
+    @include unstyled-list;
+
+    @include undecorated-link($primary: var(--lt-text-color)) {
+        font-size: $font-size-very-small;
+        line-height: 1.8rem;
+
+        @include hover-active() {
+            text-decoration: underline;
+        }
+    }
+
+    @include respond-to('aussie') {
+        margin-right: 0;
+    }
+
+    @include respond-to('labrador') {
+        margin-left: 0;
+
+        &:hover {
+            transform: translate3d(-8px, 0, 0);
+        }
+    }
+
+    li {
+        padding: 4px 0;
+        border-bottom-width: 1px;
+        border-bottom-style: dotted;
+        border-bottom-color: var(--lt-dark-gray-color);
+    }
+
+    select[name=archive-dropdown] {
+        margin: 10px 0;
+    }
+
+    .sidebar-widget-title {
+        color: var(--lt-text-color);
+        border-bottom-width: 1px;
+        border-bottom-style: dotted;
+        font-weight: $font-weight-normal;
+        padding: 10px 0;
+        margin: 0;
+    }
+}

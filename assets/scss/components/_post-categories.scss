@@ -1,0 +1,23 @@
+ul.post-categories,
+ul.post-categories li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.post-categories li {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px 5px 0;
+    background: var(--lt-brand-blue-color);
+
+    @include respond-to('aussie') {
+        margin-bottom: 0;
+    }
+
+    @include undecorated-link(var(--lt-white-color), var(--lt-white-color));
+
+    &::before {
+        display: none;
+    }
+}

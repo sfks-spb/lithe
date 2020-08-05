@@ -1,0 +1,16 @@
+#site-content {
+    width: 100vw;
+    padding: 0 10px 10px;
+    overflow: auto;
+    flex: 0 0 auto;
+
+    @include respond-to('labrador') {
+        padding: 0 20px 5%;
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        &.full-width {
+            width: 100%;
+        }
+    }
+}

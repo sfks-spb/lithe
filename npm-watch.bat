@@ -1,0 +1,5 @@
+@echo off
+
+npm run watch
+
+exit 0

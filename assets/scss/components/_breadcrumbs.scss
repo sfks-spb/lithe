@@ -1,0 +1,20 @@
+.breadcrumbs {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 15px 0;
+    margin-bottom: 2rem;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    @include undecorated-link(var(--lt-gray-color), var(--lt-brand-red-color));
+}
+
+.breadcrumbs-separator {
+    color: var(--lt-brand-blue-color);
+    margin: 0 8px;
+}
+
+.breadcrumb_last {
+    color: var(--lt-very-dark-gray-color);
+}

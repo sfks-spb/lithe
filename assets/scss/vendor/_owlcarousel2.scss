@@ -1,0 +1,17 @@
+.owl-carousel {
+	transition: opacity .3s $ease-out-quartic;
+	opacity: 0;
+}
+
+.owl-loaded {
+	opacity: 1;
+}
+
+.owl-dots .owl-dot {
+	height: auto;
+
+    &:hover,
+    &:focus {
+        background: none;
+    }
+}

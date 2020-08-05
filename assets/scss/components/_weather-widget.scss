@@ -1,0 +1,57 @@
+ul.weather-forecast > li {
+    padding: 10px 0 !important;
+
+    time {
+        font-size: $font-size-very-small;
+        color: var(--lt-gray-color);
+    }
+
+    span {
+        display: block;
+        font-size: $font-size-small;
+        line-height: 1.5;
+    }
+
+    .forecast-extra {
+        display: inline-block;
+    }
+
+    svg {
+        color: var(--lt-brand-blue-color);
+    }
+}
+
+.forecast-data {
+    margin-top: 10px;
+}
+
+.forecast-location {
+    font-size: $font-size-medium !important;
+}
+
+.weather-footer,
+.weather-updated {
+    font-size: $font-size-very-small;
+    text-align: center;
+    color: var(--lt-gray-color);
+    line-height: 1.5;
+}
+
+.weather-updated {
+    display: block;
+    margin-top: 10px;
+}
+
+.weather-footer {
+    margin-top: 21px;
+
+    a {
+        width: 120px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    img {
+        width: 120px;
+    }
+}

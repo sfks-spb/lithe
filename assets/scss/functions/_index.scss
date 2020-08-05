@@ -1,0 +1,48 @@
+////
+/// @author Denis Paavilainen
+////
+
+/// @access public
+/// @param {string} $layer - z layer name
+/// @return {int}
+@function z($layer) {
+  @if not map-has-key($z-layers, $layer) {
+    @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+  }
+
+  @return map-get($z-layers, $layer);
+}
+
+/// @access public
+/// @param {string} $string - string to perform replacement in
+/// @param {string} $search - string to search for
+/// @param {string} $replace [] - replacement string
+/// @return {string}
+@function str-replace( $string, $search, $replace: '' ) {
+  $index: str-index( $string, $search );
+
+  @if $index {
+    @return str-slice( $string, 1, $index - 1 ) + $replace + str-replace( str-slice( $string, $index + str-length( $search ) ), $search, $replace);
+  }
+
+  @return $string;
+}
+
+/// @access public
+/// @param {string} $icon - icon name
+/// @param {color} $color [#fff] - icon color
+/// @param {string} $style [] - icon style
+@function get-icon( $icon, $color: #fff, $style: '' ) {
+  @if not map-has-key($icons, $icon) {
+    @warn "No SVG found for `#{$icon}`. Icon will not be displayed.";
+  }
+
+  $icon: map-get($icons, $icon);
+  $color-placeholder: '%{COLOR}';
+  $style-placeholder: '%{STYLE}';
+
+  $data-uri: str-replace( url( $data-svg-prefix + $icon ), $color-placeholder, $color );
+  $data-uri: str-replace( $data-uri, $style-placeholder, $style );
+
+  @return str-replace( $data-uri, '#', '%23' );
+}

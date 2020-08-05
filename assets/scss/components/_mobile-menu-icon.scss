@@ -1,0 +1,25 @@
+.animated-menu-icon svg {
+    transform: translate3d(0, 0, 0);
+
+    path {
+        transition: stroke-dashoffset .3s $ease-linear, stroke-dasharray .3s $ease-linear;
+
+        &#top,
+        &#bottom {
+            stroke-dasharray: 350px 1250px;
+
+            @at-root #header-nav-toggle:checked ~ & {
+                stroke-dashoffset: -950px;
+            }
+        }
+
+        &#middle {
+            stroke-dasharray: 350px 350px;
+
+            @at-root #header-nav-toggle:checked ~ & {
+                stroke-dashoffset: -175px;
+                stroke-dasharray: 1px 350px;
+            }
+        }
+    }
+}

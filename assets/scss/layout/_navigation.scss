@@ -1,0 +1,243 @@
+ul.menu {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#sticky-nav {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    transition: width .1s linear, opacity .2s $ease-out-quartic;
+	background: linear-gradient(45deg,
+        var(--lt-header-gradient-start-color) 0%,
+        var(--lt-header-gradient-middle1-color) 33%,
+        var(--lt-header-gradient-middle2-color) 66%,
+        var(--lt-header-gradient-end-color) 100%) no-repeat;
+
+    @include respond-to('labrador') {
+        top: 0;
+        position: -webkit-sticky;
+        position: sticky;
+        z-index: z('sticky-nav');
+
+        &.stuck {
+            box-shadow: 0 0 8px var(--lt-logo-color);
+            background: var(--lt-header-gradient-middle2-color);
+            opacity: .95;
+        }
+
+        &.stuck:hover {
+            opacity: 1;
+        }
+
+        .admin-bar & {
+            top: 30px;
+        }
+    }
+
+    @include respond-to('podenco') {
+        width: $content-width + 10px;
+
+        &.stuck {
+            width: 100%;
+        }
+    }
+
+}
+
+#header-menu {
+    display: flex;
+    align-items: center;
+	height: $header-nav-height;
+	position: relative;
+    padding-right: 10px;
+    z-index: z('header-menu');
+    line-height: $header-nav-height;
+
+    @include respond-to('labrador') {
+        border: 0 none;
+        padding: 0 20px;
+
+        .stuck & {
+            background: none;
+
+            .compact-logo {
+                display: block;
+            }
+        }
+    }
+
+    .compact-logo {
+        display: none;
+        height: 30px;
+        width: 30px;
+        margin-right: 15px;
+        --lt-secondary-logo-color: var(--lt-header-gradient-middle2-color);
+        color: white;
+
+        svg {
+            vertical-align: top;
+        }
+    }
+}
+
+#main-nav, #mobile-nav {
+    font-size: $font-size-large;
+}
+
+#main-nav {
+    display: none;
+
+    @include respond-to('labrador') {
+        display: block;
+    }
+
+    .menu-item {
+        @include undecorated-link($primary: var(--lt-nav-color)) {
+            display: block;
+            padding: 0 15px;
+
+            @include hover-active() {
+                color: var(--lt-nav-active-color);
+                background: var(--lt-nav-background-color);
+            }
+        }
+    }
+}
+
+#social-nav {
+    top: 0;
+    right: 20px;
+    position: absolute;
+    z-index: z('social-menu');
+
+    .menu-item {
+        padding: 0 10px;
+        font-size: $font-size-large;
+
+        &:last-of-type {
+            padding-right: 0;
+
+            @include respond-to('labrador') {
+                padding-right: 10px;
+
+                .stuck & {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        @include undecorated-link($primary: var(--lt-nav-color), $active: var(--lt-nav-color));
+    }
+}
+
+#mobile-nav {
+    display: block;
+    background: var(--lt-brand-blue-color);
+
+    ul.menu {
+        flex-direction: column;
+    }
+
+    .menu-item:not(:last-of-type)::after {
+        @extend .separator;
+        margin: 0;
+    }
+
+    @include respond-to('labrador') {
+        display: none;
+    }
+
+    @include undecorated-link($primary: var(--lt-very-light-gray-color)) {
+        display: block;
+        padding-left: 20px;
+        font-size: $font-size-large;
+        line-height: 60px;
+
+        @include ellipsis;
+
+        @include hover-active() {
+            color: var(--lt-brand-blue-color);
+            background: var(--lt-very-light-gray-color);
+        }
+    }
+}
+
+#mobile-nav, #aside-nav {
+    overflow: hidden;
+}
+
+#aside-nav {
+    line-height: 45px;
+    text-shadow: 1px 1px 2px var(--lt-light-gray-shadow-color);
+    margin: 10px;
+
+    &:after {
+        @extend .separator;
+        margin: 20px 0;
+    }
+
+    ul.menu {
+        flex-direction: column;
+    }
+
+    @include respond-to('labrador') {
+        margin: 10px 0;
+    }
+
+    @include undecorated-link() {
+        display: block;
+        padding-left: 48px;
+
+        @include hover-active() {
+            color: var(--lt-brand-red-color);
+            background: var(--lt-aside-nav-background-color);
+        }
+
+        @include svg-icon('large') {
+            margin-right: .7em;
+            margin-left: -2em;
+        }
+    }
+}
+
+.aside-nav-bottom {
+    font-family: $sans-serif-font-stack;
+    font-size: $font-size-small;
+}
+
+#footer-nav {
+    flex: 1;
+    text-align: right;
+
+    ul.menu {
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+
+        @include respond-to('labrador') {
+            justify-content: flex-end;
+            flex-direction: row;
+        }
+    }
+
+    .menu-item {
+        margin: 10px 0;
+
+        &::after {
+            @extend .bullet;
+            display: none;
+        }
+
+        @include respond-to('labrador') {
+            &:not(:last-of-type)::after {
+                display: inline-block;
+            }
+        }
+
+        @include undecorated-link($primary: var(--lt-brand-blue-color), $active: var(--lt-brand-blue-color)) {
+            border-bottom: 1px solid var(--lt-active-button-border-color);
+        }
+    }
+}

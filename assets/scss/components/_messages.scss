@@ -1,0 +1,11 @@
+.message {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    font-weight: $font-weight-bold;
+
+    > svg {
+        padding: 5px;
+        margin-right: 5px;
+    }
+}

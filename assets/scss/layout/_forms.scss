@@ -1,0 +1,223 @@
+@keyframes sending {
+    0% {
+        transform: translateX(-80px);
+    }
+    33% {
+        transform: translateX(0) rotateZ(0);
+    }
+    66% {
+        transform: translateX(0) rotateZ(360deg);
+    }
+    100% {
+        transform: translateX(80px) rotateZ(360deg);
+    }
+}
+
+@keyframes pulsation {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.disclaimer {
+    font-style: italic;
+}
+
+div.wpcf7 {
+	display: block;
+    width: 100%;
+
+    @include respond-to('aussie') {
+        div:not(.wp-block-column) > & {
+            max-width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2.2em;
+        }
+    }
+
+    .input-label,
+    label {
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+        color: var(--lt-very-dark-gray-color);
+    }
+
+    .wpcf7-radio label,
+    .wpcf7-checkbox label,
+    .wpcf7-acceptance label {
+        font-weight: $font-weight-normal;
+    }
+
+    .wpcf7-radio .wpcf7-list-item {
+        margin: 0;
+        display: block;
+        padding-top: 10px;
+    }
+
+    .required {
+        margin-left: .5em;
+    }
+
+    .description {
+        font-size: $font-size-very-small;
+        color: var(--lt-gray-color);
+        margin-left: 14px;
+        padding-left: 15px;
+        border-left: 1px solid var(--lt-gray-color);
+        font-weight: $font-weight-normal;
+    }
+
+    input[type],
+    select,
+    textarea {
+        margin-top: 5px;
+    }
+
+    textarea {
+        resize: vertical;
+        height: 100px;
+        min-height: 100px;
+        max-height: 200px;
+    }
+
+    h2, h3, h4 {
+        text-align: center;
+    }
+
+    p {
+        margin: 2.1rem 0;
+    }
+
+    .wpcf7-select,
+    .wpcf7-text,
+    .wpcf7-date {
+        height: 40px;
+    }
+
+    .lithe-ajax-loader,
+    .wpcf7-submit {
+        width: 120px;
+        height: 40px;
+        @include center('horizontally');
+    }
+
+    .lithe-ajax-loader {
+        display: inline-block;
+        left: -moz-calc(50% - 120px);
+        left: calc(50% - 120px);
+        top: 0;
+        vertical-align: bottom;
+        text-align: center;
+        padding: 4px 0;
+        background: var(--lt-brand-red-color);
+        border-radius: 5px;
+        margin: 0;
+        color: white;
+        cursor: not-allowed;
+        transition: transform .2s $ease-in-out-quartic;
+        overflow: hidden;
+
+        > svg {
+            transition: transform .2s $ease-out-quartic;
+        }
+
+        &.is-active {
+            animation: pulsation 3s infinite;
+        }
+
+        &.is-active > svg {
+            animation: sending 3s infinite;
+        }
+    }
+
+    .ajax-loader:not(.lithe-ajax-loader) {
+        display: none;
+    }
+
+    form .wpcf7-response-output {
+        position: relative;
+        border-radius: 0;
+        padding: 20px;
+        border: 1px solid var(--lt-light-gray-color);
+        border-radius: 5px;
+        box-shadow: 0 0 20px var(--lt-light-gray-shadow-color);
+
+        svg {
+            @include center('vertically', 'absolute');
+        }
+
+        .message {
+            display: block;
+            padding-left: 35px;
+            font-weight: $font-weight-normal;
+        }
+    }
+
+    .wpcf7-not-valid-tip {
+        color: var(--lt-brand-red-color);
+    }
+
+    .wpcf7-not-valid {
+        border-color: var(--lt-brand-red-color);
+        box-shadow: inset 0 0 9px var(--lt-light-red-shadow-color);
+    }
+
+    form.spam .wpcf7-response-output svg,
+    form.invalid .wpcf7-response-output svg,
+    form.unaccepted .wpcf7-response-output svg {
+        color: var(--lt-wpcf7-invalid-color);
+    }
+
+    form.sent .wpcf7-response-output svg {
+        color: var(--lt-wpcf7-sent-color);
+    }
+
+    form.invalid .input-group,
+    form.unaccepted .input-group {
+        margin-bottom: 2.6em;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+
+        > label:not(:first-of-type) {
+            margin-top: 20px;
+        }
+
+        @include respond-to('aussie') {
+            flex-direction: row;
+            align-items: flex-end;
+
+            > label:not(:first-of-type) {
+                margin-top: 0;
+                margin-left: 20px;
+            }
+        }
+
+        .wpcf7-form-control-wrap {
+            display: block;
+        }
+
+        .wpcf7-not-valid-tip {
+            position: absolute;
+        }
+
+        > label {
+            flex: 1 1;
+        }
+
+        > span {
+            line-height: 20px;
+            height: 20px;
+            margin: 10px 0;
+        }
+    }
+}

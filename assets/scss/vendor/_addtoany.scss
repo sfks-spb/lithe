@@ -1,0 +1,45 @@
+.hentry .addtoany_content {
+    clear: none;
+    overflow: hidden;
+}
+
+div.a2a_kit > a {
+    .a2a_svg {
+        border: 1px solid var(--lt-button-border-color);
+        transition: box-shadow .3s $ease-out-quartic, border-color .1s $ease-out-quartic;
+        box-sizing: content-box;
+        padding: 5px;
+        border-radius: 50% !important;
+    }
+
+    @include hover-active() {
+        .a2a_svg {
+            opacity: 1 !important;
+            box-shadow: inset 0 0 9px var(--lt-light-blue-shadow-color);
+            border-color: --lt-active-button-border-color;
+        }
+    }
+
+    @at-root .dark-theme div.a2a_kit > a {
+        span.a2a_svg {
+            border: 1px solid white;
+        }
+
+        span.a2a_svg > svg g, path {
+            fill: white !important;
+        }
+
+        @include hover-active() {
+            span.a2a_svg {
+                opacity: 1 !important;
+                background-color: white !important;
+            }
+
+            span.a2a_svg > svg g, path {
+                fill: var(--lt-brand-red-color) !important;
+            }
+        }
+    }
+}
+
+

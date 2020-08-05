@@ -1,0 +1,61 @@
+#searchform-mobile {
+    pointer-events: none;
+    padding: 0 10px;
+	position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: inline-block;
+
+    .collapsible-toggle:checked ~ #searchform-input {
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    /**
+     * will work only with enabled js
+     */
+    .search-toggle-expanded & {
+        pointer-events: all;
+    }
+
+    @include respond-to('labrador') {
+        pointer-events: all;
+        width: 30%;
+        padding: 0;
+        position: relative;
+    }
+}
+
+#searchform-mobile .input-group label {
+    display: block;
+    position: absolute;
+    color: var(--lt-gray-color);
+    top: 0;
+    right: 0;
+
+    @include respond-to('labrador') {
+        font-size: $font-size-medium;
+        pointer-events: none;
+        cursor: auto;
+        left: 0;
+        right: initial;
+        padding: 0 10px;
+    }
+}
+
+#searchform-input {
+    visibility: hidden;
+    height: 50px;
+    padding: 10px 45px 10px 20px;
+	width: 100%;
+	display: inline-block;
+
+    @include respond-to('labrador') {
+        visibility: visible;
+        height: 40px;
+
+        padding-right: 10px;
+        padding-left: 35px;
+    }
+}

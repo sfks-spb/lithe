@@ -1,0 +1,73 @@
+#site-footer {
+	border-top-width: 1px;
+    border-top-style: solid;
+	padding: 10px 20px;
+    font-size: $font-size-small;
+    line-height: 1.8rem;
+    text-align: center;
+
+    .content-center {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @include respond-to('labrador') {
+        flex-direction: row;
+        text-align: left;
+
+        .content-center {
+            flex-direction: row;
+        }
+    }
+
+    @include respond-to('podenco') {
+        border-left-width: 1px;
+        border-right-width: 1px;
+    }
+}
+
+#site-copyright {
+    flex: 1;
+    display: inline-block;
+
+    @include respond-to('labrador') {
+        position: relative;
+    }
+
+    > svg {
+        margin: 10px 0;
+
+        @include respond-to('labrador') {
+            margin: 0;
+            @include center('vertically', 'absolute');
+        }
+    }
+}
+
+.site-copyright-content {
+    margin: 0;
+
+    @include respond-to('labrador') {
+        padding-left: 30px;
+    }
+}
+
+.cc-window {
+    font-size: $font-size-medium;
+
+    &.cc-banner {
+        padding: .6em 1.1em;
+    }
+}
+
+.cc-banner .cc-message {
+    text-align: center;
+}
+
+.cc-theme-classic .cc-btn {
+    font-weight: $font-weight-normal;
+
+    @include hover-active() {
+        color: white;
+    }
+}

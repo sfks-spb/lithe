@@ -1,0 +1,55 @@
+@keyframes sunspin {
+    0% {
+        transform: rotate(0deg);
+        color: var(--lt-theme-switcher-sun-color);
+    }
+    50% {
+        color:var(--lt-theme-switcher-sun-color);
+    }
+    100% {
+        transform: rotate(360deg);
+        color: inherit;
+    }
+}
+
+@keyframes moonspin {
+    0% {
+        transform: rotate(0deg);
+        color: var(--lt-theme-switcher-moon-color);
+    }
+    50% {
+        color: var(--lt-theme-switcher-moon-color);
+    }
+    100% {
+        transform: rotate(360deg);
+        color: inherit;
+    }
+}
+
+.theme-switcher-item {
+    transform-origin: 50% 50%;
+
+    &.dark {
+        display: inline-block;
+
+        &:hover {
+            color: var(--lt-theme-switcher-sun-color);
+        }
+
+        .switching & {
+            animation: sunspin .7s $ease-in-out-quartic;
+        }
+    }
+
+    &.light {
+        display: none;
+
+        &:hover {
+            color: var(--lt-theme-switcher-moon-color);
+        }
+
+        .switching & {
+            animation: moonspin .7s $ease-in-out-quartic;
+        }
+    }
+}

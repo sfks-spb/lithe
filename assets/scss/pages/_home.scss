@@ -1,0 +1,126 @@
+#home-slides {
+    margin-top: 10px 0;
+    overflow: hidden;
+}
+
+#home-slides .owl-carousel {
+    .item-photo {
+        overflow: hidden;
+
+        img {
+            margin-left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            height: 350px;
+
+            @include respond-to('aussie') {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .title-card {
+        position: absolute;
+        padding: 10px;
+        z-index: z('carousel-control');
+        top: 0;
+        right: 0;
+        font-size: $font-size-very-small;
+        line-height: 1.5;
+        color: var(--lt-carousel-text-color);
+        text-align: right;
+        text-shadow: 1px 1px 2px var(--lt-light-gray-shadow-color);
+        background: linear-gradient(90deg, transparent 0%, rgba(black, 0.38) 100%);
+    }
+
+    .owl-item:nth-child(odd) {
+        .title-card {
+            left: 0;
+            right: initial;
+            text-align: left;
+            background: linear-gradient(270deg, transparent 0%, rgba(black, 0.38) 100%);
+        }
+    }
+
+    .author {
+        display: block;
+    }
+
+    .owl-dots {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: z('carousel-control');
+        padding: 5px 10px;
+        display: none;
+
+        @include respond-to('corgi') {
+            display: block;
+        }
+
+        @include respond-to('labrador') {
+            right: initial;
+        }
+    }
+
+    .owl-dot span {
+        background: transparent;
+        border: 1px solid var(--lt-white-color);
+    }
+
+    .owl-dot.active span {
+        background: var(--lt-white-color);
+    }
+}
+
+#home-sponsors {
+    margin: 10px 0;
+	padding: 10px;
+    text-align: center;
+
+    .title {
+        font-size: $font-size-large;
+
+        @include respond-to('podenco') {
+            display: inline-block;
+            width: 29%;
+        }
+    }
+
+    .sponsor-us {
+        border-top-width: 1px;
+        border-top-style: solid;
+        text-align: center;
+        padding: 5px;
+        font-size: $font-size-very-small;
+        line-height: 2.2rem;
+    }
+}
+
+#home-sponsors .owl-carousel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .item {
+        width: 120px;
+        height: 45px;
+        margin: 0 auto;
+    }
+
+    .item a > img {
+        transition: transform .3s $ease-out-quartic;
+    }
+
+    .item a:hover > img {
+        transform: scale(105%);
+    }
+
+    @include respond-to('labrador') {
+        width: 70%;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 10px 0;
+    }
+}

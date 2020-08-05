@@ -1,0 +1,73 @@
+@keyframes pendulum {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+.more-link,
+.comment-reply-link,
+.button-outline {
+    text-decoration: none;
+    border: 1px solid var(--lt-button-border-color);
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: box-shadow .3s $ease-out-quartic, border-color .1s $ease-out-quartic;
+    line-height: normal;
+    display: inline-block;
+
+    @include hover-active() {
+        color: var(--lt-brand-blue-color);
+        border-color: var(--lt-active-button-border-color);
+        background: var(--lt-button-background-color);
+        box-shadow: inset 0 0 9px var(--lt-light-blue-shadow-color);
+    }
+}
+
+.more-link {
+    svg {
+        margin-left: .5em;
+    }
+
+    &:hover svg {
+        animation: pendulum .6s infinite alternate $ease-in-out-quartic;
+    }
+}
+
+#go-top {
+    position: fixed;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: block;
+    line-height: 30px;
+    box-sizing: content-box;
+    padding: 0;
+    right: 20px;
+    bottom: 20px;
+    transition: opacity .3s $ease-out-quartic, transform .3s linear;
+    z-index: z('go-top');
+    border-width: 3px;
+    border-style: solid;
+    box-shadow: 0 0 6px var(--lt-light-gray-color);
+    transform: scale(0);
+    opacity: 0.9;
+    color: var(--lt-brand-blue-color);
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+        background: var(--lt-white-color);
+    }
+
+    &.active {
+        transform: scale(1);
+    }
+
+    @include respond-to('aussie') {
+        bottom: 30px;
+        right: 30px;
+    }
+}

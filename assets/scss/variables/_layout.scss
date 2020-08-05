@@ -1,0 +1,22 @@
+$content-width: 1140px;
+$sidebar-width: 280px;
+$header-logo-height: 80px;
+$header-nav-height: 60px;
+
+$breakpoints: (
+    'chihuahua'  : 250px,
+    'corgi'      : 320px,
+    'aussie'     : 600px,
+    'labrador'   : 900px,
+    'podenco'    : 1200px,
+);
+
+$z-layers: (
+    'expanded'           : 100,
+    'header-menu'        : 101,
+    'social-menu'        : 102,
+    'carousel-control'   : 102,
+    'sticky-nav'         : 103,
+    'go-top'             : 103,
+    'screen-reader-text' : 100000,
+);

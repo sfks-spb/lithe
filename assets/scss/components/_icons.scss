@@ -1,0 +1,32 @@
+.awaits-icons {
+	opacity: 0;
+	transition: all .3s $ease-out-quartic, opacity .4s $ease-out-quartic;
+
+    .fontawesome-i2svg-active & {
+        opacity: 1;
+    }
+}
+
+.awaits-icons.slides-down {
+    transform: translateY(-100%);
+
+    .fontawesome-i2svg-active & {
+        transform: translateY(0);
+    }
+}
+
+.awaits-icons.slides-right {
+    transform: translateX(-100%);
+
+    .fontawesome-i2svg-active & {
+        transform: translateX(0);
+    }
+}
+
+.awaits-icons.zooms-in {
+    transform: scale(0);
+
+    .fontawesome-i2svg-active & {
+        transform: scale(1);
+    }
+}

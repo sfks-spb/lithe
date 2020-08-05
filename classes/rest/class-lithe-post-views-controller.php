@@ -1,0 +1,62 @@
+<?php
+
+if ( ! class_exists('Lithe_Post_Views_Controller') ) {
+
+    class Lithe_Post_Views_Controller {
+
+        /**
+         *
+         */
+        public function get_views( $request ) {
+            $post_ID = $request['id'];
+
+            $data = array();
+
+            if ( false === get_post_status( $post_ID ) ) {
+                return rest_ensure_response( $data );
+            }
+
+            $data['post_id'] = (int) $post_ID;
+
+            $views = get_post_meta( $post_ID, 'post_view_count', true );
+            list( $data['views'], $data['views_human'] ) = $this->format_views( $views );
+
+
+            return rest_ensure_response( $data );
+        }
+
+        /**
+         *
+         */
+        public function set_views( $request ) {
+            $post_ID = $request['id'];
+
+            $data = array();
+
+            if ( false === get_post_status( $post_ID ) ) {
+                return rest_ensure_response( $data );
+            }
+
+            $data['post_id'] = (int) $post_ID;
+
+            $views = get_post_meta( $post_ID, 'post_view_count', true );
+            list( $data['views'], $data['views_human'] ) = $this->format_views( $views );
+
+            update_post_meta( $post_ID, 'post_view_count', ++$data['views'] );
+
+            return rest_ensure_response( $data );
+        }
+
+        /**
+         *
+         */
+        protected function format_views( $views ): array {
+            $views = ( empty( $views ) ) ? 0 : $views;
+            $views_human = ( $views >= 1000 ) ? round( $views / 1000, 1 ) . 'K' : $views;
+
+            return array( $views, $views_human );
+        }
+
+    }
+
+}

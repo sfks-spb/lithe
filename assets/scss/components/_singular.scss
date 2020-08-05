@@ -1,0 +1,146 @@
+.entry-content {
+    margin-top: 1.2rem;
+    @extend .clearfix;
+}
+
+.entry-meta, .entry-title {
+    margin-bottom: .5em;
+}
+
+.entry-title {
+    @include link(var(--lt-brand-blue-color), var(--lt-text-color));
+}
+
+.entry-meta {
+    display: flex;
+    align-items: center;
+    background: var(--lt-entry-meta-background-color);
+    padding: 10px 5px;
+    color: var(--lt-brand-blue-color);
+    font-size: $font-size-medium;
+    @include undecorated-link;
+
+    > span {
+        padding: 0 7px;
+
+        &:not(:first-of-type) {
+            border-left: 1px solid var(--lt-light-gray-color);
+        }
+    }
+
+    .comments-link {
+        display: none;
+    }
+
+    @include respond-to('corgi') {
+        .comments-link {
+            display: inline;
+        }
+    }
+}
+
+.tldr {
+    background: var(--lt-tldr-background-color);
+    padding: 0 3px;
+    color: var(--lt-tldr-color);
+    font-style: normal;
+}
+
+.hentry {
+    /* Separator */
+    @at-root body:not(.single) .hentry:not(:last-of-type)::after {
+        @extend .separator;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 1rem;
+        font-weight: $font-weight-normal;
+        line-height: 1.25em;
+        letter-spacing: -0.0125em;
+    }
+
+    .entry-title,
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    h2 {
+        font-size: 2.0rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4, h5, h6 {
+        font-size: 1.54rem;
+    }
+
+    hr {
+        @extend .separator;
+        border: 0 none;
+    }
+
+    ul, ol {
+        margin: 0;
+        padding-bottom: 1.9rem;
+        padding-left: 2.5rem;
+        list-style: none;
+    }
+
+    ol li,
+    ul li {
+        padding: 5px 20px;
+        position: relative;
+
+        &:before {
+            @extend .bullet-large;
+        }
+    }
+
+    p {
+        margin-bottom: 1.9rem;
+        line-height: 1.5;
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    blockquote {
+        border-left-width: 5px;
+        border-left-style: solid;
+        border-color: var(--lt-brand-blue-color);
+        padding: 1.3rem 0 1.3rem 1.8rem;
+        margin-bottom: 1.7rem;
+        background: var(--lt-blockquote-background-color);
+        font-style: italic;
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+.entry-footer {
+    display: flex;
+    justify-content: flex-end;
+    color: var(--lt-gray-color);
+    font-size: $font-size-small;
+
+    > span,
+    > a {
+        margin: 0 5px;
+    }
+
+    svg {
+        margin-right: 5px;
+    }
+
+    @include undecorated-link(var(--lt-gray-color));
+}

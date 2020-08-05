@@ -1,0 +1,23 @@
+.infobar {
+	background: var(--lt-brand-blue-color);
+	color: var(--lt-infobar-text-color);
+    font-size: $font-size-very-small;
+    margin: 10px 0;
+    line-height: 1.8rem;
+
+    @include link($primary: var(--lt-infobar-text-color), $active: var(--lt-infobar-text-color)) {
+        white-space: nowrap;
+    }
+
+    @include respond-to('podenco') {
+        font-size: $font-size-small;
+    }
+}
+
+.infobar-wrapper {
+    padding: 10px;
+}
+
+.infobar-content {
+    margin: 10px;
+}

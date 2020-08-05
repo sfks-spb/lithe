@@ -1,0 +1,29 @@
+.collapsible label {
+    text-align: center;
+    float: left;
+    color: var(--lt-very-light-gray-color);
+    font-size: 20px;
+    padding: 0 20px;
+    display: block;
+    cursor: pointer;
+    pointer-events: all;
+
+    @include svg-icon;
+
+    @include respond-to('labrador') {
+        display: none;
+    }
+}
+
+.collapsible-toggle,
+.collapsible-close {
+    display: none;
+}
+
+.collapsible-toggle:checked ~ label .collapsible-close {
+    display: inline-block;
+}
+
+.collapsible-toggle:checked ~ label .collapsible-open {
+    display: none;
+}
