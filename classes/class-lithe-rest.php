@@ -110,6 +110,8 @@ if ( ! class_exists('Lithe_Rest') ) {
             include_once $template_directory . '/classes/rest/class-lithe-venues-controller.php';
 
             // routes
+            // routes ($this is renamed to route for clarity)
+            $route = $this;
             include_once $template_directory . '/classes/rest/routes.php';
         }
 
