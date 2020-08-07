@@ -66,24 +66,24 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds tl;dr shortcode
          *
-         * @param  array       $atts
-         * @param  string|null $content
+         * @param  string|array $atts
+         * @param  string|null  $content
          *
          * @return string
          */
-        public function tldr_shortcode( array $atts, ?string $content = null ): string {
+        public function tldr_shortcode( $atts, ?string $content = null ): string {
             return '<span class="tldr">' . $content . '</span>';
         }
 
         /**
          * Adds required field shortcode
          *
-         * @param  array       $atts
-         * @param  string|null $content
+         * @param  string|array $atts
+         * @param  string|null  $content
          *
          * @return string
          */
-        public function required_shortcode( array $atts, ?string $content = null ): string {
+        public function required_shortcode( $atts, ?string $content = null ): string {
             return '<span class="required has-dark-red-color">
                 <i title="' . __( 'required', 'lithe' ) . '" class="fas fa-asterisk fa-sm" aria-label="' . __( 'required', 'lithe' ) . '"></i></span>';
         }
@@ -91,12 +91,12 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds spinner element shortcode
          *
-         * @param  array       $atts
-         * @param  string|null $content
+         * @param  string|array $atts
+         * @param  string|null  $content
          *
          * @return string
          */
-        public function spinner_shortcode( array $atts, ?string $content = null ): string {
+        public function spinner_shortcode( $atts, ?string $content = null ): string {
             $fields = shortcode_atts(  array(
                 'prefix' => 'fas',
                 'icon'   => 'sync',
@@ -110,12 +110,12 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds recaptcha disclaimer shortcode
          *
-         * @param  array       $atts
-         * @param  string|null $content
+         * @param  string|array $atts
+         * @param  string|null  $content
          *
          * @return string
          */
-        public function recaptcha_disclaimer_shortcode( array $atts, ?string $content = null ): string {
+        public function recaptcha_disclaimer_shortcode( $atts, ?string $content = null ): string {
 
             $links = array(
                 __( 'Privacy'         , 'lithe' ) => 'https://policies.google.com/privacy',
@@ -135,12 +135,12 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds shortcode for time-based availability of content
          *
-         * @param  array       $atts
-         * @param  string|null $content
+         * @param  string|array $atts
+         * @param  string|null  $content
          *
          * @return string|null
          */
-        public function available_shortcode( array $atts, ?string $content = null ): ?string {
+        public function available_shortcode( $atts, ?string $content = null ): ?string {
 
             $fields = shortcode_atts( array(
                 'from'        => null,
