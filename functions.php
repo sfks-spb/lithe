@@ -1,7 +1,9 @@
 <?php
 
 /**
+ * Registers menus
  *
+ * @return void
  */
 function lithe_menus(): void {
 
@@ -17,7 +19,9 @@ function lithe_menus(): void {
 add_action( 'init', 'lithe_menus' );
 
 /**
+ * Registers carousels
  *
+ * @return void
  */
 function lithe_carousels(): void {
 
@@ -84,21 +88,21 @@ function lithe_carousels(): void {
     lithe_register_carousel( 'sponsors', array(
 
         lithe_carousel_link( array(
-            'src'  => '%{template_uri}/assets/images/brands/royal-canin.svg',
+            'src'  => '[template_uri]/assets/images/brands/royal-canin.svg',
             'href' => 'https://royal-canin.ru',
             'text' => __( 'Royal Canin', 'lithe' ),
             'alt'  => __( 'Royal Canin logo', 'lithe' ),
         ) ),
 
         lithe_carousel_link( array(
-            'src'  => '%{template_uri}/assets/images/brands/pronature.svg',
+            'src'  => '[template_uri]/assets/images/brands/pronature.svg',
             'href' => 'http://pronature.ru',
             'text' => __( 'Pronature', 'lithe' ),
             'alt'  => __( 'Pronature logo', 'lithe' ),
         ) ),
 
         lithe_carousel_link( array(
-            'src'  => '%{template_uri}/assets/images/brands/avz.svg',
+            'src'  => '[template_uri]/assets/images/brands/avz.svg',
             'href' => 'https://www.vetmag.ru/',
             'text' => __( 'AVZ', 'lithe' ),
             'alt'  => __( 'AVZ logo', 'lithe' ),
@@ -111,8 +115,17 @@ add_action( 'init', 'lithe_carousels' );
 
 require_once get_template_directory() . '/classes/class-lithe-theme.php';
 
-function lithe() {
+/**
+ * Returns lithe theme instance
+ *
+ * @return Lithe_Theme
+ */
+function lithe(): Lithe_Theme {
     return Lithe_Theme::instance();
 }
 
+/**
+ * @global Lithe_Theme $_GLOBALS['lithe']
+ * @name $lithe
+ */
 $_GLOBALS['lithe'] = lithe();
