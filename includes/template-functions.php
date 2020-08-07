@@ -12,6 +12,30 @@ if ( ! function_exists( 'lithe_date_format' ) ) {
     }
 }
 
+if ( ! function_exists( 'lithe_timezone' ) ) {
+
+    /**
+     * Gets current WP timezone
+     *
+     * @return DateTimeZone
+     */
+     function lithe_timezone(): DateTimeZone {
+         $timezone = get_option( 'timezone_string' );
+
+         if ( empty( $timezone ) ) {
+             $timezone_offset = get_option('gmt_offset', 0);
+             $timezone = ($timezone_offset == 0) ? 'UTC' : $timezone_offset;
+
+             if ( ! in_array( substr( $timezone_offset, 0, 1 ), array( '-', '+', 'U' ) ) ) {
+                 $timezone = '+' . $timezone_offset;
+             }
+         }
+
+         return new DateTimeZone( $timezone );
+     }
+
+}
+
 if ( ! function_exists( 'lithe_strtotime' ) ) {
 
     /**
@@ -19,24 +43,26 @@ if ( ! function_exists( 'lithe_strtotime' ) ) {
      *
      * @param  string $string
      *
-     * @return string
+     * @return DateTime|bool
      */
-    function lithe_strtotime( string $string ): string {
+    function lithe_strtotime( string $string ) {
         if ( is_null ( $string ) ) return false;
 
-        $timezone = get_option( 'timezone_string' );
-
-        if ( empty( $timezone ) ) {
-            $timezone_offset = get_option('gmt_offset', 0);
-            $timezone = ($timezone_offset == 0) ? 'UTC' : $timezone_offset;
-
-            if ( ! in_array( substr( $timezone_offset, 0, 1 ), array( '-', '+', 'U' ) ) ) {
-                $timezone = '+' . $timezone_offset;
-            }
-        }
-
-        return ( new DateTime( $string, new DateTimeZone( $timezone ) ) )->format('U');
+        return new DateTime( $string, lithe_timezone() );
     }
+}
+
+if ( ! function_exists( 'lithe_now' ) ) {
+
+    /**
+     * Gets current timestamp with timezone support
+     *
+     * @return DateTime
+     */
+     function lithe_now(): DateTime {
+         return new DateTime( 'now', lithe_timezone() );
+     }
+
 }
 
 if ( ! function_exists( 'lithe_render' ) ) {
@@ -257,7 +283,7 @@ if ( ! function_exists( 'lithe_the_tags' ) ) {
      * @return void|WP_Error
      */
     function lithe_the_tags() {
-        global $post; 
+        global $post;
 
         $terms = get_the_terms( $post->ID, 'post_tag' );
 

@@ -16,6 +16,7 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
                 'required'             => 'required_shortcode',
                 'spinner'              => 'spinner_shortcode',
                 'recaptcha-disclaimer' => 'recaptcha_disclaimer_shortcode',
+                'available'            => 'available_shortcode',
             ) );
         }
 
@@ -129,6 +130,48 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
             }
 
             return rtrim($output, ', ') . '</span>)</p>';
+        }
+
+        /**
+         * Adds shortcode for time-based availability of content
+         *
+         * @param  array       $atts
+         * @param  string|null $content
+         *
+         * @return string|null
+         */
+        public function available_shortcode( array $atts, ?string $content = null ): ?string {
+
+            $fields = shortcode_atts( array(
+                'from'        => null,
+                'till'        => null,
+                'exclude_cap' => 'edit_others_posts',
+            ), $atts );
+
+            if ( is_user_logged_in() && current_user_can( trim( $fields['exclude_cap'] ) ) ) {
+                return '<span class="hidden-content">' . $content . '</span>';
+            }
+
+            $now = lithe_now();
+
+            if ( ! is_null( $fields['from'] ) ) {
+
+                $from_dt = lithe_strtotime( $fields['from'] );
+
+                if ( false !== $from_dt && $now < $from_dt ) $content = null;
+
+            }
+
+            if ( ! is_null( $fields['till'] ) ) {
+
+                $till_dt = lithe_strtotime( $fields['till'] );
+
+                if ( false !== $till_dt && $now > $till_dt  ) $content = null;
+
+            }
+
+            return $content;
+
         }
 
     }
