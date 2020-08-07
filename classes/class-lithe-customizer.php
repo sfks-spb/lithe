@@ -16,11 +16,11 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
         /**
          * Registers customizer controls
          *
-         * @param  WP_Customize $wp_customize
+         * @param  WP_Customize_Manager $wp_customize
          *
          * @return void
          */
-        public function lithe_customize_register( WP_Customize $wp_customize ): void {
+        public function lithe_customize_register( WP_Customize_Manager $wp_customize ): void {
             $this->add_logo_settings( $wp_customize );
             $this->add_infobar_settings( $wp_customize );
         }
@@ -28,11 +28,11 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
         /**
          * Adds site logo control
          *
-         * @param  WP_Customize $wp_customize
+         * @param  WP_Customize_Manager $wp_customize
          *
          * @return void
          */
-        protected function add_logo_settings( WP_Customize $wp_customize ): void {
+        protected function add_logo_settings( WP_Customize_Manager $wp_customize ): void {
             $this->add_settings( $wp_customize, array(
                 'lithe_logo_svg' => 'plain',
             ) );
@@ -54,11 +54,11 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
         /**
          * Adds infobar section and controls
          *
-         * @param  WP_Customize $wp_customize
+         * @param  WP_Customize_Manager $wp_customize
          *
          * @return void
          */
-        protected function add_infobar_settings( WP_Customize $wp_customize ): void {
+        protected function add_infobar_settings( WP_Customize_Manager $wp_customize ): void {
             $wp_customize->add_section( 'lithe_infobar', array(
                 'title'           => __( 'Infobar', 'lithe' ),
                 'description'     => __( 'Infobar below the header on the home page.', 'lithe' ),
@@ -132,12 +132,12 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
         /**
          * Adds customizer settings
          *
-         * @param  WP_Customize $wp_customize
+         * @param  WP_Customize_Manager $wp_customize
          * @param  array        $settings
          *
          * @return void
          */
-        protected function add_settings( WP_Customize $wp_customize, array $settings ): void {
+        protected function add_settings( WP_Customize_Manager $wp_customize, array $settings ): void {
             foreach ( $settings as $id => $default ) {
                 $wp_customize->add_setting( $id, array( 'default' => $default ) );
             }
