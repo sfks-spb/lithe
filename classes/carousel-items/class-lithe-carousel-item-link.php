@@ -27,12 +27,12 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Link' ) ) {
             parent::__construct( $atts );
 
             $this->add_class( 'item-link' );
-            $this->src = lithe()->carousel->prepare_link( $this->src );
+            $this->src = esc_url( lithe()->carousel->do_tags( $this->src ) );
 
-            $this->add_attr( 'aria-label', $this->text );
+            $this->add_attr( 'aria-label', lithe()->carousel->do_tags( $this->text ) );
 
             if ( '#' !== $this->href ) {
-                $this->href = lithe()->carousel->prepare_link( $this->href );
+                $this->href = lithe()->carousel->do_tags( $this->href );
             }
         }
 

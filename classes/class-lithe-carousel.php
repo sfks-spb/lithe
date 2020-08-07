@@ -20,7 +20,7 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
             $this->includes();
 
             $this->tags = array(
-                '%{template_uri}' => get_template_directory_uri(),
+                '[template_uri]' => get_template_directory_uri(),
             );
         }
 
@@ -101,18 +101,18 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
         }
 
         /**
-         * Replaces tags in carousel link
+         * Replaces tags in content
          *
          * @param  string $link
          *
          * @return string
          */
-        public function prepare_link( string $link ): string {
-            foreach ( $this->tags as $tag => $content ) {
-                $link = str_replace( $tag, $content, $link );
+        public function do_tags( string $content ): string {
+            foreach ( $this->tags as $tag => $replace ) {
+                $content = str_replace( $tag, $replace, $content );
             }
 
-            return esc_url( $link );
+            return $content;
         }
 
     }

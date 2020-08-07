@@ -28,10 +28,14 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
             parent::__construct( $atts );
 
             $this->add_class( 'item-photo' );
-            $this->src = lithe_photon_prepend_uri( lithe()->carousel->prepare_link( $this->src ) );
+            $this->src = esc_url(
+                lithe_photon_prepend_uri(
+                    lithe()->carousel->do_tags( $this->src ) ) );
 
             if ( '' !== $this->src_retina ) {
-                $this->src_retina = lithe_photon_prepend_uri( lithe()->carousel->prepare_link( $this->src_retina ) );
+                $this->src_retina = esc_url(
+                    lithe_photon_prepend_uri(
+                        lithe()->carousel->do_tags( $this->src_retina ) ) );
             }
         }
 

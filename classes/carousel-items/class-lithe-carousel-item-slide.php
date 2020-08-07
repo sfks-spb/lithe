@@ -28,10 +28,12 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
             parent::__construct( $atts );
 
             $this->add_class( 'item-slide' );
-            $this->src = lithe()->carousel->prepare_link( $this->src );
+            $this->src = esc_url(
+                lithe()->carousel->do_tags( $this->src ) );
 
             if ( '#' !== $this->href ) {
-                $this->href = lithe()->carousel->prepare_link( $this->href );
+                $this->href = esc_url(
+                    lithe()->carousel->do_tags( $this->href ) );
             }
         }
 
@@ -68,7 +70,8 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
          * @return void
          */
         protected function add_slide_button( string &$html ): void {
-            $html .= '<button class="slide-button" href="' . $this->href . '">' . $this->text . '</button>';
+            $html .= '<button class="slide-button" href="' . $this->href . '">' .
+                esc_html( lithe()->carousel->do_tags( $this->text ) ) . '</button>';
         }
 
         /**
@@ -79,7 +82,8 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
          * @return void
          */
         protected function add_slide_text( string &$html ): void {
-            $html .= '<div class="slide-text">' . $this->text . '</div>';
+            $html .= '<div class="slide-text">' .
+                esc_html( lithe()->carousel->do_tags( $this->text ) ) . '</div>';
         }
 
         /**
@@ -90,7 +94,8 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
          * @return void
          */
         protected function add_slide_title( string &$html ): void {
-            $html .= '<h2 class="slide-title">' . $this->title . '</h2>';
+            $html .= '<h2 class="slide-title">' .
+                esc_html( lithe()->carousel->do_tags( $this->title ) ) . '</h2>';
         }
 
     }

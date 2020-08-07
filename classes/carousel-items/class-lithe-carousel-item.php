@@ -89,14 +89,13 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
         public function get_item(): string {
             $content = $this->get_content();
 
-            $attributes = '';
+            $attributes_string = '';
 
             foreach ( $this->attributes as $key => $value ) {
-                $attributes .= ' ' . $key . '="' . $value . '"';
+                $attributes_string .= ' ' . $key . '="' . $value . '"';
             }
 
-
-            return '<div class="item ' . implode( ' ', $this->classes ) . '"' . $attributes . '>' . $content . '</div>';
+            return '<div class="item ' . implode( ' ', $this->classes ) . '"' . $attributes_string . '>' . $content . '</div>';
         }
 
         /**
