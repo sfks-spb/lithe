@@ -94,6 +94,10 @@ if ( ! class_exists('Lithe_Theme') ) {
                 'technology'     => 'svg',
                 'v4Compat'       => false,
                 'pseudoElements' => false,
+                'version'        => array(
+                    array( '5.10.0', '>=' ),
+                    array( '6.0.0', '<' ),
+                ),
             ) );
         }
 
