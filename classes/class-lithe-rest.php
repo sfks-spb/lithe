@@ -70,71 +70,75 @@ if ( ! class_exists('Lithe_Rest') ) {
         }
 
         /**
-         * Registers new get route
+         * Registers new get route.
          *
-         * @param  string $endpoint
-         * @param  string $handler
+         * @param  string          $endpoint REST endpoint path.
+         * @param  string|callable $callback Endpoint callback.
          *
          * @return void
          */
-        public function get( string $endpoint, string $handler ): void {
-            $this->register_route( 'get', $endpoint, $handler );
+        public function get( string $endpoint, $callback ): void {
+            $this->register_route( 'get', $endpoint, $callback );
         }
 
         /**
-         * Registers new post route
+         * Registers new post route.
          *
-         * @param  string $endpoint
-         * @param  string $handler
+         * @param  string          $endpoint REST endpoint path.
+         * @param  string|callable $callback Endpoint callback.
          *
          * @return void
          */
-        public function post( string $endpoint, string $handler ): void {
-            $this->register_route( 'post', $endpoint, $handler );
+        public function post( string $endpoint, $callback ): void {
+            $this->register_route( 'post', $endpoint, $callback );
         }
 
         /**
-         * Registers new put route
+         * Registers new put route.
          *
-         * @param  string $endpoint
-         * @param  string $handler
+         * @param  string          $endpoint REST endpoint path.
+         * @param  string|callable $callback Endpoint callback.
          *
          * @return void
          */
-        public function put( string $endpoint, string $handler ): void {
-            $this->register_route( 'put', $endpoint, $handler );
+        public function put( string $endpoint, $callback ): void {
+            $this->register_route( 'put', $endpoint, $callback );
         }
 
         /**
-         * Registers new delete route
+         * Registers new delete route.
          *
-         * @param  string $endpoint
-         * @param  string $handler
+         * @param  string          $endpoint REST endpoint path.
+         * @param  string|callable $callback Endpoint callback.
          *
          * @return void
          */
-        public function delete( string $endpoint, string $handler ): void {
-            $this->register_route( 'post', $endpoint, $handler );
+        public function delete( string $endpoint, $callback ): void {
+            $this->register_route( 'post', $endpoint, $callback );
         }
 
         /**
-         * Registers new REST route
+         * Registers new REST route.
          *
-         * @param  string $methods
-         * @param  string $endpoint
-         * @param  string $handler
+         * @param  string          $methods REST request methods.
+         * @param  string          $endpoint REST endpoint path.
+         * @param  string|callable $callback Endpoint callback.
          *
          * @return void
          */
-        protected function register_route( string $methods, string $endpoint, string $handler ): void {
+        protected function register_route( string $methods, string $endpoint, $callback ): void {
 
-            list( $classname, $fn ) = explode( '@', $handler, 2 );
+            if ( is_string( $callback ) ) {
 
-            if ( ! array_key_exists( $classname, $this->controllers ) ) {
-                $this->controllers[ $classname ] = new $classname;
+                list( $classname, $fn ) = explode( '@', $handler, 2 );
+
+                if ( ! array_key_exists( $classname, $this->controllers ) ) {
+                    $this->controllers[ $classname ] = new $classname;
+                }
+
+                $callback = array( $this->controllers[ $classname ], $fn );
+
             }
-
-            $callback = array( $this->controllers[ $classname ], $fn );
 
             if ( is_callable( $callback ) ) {
 
