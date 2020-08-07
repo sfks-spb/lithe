@@ -51,12 +51,12 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         /**
          * Outputs new taxonomy item form HTML.
          *
-         * @param  WP_Term $term Current term instance.
+         * @param  string $taxonomy Current taxonomy slug.
          *
          * @return void
          */
-        public function add_form_fields( WP_Term $term ): void {
-            lithe_render( 'taxonomies/views/view-venue-add-form-fields', array( 'term' => $term ) );
+        public function add_form_fields( string $taxonomy ): void {
+            lithe_render( 'taxonomies/views/view-venue-add-form-fields' );
         }
 
         /**
@@ -73,12 +73,12 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         /**
          * Handles taxonomy item save.
          *
-         * @param  int     $term_id Current term id.
-         * @param  WP_Term $term Current term instance.
+         * @param  int $term_id Current term id.
+         * @param  int $term_taxonomy_id Current term instance.
          *
          * @return void
          */
-        public function save( int $term_id, WP_Term $term ): void {
+        public function save( int $term_id, int $term_taxonomy_id ): void {
 
             foreach ( $this->meta_kses as $meta_key => $allowed_html ) {
 

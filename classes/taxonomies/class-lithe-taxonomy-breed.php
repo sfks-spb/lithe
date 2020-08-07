@@ -64,11 +64,11 @@ if ( ! class_exists( 'Lithe_Taxonomy_Breed' ) ) {
         /**
          * Outputs new taxonomy item form HTML.
          *
-         * @param  WP_Term $term Current term instance.
+         * @param  string $taxonomy Current taxonomy slug.
          *
          * @return void
          */
-        public function add_form_fields( $term ):void {
+        public function add_form_fields( string $taxonomy ):void {
             //
         }
 
@@ -79,19 +79,19 @@ if ( ! class_exists( 'Lithe_Taxonomy_Breed' ) ) {
          *
          * @return void
          */
-        public function edit_form_fields( $term ):void {
+        public function edit_form_fields( WP_Term $term ):void {
             //
         }
 
         /**
          * Handles taxonomy item save.
          *
-         * @param  int     $term_id Current term id.
-         * @param  WP_Term $term Current term instance.
+         * @param  int $term_id Current term id.
+         * @param  int $term_taxonomy_id Current term instance.
          *
          * @return void
          */
-        public function save( int $term_id, WP_Term $term ):void {
+        public function save( int $term_id, int $term_taxonomy_id ): void {
             //
         }
 
