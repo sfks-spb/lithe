@@ -5,17 +5,23 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
     abstract class Lithe_Taxonomy {
 
         /**
+         * Contains taxonomy handle
          *
+         * @var string
          */
         protected $handle;
 
         /**
+         * Contains taxonomy capabilities
          *
+         * @var array
          */
         protected $capabilities = array();
 
         /**
+         * Constructs new lithe taxonomy instance
          *
+         * @return void
          */
         public function __construct() {
             $this->add_capabilities();
@@ -32,9 +38,13 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
         }
 
         /**
+         * Adds custom columns
          *
+         * @param  array $columns
+         *
+         * @return array
          */
-        public function add_custom_columns( $columns ) {
+        public function add_custom_columns( array $columns ): array {
 
             foreach ( $this->columns() as $column => $label ) {
                 $columns[ $column ] = $label;
@@ -44,23 +54,33 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
         }
 
         /**
+         * Gets list of columns
          *
+         * @return array
          */
-        public function columns():array {
+        public function columns(): array {
             return array();
         }
 
         /**
+         * Handles custom columns output
          *
+         * @param  string $content
+         * @param  string $column_name
+         * @param  int    $term_id
+         *
+         * @return void
          */
-        public function custom_columns( $content, $column_name, $term_id ) {
+        public function custom_columns( string $content, string $column_name, int $term_id ) {
             //
         }
 
         /**
+         * Adds custom term capabilities
          *
+         * @return void
          */
-        protected function add_capabilities() {
+        protected function add_capabilities(): void {
 
             foreach ( $this->capabilities as $role => $capabilities ) {
 
@@ -75,24 +95,39 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
         }
 
         /**
+         * Registers taxonomy
          *
+         * @return void
          */
-        abstract public function register();
+        abstract public function register(): void;
 
         /**
+         * Outputs new taxonomy item form html
          *
+         * @param  WP_Term $term
+         *
+         * @return void
          */
-        abstract public function add_form_fields( $term );
+        abstract public function add_form_fields( WP_Term $term ): void;
 
         /**
+         * Outputs edit taxonomy item form html
          *
+         * @param  WP_Term $term
+         *
+         * @return void
          */
-        abstract public function edit_form_fields( $term );
+        abstract public function edit_form_fields( WP_Term $term ): void;
 
         /**
+         * Handles taxonomy item save
          *
+         * @param  int     $term_id
+         * @param  WP_Term $term
+         *
+         * @return void
          */
-        abstract public function save( $term_id, $term );
+        abstract public function save( int $term_id, WP_Term $term ): void;
 
     }
 

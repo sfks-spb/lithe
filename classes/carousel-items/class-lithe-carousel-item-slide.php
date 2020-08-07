@@ -5,7 +5,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
     class Lithe_Carousel_Item_Slide extends Lithe_Carousel_Item {
 
         /**
+         * Contains list of default attributes
          *
+         * @var array
          */
         protected $defaults = array(
             'src'    => '',
@@ -16,7 +18,11 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
         );
 
         /**
+         * Constructs new lithe carousel slide instance
          *
+         * @param  array $atts
+         *
+         * @return void
          */
         public function __construct( array $atts ) {
             parent::__construct( $atts );
@@ -30,7 +36,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
         }
 
         /**
+         * Gets item content
          *
+         * @return string
          */
         public function get_content(): string {
             $html = '<img src="' . $this->src . '" />';
@@ -53,23 +61,35 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
         }
 
         /**
+         * Adds slide button html
          *
+         * @param  string &$html
+         *
+         * @return void
          */
-        protected function add_slide_button( string &$html ) {
+        protected function add_slide_button( string &$html ): void {
             $html .= '<button class="slide-button" href="' . $this->href . '">' . $this->text . '</button>';
         }
 
         /**
+         * Adds slide text html
          *
+         * @param  string &$html
+         *
+         * @return void
          */
-        protected function add_slide_text( string &$html ) {
+        protected function add_slide_text( string &$html ): void {
             $html .= '<div class="slide-text">' . $this->text . '</div>';
         }
 
         /**
+         * Adds slide title html
          *
+         * @param  string &$html
+         *
+         * @return void
          */
-        protected function add_slide_title( string &$html ) {
+        protected function add_slide_title( string &$html ): void {
             $html .= '<h2 class="slide-title">' . $this->title . '</h2>';
         }
 

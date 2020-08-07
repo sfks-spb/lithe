@@ -5,12 +5,16 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
     class Lithe_Carousel {
 
         /**
+         * Contains map of replacible tags
          *
+         * @var array
          */
         protected $tags = array();
 
         /**
+         * Constructs new lithe carousel manager instance
          *
+         * @return void
          */
         public function __construct() {
             $this->includes();
@@ -21,9 +25,11 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
         }
 
         /**
+         * Includes dependencies
          *
+         * @return void
          */
-        protected function includes() {
+        protected function includes(): void {
             $template_directory = get_template_directory();
 
             include_once $template_directory . '/classes/carousel-items/class-lithe-carousel-item.php';
@@ -33,7 +39,13 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
         }
 
         /**
+         * Gets carousel html output
          *
+         * @param  string $handle
+         * @param  string $order
+         * @param  array  $classes
+         *
+         * @return string|null
          */
         public function get( string $handle, string $order = 'normal', array $classes = array() ): ?string {
             if ( $this->has( $handle ) ) {
@@ -63,7 +75,11 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
         }
 
         /**
+         * Checks if carousel with certain handle exists
          *
+         * @param  string $handle
+         *
+         * @return bool
          */
         public function has( string $handle ): bool {
             return array_key_exists( $handle, $this->carousels );
@@ -71,16 +87,25 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
 
 
         /**
+         * Registers carousel
          *
+         * @param  string $handle
+         * @param  array  $items
+         *
+         * @return Lithe_Carousel
          */
-        public function register( $handle, $items ): self {
+        public function register( string $handle, array $items ): self {
             $this->carousels[ $handle ] = $items;
 
             return $this;
         }
 
         /**
+         * Replaces tags in carousel link
          *
+         * @param  string $link
+         *
+         * @return string
          */
         public function prepare_link( string $link ): string {
             foreach ( $this->tags as $tag => $content ) {

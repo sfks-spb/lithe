@@ -5,12 +5,16 @@ if ( ! class_exists('Lithe_Meta_Box_Trainer_Timetable') ) {
     class Lithe_Meta_Box_Trainer_Timetable extends Lithe_Meta_Box {
 
         /**
+         * Contains custom post type handle
          *
+         * @var string
          */
         protected $post_type = 'trainer';
 
         /**
+         * Contains list of filter mapped by meta box fields
          *
+         * @var array
          */
         protected $meta_kses = array(
             'sports'    => 'strip',
@@ -18,9 +22,13 @@ if ( ! class_exists('Lithe_Meta_Box_Trainer_Timetable') ) {
         );
 
         /**
+         * Outputs metabox html
          *
+         * @param  WP_Post $post
+         *
+         * @return void
          */
-        public static function render( $post ):void {
+        public static function render( WP_Post $post ): void {
             $venues = get_the_terms( $post->ID, 'venue' );
             $sports = get_the_terms( $post->ID, 'sport' );
 
@@ -39,9 +47,14 @@ if ( ! class_exists('Lithe_Meta_Box_Trainer_Timetable') ) {
         }
 
         /**
+         * Handles meta box save
          *
+         * @param  int     $post_id
+         * @param  WP_Post $post
+         *
+         * @return void
          */
-        public function save( $post_id, $post ):void {
+        public function save( int $post_id, WP_Post $post ): void {
 
             foreach ( $this->meta_kses as $meta_key => $allowed_html ) {
 

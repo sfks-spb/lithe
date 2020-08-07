@@ -5,9 +5,12 @@ if ( ! class_exists( 'Lithe_SVG' ) ) {
     class Lithe_SVG {
 
         /**
+         * Gets svg code for icon
+         *
          * @param  string $icon
          * @param  array  $attributes
-         * @return string
+         *
+         * @return string|null
          */
         public static function get_svg( string $icon, array $attributes = array() ): ?string {
             $types = array(
@@ -35,8 +38,11 @@ if ( ! class_exists( 'Lithe_SVG' ) ) {
         }
 
         /**
+         * Appends attributes to svg element
+         *
          * @param  string $svg
          * @param  array  $attributes
+         *
          * @return void
          */
         public static function append_attributes( string &$svg, array $attributes ): void {
@@ -66,7 +72,10 @@ if ( ! class_exists( 'Lithe_SVG' ) ) {
         }
 
         /**
+         * Gets random id string
+         *
          * @param  string|null $prefix
+         *
          * @return string
          */
         public static function get_random_id( ?string $prefix ): string {
@@ -74,6 +83,8 @@ if ( ! class_exists( 'Lithe_SVG' ) ) {
         }
 
         /**
+         * Contains list of allowed attributes
+         *
          * @var array
          */
         public static $allowed_attributes = array(
@@ -84,6 +95,8 @@ if ( ! class_exists( 'Lithe_SVG' ) ) {
         );
 
         /**
+         * Contains list of svg logos
+         *
          * @var array
          */
         public static $logos = array(
@@ -92,6 +105,8 @@ if ( ! class_exists( 'Lithe_SVG' ) ) {
         );
 
         /**
+         * Contains list of svg icons
+         *
          * @var array
          */
         public static $icons = array(

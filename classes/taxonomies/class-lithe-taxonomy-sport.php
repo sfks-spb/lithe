@@ -5,14 +5,18 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
     class Lithe_Taxonomy_Sport extends Lithe_Taxonomy {
 
         /**
+         * Contains taxonomy handle
          *
+         * @var string
          */
         protected $handle = 'sport';
 
         /**
+         * Registers taxonomy
          *
+         * @return void
          */
-        public function register():void {
+        public function register(): void {
             register_taxonomy( $this->handle, 'trainer', array(
                 'labels' => array(
                     'name'          => __( 'Sports', 'lithe' ),
@@ -29,7 +33,9 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
         }
 
         /**
+         * Gets list of columns
          *
+         * @return array
          */
         public function columns(): array {
             return array(
@@ -38,21 +44,34 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
         }
 
         /**
+         * Outputs new taxonomy item form html
          *
+         * @param  WP_Term $term
+         *
+         * @return void
          */
-        public function add_form_fields( $term ):void {
+        public function add_form_fields( WP_Term $term ):void {
             //
         }
 
         /**
+         * Outputs edit taxonomy item form html
          *
+         * @param  WP_Term $term
+         *
+         * @return void
          */
-        public function edit_form_fields( $term ):void {
+        public function edit_form_fields( WP_Term $term ):void {
             //
         }
 
         /**
+         * Handles taxonomy item save
          *
+         * @param  int     $term_id
+         * @param  WP_Term $term
+         *
+         * @return void
          */
         public function save( $term_id, $term ):void {
             //

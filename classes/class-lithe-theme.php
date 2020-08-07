@@ -3,6 +3,7 @@
 if ( ! class_exists('Lithe_Theme') ) {
 
     class Lithe_Theme {
+
         /**
          * Version of user roles
          *
@@ -59,7 +60,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Constructs new instance
+         * Constructs new lithe theme instance
          *
          * @return void
          */

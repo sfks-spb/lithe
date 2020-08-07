@@ -5,17 +5,23 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
     abstract class Lithe_Post_Type {
 
         /**
+         * Contains custom post type handle
          *
+         * @var string
          */
         protected $handle;
 
         /**
+         * Contains custom post type capabilities
          *
+         * @var array
          */
         protected $capabilities = array();
 
         /**
+         * Constructs new lithe custom post type
          *
+         * @return void
          */
         public function __construct() {
             $this->add_capabilities();
@@ -27,9 +33,11 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
         }
 
         /**
+         * Adds custom post type capabilities
          *
+         * @return void
          */
-        protected function add_capabilities() {
+        protected function add_capabilities(): void {
 
             foreach ( $this->capabilities as $role => $capabilities ) {
 
@@ -46,9 +54,11 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
         }
 
         /**
+         * Gets default capabilities for custom post type
          *
+         * @return array
          */
-        protected function get_default_capabilities( string $capability_type ): array {
+        protected function get_default_capabilities(): array {
             return array(
                 'edit_' . $this->handle,
                 'edit_' . $this->handle . 's',
@@ -63,9 +73,13 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
         }
 
         /**
+         * Adds custom columns
          *
+         * @param  array $columns
+         *
+         * @return array
          */
-        public function add_custom_columns( $columns ) {
+        public function add_custom_columns( array $columns ): array {
             foreach ( $this->columns() as $column => $label ) {
                 $columns[ $column ] = $label;
             }
@@ -74,23 +88,32 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
         }
 
         /**
+         * Gets custom post type columns
          *
+         * @return array
          */
-        public function columns():array {
+        public function columns(): array {
             return array();
         }
 
         /**
+         * Handles custom columns output
          *
+         * @param  string $column
+         * @param  int    $post_id
+         *
+         * @return void
          */
-        public function custom_columns( $column, $post_id ) {
+        public function custom_columns( string $column, int $post_id ): void {
             //
         }
 
         /**
+         * Registers custom post type
          *
+         * @return void
          */
-        abstract public function register():void;
+        abstract public function register(): void;
 
     }
 

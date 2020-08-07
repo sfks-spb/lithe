@@ -5,7 +5,9 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
     class Lithe_Meta_Boxes {
 
         /**
+         * Constructs new lithe meta boxes instance
          *
+         * @return void
          */
         public function __construct() {
             $this->includes();
@@ -16,9 +18,11 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
         }
 
         /**
+         * Adds meta boxes to WP
          *
+         * @return void
          */
-        public function add_meta_boxes():void {
+        public function add_meta_boxes(): void {
 
             // Trainers.
             add_meta_box(
@@ -51,16 +55,24 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
         }
 
         /**
+         * Removes meta boxes
          *
+         * @return void
          */
-        public function remove_meta_boxes():void {
+        public function remove_meta_boxes(): void {
             remove_meta_box('wpseo_meta', 'trainer', 'normal');
+            remove_meta_box('wpseo_meta', 'dog', 'normal');
         }
 
         /**
+         * Handles meta box save
          *
+         * @param  int     $post_id
+         * @param  WP_Post $post
+         *
+         * @return void
          */
-        public function save_meta_boxes($post_id, $post) {
+        public function save_meta_boxes( int $post_id, WP_Post $post ): void {
 
             if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE || is_int( wp_is_post_revision( $post ) ) || is_int( wp_is_post_autosave( $post ) ) ) {
                 return;
@@ -79,9 +91,11 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
         }
 
         /**
+         * Includes dependencies
          *
+         * @return void
          */
-        protected function includes():void {
+        protected function includes(): void {
             $meta_boxes_directory = get_template_directory() . '/classes/meta-boxes/';
 
             include_once $meta_boxes_directory . 'class-lithe-meta-box.php';

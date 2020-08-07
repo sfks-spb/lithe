@@ -5,12 +5,16 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
     class Lithe_Taxonomy_Venue extends Lithe_Taxonomy {
 
         /**
+         * Contains taxonomy handle
          *
+         * @var string
          */
         protected $handle = 'venue';
 
         /**
+         * Contains list of custom fields and filters
          *
+         * @var array
          */
         protected $meta_kses = array(
             'link'        => 'strip',
@@ -24,9 +28,11 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         );
 
         /**
+         * Registers taxonomy
          *
+         * @return void
          */
-        public function register():void {
+        public function register(): void {
             register_taxonomy( $this->handle, 'trainer', array(
                 'labels' => array(
                     'name'          => __( 'Venues', 'lithe' ),
@@ -43,23 +49,36 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         }
 
         /**
+         * Outputs new taxonomy item form html
          *
+         * @param  WP_Term $term
+         *
+         * @return void
          */
-        public function add_form_fields( $term ):void {
+        public function add_form_fields( WP_Term $term ): void {
             lithe_render( 'taxonomies/views/view-venue-add-form-fields', array( 'term' => $term ) );
         }
 
         /**
+         * Outputs edit taxonomy item form html
          *
+         * @param  WP_Term $term
+         *
+         * @return void
          */
-        public function edit_form_fields( $term ):void {
+        public function edit_form_fields( WP_Term $term ): void {
             lithe_render( 'taxonomies/views/view-venue-edit-form-fields', array( 'term' => $term ) );
         }
 
         /**
+         * Handles taxonomy item save
          *
+         * @param  int     $term_id
+         * @param  WP_Term $term
+         *
+         * @return void
          */
-        public function save( $term_id, $term ):void {
+        public function save( int $term_id, WP_Term $term ): void {
 
             foreach ( $this->meta_kses as $meta_key => $allowed_html ) {
 
@@ -72,7 +91,9 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         }
 
         /**
+         * Gets list of columns
          *
+         * @return array
          */
         public function columns(): array {
             return array(
@@ -83,9 +104,15 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         }
 
         /**
+         * Handles custom columns output
          *
+         * @param  string $content
+         * @param  string $column_name
+         * @param  int    $term_id
+         *
+         * @return void
          */
-        public function custom_columns( $content, $column_name, $term_id ):void {
+        public function custom_columns( string $content, string $column_name, int $term_id ) {
             switch ( $column_name ) {
 
                 case 'address':

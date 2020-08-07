@@ -5,7 +5,9 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
     class Lithe_Shortcodes {
 
         /**
+         * Constructs new lithe shortcodes instance
          *
+         * @return void
          */
         public function __construct() {
             $this->register( array(
@@ -18,9 +20,13 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
+         * Registers shortcodes
          *
+         * @param  array $shortcodes
+         *
+         * @return Lithe_Shortcodes
          */
-        public function register( array $shortcodes ): void {
+        public function register( array $shortcodes ): self {
             foreach ( $shortcodes as $shortcode => $callback ) {
                 if ( is_string( $callback ) && is_callable( array( $this, $callback ) ) ) {
                     $callback = array( $this, $callback );
@@ -28,12 +34,19 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
 
                 add_shortcode( "lithe-$shortcode", $callback );
             }
+
+            return $this;
         }
 
         /**
+         * Adds antispam shortcode
          *
+         * @param  array       $atts
+         * @param  string|null $content
+         *
+         * @return string
          */
-        public function antispam_shortcode( $atts, $content = null ): string {
+        public function antispam_shortcode( array $atts, ?string $content = null ): string {
             $fields = shortcode_atts( array(
                 'phone' => null,
                 'email' => null,
@@ -50,24 +63,39 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
+         * Adds tl;dr shortcode
          *
+         * @param  array       $atts
+         * @param  string|null $content
+         *
+         * @return string
          */
-        public function tldr_shortcode( $atts, $content = null ): string {
+        public function tldr_shortcode( array $atts, ?string $content = null ): string {
             return '<span class="tldr">' . $content . '</span>';
         }
 
         /**
+         * Adds required field shortcode
          *
+         * @param  array       $atts
+         * @param  string|null $content
+         *
+         * @return string
          */
-        public function required_shortcode( $atts, $content = null ): string {
+        public function required_shortcode( array $atts, ?string $content = null ): string {
             return '<span class="required has-dark-red-color">
                 <i title="' . __( 'required', 'lithe' ) . '" class="fas fa-asterisk fa-sm" aria-label="' . __( 'required', 'lithe' ) . '"></i></span>';
         }
 
         /**
+         * Adds spinner element shortcode
          *
+         * @param  array       $atts
+         * @param  string|null $content
+         *
+         * @return string
          */
-        public function spinner_shortcode( $atts, $content = null ): string {
+        public function spinner_shortcode( array $atts, ?string $content = null ): string {
             $fields = shortcode_atts(  array(
                 'prefix' => 'fas',
                 'icon'   => 'sync',
@@ -79,9 +107,14 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
+         * Adds recaptcha disclaimer shortcode
          *
+         * @param  array       $atts
+         * @param  string|null $content
+         *
+         * @return string
          */
-        public function recaptcha_disclaimer_shortcode( $atts, $content = null ): string {
+        public function recaptcha_disclaimer_shortcode( array $atts, ?string $content = null ): string {
 
             $links = array(
                 __( 'Privacy'         , 'lithe' ) => 'https://policies.google.com/privacy',

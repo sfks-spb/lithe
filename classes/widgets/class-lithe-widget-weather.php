@@ -5,28 +5,28 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
     class Lithe_Widget_Weather extends WP_Widget {
 
         /**
-         * Prefix for transient cache key
+         * Contains prefix for cache key
          *
          * @var string
          */
         protected $transient_key_prefix = 'lithe_weather';
 
         /**
-         * AccuWeather API endpoint uri
+         * Contains AccuWeather API endpoint uri
          *
          * @var string
          */
         protected $endpoint = 'http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/%s';
 
         /**
-         * Array of venue locations
+         * Contains list of venue locations
          *
          * @var array
          */
         protected $locations = array();
 
         /**
-         * Map of icon codes and FontAwesome icon names
+         * Maps icon codes to FontAwesome icon names
          *
          * @var array
          */
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         );
 
         /**
-         * Widget constructor
+         * Constructs new lithe weather widget instance
          *
          * @return void
          */
@@ -94,7 +94,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
-         *
+         * Outputs widget html
          *
          * @return void
          */
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
-         *
+         * Outputs json for ajax calls
          *
          * @return void
          */
@@ -160,7 +160,11 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
+         * Outputs widget settings form
          *
+         * @param  array $instance
+         *
+         * @return void
          */
         public function form( $instance ) {
 
@@ -174,7 +178,12 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
+         * Handles widget settings update
          *
+         * @param  array $new_instance
+         * @param  array $old_instance
+         *
+         * @return array
          */
         public function update( $new_instance, $old_instance ) {
             return array(
@@ -185,7 +194,11 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
+         * Sanitizes html
          *
+         * @param  string $html
+         *
+         * @return string
          */
         protected function sanitize_html( string $html ): string {
             $html = str_replace( "\n", '', $html );
@@ -193,9 +206,13 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
+         * Gets forecast for upcoming hour
          *
+         * @param  array $instance
+         *
+         * @return array
          */
-        protected function get_next_hour_forecast( $instance ) {
+        protected function get_next_hour_forecast( array $instance ): array {
             $now = time();
             $weather = $this->get_forecast( $instance );
 
@@ -220,7 +237,9 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
+         * Gets list of locations
          *
+         * @return array
          */
         protected function get_locations(): array {
             $venues = get_terms( array(
@@ -250,9 +269,13 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
+         * Gets forecast data
          *
+         * @param  array $instance
+         *
+         * @return array
          */
-        protected function get_forecast( $instance ): array {
+        protected function get_forecast( array $instance ): array {
 
             $weather = array();
 

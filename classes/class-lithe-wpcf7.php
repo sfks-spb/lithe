@@ -5,14 +5,14 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
     class Lithe_WPCF7 {
 
         /**
-         * Stores captured forms
+         * Contains list of captured forms
          *
          * @var array
          */
         protected $forms = array();
 
         /**
-         * Constructs instance
+         * Constructs new lithe wpcf7 instance
          *
          * @return void
          */
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
         }
 
         /**
-         * Adds JS objects containing form data
+         * Adds JS object, that contains form data
          *
          * @return void
          */
@@ -71,9 +71,10 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
          * Handles shortcodes in forms
          *
          * @param  string $form - form body
+         *
          * @return string
          */
-        public function do_form_shortcodes( $form ) {
+        public function do_form_shortcodes( string $form ): string {
             return do_shortcode( $form );
         }
 
@@ -82,6 +83,7 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
          *
          * @param  string $message - message body
          * @param  string $status - status string
+         *
          * @return string
          */
         public function add_icons_for_message( $message, $status ) {
@@ -104,6 +106,7 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
          * Constructs unit tag array from action url
          *
          * @param  string $url
+         *
          * @return array
          */
         protected function unit_tag_from_url( string $url ): array {

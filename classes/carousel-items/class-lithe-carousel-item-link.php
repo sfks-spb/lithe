@@ -5,7 +5,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Link' ) ) {
     class Lithe_Carousel_Item_Link extends Lithe_Carousel_Item {
 
         /**
+         * Contains list of default attributes
          *
+         * @var array
          */
         protected $defaults = array(
             'src'  => '',
@@ -15,7 +17,11 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Link' ) ) {
         );
 
         /**
+         * Constructs new lithe carousel link instance
          *
+         * @param  array $atts
+         *
+         * @return void
          */
         public function __construct( array $atts ) {
             parent::__construct( $atts );
@@ -31,7 +37,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Link' ) ) {
         }
 
         /**
+         * Gets item content
          *
+         * @return string
          */
         public function get_content(): string {
             return '<a href="' . $this->href . '" title="' . $this->text . '">

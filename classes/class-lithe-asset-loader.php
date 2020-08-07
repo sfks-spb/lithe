@@ -5,49 +5,67 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
     class Lithe_Asset_Loader {
 
         /**
+         * Contains list of loaded packages
          *
+         * @var array
          */
         protected $loaded = array();
 
         /**
+         * Contains relative path to assets directory
          *
+         * @var string
          */
         protected $assets_directory = 'assets/js/';
 
         /**
+         * Gets script loader filter
          *
+         * @return callable
          */
         public function get_filter() : callable {
             return array( $this, 'filter_script_loader_tag' );
         }
 
         /**
+         * Processes async and defer attributes
          *
+         * @param string  $tag
+         * @param string  $handle
+         *
+         * @return string
          */
-        public function filter_script_loader_tag( $tag, $handle ): string {
-			foreach ( array( 'async', 'defer' ) as $attr ) {
-				if ( ! wp_scripts()->get_data( $handle, $attr ) ) {
-					continue;
-				}
+        public function filter_script_loader_tag( string $tag, string $handle ): string {
+            foreach ( array( 'async', 'defer' ) as $attr ) {
+    			    	if ( ! wp_scripts()->get_data( $handle, $attr ) ) {
+    					      continue;
+    				    }
 
-				if ( ! preg_match( ":\s$attr(=|>|\s):", $tag ) ) {
-					$tag = preg_replace( ':(?=></script>):', " $attr", $tag, 1 );
-				}
+    				    if ( ! preg_match( ":\s$attr(=|>|\s):", $tag ) ) {
+    					      $tag = preg_replace( ':(?=></script>):', " $attr", $tag, 1 );
+    				    }
 
-				break;
-			}
-			return $tag;
+    				    break;
+            }
+
+            return $tag;
         }
 
         /**
+         * Gets asset uri
          *
+         * @param  string $file
+         * @return string
          */
         public function get_assets_file_uri( string $file ): string {
             return get_theme_file_uri( $this->assets_directory ) . $file;
         }
 
         /**
+         * Loads packages
          *
+         * @param  array $packages
+         * @return Lithe_Asset_Loader
          */
         public function load_packages( array $packages ): self {
 
@@ -58,9 +76,11 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
                     continue;
                 }
 
-                list( $name, $version ) = explode( '@', $package, 2 );
+                $name_parts = explode( '@', $package, 2 );
+                $name = $name_parts[0];
+                $version = isset( $name_parts[1] ) ? $name_parts[1] : null;
 
-                $manifest_directory = ( $version ) ? $name . '-' . $version : $name;
+                $manifest_directory = ( null === $version ) ? $name . '-' . $version : $name;
                 $manifest_file = get_theme_file_path( $this->assets_directory . $manifest_directory ) . '/package.php';
 
                 if ( ! is_file( $manifest_file ) ) {
@@ -78,14 +98,26 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
+         * Checks if package already loaded
          *
+         * @param  string $package
+         * @return bool
          */
-        public function is_package_loaded( $package ): bool {
+        public function is_package_loaded( string $package ): bool {
             return array_key_exists( $package, $this->loaded );
         }
 
         /**
+         * Registers script
          *
+         * @param  string           $handle
+         * @param  string           $src
+         * @param  array|null       $deps
+         * @param  string|bool|null $ver
+         * @param  bool             $in_footer
+         * @param  array            $atts
+         *
+         * @return Lithe_Asset_Loader
          */
         public function register_script( string $handle, string $src = '', ?array $deps = array(), $ver = false, bool $in_footer = false, array $atts = array() ): self {
             wp_register_script( $handle, $src, $deps, $ver, $in_footer );
@@ -100,7 +132,12 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
+         * Adds inline script before handle
          *
+         * @param  string       $handle
+         * @param  string|array $data
+         *
+         * @return Lithe_Asset_Loader
          */
         public function add_before_script( string $handle, $data ): self {
             if ( is_array( $data ) ) {
@@ -113,7 +150,12 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
+         * Adds inline script after handle
          *
+         * @param  string       $handle
+         * @param  string|array $data
+         *
+         * @return Lithe_Asset_Loader
          */
         public function add_after_script( string $handle, $data ): self {
             if ( is_array( $data ) ) {
@@ -126,7 +168,13 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
+         * Localizes script
          *
+         * @param  string $handle
+         * @param  string $object_name
+         * @param  array  $l10n
+         *
+         * @return Lithe_Asset_Loader
          */
         public function localize_script( string $handle, string $object_name, array $l10n ): self {
             wp_localize_script( $handle, $object_name, $l10n );
@@ -135,7 +183,16 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
+         * Registers stylesheet
          *
+         * @param  string           $handle
+         * @param  string           $src
+         * @param  array|null       $deps
+         * @param  string|bool|null $ver
+         * @param  string           $media
+         * @param  array            $atts
+         *
+         * @return Lithe_Asset_Loader
          */
         public function register_style( string $handle, string $src = '', ?array $deps = array(), $ver = false, string $media = 'all', array $atts = array() ): self {
             wp_register_style( $handle, $src, $deps, $ver, $media );
@@ -150,7 +207,12 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
+         * Adds inline style
          *
+         * @param  string       $handle
+         * @param  string|array $data
+         *
+         * @return Lithe_Asset_Loader
          */
         public function add_inline_style( string $handle, $data ): self {
             if ( is_array( $data ) ) {

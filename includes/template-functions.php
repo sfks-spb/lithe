@@ -1,8 +1,11 @@
 <?php
 
 if ( ! function_exists( 'lithe_date_format' ) ) {
+
     /**
+     * Gets date format
      *
+     * @return string
      */
     function lithe_date_format(): string {
         return 'j F Y ' . _x( '\a\\t', 'At certain time', 'lithe' ) . ' H:i';
@@ -10,10 +13,15 @@ if ( ! function_exists( 'lithe_date_format' ) ) {
 }
 
 if ( ! function_exists( 'lithe_strtotime' ) ) {
+
     /**
+     * Converts string to time with timezone support
      *
+     * @param  string $string
+     *
+     * @return string
      */
-    function lithe_strtotime( $string ) {
+    function lithe_strtotime( string $string ): string {
         if ( is_null ( $string ) ) return false;
 
         $timezone = get_option( 'timezone_string' );
@@ -32,8 +40,14 @@ if ( ! function_exists( 'lithe_strtotime' ) ) {
 }
 
 if ( ! function_exists( 'lithe_render' ) ) {
+
     /**
+     * Renders view
      *
+     * @param  string $view
+     * @param  array  $args
+     *
+     * @return void
      */
     function lithe_render( string $view, array $args = array() ): void {
 
@@ -54,7 +68,11 @@ if ( ! function_exists( 'lithe_render' ) ) {
 if ( ! function_exists( 'lithe_register_menus' ) ) {
 
     /**
+     * Registers menus
      *
+     * @param  array $menus
+     *
+     * @return void
      */
     function lithe_register_menus( array $menus ): void {
         lithe()->register_menus( $menus );
@@ -65,7 +83,11 @@ if ( ! function_exists( 'lithe_register_menus' ) ) {
 if ( ! function_exists( 'lithe_photon_uri' ) ) {
 
     /**
+     * Gets Jetpack's image CDN url
      *
+     * @param  string $protocol
+     *
+     * @return string
      */
     function lithe_photon_uri( string $protocol = 'https' ): string {
         static $current = 0;
@@ -83,7 +105,13 @@ if ( ! function_exists( 'lithe_photon_uri' ) ) {
 if ( ! function_exists( 'lithe_photon_prepend_uri' ) ) {
 
     /**
+     * Prepends Jetpack's image CDN url
      *
+     * @param  string $uri
+     * @param  array  $params
+     * @param  string $protocol
+     *
+     * @return string
      */
     function lithe_photon_prepend_uri( string $uri, array $params = array(), string $protocol = 'https' ): string {
         $uri = preg_replace( '/https?:\/\//i', lithe_photon_uri( $protocol ) . '/', $uri );
@@ -104,7 +132,9 @@ if ( ! function_exists( 'lithe_photon_prepend_uri' ) ) {
 if ( ! function_exists( 'lithe_the_post_meta' ) ) {
 
     /**
+     * Outputs post meta
      *
+     * @return void
      */
     function lithe_the_post_meta(): void {
         ?>
@@ -118,7 +148,12 @@ if ( ! function_exists( 'lithe_the_post_meta' ) ) {
 if ( ! function_exists( 'lithe_the_copyright' ) ) {
 
     /**
+     * Outputs copyright message
      *
+     * @param  string $holder
+     * @param  int    $starting_year
+     *
+     * @return void
      */
     function lithe_the_copyright( string $holder, int $starting_year = 2007 ): void {
         echo "$holder, $starting_year - " . date( 'Y' );
@@ -129,7 +164,9 @@ if ( ! function_exists( 'lithe_the_copyright' ) ) {
 if ( ! function_exists( 'lithe_breadcrumbs' ) ) {
 
     /**
+     * Outputs breadcrumbs
      *
+     * @return void
      */
     function lithe_breadcrumbs(): void {
         if ( function_exists( 'yoast_breadcrumb' ) ) {
@@ -142,9 +179,14 @@ if ( ! function_exists( 'lithe_breadcrumbs' ) ) {
 if ( ! function_exists( 'lithe_get_antispam' ) ) {
 
     /**
+     * Passes content through antispam protection
      *
+     * @param  string $content
+     * @param  string $type
+     *
+     * @return string
      */
-    function lithe_get_antispam( string $content, $type = 'text' ): string {
+    function lithe_get_antispam( string $content, string $type = 'text' ): string {
         switch ( $type ) {
             case 'email':
                 return '<a href="' . antispambot( 'mailto:' . $content ) . '">' . antispambot( $content ) . '</a>';
@@ -160,9 +202,14 @@ if ( ! function_exists( 'lithe_get_antispam' ) ) {
 if ( ! function_exists( 'lithe_antispam' ) ) {
 
     /**
+     * Outputs spam-protected content
      *
+     * @param  string $content
+     * @param  string $type
+     *
+     * @return void
      */
-    function lithe_antispam( string $content, $type = 'text' ): void {
+    function lithe_antispam( string $content, string $type = 'text' ): void {
         echo lithe_get_antispam( $content, $type );
     }
 
@@ -171,7 +218,9 @@ if ( ! function_exists( 'lithe_antispam' ) ) {
 if ( ! function_exists( 'lithe_get_breakpoints' ) ) {
 
     /**
+     * Gets breakpoints list
      *
+     * @return array
      */
     function lithe_get_breakpoints(): array {
         return [
@@ -188,7 +237,9 @@ if ( ! function_exists( 'lithe_get_breakpoints' ) ) {
 if ( ! function_exists( 'lithe_get_breakpoints_json' ) ) {
 
     /**
+     * Gets breakpoints json
      *
+     * @return string
      */
     function lithe_get_breakpoints_json(): string {
         return wp_json_encode( lithe_get_breakpoints() );
@@ -199,10 +250,14 @@ if ( ! function_exists( 'lithe_get_breakpoints_json' ) ) {
 if ( ! function_exists( 'lithe_the_tags' ) ) {
 
     /**
+     * Gets post tag list
      *
+     * @global WP_Post $post
+     *
+     * @return void|WP_Error
      */
     function lithe_the_tags() {
-        global $post;
+        global $post; 
 
         $terms = get_the_terms( $post->ID, 'post_tag' );
 
@@ -234,7 +289,12 @@ if ( ! function_exists( 'lithe_the_tags' ) ) {
 if ( ! function_exists( 'lithe_site_logo' ) ) {
 
     /**
+     * Outputs site logo
      *
+     * @param  string      $logo
+     * @param  string|null $title
+     *
+     * @return void
      */
     function lithe_site_logo( string $logo = 'logo-plain', ?string $title = null ): void {
         $tag = ( is_home() || is_front_page() ) ? 'h1' : 'div';
@@ -258,7 +318,12 @@ if ( ! function_exists( 'lithe_site_logo' ) ) {
 if ( ! function_exists( 'lithe_site_logo_compact' ) ) {
 
     /**
+     * Outputs compact logo (without the text)
      *
+     * @param  string      $logo
+     * @param  string|null $title
+     *
+     * @return void
      */
     function lithe_site_logo_compact( string $logo = 'logo-plain', ?string $title = null ): void {
         $title = is_null( $title ) ? get_bloginfo( 'description' ) : $title;
@@ -269,8 +334,13 @@ if ( ! function_exists( 'lithe_site_logo_compact' ) ) {
 }
 
 if ( ! function_exists( 'lithe_related_posts' ) ) {
+
     /**
+     * Outputs related posts list
      *
+     * @global WP_Post $post
+     *
+     * @return void
      */
     function lithe_related_posts(): void {
         global $post;
@@ -299,8 +369,13 @@ if ( ! function_exists( 'lithe_related_posts' ) ) {
 }
 
 if ( ! function_exists( 'lithe_get_views' ) ) {
+
     /**
+     * Gets post views
      *
+     * @global WP_Post $post
+     *
+     * @return int
      */
     function lithe_get_views(): int {
         global $post;
@@ -312,21 +387,27 @@ if ( ! function_exists( 'lithe_get_views' ) ) {
 }
 
 if ( ! function_exists( 'lithe_the_views' ) ) {
+
     /**
+     * Outputs post views
      *
+     * @return void
      */
     function lithe_the_views(): void {
         $views = lithe_get_views();
 
-        $views = ( $views >= 1000 ) ? ( $views / 1000 ) . 'K' : $views;
+        $views = ( $views >= 1000 ) ? round( $views / 1000, 1 ) . 'K' : $views;
 
         echo '<span class="entry-views"><i title="' . esc_attr( sprintf( __( '%s Views', 'lithe' ), $views ) ) . '" class="far fa-eye fa-fw"></i><span class="entry-views-count">' . $views . '</span></span>';
     }
 }
 
 if ( ! function_exists( 'lithe_comments_link' ) ) {
+
     /**
+     * Outputs comments counter and link
      *
+     * @return void
      */
     function lithe_comments_link(): void {
         $before = '<i title="' . __( 'Leave a comment', 'lithe' ) . '" class="far fa-comment fa-fw"></i>';
@@ -343,8 +424,11 @@ if ( ! function_exists( 'lithe_comments_link' ) ) {
 }
 
 if ( ! function_exists( 'lithe_sports' ) ) {
+
     /**
+     * Outputs sports list
      *
+     * @return void
      */
     function lithe_sports(): void {
 

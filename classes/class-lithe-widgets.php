@@ -3,8 +3,9 @@
 if ( ! class_exists( 'Lithe_Widgets' ) ) {
 
     class Lithe_Widgets {
+
         /**
-         * List of widget classes
+         * Contains list of widget classnames
          *
          * @var array
          */
@@ -13,7 +14,7 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
         );
 
         /**
-         * Constructs widget manager instance
+         * Constructs new lithe widget manager instance
          *
          * @return void
          */
@@ -38,7 +39,7 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
          *
          * @return void
          */
-        protected function includes():void {
+        protected function includes(): void {
             $template_directory = get_template_directory();
 
             foreach ( $this->widgets as $widget ) {

@@ -3,17 +3,26 @@
 if ( ! class_exists( 'Lithe_Aside_Menu' ) ) {
 
     class Lithe_Aside_Menu {
+
         /**
+         * Constructs new lithe aside menu instance
          *
+         * @return void
          */
         public function __construct() {
             add_filter( 'walker_nav_menu_start_el', array( $this, 'append_icon_to_aside_menu' ) , 10, 4 );
         }
 
         /**
+         * Appends icons to sidebar menu based on menu url
          *
+         * @param  string   $item_output
+         * @param  WP_Post  $item
+         * @param  int      $depth
+         * @param  stdClass $args
+         * @return string
          */
-        public function append_icon_to_aside_menu( $item_output, $item, $depth, $args ) {
+        public function append_icon_to_aside_menu( string $item_output, WP_Post $item, int $depth, $args ): string {
             if ( 'aside' === $args->theme_location ) {
 
                 foreach ( $this->icons as $uri => $icon ) {
@@ -31,7 +40,9 @@ if ( ! class_exists( 'Lithe_Aside_Menu' ) ) {
         }
 
         /**
+         * Maps url keywords to icons
          *
+         * @var array
          */
         protected $icons = array(
             'agility'   => 'jump',

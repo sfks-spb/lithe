@@ -5,32 +5,46 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
     class Lithe_Asset_Manifest {
 
         /**
+         * Contains loader instance
          *
+         * @var Lithe_Asset_Loader|null
          */
         protected $loader = null;
 
         /**
+         * Contains package name
          *
+         * @var string|null
          */
         public $name = null;
 
         /**
+         * Contains package version
          *
+         * @var string
          */
         public $version;
 
         /**
+         * Contains list of scripts to load
          *
+         * @var array
          */
         public $scripts = array();
 
         /**
+         * Contains list of stylesheets to load
          *
+         * @var array
          */
         public $styles = array();
 
         /**
+         * Constructs new lithe manifest instance
          *
+         * @param  string $manifest_file
+         *
+         * @return void
          */
         public function __construct( string $manifest_file ) {
             $manifest = include $manifest_file;
@@ -47,7 +61,11 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Sets asset name
          *
+         * @param  string $name
+         *
+         * @return Lithe_Asset_Manifest
          */
         public function set_name( string $name ): self {
             $this->name = $name;
@@ -57,7 +75,11 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Sets asset version
          *
+         * @param  string|null $version
+         *
+         * @return Lithe_Asset_Manifest
          */
         public function set_version( ?string $version ): self {
             $this->version = $version;
@@ -66,7 +88,11 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Sets asset loader instance
          *
+         * @param  Lithe_Asset_Loader $loader
+         *
+         * @return Lithe_Asset_Manifest
          */
         public function set_loader( Lithe_Asset_Loader $loader ): self {
             $this->loader = $loader;
@@ -75,7 +101,9 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Loads package with loader
          *
+         * @return Lithe_Asset_Manifest
          */
         public function load(): self {
 
@@ -88,7 +116,11 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Gets src uri
          *
+         * @param  string $file
+         *
+         * @return string
          */
         protected function get_src_file_uri( string $file ): string {
             if ( ! $this->version ) {
@@ -99,7 +131,11 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Adds handle prefix
          *
+         * @param  string &$handle
+         *
+         * @return void
          */
         protected function prefix_handle( string &$handle ): void {
             if ( 'default' === $handle ) {
@@ -111,9 +147,13 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Initializes script data with default values
          *
+         * @param  array &$script
+         *
+         * @return void
          */
-        protected function init_with_default_script_args( &$script ): void {
+        protected function init_with_default_script_args( array &$script ): void {
             $script = array_merge( array(
                 'src'       => '',
                 'atts'      => array(),
@@ -128,9 +168,13 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Initializes style data with default values
          *
+         * @param  array &$style
+         *
+         * @return void
          */
-        protected function init_with_default_style_args( &$style ): void {
+        protected function init_with_default_style_args( array &$style ): void {
             $style = array_merge( array(
                 'src'       => '',
                 'atts'      => array(),
@@ -143,7 +187,9 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Registers package scripts
          *
+         * @return void
          */
         protected function register_scripts(): void {
             foreach ($this->scripts as $handle => $script) {
@@ -178,7 +224,9 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
+         * Registers package styles
          *
+         * @return void
          */
         protected function register_styles(): void {
             foreach ($this->styles as $handle => $style) {

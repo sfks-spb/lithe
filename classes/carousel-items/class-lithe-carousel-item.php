@@ -5,22 +5,32 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
     class Lithe_Carousel_Item {
 
         /**
+         * Contains list of item classes
          *
+         * @var array
          */
         public $classes = array();
 
         /**
+         * Contains list of default attributes
          *
+         * @var array
          */
         protected $defaults = array();
 
         /**
+         * Contains list of attributes
          *
+         * @var array
          */
         protected $attributes = array();
 
         /**
+         * Constructs new lithe carousel item instance
          *
+         * @param  array $atts
+         *
+         * @return void
          */
         public function __construct( array $atts ) {
             $atts = array_merge( $this->defaults, $atts );
@@ -36,28 +46,45 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
         }
 
         /**
+         * Adds item class
          *
+         * @param  string $class
+         *
+         * @return Lithe_Carousel_Item
          */
-        protected function add_class( string $class ): void {
+        protected function add_class( string $class ): self {
             $this->classes[] = $class;
+
+            return $this;
         }
 
         /**
+         * Adds item attribute
          *
+         * @param  string $name
+         * @param  string $value
+         *
+         * @return Lithe_Carousel_Item
          */
-        protected function add_attr( string $key, string $value = '' ): void {
-            $this->attributes[ $key ] = esc_attr( $value );
+        protected function add_attr( string $name, string $value = '' ): self {
+            $this->attributes[ $name ] = esc_attr( $value );
+
+            return $this;
         }
 
         /**
+         * Outputs item as html
          *
+         * @return string
          */
         public function __toString() {
             return $this->get_item();
         }
 
         /**
+         * Gets item html
          *
+         * @return string
          */
         public function get_item(): string {
             $content = $this->get_content();
@@ -73,7 +100,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
         }
 
         /**
+         * Gets item content
          *
+         * @return string
          */
         public function get_content(): string {
             return '';

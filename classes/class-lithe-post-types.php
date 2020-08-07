@@ -5,7 +5,9 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
     class Lithe_Post_Types {
 
         /**
+         * Contains list of custom post type classnames
          *
+         * @var array
          */
         protected $post_types = array(
             Lithe_Post_Type_Trainer::class,
@@ -14,7 +16,9 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
         );
 
         /**
+         * Constructs new lithe post types instance
          *
+         * @return void
          */
         public function __construct() {
             $this->includes();
@@ -23,7 +27,9 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
         }
 
         /**
+         * Registers custom post types
          *
+         * @return void
          */
         public function register_post_types(): void {
             foreach ( $this->post_types as $post_type ) {
@@ -32,9 +38,11 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
         }
 
         /**
+         * Includes dependencies
          *
+         * @return void
          */
-        protected function includes():void {
+        protected function includes(): void {
             $post_types_directory = get_template_directory() . '/classes/post-types/';
 
             include_once $post_types_directory . 'class-lithe-post-type.php';

@@ -5,21 +5,27 @@ if ( ! class_exists( 'Lithe_Post_Type_Trial' ) ) {
     class Lithe_Post_Type_Trial extends Lithe_Post_Type {
 
         /**
+         * Contains custom post type handle
          *
+         * @var string
          */
         protected $handle = 'trial';
 
         /**
+         * Contains custom post type capabilities
          *
+         * @var array
          */
         protected $capabilities = array(
             'administrator' => 'trial',
         );
 
         /**
+         * Registers custom post type
          *
+         * @return void
          */
-        public function register():void {
+        public function register(): void {
 
             register_post_type( $this->handle, array(
                 'labels'          => array(

@@ -5,9 +5,13 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
     class Lithe_Venues_Controller {
 
         /**
+         * Gets venue by id
          *
+         * @param  WP_Request $request
+         *
+         * @return WP_REST_Response|WP_Error
          */
-        public function get_venue( $request ) {
+        public function get_venue( WP_Request $request ) {
 
             $venue_ID = $request['id'];
 
@@ -30,9 +34,13 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
+         * Gets venues by sport id
          *
+         * @param  WP_Request $request
+         *
+         * @return WP_REST_Response|WP_Error
          */
-        public function get_venues( $request ) {
+        public function get_venues( WP_Request $request ) {
 
             $sport_ID = $request['sport_id'];
 
@@ -58,23 +66,33 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
+         * Filters venues by sport id
          *
+         * @param  array &$venue
+         * @param  int    $sport_ID
+         *
+         * @return bool
          */
-        protected function filter_venues( array &$venue, $sport_ID ): bool {
-            $trainers = $this->get_trainers_for_venue( $venue, $sport_ID );
+        protected function filter_venues( array &$venue, int $sport_id ): bool {
+            $trainers = $this->get_trainers_for_venue( $venue, $sport_id );
 
             return ( ! empty( $trainers ) ) ? true : false;
         }
 
         /**
+         * Filters venues by sport id and includes trainers
          *
+         * @param  array &$venue
+         * @param  int    $sport_ID
+         *
+         * @return bool
          */
-        protected function filter_venues_and_include_trainers( array &$venue, $sport_ID ): bool {
+        protected function filter_venues_and_include_trainers( array &$venue, int $sport_id ): bool {
 
-            $trainers = $this->get_trainers_for_venue( $venue, $sport_ID );
+            $trainers = $this->get_trainers_for_venue( $venue, $sport_id );
 
             foreach ( $trainers as &$trainer ) {
-                $trainer = $this->get_trainer_data( $trainer, $venue['id'], $sport_ID );
+                $trainer = $this->get_trainer_data( $trainer, $venue['id'], $sport_id );
             }
 
             $venue['trainers'] = $trainers;
@@ -83,20 +101,31 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
+         * Gets trainer list for current venue
          *
+         * @param  array $venue
+         * @param  int   $sport_id
+         *
+         * @return array
          */
-        protected function get_trainers_for_venue( $venue, $sport_ID ) {
+        protected function get_trainers_for_venue( array $venue, int $sport_id ): array {
             return get_posts( array(
                 'post_type'  => 'trainer',
                 'meta_key'   => 'sports_' . $venue['id'],
-                'meta_value' => $sport_ID,
+                'meta_value' => $sport_id,
             ) );
         }
 
         /**
+         * Gets trainer data from post object
          *
+         * @param  WP_Post $trainer
+         * @param  int     $venue_id
+         * @param  int     $sport_id
+         *
+         * @return array
          */
-        protected function get_trainer_data( WP_Post $trainer, $venue_ID, $sport_ID ): array {
+        protected function get_trainer_data( WP_Post $trainer, int $venue_id, int $sport_id ): array {
 
             static $meta_fields = array(
                 'first_name',
@@ -111,7 +140,7 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
             $data = array(
                 'id'           => $trainer->ID,
                 'display_name' => esc_html( $trainer->post_title ),
-                'timetable'    => get_post_meta( $trainer->ID, 'timetable_' . $venue_ID . '-' . $sport_ID, true ),
+                'timetable'    => get_post_meta( $trainer->ID, 'timetable_' . $venue_id . '-' . $sport_id, true ),
             );
 
             foreach ( $meta_fields as $field ) {
@@ -122,7 +151,11 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
+         * Gets venue data from term object
          *
+         * @param  WP_Term $venue
+         *
+         * @return array
          */
         protected function get_venue_data( WP_Term $venue ): array {
 

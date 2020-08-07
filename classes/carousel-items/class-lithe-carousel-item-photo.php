@@ -5,7 +5,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
     class Lithe_Carousel_Item_Photo extends Lithe_Carousel_Item {
 
         /**
+         * Contains list of default attributes
          *
+         * @var array
          */
         protected $defaults = array(
             'author'     => '',
@@ -16,7 +18,11 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
         );
 
         /**
+         * Constructs new lithe carousel photo instance
          *
+         * @param  array $atts
+         *
+         * @return void
          */
         public function __construct( array $atts ) {
             parent::__construct( $atts );
@@ -30,7 +36,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
         }
 
         /**
+         * Gets item content
          *
+         * @return string
          */
         public function get_content(): string {
             $html = '<img src="' . $this->src . '" />';
@@ -65,7 +73,11 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
         }
 
         /**
+         * Adds retina attribute
          *
+         * @param  string &$html
+         *
+         * @return void
          */
         protected function use_lazy_load( string &$html ): void {
             $html = preg_replace('/src=.+ /i', 'class="owl-lazy" data-src="' . $this->src . '" ', $html);

@@ -5,9 +5,13 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
     class Lithe_Post_Views_Controller {
 
         /**
+         * Gets post views
          *
+         * @param  WP_Request $request
+         *
+         * @return WP_REST_Response|WP_Error
          */
-        public function get_views( $request ) {
+        public function get_views( WP_Request $request ) {
             $post_ID = $request['id'];
 
             $data = array();
@@ -26,9 +30,13 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
         }
 
         /**
+         * Sets post views
          *
+         * @param  WP_Request $request
+         *
+         * @return WP_REST_Response|WP_Error
          */
-        public function set_views( $request ) {
+        public function set_views( WP_Request $request ) {
             $post_ID = $request['id'];
 
             $data = array();
@@ -48,7 +56,11 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
         }
 
         /**
+         * Formats views as int and human readable string
          *
+         * @param  array|int $views
+         *
+         * @return array
          */
         protected function format_views( $views ): array {
             $views = ( empty( $views ) ) ? 0 : $views;

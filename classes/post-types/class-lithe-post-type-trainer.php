@@ -5,21 +5,27 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
     class Lithe_Post_Type_Trainer extends Lithe_Post_Type {
 
         /**
+         * Contains custom post type handle
          *
+         * @var string
          */
         protected $handle = 'trainer';
 
         /**
+         * Contains custom post type capabilities
          *
+         * @var array
          */
         protected $capabilities = array(
             'administrator' => 'trainer',
         );
 
         /**
+         * Registers custom post type
          *
+         * @return void
          */
-        public function register():void {
+        public function register(): void {
 
             register_post_type( $this->handle, array(
                 'labels'          => array(
@@ -52,9 +58,11 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
         }
 
         /**
+         * Gets custom post type columns
          *
+         * @return array
          */
-        public function columns():array {
+        public function columns(): array {
             return array(
                 'phone'  => __( 'Phone', 'lithe' ),
                 'sports' => __( 'Sports', 'lithe' ),
@@ -63,9 +71,14 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
         }
 
         /**
+         * Handles custom columns output
          *
+         * @param  string $column
+         * @param  int    $post_id
+         *
+         * @return void
          */
-        public function custom_columns( $column, $post_id ):void {
+        public function custom_columns( string $column, int $post_id ): void {
 
             switch ( $column ) {
 

@@ -5,12 +5,16 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
     class Lithe_Meta_Box_Dog_Profile extends Lithe_Meta_Box {
 
         /**
+         * Contains custom post type handle
          *
+         * @var string
          */
         protected $post_type = 'dog';
 
         /**
+         * Contains list of filter mapped by meta box fields
          *
+         * @var array
          */
         protected $meta_kses = array(
             'full_name'    => 'strip',
@@ -26,9 +30,13 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
         );
 
         /**
+         * Outputs metabox html
          *
+         * @param  WP_Post $post
+         *
+         * @return void
          */
-        public static function render( $post ):void {
+        public static function render( WP_Post $post ): void {
             wp_nonce_field( 'lithe_save_data', 'lithe_meta_nonce' );
 
             lithe_render( 'meta-boxes/views/view-dog-profile', array(
@@ -37,9 +45,14 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
         }
 
         /**
+         * Handles meta box save
          *
+         * @param  int     $post_id
+         * @param  WP_Post $post
+         *
+         * @return void
          */
-        public function save( $post_id, $post ):void {
+        public function save( int $post_id, WP_Post $post ): void {
 
             foreach ( $this->meta_kses as $meta_key => $allowed_html ) {
 
