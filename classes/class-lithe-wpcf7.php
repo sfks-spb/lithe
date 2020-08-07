@@ -17,8 +17,8 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
          * @return void
          */
         public function __construct() {
+            add_filter( 'wpcf7_form_elements', 'do_shortcode' );
             add_filter( 'wpcf7_display_message', array( $this, 'add_icons_for_message' ), 10, 2 );
-            add_filter( 'wpcf7_form_elements', array( $this, 'do_form_shortcodes' ) );
             add_filter( 'wpcf7_form_action_url', array( $this, 'save_current_form_config' ) );
             add_action( 'wp_print_footer_scripts', array( $this, 'add_config_data_storage' ), 8 );
         }
@@ -65,17 +65,6 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
 
             }
 
-        }
-
-        /**
-         * Handles shortcodes in forms.
-         *
-         * @param  string $form Current WPCF7 form body.
-         *
-         * @return string
-         */
-        public function do_form_shortcodes( string $form ): string {
-            return do_shortcode( $form );
         }
 
         /**
