@@ -70,13 +70,41 @@ if ( ! class_exists('Lithe_Theme') ) {
             $this->version = wp_get_theme()->get( 'Version' );
 
             remove_action( 'wp_head', 'wp_generator' );
+
             add_action( 'after_setup_theme',  array( $this, 'setup_theme' ) );
+            add_action( 'after_switch_theme', 'FortAwesome\FontAwesome_Loader::initialize' );
             add_action( 'switch_theme', array( $this, 'remove_roles' ) );
+            add_action( 'switch_theme', array( $this, 'maybe_deactivate_fontawesome' ) );
             add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
             add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
             add_action( 'widgets_init', array( $this, 'register_widget_areas' ) );
             add_action( 'init', array( $this, 'add_roles' ) );
+            add_action( 'font_awesome_preferences', array( $this, 'register_fontawesome_preferences' ) );
             add_filter( 'the_content_more_link', array( $this, 'modify_read_more_link' ) );
+        }
+
+        /**
+         * Registers bundled FontAwesome preferences
+         *
+         * @return void
+         */
+        public function register_fontawesome_preferences(): void {
+            FortAwesome\fa()->register( array(
+                'name'           => 'lithe',
+                'technology'     => 'svg',
+                'v4Compat'       => false,
+                'pseudoElements' => false,
+            ) );
+        }
+
+        /**
+         * Maybe deactivates FontAwesome
+         *
+         * @return void
+         */
+        public function maybe_deactivate_fontawesome(): void {
+            FortAwesome\FontAwesome_Loader::maybe_deactivate();
+            FortAwesome\FontAwesome_Loader::maybe_uninstall();
         }
 
         /**
@@ -300,6 +328,8 @@ if ( ! class_exists('Lithe_Theme') ) {
          */
         protected function includes(): void {
             $template_directory = get_template_directory();
+
+            include_once $template_directory . '/vendor/fortawesome/wordpress-fontawesome/index.php';
 
             include_once $template_directory . '/includes/template-functions.php';
             include_once $template_directory . '/classes/class-lithe-social-menu.php';

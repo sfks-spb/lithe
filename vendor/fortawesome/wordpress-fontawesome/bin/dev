@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DOCKER_COMPOSE=`which docker-compose`
+
+if [ ! -x "$DOCKER_COMPOSE" ]; then
+  echo "ERROR: docker-compose not found. Make sure it's installed and available in your PATH."
+  exit 1
+fi
+
+DEFAULT_IMAGE_TAG=latest
+
+if [ "x" = "x$1" ]; then
+  IMAGE_TAG=$DEFAULT_IMAGE_TAG
+else
+  IMAGE_TAG=$1
+fi
+
+$WP_SUDO $DOCKER_COMPOSE up wordpress-${IMAGE_TAG}-dev

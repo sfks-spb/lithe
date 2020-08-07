@@ -1,0 +1,26 @@
+
+.pseudo-elements-screenshot {
+    max-width: 100%;
+}
+
+.tab-header button {
+    font-size: 1.5em;
+    background: transparent;
+    margin-right: 0.125em;
+    margin-left: 0.125em;
+    border: none;
+    padding-bottom: 0.25em;
+    border-bottom: none;
+}
+
+.tab-header button:hover {
+    cursor: pointer;
+}
+
+.tab-header button:disabled {
+    cursor: default;
+    border-bottom: 4px solid #008DED;
+    color: unset;
+}
+
+

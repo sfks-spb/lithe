@@ -1,2 +1,9 @@
 {
-}
+
+    "name": "sfks/lithe",
+    "type": "wordpress-theme",
+    "require": {
+        "composer/installers": "^1.0",
+        "fortawesome/wordpress-fontawesome": "@dev"
+    }
+} 

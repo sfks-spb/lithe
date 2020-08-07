@@ -1,0 +1,191 @@
+.wrapper-div {
+  margin-right: 20px;
+  padding: 1rem 2rem 2rem 2rem;
+  background-color: #fff;
+}
+
+@media only screen and (min-width: 1024px) {
+  .wrapper-div {
+    max-width: 1000px;
+  }
+}
+
+.submit-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.submit-status {
+  padding-left: 1em;
+}
+
+div.submit-status.fail {
+  display: flex;
+	margin: 1em;
+	background-color: #fda09a;
+	border-radius: 5px;
+	max-width: 450px;
+	padding: 1em;
+}
+
+div.submit-status.fail .fail-icon-container {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+div.submit-status.fail .explanation {
+  max-width: 400px;
+}
+
+.submit-status .explanation {
+  padding-left: 1em;
+}
+
+.submit-status.success .icon {
+  color: green;
+}
+
+h2.section-title {
+  font-size: 18px;
+}
+
+h3.section-title {
+  font-size: 16px;
+}
+
+.section-divider {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.table-header th {
+  font-weight: bold;
+}
+
+button.more-less {
+  border: 0;
+  background: none;
+}
+
+.scanner-actions {
+  display: flex;
+  align-items: center;
+}
+
+.scanner-runstatus {
+  margin: 1rem;
+}
+
+button.faPrimary {
+  border: 1px solid #0064B1;
+  border-bottom: 4px solid #0064B1;
+  border-radius: 3px;
+  padding: .7em 1.5em;
+  background: #008DED;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4em;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.faPrimary[disabled] {
+  border: 1px solid #F8F9FA;
+  background: #F8F9FA;
+  color: #008DED;
+  cursor: default;
+}
+
+button .conflict-detection-timer {
+  display: inline-block;
+  min-width: 3.2em;
+  text-align: left;
+}
+
+.warning {
+  background-color: #fdfdf3;
+  max-width: 600px;
+  padding: 1.5em;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .flex {
+    display: flex;
+  }
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.relative {
+  position: relative;
+}
+
+.status .icon {
+  font-size: 24px;
+}
+
+.status.good .icon, .success-icon {
+  color: green;
+}
+
+.status.conflict .icon, .conflict-icon {
+  color: red;
+}
+
+.status.warning .icon, .warning-icon {
+  color: #b7b700;
+}
+
+.space-left {
+  margin-left: 1rem;
+}
+
+.input-radio-custom ~ label .checked-icon, .input-checkbox-custom ~ label .checked-icon {
+    display:none;
+    opacity:0;
+}
+
+.input-radio-custom:checked ~ label .checked-icon, .input-checkbox-custom:checked ~ label .checked-icon{
+    display:block;
+    opacity:1.0;
+    color: #228be6;
+}
+
+.input-radio-custom:checked ~ label .unchecked-icon, .input-checkbox-custom:checked ~ label .unchecked-icon{
+    display:none;
+    opacity:0;
+}
+
+.input-checkbox-custom:checked ~ label .option-label-explanation {
+    color: #495057;
+}
+
+.input-checkbox-custom:checked ~ label .option-label-explanation a {
+    color: #495057;
+}
+
+.input-checkbox-custom:checked ~ label .option-label-explanation a:hover,
+.input-checkbox-custom ~ label .option-label-explanation a:hover {
+    color: #228be6;
+    text-decoration-color: initial;
+}
+

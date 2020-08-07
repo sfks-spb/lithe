@@ -1,0 +1,16 @@
+*.swp
+.DS_Store
+.idea
+.env.local
+vendor
+wp-dist
+*.zip
+*.log
+node_modules/
+wp-svn/
+phpdoc-data/
+ast.dump
+volumes/
+!/**/.gitkeep
+.vscode/
+tmp/
