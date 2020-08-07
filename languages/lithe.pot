@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lithe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-02 02:43+0000\n"
+"POT-Creation-Date: 2020-08-07 02:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,27 +14,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.4.0; wp-5.4.1"
-
-#. Name of the template
-msgid "Full Width Template"
-msgstr ""
-
-#: comments.php:52
-msgid "Comments are closed."
-msgstr ""
-
-#: footer.php:15
-msgid "ROO \"SFCS\""
-msgstr ""
-
-#: footer.php:16
-msgid ""
-"If this website's materials are used, a link to the website must be provided."
-msgstr ""
-
-#: footer.php:42
-msgid "Go to Top"
-msgstr ""
 
 #: functions.php:9
 msgid "Header Horizontal Menu"
@@ -80,21 +59,6 @@ msgstr ""
 msgid "AVZ logo"
 msgstr ""
 
-#: index.php:34
-msgid "General sponsors"
-msgstr ""
-
-#: index.php:39
-#, php-format
-msgid ""
-"If you're interested in featuring your brand here, please don't hesitate to "
-"reach us via the %1$s or by email %2$s."
-msgstr ""
-
-#: index.php:40
-msgid "contact form"
-msgstr ""
-
 #: searchform-mobile.php:3 searchform-mobile.php:14 searchform-mobile.php:15
 msgid "Search"
 msgstr ""
@@ -107,197 +71,224 @@ msgstr ""
 msgid "Hide search"
 msgstr ""
 
-#: classes/class-lithe-breadcrumbs.php:28
+#. Name of the template
+msgid "Full Width Template"
+msgstr ""
+
+#: index.php:37
+msgid "General sponsors"
+msgstr ""
+
+#: index.php:42
+#, php-format
+msgid ""
+"If you're interested in featuring your brand here, please don't hesitate to "
+"reach us via the %1$s or by email %2$s."
+msgstr ""
+
+#: index.php:43
+msgid "contact form"
+msgstr ""
+
+#: comments.php:52
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:15
+msgid "ROO \"SFCS\""
+msgstr ""
+
+#: footer.php:16
+msgid ""
+"If this website's materials are used, a link to the website must be provided."
+msgstr ""
+
+#: footer.php:42
+msgid "Go to Top"
+msgstr ""
+
+#: classes/class-lithe-meta-boxes.php:30
+msgid "Trainer's Profile"
+msgstr ""
+
+#: classes/class-lithe-meta-boxes.php:39
+msgid "Trainer's Timetable"
+msgstr ""
+
+#: classes/class-lithe-meta-boxes.php:49
+msgid "Dogs's Profile"
+msgstr ""
+
+#: classes/class-lithe-breadcrumbs.php:39
 msgid "Home"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:30
+#: classes/class-lithe-theme.php:94
+msgid "Athlete"
+msgstr ""
+
+#: classes/class-lithe-theme.php:124
+msgid "Read more"
+msgstr ""
+
+#: classes/class-lithe-theme.php:134
+msgid "Primary Widget Area"
+msgstr ""
+
+#: classes/class-lithe-theme.php:136
+msgid "The primary widget area"
+msgstr ""
+
+#: classes/class-lithe-theme.php:178
+msgid "Dark Blue"
+msgstr ""
+
+#: classes/class-lithe-theme.php:183
+msgid "Dark Red"
+msgstr ""
+
+#: classes/class-lithe-theme.php:188
+msgid "White"
+msgstr ""
+
+#: classes/class-lithe-theme.php:193
+msgid "Very Light Gray"
+msgstr ""
+
+#: classes/class-lithe-theme.php:198
+msgid "Light Gray"
+msgstr ""
+
+#: classes/class-lithe-theme.php:203
+msgid "Dark Gray"
+msgstr ""
+
+#: classes/class-lithe-shortcodes.php:87
+msgid "required"
+msgstr ""
+
+#: classes/class-lithe-shortcodes.php:106
+msgid "Loading..."
+msgstr ""
+
+#: classes/class-lithe-shortcodes.php:120
+msgid "Privacy"
+msgstr ""
+
+#: classes/class-lithe-shortcodes.php:121
+msgid "Terms of Service"
+msgstr ""
+
+#: classes/class-lithe-shortcodes.php:124
+msgid "Form is protected by reCAPTCHA from Google"
+msgstr ""
+
+#: classes/class-lithe-customizer.php:41
 msgctxt "Plain logo"
 msgid "Plain"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:31
+#: classes/class-lithe-customizer.php:42
 msgid "Stay At Home"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:35
+#: classes/class-lithe-customizer.php:46
 msgid "Site logo"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:48
+#: classes/class-lithe-customizer.php:63
 msgid "Infobar"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:49
+#: classes/class-lithe-customizer.php:64
 msgid "Infobar below the header on the home page."
 msgstr ""
 
-#: classes/class-lithe-customizer.php:57 template-parts/infobar-top.php:32
+#: classes/class-lithe-customizer.php:72 template-parts/infobar-top.php:32
 #: assets/js/cookieconsent-3.1.1/package.php:11
 msgid "Learn more"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:64
+#: classes/class-lithe-customizer.php:79
 msgid "FontAwesome icon name (leave empty for no icon)"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:71
+#: classes/class-lithe-customizer.php:86
 msgid "FontAwesome icon collection"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:76
+#: classes/class-lithe-customizer.php:91
 msgid "Solid"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:77
+#: classes/class-lithe-customizer.php:92
 msgid "Regular"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:78
+#: classes/class-lithe-customizer.php:93
 msgid "Brands"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:83
+#: classes/class-lithe-customizer.php:98
 msgid "Message (leave empty to hide infobar)"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:90
+#: classes/class-lithe-customizer.php:105
 msgid "Link text"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:97
+#: classes/class-lithe-customizer.php:112
 msgid "Link URL (leave empty for no button)"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:104
+#: classes/class-lithe-customizer.php:119
 msgid "Link Title"
 msgstr ""
 
-#: classes/class-lithe-customizer.php:111
+#: classes/class-lithe-customizer.php:126
 msgid "Background color"
 msgstr ""
 
-#: classes/class-lithe-meta-boxes.php:26
-msgid "Trainer's Profile"
-msgstr ""
-
-#: classes/class-lithe-meta-boxes.php:35
-msgid "Trainer's Timetable"
-msgstr ""
-
-#: classes/class-lithe-meta-boxes.php:45
-msgid "Dogs's Profile"
-msgstr ""
-
-#: classes/class-lithe-shortcodes.php:64
-msgid "required"
-msgstr ""
-
-#: classes/class-lithe-shortcodes.php:78
-msgid "Loading..."
-msgstr ""
-
-#: classes/class-lithe-shortcodes.php:87
-msgid "Privacy"
-msgstr ""
-
-#: classes/class-lithe-shortcodes.php:88
-msgid "Terms of Service"
-msgstr ""
-
-#: classes/class-lithe-shortcodes.php:91
-msgid "Form is protected by reCAPTCHA from Google"
-msgstr ""
-
-#: classes/class-lithe-theme.php:117
-msgid "Athlete"
-msgstr ""
-
-#: classes/class-lithe-theme.php:143
-msgid "Read more"
-msgstr ""
-
-#: classes/class-lithe-theme.php:151
-msgid "Primary Widget Area"
-msgstr ""
-
-#: classes/class-lithe-theme.php:153
-msgid "The primary widget area"
-msgstr ""
-
-#: classes/class-lithe-theme.php:193
-msgid "Dark Blue"
-msgstr ""
-
-#: classes/class-lithe-theme.php:198
-msgid "Dark Red"
-msgstr ""
-
-#: classes/class-lithe-theme.php:203
-msgid "White"
-msgstr ""
-
-#: classes/class-lithe-theme.php:208
-msgid "Very Light Gray"
-msgstr ""
-
-#: classes/class-lithe-theme.php:213
-msgid "Light Gray"
-msgstr ""
-
-#: classes/class-lithe-theme.php:218
-msgid "Dark Gray"
-msgstr ""
-
-#: includes/template-functions.php:8
+#: includes/template-functions.php:11
 msgctxt "At certain time"
 msgid "\\a\\t"
 msgstr ""
 
-#: includes/template-functions.php:136
+#: includes/template-functions.php:173
 msgid "Breadcrumbs"
 msgstr ""
 
-#: includes/template-functions.php:322
-msgctxt "K"
-msgid "In number format"
-msgstr ""
-
-#: includes/template-functions.php:325
+#: includes/template-functions.php:401
 #, php-format
 msgid "%s Views"
 msgstr ""
 
-#: includes/template-functions.php:334
+#: includes/template-functions.php:413
 msgid "Leave a comment"
 msgstr ""
 
-#: includes/template-functions.php:335
+#: includes/template-functions.php:414
 msgid "on"
 msgstr ""
 
-#: includes/template-functions.php:338
+#: includes/template-functions.php:417
 msgid "0 Comments"
 msgstr ""
 
-#: includes/template-functions.php:339
+#: includes/template-functions.php:418
 msgid "1 Comment"
 msgstr ""
 
-#: includes/template-functions.php:340
+#: includes/template-functions.php:419
 msgid "% Comments"
 msgstr ""
 
-#: includes/template-functions.php:342
+#: includes/template-functions.php:421
 msgid "Comments are off for this post"
 msgstr ""
 
 #: template-parts/entry-header.php:18
 msgid "Edit"
-msgstr ""
-
-#: template-parts/header-menu.php:5
-msgid "Show or hide menu"
 msgstr ""
 
 #: template-parts/related-posts.php:3
@@ -316,293 +307,293 @@ msgstr ""
 msgid "Switch to dark color scheme"
 msgstr ""
 
-#: classes/meta-boxes/class-lithe-meta-box-trainer-timetable.php:28
-msgid "Trainer timetable will be available after selecting sports and venues."
+#: template-parts/header-menu.php:5
+msgid "Show or hide menu"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-dog.php:26
-#: classes/post-types/class-lithe-post-type-dog.php:37
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:52
-msgid "Dogs"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:27
-msgid "Dog"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:28
-msgctxt "Add new dog"
-msgid "Add New"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:29
-msgid "Add New Dog"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:30
-msgid "Edit Dog"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:31
-msgid "New Dog"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:32
-msgid "All Dogs"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:33
-msgid "View Dogs"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:34
-msgid "Search Dogs"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:35
-msgid "No dogs found"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:36
-msgid "No dogs found in the Trash"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-dog.php:40
-msgid "Holds dogs and dog specific data"
-msgstr ""
-
-#: classes/post-types/class-lithe-post-type-trainer.php:26
-#: classes/post-types/class-lithe-post-type-trainer.php:37
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:36
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:81
+#: classes/post-types/class-lithe-post-type-trainer.php:32
+#: classes/post-types/class-lithe-post-type-trainer.php:43
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:102
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:42
 msgid "Trainers"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:27
+#: classes/post-types/class-lithe-post-type-trainer.php:33
 msgid "Trainer"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:28
+#: classes/post-types/class-lithe-post-type-trainer.php:34
 msgctxt "Add new trainer"
 msgid "Add New"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:29
+#: classes/post-types/class-lithe-post-type-trainer.php:35
 msgid "Add New Trainer"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:30
+#: classes/post-types/class-lithe-post-type-trainer.php:36
 msgid "Edit Trainer"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:31
+#: classes/post-types/class-lithe-post-type-trainer.php:37
 msgid "New Trainer"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:32
+#: classes/post-types/class-lithe-post-type-trainer.php:38
 msgid "All Trainers"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:33
+#: classes/post-types/class-lithe-post-type-trainer.php:39
 msgid "View Trainers"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:34
+#: classes/post-types/class-lithe-post-type-trainer.php:40
 msgid "Search Trainers"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:35
+#: classes/post-types/class-lithe-post-type-trainer.php:41
 msgid "No trainers found"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:36
+#: classes/post-types/class-lithe-post-type-trainer.php:42
 msgid "No trainers found in the Trash"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:40
+#: classes/post-types/class-lithe-post-type-trainer.php:46
 msgid "Holds trainers and trainer specific data"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:59
+#: classes/post-types/class-lithe-post-type-trainer.php:67
 #: classes/meta-boxes/views/view-trainer-profile.php:26
 msgid "Phone"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:60
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:18
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:26
+#: classes/post-types/class-lithe-post-type-trainer.php:68
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:22
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:30
 msgid "Sports"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:61
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:32
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:40
+#: classes/post-types/class-lithe-post-type-trainer.php:69
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:38
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:46
 msgid "Venues"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:82
+#: classes/post-types/class-lithe-post-type-trainer.php:95
 msgid "Unable to get list of sports"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trainer.php:93
+#: classes/post-types/class-lithe-post-type-trainer.php:106
 msgid "Unable to get list of venues"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:26
-#: classes/post-types/class-lithe-post-type-trial.php:37
+#: classes/post-types/class-lithe-post-type-trial.php:32
+#: classes/post-types/class-lithe-post-type-trial.php:43
 msgid "Trials"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:27
+#: classes/post-types/class-lithe-post-type-trial.php:33
 msgid "Trial"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:28
+#: classes/post-types/class-lithe-post-type-trial.php:34
 msgctxt "Add new trial"
 msgid "Add New"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:29
+#: classes/post-types/class-lithe-post-type-trial.php:35
 msgid "Add New Trial"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:30
+#: classes/post-types/class-lithe-post-type-trial.php:36
 msgid "Edit Trial"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:31
+#: classes/post-types/class-lithe-post-type-trial.php:37
 msgid "New Trial"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:32
+#: classes/post-types/class-lithe-post-type-trial.php:38
 msgid "All Trials"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:33
+#: classes/post-types/class-lithe-post-type-trial.php:39
 msgid "View Trials"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:34
+#: classes/post-types/class-lithe-post-type-trial.php:40
 msgid "Search Trials"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:35
+#: classes/post-types/class-lithe-post-type-trial.php:41
 msgid "No trials found"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:36
+#: classes/post-types/class-lithe-post-type-trial.php:42
 msgid "No trials found in the Trash"
 msgstr ""
 
-#: classes/post-types/class-lithe-post-type-trial.php:40
+#: classes/post-types/class-lithe-post-type-trial.php:46
 msgid "Holds trials and tracks specific data"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:27
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:35
-msgid "Breeds"
+#: classes/post-types/class-lithe-post-type-dog.php:32
+#: classes/post-types/class-lithe-post-type-dog.php:43
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:60
+msgid "Dogs"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:28
-#: classes/meta-boxes/views/view-dog-profile.php:32
-msgid "Breed"
+#: classes/post-types/class-lithe-post-type-dog.php:33
+msgid "Dog"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:29
-msgid "Search Breeds"
+#: classes/post-types/class-lithe-post-type-dog.php:34
+msgctxt "Add new dog"
+msgid "Add New"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:30
-msgid "All Breeds"
+#: classes/post-types/class-lithe-post-type-dog.php:35
+msgid "Add New Dog"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:31
-msgid "Edit Breed"
+#: classes/post-types/class-lithe-post-type-dog.php:36
+msgid "Edit Dog"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:32
-msgid "Update Breed"
+#: classes/post-types/class-lithe-post-type-dog.php:37
+msgid "New Dog"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:33
-msgid "Add New Breed"
+#: classes/post-types/class-lithe-post-type-dog.php:38
+msgid "All Dogs"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:34
-msgid "New Breed"
+#: classes/post-types/class-lithe-post-type-dog.php:39
+msgid "View Dogs"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:19
-#: classes/meta-boxes/views/view-trainer-timetable.php:12
-msgid "Sport"
+#: classes/post-types/class-lithe-post-type-dog.php:40
+msgid "Search Dogs"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:20
-msgid "Search Sports"
+#: classes/post-types/class-lithe-post-type-dog.php:41
+msgid "No dogs found"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:21
-msgid "All Sports"
+#: classes/post-types/class-lithe-post-type-dog.php:42
+msgid "No dogs found in the Trash"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:22
-msgid "Edit Sport"
+#: classes/post-types/class-lithe-post-type-dog.php:46
+msgid "Holds dogs and dog specific data"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:23
-msgid "Update Sport"
-msgstr ""
-
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:24
-msgid "Add New Sport"
-msgstr ""
-
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:25
-msgid "New Sport"
-msgstr ""
-
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:33
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:39
 #: classes/meta-boxes/views/view-trainer-timetable.php:7
 msgid "Venue"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:34
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:40
 msgid "Search Venues"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:35
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:41
 msgid "All Venues"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:36
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:42
 msgid "Edit Venue"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:37
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:43
 msgid "Update Venue"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:38
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:44
 msgid "Add New Venue"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:39
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:45
 msgid "New Venue"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:79
-#: classes/taxonomies/views/view-venue-add-form-fields.php:15
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:100
 #: classes/taxonomies/views/view-venue-edit-form-fields.php:17
+#: classes/taxonomies/views/view-venue-add-form-fields.php:15
 msgid "Address"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:80
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:101
 #: classes/taxonomies/views/view-venue-edit-form-fields.php:4
 msgid "Website"
 msgstr ""
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:100
+#: classes/taxonomies/class-lithe-taxonomy-venue.php:127
 msgid "(link)"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:23
+#: classes/meta-boxes/views/view-trainer-timetable.php:12
+msgid "Sport"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:24
+msgid "Search Sports"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:25
+msgid "All Sports"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:26
+msgid "Edit Sport"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:27
+msgid "Update Sport"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:28
+msgid "Add New Sport"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-sport.php:29
+msgid "New Sport"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:33
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:41
+msgid "Breeds"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:34
+#: classes/meta-boxes/views/view-dog-profile.php:32
+msgid "Breed"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:35
+msgid "Search Breeds"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:36
+msgid "All Breeds"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:37
+msgid "Edit Breed"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:38
+msgid "Update Breed"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:39
+msgid "Add New Breed"
+msgstr ""
+
+#: classes/taxonomies/class-lithe-taxonomy-breed.php:40
+msgid "New Breed"
 msgstr ""
 
 #: classes/widgets/class-lithe-widget-weather.php:84
@@ -617,19 +608,159 @@ msgstr ""
 msgid "Missing widget id"
 msgstr ""
 
-#: classes/widgets/class-lithe-widget-weather.php:169
-#: classes/widgets/class-lithe-widget-weather.php:181
+#: classes/widgets/class-lithe-widget-weather.php:173
+#: classes/widgets/class-lithe-widget-weather.php:190
 msgid "New Weather Widget"
 msgstr ""
 
-#: assets/js/cookieconsent-3.1.1/package.php:9
-msgid ""
-"This site uses cookies to improve your experience. By continuing to browse "
-"you are agreeing to our use of cookies."
+#: classes/meta-boxes/class-lithe-meta-box-trainer-timetable.php:36
+msgid "Trainer timetable will be available after selecting sports and venues."
 msgstr ""
 
-#: assets/js/cookieconsent-3.1.1/package.php:10
-msgid "Dismiss"
+#: classes/taxonomies/views/view-venue-edit-form-fields.php:9
+#: classes/taxonomies/views/view-venue-add-form-fields.php:8
+msgid "Venue's website or social network link."
+msgstr ""
+
+#: classes/taxonomies/views/view-venue-edit-form-fields.php:22
+#: classes/taxonomies/views/view-venue-add-form-fields.php:19
+msgid "Venue's physical address."
+msgstr ""
+
+#: classes/taxonomies/views/view-venue-edit-form-fields.php:30
+#: classes/taxonomies/views/view-venue-add-form-fields.php:26
+msgid "Coordinates"
+msgstr ""
+
+#: classes/taxonomies/views/view-venue-edit-form-fields.php:35
+#: classes/taxonomies/views/view-venue-add-form-fields.php:30
+msgid "Venue's coordinates."
+msgstr ""
+
+#: classes/taxonomies/views/view-venue-edit-form-fields.php:41
+#: classes/taxonomies/views/view-venue-add-form-fields.php:34
+msgid "Weather Widget"
+msgstr ""
+
+#: classes/taxonomies/views/view-venue-edit-form-fields.php:47
+#: classes/taxonomies/views/view-venue-add-form-fields.php:39
+msgid "Location ID"
+msgstr ""
+
+#: classes/taxonomies/views/view-venue-edit-form-fields.php:52
+#: classes/taxonomies/views/view-venue-add-form-fields.php:43
+msgid "Venue's location ID for the weather widget."
+msgstr ""
+
+#: classes/taxonomies/views/view-venue-edit-form-fields.php:60
+#: classes/taxonomies/views/view-venue-add-form-fields.php:50
+msgid "Position"
+msgstr ""
+
+#: classes/taxonomies/views/view-venue-edit-form-fields.php:65
+#: classes/taxonomies/views/view-venue-add-form-fields.php:54
+msgid "Venue's position in the weather widget. Lower numbers go first."
+msgstr ""
+
+#: classes/taxonomies/views/view-venue-add-form-fields.php:4
+msgid "Link"
+msgstr ""
+
+#: classes/widgets/views/view-weather-forecast.php:25
+msgid "km/h"
+msgstr ""
+
+#: classes/widgets/views/view-weather-forecast.php:37
+msgid "Updated:"
+msgstr ""
+
+#: classes/widgets/views/view-weather-form.php:3
+msgid "Title:"
+msgstr ""
+
+#: classes/widgets/views/view-weather-form.php:10
+msgid "API Key (from developer.accuweather.com):"
+msgstr ""
+
+#: classes/widgets/views/view-weather-form.php:17
+msgid "Update Interval:"
+msgstr ""
+
+#: classes/widgets/views/view-weather-form.php:19
+msgid "3 hours"
+msgstr ""
+
+#: classes/widgets/views/view-weather-form.php:20
+msgid "6 hours"
+msgstr ""
+
+#: classes/widgets/views/view-weather-form.php:21
+msgid "12 hours"
+msgstr ""
+
+#: classes/widgets/views/view-weather-footer.php:3
+#, php-format
+msgid "Weather data provided by %s"
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:2
+msgid "First Name"
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:4
+msgid "Trainer's first name."
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:8
+msgid "Middle Name"
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:10
+msgid "Trainer's middle name."
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:14
+msgid "Last Name"
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:16
+msgid "Trainer's last name."
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:20
+msgid "Organization"
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:22
+msgid "Organization that trainer is a part of."
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:28
+msgid "Trainer's contact phone."
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:32
+msgid "E-Mail"
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:34
+msgid "Trainer's contact e-mail."
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:38
+msgid "Social Network"
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-profile.php:40
+msgid "Link to trainer's social network profile."
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-timetable.php:2
+msgid "Trainer's schedule on different venues."
+msgstr ""
+
+#: classes/meta-boxes/views/view-trainer-timetable.php:13
+msgid "Timetable"
 msgstr ""
 
 #: classes/meta-boxes/views/view-dog-profile.php:2
@@ -716,150 +847,14 @@ msgstr ""
 msgid "Dog's height (in cm)."
 msgstr ""
 
-#: classes/meta-boxes/views/view-trainer-profile.php:2
-msgid "First Name"
+#: assets/js/cookieconsent-3.1.1/package.php:9
+msgid ""
+"This site uses cookies to improve your experience. By continuing to browse "
+"you are agreeing to our use of cookies."
 msgstr ""
 
-#: classes/meta-boxes/views/view-trainer-profile.php:4
-msgid "Trainer's first name."
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:8
-msgid "Middle Name"
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:10
-msgid "Trainer's middle name."
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:14
-msgid "Last Name"
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:16
-msgid "Trainer's last name."
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:20
-msgid "Organization"
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:22
-msgid "Organization that trainer is a part of."
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:28
-msgid "Trainer's contact phone."
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:32
-msgid "E-Mail"
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:34
-msgid "Trainer's contact e-mail."
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:38
-msgid "Social Network"
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-profile.php:40
-msgid "Link to trainer's social network profile."
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-timetable.php:2
-msgid "Trainer's schedule on different venues."
-msgstr ""
-
-#: classes/meta-boxes/views/view-trainer-timetable.php:13
-msgid "Timetable"
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:4
-msgid "Link"
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:8
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:9
-msgid "Venue's website or social network link."
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:19
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:22
-msgid "Venue's physical address."
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:26
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:30
-msgid "Coordinates"
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:30
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:35
-msgid "Venue's coordinates."
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:34
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:41
-msgid "Weather Widget"
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:39
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:47
-msgid "Location ID"
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:43
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:52
-msgid "Venue's location ID for the weather widget."
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:50
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:60
-msgid "Position"
-msgstr ""
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:54
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:65
-msgid "Venue's position in the weather widget. Lower numbers go first."
-msgstr ""
-
-#: classes/widgets/views/view-weather-footer.php:3
-#, php-format
-msgid "Weather data provided by %s"
-msgstr ""
-
-#: classes/widgets/views/view-weather-forecast.php:25
-msgid "km/h"
-msgstr ""
-
-#: classes/widgets/views/view-weather-forecast.php:37
-msgid "Updated:"
-msgstr ""
-
-#: classes/widgets/views/view-weather-form.php:3
-msgid "Title:"
-msgstr ""
-
-#: classes/widgets/views/view-weather-form.php:10
-msgid "API Key (from developer.accuweather.com):"
-msgstr ""
-
-#: classes/widgets/views/view-weather-form.php:17
-msgid "Update Interval:"
-msgstr ""
-
-#: classes/widgets/views/view-weather-form.php:19
-msgid "3 hours"
-msgstr ""
-
-#: classes/widgets/views/view-weather-form.php:20
-msgid "6 hours"
-msgstr ""
-
-#: classes/widgets/views/view-weather-form.php:21
-msgid "12 hours"
+#: assets/js/cookieconsent-3.1.1/package.php:10
+msgid "Dismiss"
 msgstr ""
 
 #. Name of the theme
