@@ -1,4 +1,7 @@
 <?php
+$archive_title = false;
+$archive_subtitle = false;
+
 get_header();
 ?>
 

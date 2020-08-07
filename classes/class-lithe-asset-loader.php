@@ -78,9 +78,9 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
 
                 $name_parts = explode( '@', $package, 2 );
                 $name = $name_parts[0];
-                $version = isset( $name_parts[1] ) ? $name_parts[1] : null;
+                $version = ( isset( $name_parts[1] ) ) ? $name_parts[1] : null;
 
-                $manifest_directory = ( null === $version ) ? $name . '-' . $version : $name;
+                $manifest_directory = ( null === $version ) ? $name : $name . '-' . $version;
                 $manifest_file = get_theme_file_path( $this->assets_directory . $manifest_directory ) . '/package.php';
 
                 if ( ! is_file( $manifest_file ) ) {
