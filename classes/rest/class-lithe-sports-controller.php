@@ -7,11 +7,11 @@ if ( ! class_exists('Lithe_Sports_Controller') ) {
         /**
          * Gets sports
          *
-         * @param  WP_Request $request
+         * @param  WP_REST_Request $request
          *
          * @return WP_REST_Response|WP_Error
          */
-        public function get_sports( WP_Request $request ) {
+        public function get_sports( WP_REST_Request $request ) {
 
             $sports = get_terms( array(
                 'taxonomy'   => 'sport',

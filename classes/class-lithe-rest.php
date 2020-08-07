@@ -25,6 +25,18 @@ if ( ! class_exists('Lithe_Rest') ) {
          */
         public function __construct() {
             $this->includes();
+            add_action( 'rest_api_init', array( $this, 'register_routes' ) );
+        }
+
+        /**
+         * Registers routes
+         *
+         * @return void
+         */
+        public function register_routes(): void {
+            $route = $this;
+
+            include_once get_template_directory() . '/classes/rest/routes.php';
         }
 
         /**
@@ -143,15 +155,10 @@ if ( ! class_exists('Lithe_Rest') ) {
         protected function includes(): void {
             $template_directory = get_template_directory();
 
-            // controllers
             include_once $template_directory . '/classes/rest/class-lithe-post-views-controller.php';
             include_once $template_directory . '/classes/rest/class-lithe-sports-controller.php';
             include_once $template_directory . '/classes/rest/class-lithe-trainers-controller.php';
             include_once $template_directory . '/classes/rest/class-lithe-venues-controller.php';
-
-            // routes ($this is renamed to route for clarity)
-            $route = $this;
-            include_once $template_directory . '/classes/rest/routes.php';
         }
 
     }

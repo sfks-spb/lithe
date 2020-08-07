@@ -7,11 +7,11 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
         /**
          * Gets post views
          *
-         * @param  WP_Request $request
+         * @param  WP_REST_Request $request
          *
          * @return WP_REST_Response|WP_Error
          */
-        public function get_views( WP_Request $request ) {
+        public function get_views( WP_REST_Request $request ) {
             $post_ID = $request['id'];
 
             $data = array();
@@ -32,11 +32,11 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
         /**
          * Sets post views
          *
-         * @param  WP_Request $request
+         * @param  WP_REST_Request $request
          *
          * @return WP_REST_Response|WP_Error
          */
-        public function set_views( WP_Request $request ) {
+        public function set_views( WP_REST_Request $request ) {
             $post_ID = $request['id'];
 
             $data = array();

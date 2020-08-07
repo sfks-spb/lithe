@@ -7,11 +7,11 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         /**
          * Gets venue by id
          *
-         * @param  WP_Request $request
+         * @param  WP_REST_Request $request
          *
          * @return WP_REST_Response|WP_Error
          */
-        public function get_venue( WP_Request $request ) {
+        public function get_venue( WP_REST_Request $request ) {
 
             $venue_ID = $request['id'];
 
@@ -36,11 +36,11 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         /**
          * Gets venues by sport id
          *
-         * @param  WP_Request $request
+         * @param  WP_REST_Request $request
          *
          * @return WP_REST_Response|WP_Error
          */
-        public function get_venues( WP_Request $request ) {
+        public function get_venues( WP_REST_Request $request ) {
 
             $sport_ID = $request['sport_id'];
 
