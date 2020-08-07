@@ -13,15 +13,15 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
          */
         public function get_venue( WP_REST_Request $request ) {
 
-            $venue_ID = $request['id'];
+            $venue_id = $request['id'];
 
             $data = array();
 
-            if ( ! $venue_ID ) {
+            if ( ! $venue_id ) {
                 return rest_ensure_response( $data );
             }
 
-            $venue = get_term( $venue_ID, 'venue' );
+            $venue = get_term( $venue_id, 'venue' );
 
             if ( empty( $venue ) ) {
                 return rest_ensure_response( $data );
@@ -68,12 +68,12 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         /**
          * Filters venues by sport id
          *
-         * @param  array &$venue
-         * @param  int    $sport_ID
+         * @param  array   &$venue
+         * @param  int|null $sport_ID
          *
          * @return bool
          */
-        protected function filter_venues( array &$venue, int $sport_id ): bool {
+        protected function filter_venues( array &$venue, ?int $sport_id ): bool {
             $trainers = $this->get_trainers_for_venue( $venue, $sport_id );
 
             return ( ! empty( $trainers ) ) ? true : false;
@@ -82,12 +82,12 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         /**
          * Filters venues by sport id and includes trainers
          *
-         * @param  array &$venue
-         * @param  int    $sport_ID
+         * @param  array    &$venue
+         * @param  int|null  $sport_id
          *
          * @return bool
          */
-        protected function filter_venues_and_include_trainers( array &$venue, int $sport_id ): bool {
+        protected function filter_venues_and_include_trainers( array &$venue, ?int $sport_id ): bool {
 
             $trainers = $this->get_trainers_for_venue( $venue, $sport_id );
 
@@ -103,12 +103,12 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         /**
          * Gets trainer list for current venue
          *
-         * @param  array $venue
-         * @param  int   $sport_id
+         * @param  array    $venue
+         * @param  int|null $sport_id
          *
          * @return array
          */
-        protected function get_trainers_for_venue( array $venue, int $sport_id ): array {
+        protected function get_trainers_for_venue( array $venue, ?int $sport_id ): array {
             return get_posts( array(
                 'post_type'  => 'trainer',
                 'meta_key'   => 'sports_' . $venue['id'],
@@ -119,13 +119,13 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         /**
          * Gets trainer data from post object
          *
-         * @param  WP_Post $trainer
-         * @param  int     $venue_id
-         * @param  int     $sport_id
+         * @param  WP_Post  $trainer
+         * @param  int      $venue_id
+         * @param  int|null $sport_id
          *
          * @return array
          */
-        protected function get_trainer_data( WP_Post $trainer, int $venue_id, int $sport_id ): array {
+        protected function get_trainer_data( WP_Post $trainer, int $venue_id, ?int $sport_id ): array {
 
             static $meta_fields = array(
                 'first_name',
