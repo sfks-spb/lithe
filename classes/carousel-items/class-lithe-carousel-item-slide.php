@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
     class Lithe_Carousel_Item_Slide extends Lithe_Carousel_Item {
 
         /**
-         * Contains list of default attributes
+         * Contains list of default attributes.
          *
          * @var array
          */
@@ -18,9 +18,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
         );
 
         /**
-         * Constructs new lithe carousel slide instance
+         * Constructs new lithe carousel slide instance.
          *
-         * @param  array $atts
+         * @param  array $atts Carousel slide instance attributes.
          *
          * @return void
          */
@@ -38,7 +38,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
         }
 
         /**
-         * Gets item content
+         * Gets item content.
          *
          * @return string
          */
@@ -63,9 +63,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
         }
 
         /**
-         * Adds slide button html
+         * Adds slide button html.
          *
-         * @param  string &$html
+         * @param  string &$html The content to add slide button to.
          *
          * @return void
          */
@@ -75,9 +75,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
         }
 
         /**
-         * Adds slide text html
+         * Adds slide text html.
          *
-         * @param  string &$html
+         * @param  string &$html The content to add slide text to.
          *
          * @return void
          */
@@ -87,9 +87,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Slide' ) ) {
         }
 
         /**
-         * Adds slide title html
+         * Adds slide title html.
          *
-         * @param  string &$html
+         * @param  string &$html The content to add slide title to.
          *
          * @return void
          */

@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Social_Menu' ) ) {
     class Lithe_Social_Menu {
 
         /**
-         * Maps urls to icon names
+         * Contains map of urls and icon names.
          *
          * @var array
          */
@@ -20,7 +20,7 @@ if ( ! class_exists( 'Lithe_Social_Menu' ) ) {
         );
 
         /**
-         * Constructs new lithe social menu
+         * Constructs new lithe social menu.
          *
          * @return void
          */
@@ -29,12 +29,12 @@ if ( ! class_exists( 'Lithe_Social_Menu' ) ) {
         }
 
         /**
-         * Replaces social menu link text with icons
+         * Replaces social menu link text with icons.
          *
-         * @param  string   $item_output
-         * @param  WP_Post  $item
-         * @param  int      $depth
-         * @param  stdClass $args
+         * @param  string   $item_output The menu item's starting HTML output.
+         * @param  WP_Post  $item Menu item data object.
+         * @param  int      $depth Depth of menu item. Used for padding.
+         * @param  stdClass $args An object of wp_nav_menu() arguments.
          *
          * @return string
          */

@@ -5,14 +5,14 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
     class Lithe_WPCF7 {
 
         /**
-         * Contains list of captured forms
+         * Contains list of captured forms.
          *
          * @var array
          */
         protected $forms = array();
 
         /**
-         * Constructs new lithe wpcf7 instance
+         * Constructs new lithe wpcf7 instance.
          *
          * @return void
          */
@@ -24,9 +24,9 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
         }
 
         /**
-         * Stores current form config
+         * Stores current form config.
          *
-         * @param  string $url
+         * @param  string $url Current WPCF7 form action url.
          * @return string
          */
         public function save_current_form_config( $url ) {
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
         }
 
         /**
-         * Adds JS object, that contains form data
+         * Adds JS object, that contains form data.
          *
          * @return void
          */
@@ -68,9 +68,9 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
         }
 
         /**
-         * Handles shortcodes in forms
+         * Handles shortcodes in forms.
          *
-         * @param  string $form - form body
+         * @param  string $form Current WPCF7 form body.
          *
          * @return string
          */
@@ -79,10 +79,10 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
         }
 
         /**
-         * Adds FontAwesome icon to form responses
+         * Adds FontAwesome icon to form responses.
          *
-         * @param  string $message - message body
-         * @param  string $status - status string
+         * @param  string $message Message content.
+         * @param  string $status Status string.
          *
          * @return string
          */
@@ -103,9 +103,9 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
         }
 
         /**
-         * Constructs unit tag array from action url
+         * Constructs unit tag array from action url.
          *
-         * @param  string $url
+         * @param  string $url WPCF7 action url.
          *
          * @return array
          */

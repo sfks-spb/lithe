@@ -5,14 +5,14 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
     class Lithe_Taxonomy_Sport extends Lithe_Taxonomy {
 
         /**
-         * Contains taxonomy handle
+         * Contains taxonomy handle.
          *
          * @var string
          */
         protected $handle = 'sport';
 
         /**
-         * Registers taxonomy
+         * Registers taxonomy.
          *
          * @return void
          */
@@ -33,7 +33,7 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
         }
 
         /**
-         * Gets list of columns
+         * Gets list of columns.
          *
          * @return array
          */
@@ -44,9 +44,9 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
         }
 
         /**
-         * Outputs new taxonomy item form html
+         * Outputs new taxonomy item form HTML.
          *
-         * @param  WP_Term $term
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
@@ -55,9 +55,9 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
         }
 
         /**
-         * Outputs edit taxonomy item form html
+         * Outputs edit taxonomy item form HTML.
          *
-         * @param  WP_Term $term
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
@@ -66,10 +66,10 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
         }
 
         /**
-         * Handles taxonomy item save
+         * Handles taxonomy item save.
          *
-         * @param  int     $term_id
-         * @param  WP_Term $term
+         * @param  int     $term_id Current term id.
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */

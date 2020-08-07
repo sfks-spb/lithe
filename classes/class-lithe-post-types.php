@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
     class Lithe_Post_Types {
 
         /**
-         * Contains list of custom post type classnames
+         * Contains list of custom post type classnames.
          *
          * @var array
          */
@@ -16,7 +16,7 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
         );
 
         /**
-         * Constructs new lithe post types instance
+         * Constructs new lithe post types instance.
          *
          * @return void
          */
@@ -27,7 +27,7 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
         }
 
         /**
-         * Registers custom post types
+         * Registers custom post types.
          *
          * @return void
          */
@@ -38,7 +38,7 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
         }
 
         /**
-         * Includes dependencies
+         * Includes dependencies.
          *
          * @return void
          */

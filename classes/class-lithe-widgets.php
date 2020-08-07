@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
     class Lithe_Widgets {
 
         /**
-         * Contains list of widget classnames
+         * Contains list of widget classnames.
          *
          * @var array
          */
@@ -14,7 +14,7 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
         );
 
         /**
-         * Constructs new lithe widget manager instance
+         * Constructs new lithe widget manager instance.
          *
          * @return void
          */
@@ -24,7 +24,7 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
         }
 
         /**
-         * Registers widgets
+         * Registers widgets.
          *
          * @return void
          */
@@ -35,7 +35,7 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
         }
 
         /**
-         * Includes dependencies
+         * Includes dependencies.
          *
          * @return void
          */

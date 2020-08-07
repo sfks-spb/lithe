@@ -5,14 +5,14 @@ if ( ! class_exists( 'Lithe_Post_Type_Dog' ) ) {
     class Lithe_Post_Type_Dog extends Lithe_Post_Type {
 
         /**
-         * Contains custom post type handle
+         * Contains custom post type handle.
          *
          * @var string
          */
         protected $handle = 'dog';
 
         /**
-         * Contains custom post type capabilities
+         * Contains custom post type capabilities.
          *
          * @var array
          */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Dog' ) ) {
         );
 
         /**
-         * Registers custom post type
+         * Registers custom post type.
          *
          * @return void
          */

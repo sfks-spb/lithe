@@ -3,10 +3,10 @@
 if ( ! function_exists( 'lithe_register_carousel' ) ) {
 
     /**
-     * Registers lithe carousel
+     * Registers lithe carousel.
      *
-     * @param  string $handle
-     * @param  array  $items
+     * @param  string $handle Carousel handle.
+     * @param  array  $items List of carousel items.
      *
      * @return void
      */
@@ -18,11 +18,11 @@ if ( ! function_exists( 'lithe_register_carousel' ) ) {
 if ( ! function_exists( 'lithe_carousel' ) ) {
 
     /**
-     * Outputs lithe carousel
+     * Outputs lithe carousel.
      *
-     * @param  string $handle
-     * @param  string $order
-     * @param  array  $classes
+     * @param  string $handle Carousel handle.
+     * @param  string $order Order of items. (normal or shuffled)
+     * @param  array  $classes Carousel CSS classes.
      *
      * @return void
      */
@@ -35,9 +35,9 @@ if ( ! function_exists( 'lithe_carousel' ) ) {
 if ( ! function_exists( 'lithe_has_carousel' ) ) {
 
     /**
-     * Check if carousel exists
+     * Check if carousel exists.
      *
-     * @param  string $handle
+     * @param  string $handle Carousel handle.
      *
      * @return bool
      */
@@ -50,9 +50,9 @@ if ( ! function_exists( 'lithe_has_carousel' ) ) {
 if ( ! function_exists( 'lithe_carousel_photo' ) ) {
 
     /**
-     * Creates new carousel photo
+     * Creates new carousel photo.
      *
-     * @param  array $atts
+     * @param  array $atts Carousel photo attributes.
      *
      * @return Lithe_Carousel_Item_Photo
      */
@@ -65,9 +65,9 @@ if ( ! function_exists( 'lithe_carousel_photo' ) ) {
 if ( ! function_exists( 'lithe_carousel_link' ) ) {
 
     /**
-     * Creates new carousel link
+     * Creates new carousel link.
      *
-     * @param  array $atts
+     * @param  array $atts Carousel link attributes.
      *
      * @return Lithe_Carousel_Item_Link
      */
@@ -79,9 +79,9 @@ if ( ! function_exists( 'lithe_carousel_link' ) ) {
 if ( ! function_exists( 'lithe_carousel_slide' ) ) {
 
     /**
-     * Creates new carousel slide
+     * Creates new carousel slide.
      *
-     * @param  array $atts
+     * @param  array $atts Carousel slide attributes.
      *
      * @return Lithe_Carousel_Item_Slide
      */

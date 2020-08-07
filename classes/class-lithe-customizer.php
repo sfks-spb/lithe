@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
     class Lithe_Customizer {
 
         /**
-         * Constructs new lithe customizer instance
+         * Constructs new lithe customizer instance.
          *
          * @return void
          */
@@ -14,9 +14,9 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
         }
 
         /**
-         * Registers customizer controls
+         * Registers customizer controls.
          *
-         * @param  WP_Customize_Manager $wp_customize
+         * @param  WP_Customize_Manager $wp_customize WordPress customize manager instance.
          *
          * @return void
          */
@@ -26,9 +26,9 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
         }
 
         /**
-         * Adds site logo control
+         * Adds site logo control.
          *
-         * @param  WP_Customize_Manager $wp_customize
+         * @param  WP_Customize_Manager $wp_customize WordPress customize manager instance.
          *
          * @return void
          */
@@ -52,9 +52,9 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
         }
 
         /**
-         * Adds infobar section and controls
+         * Adds infobar section and controls.
          *
-         * @param  WP_Customize_Manager $wp_customize
+         * @param  WP_Customize_Manager $wp_customize WordPress customize manager instance.
          *
          * @return void
          */
@@ -130,10 +130,10 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
         }
 
         /**
-         * Adds customizer settings
+         * Adds customizer settings.
          *
-         * @param  WP_Customize_Manager $wp_customize
-         * @param  array        $settings
+         * @param  WP_Customize_Manager $wp_customize WordPress customize manager instance.
+         * @param  array                $settings List of settings.
          *
          * @return void
          */

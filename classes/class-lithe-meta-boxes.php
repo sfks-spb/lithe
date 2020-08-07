@@ -5,7 +5,7 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
     class Lithe_Meta_Boxes {
 
         /**
-         * Constructs new lithe meta boxes instance
+         * Constructs new lithe meta boxes instance.
          *
          * @return void
          */
@@ -18,7 +18,7 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
         }
 
         /**
-         * Adds meta boxes to WP
+         * Adds meta boxes to WordPress.
          *
          * @return void
          */
@@ -65,10 +65,10 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
         }
 
         /**
-         * Handles meta box save
+         * Handles meta box save.
          *
-         * @param  int     $post_id
-         * @param  WP_Post $post
+         * @param  int     $post_id Current post id.
+         * @param  WP_Post $post Current post instance.
          *
          * @return void
          */
@@ -91,7 +91,7 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
         }
 
         /**
-         * Includes dependencies
+         * Includes dependencies.
          *
          * @return void
          */

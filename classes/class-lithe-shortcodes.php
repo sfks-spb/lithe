@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
     class Lithe_Shortcodes {
 
         /**
-         * Constructs new lithe shortcodes instance
+         * Constructs new lithe shortcodes instance.
          *
          * @return void
          */
@@ -21,9 +21,9 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
-         * Registers shortcodes
+         * Registers shortcodes.
          *
-         * @param  array $shortcodes
+         * @param  array $shortcodes List of shortcode handlers.
          *
          * @return Lithe_Shortcodes
          */
@@ -40,10 +40,10 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
-         * Adds antispam shortcode
+         * Adds antispam shortcode.
          *
-         * @param  array       $atts
-         * @param  string|null $content
+         * @param  array       $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null $content Shortcode content.
          *
          * @return string
          */
@@ -64,10 +64,10 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
-         * Adds tl;dr shortcode
+         * Adds tl;dr shortcode.
          *
-         * @param  string|array $atts
-         * @param  string|null  $content
+         * @param  array       $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null $content Shortcode content.
          *
          * @return string
          */
@@ -76,10 +76,10 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
-         * Adds required field shortcode
+         * Adds required field shortcode.
          *
-         * @param  string|array $atts
-         * @param  string|null  $content
+         * @param  array       $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null $content Shortcode content.
          *
          * @return string
          */
@@ -89,10 +89,10 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
-         * Adds spinner element shortcode
+         * Adds spinner element shortcode.
          *
-         * @param  string|array $atts
-         * @param  string|null  $content
+         * @param  array       $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null $content Shortcode content.
          *
          * @return string
          */
@@ -108,10 +108,10 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
-         * Adds recaptcha disclaimer shortcode
+         * Adds recaptcha disclaimer shortcode.
          *
-         * @param  string|array $atts
-         * @param  string|null  $content
+         * @param  array       $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null $content Shortcode content.
          *
          * @return string
          */
@@ -133,10 +133,10 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
-         * Adds shortcode for time-based availability of content
+         * Adds shortcode for time-based availability of content.
          *
-         * @param  string|array $atts
-         * @param  string|null  $content
+         * @param  array       $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null $content Shortcode content.
          *
          * @return string|null
          */

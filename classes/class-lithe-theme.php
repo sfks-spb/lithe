@@ -5,49 +5,56 @@ if ( ! class_exists('Lithe_Theme') ) {
     class Lithe_Theme {
 
         /**
-         * Version of user roles
+         * Contains version of user roles.
          *
          * @var int
          */
         const ROLES_VERSIONS = 3;
 
         /**
-         * Singleton instance
+         * Contains the singleton instance.
          *
          * @var Lithe_Theme
          */
         public static $instance = null;
 
         /**
-         * Lithe asset loader instance
+         * Contains asset loader instance.
          *
          * @var Lithe_Asset_Loader
          */
         public $assets;
 
         /**
-         * Lithe shortcode manager instance
+         * Contains shortcode manager instance.
          *
          * @var Lithe_Shortcodes
          */
         public $shortcodes;
 
         /**
-         * Lithe carousel manager instance
+         * Contains carousel manager instance.
          *
          * @var Lithe_Carousel
          */
         public $carousel;
 
         /**
-         * Theme version
+         * Contains REST manager instance.
+         *
+         * @var Lithe_Rest
+         */
+        public $rest;
+
+        /**
+         * Contains theme version.
          *
          * @var string
          */
         public $version;
 
         /**
-         * Gets singleton instance
+         * Gets singleton instance.
          *
          * @return Lithe_Theme
          */
@@ -60,7 +67,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Constructs new lithe theme instance
+         * Constructs new lithe theme instance.
          *
          * @return void
          */
@@ -84,7 +91,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Registers bundled FontAwesome preferences
+         * Registers bundled FontAwesome preferences.
          *
          * @return void
          */
@@ -102,7 +109,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Maybe deactivates FontAwesome
+         * Maybe deactivates FontAwesome.
          *
          * @return void
          */
@@ -112,7 +119,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Adds user roles
+         * Adds user roles.
          *
          * @return void
          */
@@ -138,7 +145,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Removes user roles
+         * Removes user roles.
          *
          * @return void
          */
@@ -148,7 +155,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Modifies read more link
+         * Modifies read more link.
          *
          * @return string
          */
@@ -157,7 +164,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Registers widget areas
+         * Registers widget areas.
          *
          * @return void
          */
@@ -174,16 +181,20 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
+         * Registers menus.
          *
+         * @param  array $menus List of menus.
+         *
+         * @return void
          */
-        public function register_menus( array $menus ) {
+        public function register_menus( array $menus ): void {
             foreach ( $menus as $location => $description ) {
                 register_nav_menu( $location, $description);
             }
         }
 
         /**
-         * Setups theme
+         * Setups theme.
          *
          * @return void
          */
@@ -261,9 +272,10 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Gets classes directory
+         * Gets path to file in classes directory.
          *
-         * @param  string $path - relative path
+         * @param  string $path Relative path to file inside classes directory.
+         *
          * @return string
          */
         public function get_classes_directory_path( ?string $path ): string {
@@ -277,7 +289,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Renders content for infinite scroll
+         * Renders content for infinite scroll.
          *
          * @return void
          */
@@ -289,7 +301,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Registers scripts
+         * Registers scripts.
          *
          * @return void
          */
@@ -312,7 +324,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Registers styles
+         * Registers styles.
          *
          * @return void
          */
@@ -326,7 +338,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         }
 
         /**
-         * Includes dependencies
+         * Includes dependencies.
          *
          * @return void
          */

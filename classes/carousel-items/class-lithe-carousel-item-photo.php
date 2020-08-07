@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
     class Lithe_Carousel_Item_Photo extends Lithe_Carousel_Item {
 
         /**
-         * Contains list of default attributes
+         * Contains list of default attributes.
          *
          * @var array
          */
@@ -18,9 +18,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
         );
 
         /**
-         * Constructs new lithe carousel photo instance
+         * Constructs new lithe carousel photo instance.
          *
-         * @param  array $atts
+         * @param  array $atts Carousel photo instance attributes.
          *
          * @return void
          */
@@ -40,7 +40,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
         }
 
         /**
-         * Gets item content
+         * Gets item content.
          *
          * @return string
          */
@@ -61,7 +61,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
         }
 
         /**
+         * Appends title card, that cointains author name and description.
          *
+         * @param  string &$html The content to append title card to.
          */
         protected function append_title_card( string &$html ): void {
             $html = preg_replace( '/\/>$/', 'alt="' . esc_attr( $this->title ) . '" />', $html );
@@ -77,9 +79,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
         }
 
         /**
-         * Adds retina attribute
+         * Adds retina attribute.
          *
-         * @param  string &$html
+         * @param  string &$html The content to add restina attribute to.
          *
          * @return void
          */

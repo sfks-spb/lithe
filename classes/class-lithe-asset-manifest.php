@@ -5,44 +5,44 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
     class Lithe_Asset_Manifest {
 
         /**
-         * Contains loader instance
+         * Contains loader instance.
          *
          * @var Lithe_Asset_Loader|null
          */
         protected $loader = null;
 
         /**
-         * Contains package name
+         * Contains package name.
          *
          * @var string|null
          */
         public $name = null;
 
         /**
-         * Contains package version
+         * Contains package version.
          *
          * @var string
          */
         public $version;
 
         /**
-         * Contains list of scripts to load
+         * Contains list of scripts to load.
          *
          * @var array
          */
         public $scripts = array();
 
         /**
-         * Contains list of stylesheets to load
+         * Contains list of stylesheets to load.
          *
          * @var array
          */
         public $styles = array();
 
         /**
-         * Constructs new lithe manifest instance
+         * Constructs new lithe manifest instance.
          *
-         * @param  string $manifest_file
+         * @param  string $manifest_file Manifest file path.
          *
          * @return void
          */
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         /**
          * Sets asset name
          *
-         * @param  string $name
+         * @param  string $name Asset name.
          *
          * @return Lithe_Asset_Manifest
          */
@@ -88,9 +88,9 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
-         * Sets asset loader instance
+         * Sets asset loader instance.
          *
-         * @param  Lithe_Asset_Loader $loader
+         * @param  Lithe_Asset_Loader $loader Asset loader instance.
          *
          * @return Lithe_Asset_Manifest
          */
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
-         * Loads package with loader
+         * Loads package with loader.
          *
          * @return Lithe_Asset_Manifest
          */
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         /**
          * Gets src uri
          *
-         * @param  string $file
+         * @param  string $file Relative path to file.
          *
          * @return string
          */
@@ -131,9 +131,9 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
-         * Adds handle prefix
+         * Adds handle prefix.
          *
-         * @param  string &$handle
+         * @param  string &$handle Handle to prepend prefix to.
          *
          * @return void
          */
@@ -147,9 +147,9 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
-         * Initializes script data with default values
+         * Initializes script data with default values.
          *
-         * @param  array &$script
+         * @param  array &$script Script data.
          *
          * @return void
          */
@@ -168,9 +168,9 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
-         * Initializes style data with default values
+         * Initializes style data with default values.
          *
-         * @param  array &$style
+         * @param  array &$style Style data.
          *
          * @return void
          */
@@ -187,7 +187,7 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
-         * Registers package scripts
+         * Registers package scripts.
          *
          * @return void
          */
@@ -224,7 +224,7 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         }
 
         /**
-         * Registers package styles
+         * Registers package styles.
          *
          * @return void
          */

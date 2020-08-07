@@ -5,9 +5,9 @@ if ( ! class_exists('Lithe_Sports_Controller') ) {
     class Lithe_Sports_Controller {
 
         /**
-         * Gets sports
+         * Gets sports.
          *
-         * @param  WP_REST_Request $request
+         * @param  WP_REST_Request $request WordPress request instance.
          *
          * @return WP_REST_Response|WP_Error
          */
@@ -28,9 +28,9 @@ if ( ! class_exists('Lithe_Sports_Controller') ) {
         }
 
         /**
-         * Gets sport data from term object
+         * Gets sport data from term object.
          *
-         * @param  WP_Term $sport
+         * @param  WP_Term $sport Sports term instance.
          *
          * @return array
          */

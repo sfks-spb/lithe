@@ -5,30 +5,30 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
     class Lithe_Carousel_Item {
 
         /**
-         * Contains list of item classes
+         * Contains list of item classes.
          *
          * @var array
          */
         public $classes = array();
 
         /**
-         * Contains list of default attributes
+         * Contains list of default attributes.
          *
          * @var array
          */
         protected $defaults = array();
 
         /**
-         * Contains list of attributes
+         * Contains list of attributes.
          *
          * @var array
          */
         protected $attributes = array();
 
         /**
-         * Constructs new lithe carousel item instance
+         * Constructs new lithe carousel item instance.
          *
-         * @param  array $atts
+         * @param  array $atts Carousel item attributes.
          *
          * @return void
          */
@@ -46,9 +46,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
         }
 
         /**
-         * Adds item class
+         * Adds item class.
          *
-         * @param  string $class
+         * @param  string $class CSS class name.
          *
          * @return Lithe_Carousel_Item
          */
@@ -59,10 +59,10 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
         }
 
         /**
-         * Adds item attribute
+         * Adds item attribute.
          *
-         * @param  string $name
-         * @param  string $value
+         * @param  string $name HTML attribute name.
+         * @param  string $value HTML attribute value.
          *
          * @return Lithe_Carousel_Item
          */
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
         }
 
         /**
-         * Outputs item as html
+         * Outputs item as html.
          *
          * @return string
          */
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
         }
 
         /**
-         * Gets item html
+         * Gets item html.
          *
          * @return string
          */
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item' ) ) {
         }
 
         /**
-         * Gets item content
+         * Gets item content.
          *
          * @return string
          */

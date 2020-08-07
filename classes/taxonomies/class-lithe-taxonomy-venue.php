@@ -5,14 +5,14 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
     class Lithe_Taxonomy_Venue extends Lithe_Taxonomy {
 
         /**
-         * Contains taxonomy handle
+         * Contains taxonomy handle.
          *
          * @var string
          */
         protected $handle = 'venue';
 
         /**
-         * Contains list of custom fields and filters
+         * Contains list of custom fields and filters.
          *
          * @var array
          */
@@ -28,7 +28,7 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         );
 
         /**
-         * Registers taxonomy
+         * Registers taxonomy.
          *
          * @return void
          */
@@ -49,9 +49,9 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         }
 
         /**
-         * Outputs new taxonomy item form html
+         * Outputs new taxonomy item form HTML.
          *
-         * @param  WP_Term $term
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
@@ -60,9 +60,9 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         }
 
         /**
-         * Outputs edit taxonomy item form html
+         * Outputs edit taxonomy item form HTML.
          *
-         * @param  WP_Term $term
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
@@ -71,10 +71,10 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         }
 
         /**
-         * Handles taxonomy item save
+         * Handles taxonomy item save.
          *
-         * @param  int     $term_id
-         * @param  WP_Term $term
+         * @param  int     $term_id Current term id.
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         }
 
         /**
-         * Gets list of columns
+         * Gets list of columns.
          *
          * @return array
          */
@@ -104,11 +104,11 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
         }
 
         /**
-         * Handles custom columns output
+         * Handles custom columns output.
          *
-         * @param  string $content
-         * @param  string $column_name
-         * @param  int    $term_id
+         * @param  string $content Current column content.
+         * @param  string $column_name Current column name.
+         * @param  int    $term_id Current term id.
          *
          * @return void
          */

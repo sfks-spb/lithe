@@ -5,9 +5,9 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
     class Lithe_Venues_Controller {
 
         /**
-         * Gets venue by id
+         * Gets venue by id.
          *
-         * @param  WP_REST_Request $request
+         * @param  WP_REST_Request $request WordPress request instance.
          *
          * @return WP_REST_Response|WP_Error
          */
@@ -34,9 +34,9 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
-         * Gets venues by sport id
+         * Gets venues by sport id.
          *
-         * @param  WP_REST_Request $request
+         * @param  WP_REST_Request $request WordPress request instance.
          *
          * @return WP_REST_Response|WP_Error
          */
@@ -66,10 +66,10 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
-         * Filters venues by sport id
+         * Filters venues by sport id.
          *
-         * @param  array   &$venue
-         * @param  int|null $sport_ID
+         * @param  array    &$venue Venue data.
+         * @param  int|null $sport_id Current sport id.
          *
          * @return bool
          */
@@ -80,10 +80,10 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
-         * Filters venues by sport id and includes trainers
+         * Filters venues by sport id and includes trainers.
          *
-         * @param  array    &$venue
-         * @param  int|null  $sport_id
+         * @param  array    &$venue Venue data.
+         * @param  int|null $sport_id Current sport id.
          *
          * @return bool
          */
@@ -101,10 +101,10 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
-         * Gets trainer list for current venue
+         * Gets trainer list for current venue.
          *
-         * @param  array    $venue
-         * @param  int|null $sport_id
+         * @param  array    $venue Venue data.
+         * @param  int|null $sport_id Current sport id.
          *
          * @return array
          */
@@ -117,11 +117,11 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
-         * Gets trainer data from post object
+         * Gets trainer data from post object.
          *
-         * @param  WP_Post  $trainer
-         * @param  int      $venue_id
-         * @param  int|null $sport_id
+         * @param  WP_Post  $trainer Current trainer post instance.
+         * @param  int      $venue_id Current venue id.
+         * @param  int|null $sport_id Current sport id.
          *
          * @return array
          */
@@ -151,9 +151,9 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
         }
 
         /**
-         * Gets venue data from term object
+         * Gets venue data from term object.
          *
-         * @param  WP_Term $venue
+         * @param  WP_Term $venue Venue term instance.
          *
          * @return array
          */

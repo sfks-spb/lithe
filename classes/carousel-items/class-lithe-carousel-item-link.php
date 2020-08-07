@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Link' ) ) {
     class Lithe_Carousel_Item_Link extends Lithe_Carousel_Item {
 
         /**
-         * Contains list of default attributes
+         * Contains list of default attributes.
          *
          * @var array
          */
@@ -17,9 +17,9 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Link' ) ) {
         );
 
         /**
-         * Constructs new lithe carousel link instance
+         * Constructs new lithe carousel link instance.
          *
-         * @param  array $atts
+         * @param  array $atts Carousel link instance attributes.
          *
          * @return void
          */
@@ -37,7 +37,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Link' ) ) {
         }
 
         /**
-         * Gets item content
+         * Gets item content.
          *
          * @return string
          */

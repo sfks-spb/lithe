@@ -162,7 +162,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         /**
          * Outputs widget settings form
          *
-         * @param  array $instance
+         * @param  array $instance widget instance data
          *
          * @return void
          */
@@ -180,8 +180,8 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         /**
          * Handles widget settings update
          *
-         * @param  array $new_instance
-         * @param  array $old_instance
+         * @param  array $new_instance new widget data
+         * @param  array $old_instance old widget data
          *
          * @return array
          */
@@ -196,7 +196,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         /**
          * Sanitizes html
          *
-         * @param  string $html
+         * @param  string $html html to sanitize
          *
          * @return string
          */
@@ -208,7 +208,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         /**
          * Gets forecast for upcoming hour
          *
-         * @param  array $instance
+         * @param  array $instance widget instance data
          *
          * @return array
          */
@@ -271,7 +271,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         /**
          * Gets forecast data
          *
-         * @param  array $instance
+         * @param  array $instance widget instance data
          *
          * @return array
          */

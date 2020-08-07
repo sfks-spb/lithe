@@ -5,14 +5,14 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
     class Lithe_Post_Type_Trainer extends Lithe_Post_Type {
 
         /**
-         * Contains custom post type handle
+         * Contains custom post type handle.
          *
          * @var string
          */
         protected $handle = 'trainer';
 
         /**
-         * Contains custom post type capabilities
+         * Contains custom post type capabilities.
          *
          * @var array
          */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
         );
 
         /**
-         * Registers custom post type
+         * Registers custom post type.
          *
          * @return void
          */
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
         }
 
         /**
-         * Gets custom post type columns
+         * Gets custom post type columns.
          *
          * @return array
          */
@@ -71,10 +71,10 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
         }
 
         /**
-         * Handles custom columns output
+         * Handles custom columns output.
          *
-         * @param  string $column
-         * @param  int    $post_id
+         * @param  string $column Current column name.
+         * @param  int    $post_id Current post id.
          *
          * @return void
          */

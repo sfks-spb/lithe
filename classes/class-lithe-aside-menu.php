@@ -5,7 +5,19 @@ if ( ! class_exists( 'Lithe_Aside_Menu' ) ) {
     class Lithe_Aside_Menu {
 
         /**
-         * Constructs new lithe aside menu instance
+         * Maps url keywords to icons.
+         *
+         * @var array
+         */
+        protected $icons = array(
+            'agility'   => 'jump',
+            'obedience' => 'apport',
+            'frisbee'   => 'frisbee',
+            'flyball'   => 'tennis-ball',
+        );
+
+        /**
+         * Constructs new lithe aside menu instance.
          *
          * @return void
          */
@@ -14,12 +26,13 @@ if ( ! class_exists( 'Lithe_Aside_Menu' ) ) {
         }
 
         /**
-         * Appends icons to sidebar menu based on menu url
+         * Appends icons to sidebar menu based on menu url.
          *
-         * @param  string   $item_output
-         * @param  WP_Post  $item
-         * @param  int      $depth
-         * @param  stdClass $args
+         * @param  string   $item_output The menu item's starting HTML output.
+         * @param  WP_Post  $item Menu item data object.
+         * @param  int      $depth Depth of menu item. Used for padding.
+         * @param  stdClass $args An object of wp_nav_menu() arguments.
+         *
          * @return string
          */
         public function append_icon_to_aside_menu( string $item_output, WP_Post $item, int $depth, $args ): string {
@@ -39,17 +52,6 @@ if ( ! class_exists( 'Lithe_Aside_Menu' ) ) {
             return $item_output;
         }
 
-        /**
-         * Maps url keywords to icons
-         *
-         * @var array
-         */
-        protected $icons = array(
-            'agility'   => 'jump',
-            'obedience' => 'apport',
-            'frisbee'   => 'frisbee',
-            'flyball'   => 'tennis-ball',
-        );
     }
 
     return new Lithe_Aside_Menu();

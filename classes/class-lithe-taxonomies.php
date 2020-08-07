@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Taxonomies' ) ) {
     class Lithe_Taxonomies {
 
         /**
-         * Contains list of custom taxonomy classnames
+         * Contains list of custom taxonomy classnames.
          *
          * @var array
          */
@@ -16,7 +16,7 @@ if ( ! class_exists( 'Lithe_Taxonomies' ) ) {
         );
 
         /**
-         * Constructs new lithe taxonomies instance
+         * Constructs new lithe taxonomies instance.
          *
          * @return void
          */
@@ -27,7 +27,7 @@ if ( ! class_exists( 'Lithe_Taxonomies' ) ) {
         }
 
         /**
-         * Registers custom taxonomies
+         * Registers custom taxonomies.
          *
          * @return void
          */
@@ -43,7 +43,7 @@ if ( ! class_exists( 'Lithe_Taxonomies' ) ) {
         }
 
         /**
-         * Includes dependencies
+         * Includes dependencies.
          *
          * @return void
          */

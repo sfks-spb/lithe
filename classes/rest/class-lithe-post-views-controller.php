@@ -5,9 +5,9 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
     class Lithe_Post_Views_Controller {
 
         /**
-         * Gets post views
+         * Gets post views.
          *
-         * @param  WP_REST_Request $request
+         * @param  WP_REST_Request $request WordPress request instance.
          *
          * @return WP_REST_Response|WP_Error
          */
@@ -30,9 +30,9 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
         }
 
         /**
-         * Sets post views
+         * Sets post views.
          *
-         * @param  WP_REST_Request $request
+         * @param  WP_REST_Request $request WordPress request instance.
          *
          * @return WP_REST_Response|WP_Error
          */
@@ -56,9 +56,9 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
         }
 
         /**
-         * Formats views as int and human readable string
+         * Formats views as int and human readable string.
          *
-         * @param  array|int $views
+         * @param  array|int $views Views counter.
          *
          * @return array
          */

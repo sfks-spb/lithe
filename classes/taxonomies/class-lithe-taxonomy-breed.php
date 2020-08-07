@@ -5,14 +5,14 @@ if ( ! class_exists( 'Lithe_Taxonomy_Breed' ) ) {
     class Lithe_Taxonomy_Breed extends Lithe_Taxonomy {
 
         /**
-         * Contains taxonomy handle
+         * Contains taxonomy handle.
          *
          * @var string
          */
         protected $handle = 'breed';
 
         /**
-         * Contains taxonomy capabilities
+         * Contains taxonomy capabilities.
          *
          * @var array
          */
@@ -23,7 +23,7 @@ if ( ! class_exists( 'Lithe_Taxonomy_Breed' ) ) {
         );
 
         /**
-         * Registers taxonomy
+         * Registers taxonomy.
          *
          * @return void
          */
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Lithe_Taxonomy_Breed' ) ) {
         }
 
         /**
-         * Gets list of columns
+         * Gets list of columns.
          *
          * @return array
          */
@@ -62,9 +62,9 @@ if ( ! class_exists( 'Lithe_Taxonomy_Breed' ) ) {
         }
 
         /**
-         * Outputs new taxonomy item form html
+         * Outputs new taxonomy item form HTML.
          *
-         * @param  WP_Term $term
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
@@ -73,9 +73,9 @@ if ( ! class_exists( 'Lithe_Taxonomy_Breed' ) ) {
         }
 
         /**
-         * Outputs edit taxonomy item form html
+         * Outputs edit taxonomy item form HTML.
          *
-         * @param  WP_Term $term
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
@@ -84,14 +84,14 @@ if ( ! class_exists( 'Lithe_Taxonomy_Breed' ) ) {
         }
 
         /**
-         * Handles taxonomy item save
+         * Handles taxonomy item save.
          *
-         * @param  int     $term_id
-         * @param  WP_Term $term
+         * @param  int     $term_id Current term id.
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
-        public function save( $term_id, $term ):void {
+        public function save( int $term_id, WP_Term $term ):void {
             //
         }
 

@@ -5,21 +5,21 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
     abstract class Lithe_Taxonomy {
 
         /**
-         * Contains taxonomy handle
+         * Contains taxonomy handle.
          *
          * @var string
          */
         protected $handle;
 
         /**
-         * Contains taxonomy capabilities
+         * Contains taxonomy capabilities.
          *
          * @var array
          */
         protected $capabilities = array();
 
         /**
-         * Constructs new lithe taxonomy instance
+         * Constructs new lithe taxonomy instance.
          *
          * @return void
          */
@@ -38,7 +38,7 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
         }
 
         /**
-         * Adds custom columns
+         * Adds custom columns.
          *
          * @param  array $columns
          *
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
         }
 
         /**
-         * Gets list of columns
+         * Gets list of columns.
          *
          * @return array
          */
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
         }
 
         /**
-         * Handles custom columns output
+         * Handles custom columns output.
          *
          * @param  string $content
          * @param  string $column_name
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
         }
 
         /**
-         * Adds custom term capabilities
+         * Adds custom term capabilities.
          *
          * @return void
          */
@@ -95,35 +95,35 @@ if ( ! class_exists( 'Lithe_Taxonomy' ) ) {
         }
 
         /**
-         * Registers taxonomy
+         * Registers taxonomy.
          *
          * @return void
          */
         abstract public function register(): void;
 
         /**
-         * Outputs new taxonomy item form html
+         * Outputs new taxonomy item form HTML.
          *
-         * @param  WP_Term $term
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
         abstract public function add_form_fields( WP_Term $term ): void;
 
         /**
-         * Outputs edit taxonomy item form html
+         * Outputs edit taxonomy item form HTML.
          *
-         * @param  WP_Term $term
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */
         abstract public function edit_form_fields( WP_Term $term ): void;
 
         /**
-         * Handles taxonomy item save
+         * Handles taxonomy item save.
          *
-         * @param  int     $term_id
-         * @param  WP_Term $term
+         * @param  int     $term_id Current term id.
+         * @param  WP_Term $term Current term instance.
          *
          * @return void
          */

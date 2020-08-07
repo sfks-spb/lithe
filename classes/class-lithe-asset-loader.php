@@ -5,21 +5,21 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
     class Lithe_Asset_Loader {
 
         /**
-         * Contains list of loaded packages
+         * Contains list of loaded packages.
          *
          * @var array
          */
         protected $loaded = array();
 
         /**
-         * Contains relative path to assets directory
+         * Contains relative path to assets directory.
          *
          * @var string
          */
         protected $assets_directory = 'assets/js/';
 
         /**
-         * Gets script loader filter
+         * Gets script loader filter.
          *
          * @return callable
          */
@@ -28,10 +28,10 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Processes async and defer attributes
+         * Processes async and defer attributes.
          *
-         * @param string  $tag
-         * @param string  $handle
+         * @param string  $tag Script tag code.
+         * @param string  $handle Script handle.
          *
          * @return string
          */
@@ -52,9 +52,10 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Gets asset uri
+         * Gets asset uri.
          *
-         * @param  string $file
+         * @param  string $file Relative path to the file.
+         *
          * @return string
          */
         public function get_assets_file_uri( string $file ): string {
@@ -62,9 +63,10 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Loads packages
+         * Loads packages.
          *
-         * @param  array $packages
+         * @param  array $packages List of packages to load.
+         *
          * @return Lithe_Asset_Loader
          */
         public function load_packages( array $packages ): self {
@@ -98,9 +100,10 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Checks if package already loaded
+         * Checks if package already loaded.
          *
-         * @param  string $package
+         * @param  string $package Package name to check.
+         *
          * @return bool
          */
         public function is_package_loaded( string $package ): bool {
@@ -108,14 +111,14 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Registers script
+         * Registers script.
          *
-         * @param  string           $handle
-         * @param  string           $src
-         * @param  array|null       $deps
-         * @param  string|bool|null $ver
-         * @param  bool             $in_footer
-         * @param  array            $atts
+         * @param  string           $handle Script handle.
+         * @param  string           $src Script source file.
+         * @param  array|null       $deps Script dependencies.
+         * @param  string|bool|null $ver Script version.
+         * @param  bool             $in_footer Load in footer.
+         * @param  array            $atts Script attributes.
          *
          * @return Lithe_Asset_Loader
          */
@@ -132,10 +135,10 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Adds inline script before handle
+         * Adds inline script before handle.
          *
-         * @param  string       $handle
-         * @param  string|array $data
+         * @param  string       $handle Script handle.
+         * @param  string|array $data Inline script data.
          *
          * @return Lithe_Asset_Loader
          */
@@ -150,10 +153,10 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Adds inline script after handle
+         * Adds inline script after handle.
          *
-         * @param  string       $handle
-         * @param  string|array $data
+         * @param  string       $handle Script handle.
+         * @param  string|array $data Inline script data.
          *
          * @return Lithe_Asset_Loader
          */
@@ -168,11 +171,11 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Localizes script
+         * Localizes script.
          *
-         * @param  string $handle
-         * @param  string $object_name
-         * @param  array  $l10n
+         * @param  string $handle Script handle.
+         * @param  string $object_name JS object name.
+         * @param  array  $l10n Localization data.
          *
          * @return Lithe_Asset_Loader
          */
@@ -183,14 +186,14 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Registers stylesheet
+         * Registers stylesheet.
          *
-         * @param  string           $handle
-         * @param  string           $src
-         * @param  array|null       $deps
-         * @param  string|bool|null $ver
-         * @param  string           $media
-         * @param  array            $atts
+         * @param  string           $handle Stylesheet handle.
+         * @param  string           $src Stylesheet source.
+         * @param  array|null       $deps Stylesheet dependencies.
+         * @param  string|bool|null $ver Stylesheet version.
+         * @param  string           $media Stylesheet media.
+         * @param  array            $atts Stylesheet attributes.
          *
          * @return Lithe_Asset_Loader
          */
@@ -207,10 +210,10 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
         }
 
         /**
-         * Adds inline style
+         * Adds inline style.
          *
-         * @param  string       $handle
-         * @param  string|array $data
+         * @param  string       $handle Stylesheet handle.
+         * @param  string|array $data Inline style data.
          *
          * @return Lithe_Asset_Loader
          */

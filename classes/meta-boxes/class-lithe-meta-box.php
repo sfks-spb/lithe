@@ -5,14 +5,14 @@ if ( ! class_exists( 'Lithe_Meta_Box' ) ) {
     abstract class Lithe_Meta_Box {
 
         /**
-         * Contains custom post type handle
+         * Contains custom post type handle.
          *
          * @var string
          */
         protected $post_type;
 
         /**
-         * Constructs new lithe meta box instance
+         * Constructs new lithe meta box instance.
          *
          * @return void
          */
@@ -21,19 +21,19 @@ if ( ! class_exists( 'Lithe_Meta_Box' ) ) {
         }
 
         /**
-         * Outputs metabox html
+         * Outputs metabox HTML.
          *
-         * @param  WP_Post $post
+         * @param  WP_Post $post Custom post instance.
          *
          * @return void
          */
         abstract public static function render( WP_Post $post ): void;
 
         /**
-         * Handles meta box save
+         * Handles meta box save.
          *
-         * @param  int     $post_id
-         * @param  WP_Post $post
+         * @param  int     $post_id Custom post id.
+         * @param  WP_Post $post Custom post instance.
          *
          * @return void
          */

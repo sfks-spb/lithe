@@ -5,14 +5,14 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
     class Lithe_Meta_Box_Dog_Profile extends Lithe_Meta_Box {
 
         /**
-         * Contains custom post type handle
+         * Contains custom post type handle.
          *
          * @var string
          */
         protected $post_type = 'dog';
 
         /**
-         * Contains list of filter mapped by meta box fields
+         * Contains list of filter mapped by meta box fields.
          *
          * @var array
          */
@@ -30,9 +30,9 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
         );
 
         /**
-         * Outputs metabox html
+         * Outputs metabox html.
          *
-         * @param  WP_Post $post
+         * @param  WP_Post $post Current post instance.
          *
          * @return void
          */
@@ -45,10 +45,10 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
         }
 
         /**
-         * Handles meta box save
+         * Handles meta box save.
          *
-         * @param  int     $post_id
-         * @param  WP_Post $post
+         * @param  int     $post_id Current post id.
+         * @param  WP_Post $post Current post instance.
          *
          * @return void
          */

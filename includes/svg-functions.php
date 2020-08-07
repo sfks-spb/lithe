@@ -3,10 +3,10 @@
 if ( ! function_exists('lithe_get_svg') ) {
 
     /**
-     * Gets svg content
+     * Gets SVG content.
      *
-     * @param  string $icon
-     * @param  array  $attributes
+     * @param  string $icon Icon name.
+     * @param  array  $attributes SVG element attributes.
      *
      * @return string|null
      */
@@ -19,10 +19,10 @@ if ( ! function_exists('lithe_get_svg') ) {
 if ( ! function_exists('lithe_svg') ) {
 
     /**
-     * Outputs sbg content
+     * Outputs SVG content.
      *
-     * @param  string $icon
-     * @param  array  $attributes
+     * @param  string $icon Icon name.
+     * @param  array  $attributes SVG element attributes.
      *
      * @return void
      */

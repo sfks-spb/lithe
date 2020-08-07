@@ -125,7 +125,7 @@ function lithe(): Lithe_Theme {
 }
 
 /**
- * @global Lithe_Theme $_GLOBALS['lithe']
+ * @global Lithe_Theme $_GLOBALS['lithe'] Lithe theme instance.
  * @name $lithe
  */
 $_GLOBALS['lithe'] = lithe();

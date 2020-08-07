@@ -5,21 +5,21 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
     abstract class Lithe_Post_Type {
 
         /**
-         * Contains custom post type handle
+         * Contains custom post type handle.
          *
          * @var string
          */
         protected $handle;
 
         /**
-         * Contains custom post type capabilities
+         * Contains custom post type capabilities.
          *
          * @var array
          */
         protected $capabilities = array();
 
         /**
-         * Constructs new lithe custom post type
+         * Constructs new lithe custom post type.
          *
          * @return void
          */
@@ -33,7 +33,7 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
         }
 
         /**
-         * Adds custom post type capabilities
+         * Adds custom post type capabilities.
          *
          * @return void
          */
@@ -74,9 +74,9 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
         }
 
         /**
-         * Adds custom columns
+         * Adds custom columns.
          *
-         * @param  array $columns
+         * @param  array $columns List of columns.
          *
          * @return array
          */
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
         }
 
         /**
-         * Gets custom post type columns
+         * Gets custom post type columns.
          *
          * @return array
          */
@@ -98,10 +98,10 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
         }
 
         /**
-         * Handles custom columns output
+         * Handles custom columns output.
          *
-         * @param  string $column
-         * @param  int    $post_id
+         * @param  string $column Custom column name.
+         * @param  int    $post_id Current post id.
          *
          * @return void
          */
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
         }
 
         /**
-         * Registers custom post type
+         * Registers custom post type.
          *
          * @return void
          */

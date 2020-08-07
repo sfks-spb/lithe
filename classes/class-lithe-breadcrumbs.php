@@ -5,7 +5,7 @@ if ( ! class_exists( 'Lithe_Breadcrumbs' ) ) {
     class Lithe_Breadcrumbs {
 
         /**
-         * Constructs new lithe breadcrumbs instance
+         * Constructs new lithe breadcrumbs instance.
          *
          * @return void
          */
@@ -15,9 +15,9 @@ if ( ! class_exists( 'Lithe_Breadcrumbs' ) ) {
         }
 
         /**
-         * Adds custom breadcrumb separator
+         * Adds custom breadcrumb separator.
          *
-         * @param  string $this_options_breadcrumbs_sep
+         * @param  string $this_options_breadcrumbs_sep Current breadcrumb separator.
          *
          * @return string
          */
@@ -26,10 +26,10 @@ if ( ! class_exists( 'Lithe_Breadcrumbs' ) ) {
         }
 
         /**
-         * Replaces home breadcrumb link with an icon
+         * Replaces home breadcrumb link with an icon.
          *
-         * @param  string $link_output
-         * @param  array  $link
+         * @param  string $link_output Link HTML output.
+         * @param  array  $link Link url.
          *
          * @return string
          */

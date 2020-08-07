@@ -3,7 +3,7 @@
 if ( ! function_exists( 'lithe_date_format' ) ) {
 
     /**
-     * Gets date format
+     * Gets date format.
      *
      * @return string
      */
@@ -15,7 +15,7 @@ if ( ! function_exists( 'lithe_date_format' ) ) {
 if ( ! function_exists( 'lithe_timezone' ) ) {
 
     /**
-     * Gets current WP timezone
+     * Gets current WordPress timezone.
      *
      * @return DateTimeZone
      */
@@ -39,9 +39,9 @@ if ( ! function_exists( 'lithe_timezone' ) ) {
 if ( ! function_exists( 'lithe_strtotime' ) ) {
 
     /**
-     * Converts string to time with timezone support
+     * Converts string to time with timezone support.
      *
-     * @param  string $string
+     * @param  string $string Datetime string to convert.
      *
      * @return DateTime|bool
      */
@@ -55,7 +55,7 @@ if ( ! function_exists( 'lithe_strtotime' ) ) {
 if ( ! function_exists( 'lithe_now' ) ) {
 
     /**
-     * Gets current timestamp with timezone support
+     * Gets current timestamp with timezone support.
      *
      * @return DateTime
      */
@@ -68,10 +68,10 @@ if ( ! function_exists( 'lithe_now' ) ) {
 if ( ! function_exists( 'lithe_render' ) ) {
 
     /**
-     * Renders view
+     * Renders view.
      *
-     * @param  string $view
-     * @param  array  $args
+     * @param  string $view View path.
+     * @param  array  $args Arguments to pass to the view.
      *
      * @return void
      */
@@ -94,9 +94,9 @@ if ( ! function_exists( 'lithe_render' ) ) {
 if ( ! function_exists( 'lithe_register_menus' ) ) {
 
     /**
-     * Registers menus
+     * Registers menus.
      *
-     * @param  array $menus
+     * @param  array $menus List of menues to register.
      *
      * @return void
      */
@@ -131,11 +131,11 @@ if ( ! function_exists( 'lithe_photon_uri' ) ) {
 if ( ! function_exists( 'lithe_photon_prepend_uri' ) ) {
 
     /**
-     * Prepends Jetpack's image CDN url
+     * Prepends Jetpack's image CDN url.
      *
-     * @param  string $uri
-     * @param  array  $params
-     * @param  string $protocol
+     * @param  string $uri Uri for CDNfication.
+     * @param  array  $params Uri parameters.
+     * @param  string $protocol Uri protocol. (https or http)
      *
      * @return string
      */
@@ -158,7 +158,7 @@ if ( ! function_exists( 'lithe_photon_prepend_uri' ) ) {
 if ( ! function_exists( 'lithe_the_post_meta' ) ) {
 
     /**
-     * Outputs post meta
+     * Outputs post meta.
      *
      * @return void
      */
@@ -174,10 +174,10 @@ if ( ! function_exists( 'lithe_the_post_meta' ) ) {
 if ( ! function_exists( 'lithe_the_copyright' ) ) {
 
     /**
-     * Outputs copyright message
+     * Outputs copyright message.
      *
-     * @param  string $holder
-     * @param  int    $starting_year
+     * @param  string $holder Copyright holder.
+     * @param  int    $starting_year Copyright starting year.
      *
      * @return void
      */
@@ -190,7 +190,7 @@ if ( ! function_exists( 'lithe_the_copyright' ) ) {
 if ( ! function_exists( 'lithe_breadcrumbs' ) ) {
 
     /**
-     * Outputs breadcrumbs
+     * Outputs breadcrumbs.
      *
      * @return void
      */
@@ -205,10 +205,10 @@ if ( ! function_exists( 'lithe_breadcrumbs' ) ) {
 if ( ! function_exists( 'lithe_get_antispam' ) ) {
 
     /**
-     * Passes content through antispam protection
+     * Passes content through antispam protection.
      *
-     * @param  string $content
-     * @param  string $type
+     * @param  string $content Content to protect against spam.
+     * @param  string $type Content type. (email, text or phone)
      *
      * @return string
      */
@@ -228,10 +228,10 @@ if ( ! function_exists( 'lithe_get_antispam' ) ) {
 if ( ! function_exists( 'lithe_antispam' ) ) {
 
     /**
-     * Outputs spam-protected content
+     * Outputs spam-protected content.
      *
-     * @param  string $content
-     * @param  string $type
+     * @param  string $content Content to protect against spam.
+     * @param  string $type Content type. (email, text or phone)
      *
      * @return void
      */
@@ -244,7 +244,7 @@ if ( ! function_exists( 'lithe_antispam' ) ) {
 if ( ! function_exists( 'lithe_get_breakpoints' ) ) {
 
     /**
-     * Gets breakpoints list
+     * Gets breakpoints list.
      *
      * @return array
      */
@@ -263,7 +263,7 @@ if ( ! function_exists( 'lithe_get_breakpoints' ) ) {
 if ( ! function_exists( 'lithe_get_breakpoints_json' ) ) {
 
     /**
-     * Gets breakpoints json
+     * Gets breakpoints list serialized as JSON.
      *
      * @return string
      */
@@ -276,9 +276,9 @@ if ( ! function_exists( 'lithe_get_breakpoints_json' ) ) {
 if ( ! function_exists( 'lithe_the_tags' ) ) {
 
     /**
-     * Gets post tag list
+     * Gets post tag list.
      *
-     * @global WP_Post $post
+     * @global WP_Post $post Current post instance.
      *
      * @return void|WP_Error
      */
@@ -315,10 +315,10 @@ if ( ! function_exists( 'lithe_the_tags' ) ) {
 if ( ! function_exists( 'lithe_site_logo' ) ) {
 
     /**
-     * Outputs site logo
+     * Outputs site logo.
      *
-     * @param  string      $logo
-     * @param  string|null $title
+     * @param  string      $logo Logo name.
+     * @param  string|null $title Logo title attribute.
      *
      * @return void
      */
@@ -344,10 +344,10 @@ if ( ! function_exists( 'lithe_site_logo' ) ) {
 if ( ! function_exists( 'lithe_site_logo_compact' ) ) {
 
     /**
-     * Outputs compact logo (without the text)
+     * Outputs compact logo. (without the text)
      *
-     * @param  string      $logo
-     * @param  string|null $title
+     * @param  string      $logo Logo name.
+     * @param  string|null $title Logo title attribute.
      *
      * @return void
      */
@@ -362,9 +362,9 @@ if ( ! function_exists( 'lithe_site_logo_compact' ) ) {
 if ( ! function_exists( 'lithe_related_posts' ) ) {
 
     /**
-     * Outputs related posts list
+     * Outputs related posts list.
      *
-     * @global WP_Post $post
+     * @global WP_Post $post Current post instance.
      *
      * @return void
      */
@@ -397,9 +397,9 @@ if ( ! function_exists( 'lithe_related_posts' ) ) {
 if ( ! function_exists( 'lithe_get_views' ) ) {
 
     /**
-     * Gets post views
+     * Gets post views.
      *
-     * @global WP_Post $post
+     * @global WP_Post $post Current post instance.
      *
      * @return int
      */
@@ -415,7 +415,7 @@ if ( ! function_exists( 'lithe_get_views' ) ) {
 if ( ! function_exists( 'lithe_the_views' ) ) {
 
     /**
-     * Outputs post views
+     * Outputs post views.
      *
      * @return void
      */
@@ -431,7 +431,7 @@ if ( ! function_exists( 'lithe_the_views' ) ) {
 if ( ! function_exists( 'lithe_comments_link' ) ) {
 
     /**
-     * Outputs comments counter and link
+     * Outputs comments counter and link.
      *
      * @return void
      */
@@ -452,7 +452,7 @@ if ( ! function_exists( 'lithe_comments_link' ) ) {
 if ( ! function_exists( 'lithe_sports' ) ) {
 
     /**
-     * Outputs sports list
+     * Outputs sports list.
      *
      * @return void
      */

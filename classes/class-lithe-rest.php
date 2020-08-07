@@ -5,21 +5,21 @@ if ( ! class_exists('Lithe_Rest') ) {
     class Lithe_Rest {
 
         /**
-         * Contains rest api namespace
+         * Contains rest api namespace.
          *
          * @var string
          */
         protected $ns = 'lithe/v1';
 
         /**
-         * Contains list of controller instances
+         * Contains list of controller instances.
          *
          * @var array
          */
         protected $controllers = array();
 
         /**
-         * Constructs new lithe REST instance
+         * Constructs new lithe REST instance.
          *
          * @return void
          */
@@ -29,7 +29,7 @@ if ( ! class_exists('Lithe_Rest') ) {
         }
 
         /**
-         * Registers routes
+         * Registers routes.
          *
          * @return void
          */
@@ -40,7 +40,7 @@ if ( ! class_exists('Lithe_Rest') ) {
         }
 
         /**
-         * Gets REST namespace
+         * Gets REST namespace.
          *
          * @return string
          */
@@ -49,7 +49,7 @@ if ( ! class_exists('Lithe_Rest') ) {
         }
 
         /**
-         * Gets REST root url
+         * Gets REST root url.
          *
          * @return string
          */
@@ -58,7 +58,7 @@ if ( ! class_exists('Lithe_Rest') ) {
         }
 
         /**
-         * Gets REST settings
+         * Gets REST settings.
          *
          * @return array
          */
@@ -152,7 +152,7 @@ if ( ! class_exists('Lithe_Rest') ) {
         }
 
         /**
-         * Includes dependencies
+         * Includes dependencies.
          *
          * @return void
          */

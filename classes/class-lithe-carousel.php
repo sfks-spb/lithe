@@ -5,14 +5,14 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
     class Lithe_Carousel {
 
         /**
-         * Contains map of replacible tags
+         * Contains map of replacible tags.
          *
          * @var array
          */
         protected $tags = array();
 
         /**
-         * Constructs new lithe carousel manager instance
+         * Constructs new lithe carousel manager instance.
          *
          * @return void
          */
@@ -25,7 +25,7 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
         }
 
         /**
-         * Includes dependencies
+         * Includes dependencies.
          *
          * @return void
          */
@@ -39,11 +39,11 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
         }
 
         /**
-         * Gets carousel html output
+         * Gets carousel html output.
          *
-         * @param  string $handle
-         * @param  string $order
-         * @param  array  $classes
+         * @param  string $handle Carousel handle.
+         * @param  string $order Items order. (normal or shuffled)
+         * @param  array  $classes Carousel classes.
          *
          * @return string|null
          */
@@ -75,9 +75,9 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
         }
 
         /**
-         * Checks if carousel with certain handle exists
+         * Checks if carousel with certain handle exists.
          *
-         * @param  string $handle
+         * @param  string $handle Carousel handle.
          *
          * @return bool
          */
@@ -87,10 +87,10 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
 
 
         /**
-         * Registers carousel
+         * Registers carousel.
          *
-         * @param  string $handle
-         * @param  array  $items
+         * @param  string $handle Carousel handle.
+         * @param  array  $items List of carousel items.
          *
          * @return Lithe_Carousel
          */
@@ -101,9 +101,9 @@ if ( ! class_exists( 'Lithe_Carousel' ) ) {
         }
 
         /**
-         * Replaces tags in content
+         * Replaces tags in content.
          *
-         * @param  string $link
+         * @param  string $content Content to perform replacement in.
          *
          * @return string
          */
