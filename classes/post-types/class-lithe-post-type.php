@@ -44,7 +44,8 @@ if ( ! class_exists( 'Lithe_Post_Type' ) ) {
                 $role = get_role( $role );
 
                 if ( $role ) {
-                    $capabilities = ( is_string( $capabilities ) ) ? $this->get_default_capabilities( $capabilities ) : $capabilities;
+                    $capabilities = ( 'default' === $capabilities )  ?
+                        $this->get_default_capabilities( $capabilities ) : $capabilities;
 
                     foreach ( $capabilities as $capability ) $role->add_cap( $capability );
                 }

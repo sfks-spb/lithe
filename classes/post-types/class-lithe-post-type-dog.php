@@ -17,7 +17,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Dog' ) ) {
          * @var array
          */
         protected $capabilities = array(
-            'administrator' => 'dog',
+            'administrator' => 'default',
         );
 
         /**

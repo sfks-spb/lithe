@@ -17,7 +17,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
          * @var array
          */
         protected $capabilities = array(
-            'administrator' => 'trainer',
+            'administrator' => 'default',
         );
 
         /**

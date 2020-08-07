@@ -17,7 +17,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Trial' ) ) {
          * @var array
          */
         protected $capabilities = array(
-            'administrator' => 'trial',
+            'administrator' => 'default',
         );
 
         /**
