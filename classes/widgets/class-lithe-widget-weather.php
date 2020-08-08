@@ -5,28 +5,28 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
     class Lithe_Widget_Weather extends WP_Widget {
 
         /**
-         * Contains prefix for cache key
+         * Contains prefix for cache key.
          *
          * @var string
          */
         protected $transient_key_prefix = 'lithe_weather';
 
         /**
-         * Contains AccuWeather API endpoint uri
+         * Contains AccuWeather API endpoint uri.
          *
          * @var string
          */
         protected $endpoint = 'http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/%s';
 
         /**
-         * Contains list of venue locations
+         * Contains list of venue locations.
          *
          * @var array
          */
         protected $locations = array();
 
         /**
-         * Maps icon codes to FontAwesome icon names
+         * Maps icon codes to FontAwesome icon names.
          *
          * @var array
          */
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         );
 
         /**
-         * Constructs new lithe weather widget instance
+         * Constructs new lithe weather widget instance.
          *
          * @return void
          */
@@ -94,11 +94,14 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
-         * Outputs widget html
+         * Outputs widget html.
+         *
+         * @param  array $args Widget arguments.
+         * @param  array $instance Widget instance data.
          *
          * @return void
          */
-        public function widget( $args, $instance ) {
+        public function widget( array $args, array $instance ): void {
             echo $args['before_widget'];
             echo $args['before_title'] . esc_html( $instance[ 'title' ] ) . $args['after_title'];
 
@@ -119,7 +122,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
 
                 </div>
 
-                <div class="weather-footer"><?php lithe_render( 'widgets/views/view-weather-footer' ); ?></div>
+                <div class="weather-footer">
                     <?php lithe_render( 'widgets/views/view-weather-footer' ); ?>
                 </div>
 
@@ -129,7 +132,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
-         * Outputs json for ajax calls
+         * Outputs json for ajax calls.
          *
          * @return void
          */
@@ -165,13 +168,13 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
-         * Outputs widget settings form
+         * Outputs widget settings form.
          *
-         * @param  array $instance widget instance data
+         * @param  array $instance widget instance data.
          *
          * @return void
          */
-        public function form( $instance ) {
+        public function form( array $instance ): void {
 
             lithe_render( 'widgets/views/view-weather-form', array(
                 'widget'          => $this,
@@ -183,14 +186,14 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
-         * Handles widget settings update
+         * Handles widget settings update.
          *
-         * @param  array $new_instance new widget data
-         * @param  array $old_instance old widget data
+         * @param  array $new_instance New widget data.
+         * @param  array $old_instance Old widget data.
          *
          * @return array
          */
-        public function update( $new_instance, $old_instance ) {
+        public function update( array $new_instance, array $old_instance ): array {
             return array(
                 'title'           => ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : __( 'New Weather Widget', 'lithe' ),
                 'apikey'          => ( ! empty( $new_instance['apikey'] ) ) ? sanitize_text_field( $new_instance['apikey'] ) : '',
@@ -199,9 +202,9 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
-         * Sanitizes html
+         * Sanitizes HTML.
          *
-         * @param  string $html html to sanitize
+         * @param  string $html HTML content to sanitize.
          *
          * @return string
          */
@@ -211,9 +214,9 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
-         * Gets forecast for upcoming hour
+         * Gets forecast for upcoming hour.
          *
-         * @param  array $instance widget instance data
+         * @param  array $instance Widget instance data.
          *
          * @return array
          */
@@ -274,9 +277,9 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
         }
 
         /**
-         * Gets forecast data
+         * Gets forecast data.
          *
-         * @param  array $instance widget instance data
+         * @param  array $instance Widget instance data.
          *
          * @return array
          */
