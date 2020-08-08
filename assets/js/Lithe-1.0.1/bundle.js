@@ -31,39 +31,46 @@ var Features = passiveListener = () => {
 };
 
 var VkGroups = class VkGroups {
-  constructor(id, group_id, options) {
-    this.observe = this.observe.bind(this);
+  constructor(selector, options) {
+    this.init = this.init.bind(this);
     this.processMutations = this.processMutations.bind(this);
     this.changeTheme = this.changeTheme.bind(this);
     this.changeSize = this.changeSize.bind(this);
-    this.id = id;
-    this.group_id = group_id;
+    this.selector = selector;
     this.options = Object.assign(VkGroups.defaults, options || {});
     if (window.lithe) {
       this.changeTheme({
         detail: window.lithe.theme
       });
     }
-    document.addEventListener("DOMContentLoaded", this.observe, false);
+    document.addEventListener("DOMContentLoaded", this.init, false);
     document.addEventListener("ThemeChanged", this.changeTheme, false);
-    window.addEventListener("resize", this.changeSize, Features.passiveListener ? {
-      passive: true
-    } : false);
   }
 
-  observe() {
-    this.window_width = window.innerWidth;
-    this.container = document.getElementById(this.id);
-    if (this.container) {
-      this.observer = new MutationObserver(this.processMutations);
-      this.observer.observe(this.container, {
-        childList: true,
-        attributes: false,
-        subtree: false
-      });
-      return this.reload();
-    } else {
-      return console.warn('VkGroups: container with id "' + this.id + '" not found');
+  init() {
+    var container, j, k, len, len1, observer, ref, ref1, sidebar;
+    this.sidebars = document.querySelectorAll('.widget-area');
+    if (this.sidebars) {
+      ref = this.sidebars;
+      for (j = 0, len = ref.length; j < len; j++) {
+        sidebar = ref[j];
+        sidebar.dataset.sidebarWidth = sidebar.clientWidth;
+      }
+      observer = new MutationObserver(this.processMutations);
+      this.containers = document.querySelectorAll('.vk-group');
+      ref1 = this.containers;
+      for (k = 0, len1 = ref1.length; k < len1; k++) {
+        container = ref1[k];
+        observer.observe(container, {
+          childList: true,
+          attributes: false,
+          subtree: false
+        });
+      }
+      this.reloadAll();
+      return window.addEventListener("resize", this.changeSize, Features.passiveListener ? {
+        passive: true
+      } : false);
     }
   }
 
@@ -75,14 +82,11 @@ var VkGroups = class VkGroups {
         ref = mutation.addedNodes;
         for (k = 0, len1 = ref.length; k < len1; k++) {
           node = ref[k];
-          if (!(node instanceof HTMLElement)) {
-            continue;
+          if (node instanceof HTMLElement) {
+            node.addEventListener("load", () => {
+              return node.closest('.sidebar-widget').classList.add('vk-widget-loaded');
+            });
           }
-          this.element = node;
-          this.element.addEventListener("load", (event) => {
-            return Html.tag("vk-widget-complete");
-          });
-          return;
         }
       }
     }
@@ -97,36 +101,69 @@ var VkGroups = class VkGroups {
         color = ref[i];
         this.options["color" + (i + 1)] = VkGroups.themes[theme][i];
       }
-      return this.reload();
+      return this.reloadAll();
     } else {
       return console.warn('VkGroups: theme "' + this.theme + '" not defined');
     }
   }
 
   changeSize() {
-    if (this.window_width !== window.innerWidth && this.window_width < lithe.breakpoints['aussie']) {
+    if (this.sidebars) {
       if (this.resizeTimeout) {
         clearTimeout(this.resizeTimeout);
       }
-      this.resizeTimeout = setTimeout(() => {
-        return this.reload();
-      }, 500);
+      return this.resizeTimeout = setTimeout(() => {
+        var j, len, ref, sidebar;
+        ref = this.sidebars;
+        for (j = 0, len = ref.length; j < len; j++) {
+          sidebar = ref[j];
+          if (sidebar.clientWidth !== Number(sidebar.dataset.sidebarWidth)) {
+            this.reloadSidebar(sidebar);
+          }
+        }
+      }, 300);
     }
-    return this.window_width = window.innerWidth;
   }
 
-  reload() {
-    if (this.container) {
-      if (VK) {
-        Html.untag("vk-widget-complete");
-        if (this.element) {
-          this.element.remove();
-        }
-        this.container.style = '';
-        return VK.Widgets.Group(this.id, this.options, this.group_id);
-      } else {
-        return console.error("VkGroups: VK OpenAPI not loaded");
+  reloadAll() {
+    var container, j, len, ref, results;
+    if (this.containers) {
+      ref = this.containers;
+      results = [];
+      for (j = 0, len = ref.length; j < len; j++) {
+        container = ref[j];
+        results.push(this.reload(container));
       }
+      return results;
+    }
+  }
+
+  reloadSidebar(sidebar) {
+    var container, containers, j, len;
+    containers = sidebar.querySelectorAll('.vk-group');
+    if (containers) {
+      for (j = 0, len = containers.length; j < len; j++) {
+        container = containers[j];
+        this.reload(container);
+      }
+    }
+    return sidebar.dataset.sidebarWidth = sidebar.clientWidth;
+  }
+
+  reload(container) {
+    if (typeof VK === 'object') {
+      container.closest('.sidebar-widget').classList.remove('vk-widget-loaded');
+      setTimeout(() => {
+        var iframe;
+        iframe = container.querySelector('iframe');
+        if (iframe) {
+          iframe.remove();
+        }
+        container.style = '';
+        return VK.Widgets.Group(container.id, this.options, container.dataset.groupId);
+      }, 300);
+    } else {
+      return console.error("VkGroups: VK OpenAPI not loaded");
     }
   }
 
@@ -468,7 +505,7 @@ var Views = class Views {
         this.view(post.dataset.id);
         return this.http.post(restUri);
       } else {
-        return this.http.get(restUri, {}, {});
+        return this.http.get(restUri);
       }
     }
   }
@@ -693,7 +730,7 @@ Lithe = {
   },
   init: function() {
     Lithe.jsIsAvailable();
-    Lithe.vkGroups = new VkGroups('vk_groups', 110220285);
+    Lithe.vkGroups = new VkGroups('.vk-group');
     Lithe.widgets = new Widgets('[data-widget-action]');
     Lithe.carousels = new Carousels();
     Lithe.collapsible = new Collapsible('.collapsible-toggle');

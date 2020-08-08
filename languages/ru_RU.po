@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lithe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-07 02:59+0000\n"
-"PO-Revision-Date: 2020-08-07 02:59+0000\n"
+"POT-Creation-Date: 2020-08-08 22:21+0000\n"
+"PO-Revision-Date: 2020-08-08 22:23+0000\n"
 "Last-Translator: \n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -15,47 +15,47 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.4.1; wp-5.4.2"
 
-#: functions.php:9
+#: functions.php:11
 msgid "Header Horizontal Menu"
 msgstr "Горизонтальное меню в заголовке"
 
-#: functions.php:10
+#: functions.php:12
 msgid "Header Social Menu"
 msgstr "Социальное меню в заголовке"
 
-#: functions.php:11
+#: functions.php:13
 msgid "Sidebar Menu"
 msgstr "Боковое меню"
 
-#: functions.php:12
+#: functions.php:14
 msgid "Sidebar Extra Menu"
 msgstr "Дополнительное боковое меню"
 
-#: functions.php:13
+#: functions.php:15
 msgid "Footer Menu"
 msgstr "Меню в подвале"
 
-#: functions.php:89
+#: functions.php:93
 msgid "Royal Canin"
 msgstr "Royal Canin"
 
-#: functions.php:90
+#: functions.php:94
 msgid "Royal Canin logo"
 msgstr "логотип Royal Canin"
 
-#: functions.php:96
+#: functions.php:100
 msgid "Pronature"
 msgstr "Pronature"
 
-#: functions.php:97
+#: functions.php:101
 msgid "Pronature logo"
 msgstr "логотип Pronature"
 
-#: functions.php:103
+#: functions.php:107
 msgid "AVZ"
 msgstr "АВЗ"
 
-#: functions.php:104
+#: functions.php:108
 msgid "AVZ logo"
 msgstr "логотип АВЗ"
 
@@ -125,63 +125,63 @@ msgstr "Профиль собаки"
 msgid "Home"
 msgstr "Домой"
 
-#: classes/class-lithe-theme.php:94
+#: classes/class-lithe-theme.php:133
 msgid "Athlete"
 msgstr "Спортсмен"
 
-#: classes/class-lithe-theme.php:124
+#: classes/class-lithe-theme.php:163
 msgid "Read more"
 msgstr "Читать дальше"
 
-#: classes/class-lithe-theme.php:134
+#: classes/class-lithe-theme.php:173
 msgid "Primary Widget Area"
 msgstr "Основная область виджетов"
 
-#: classes/class-lithe-theme.php:136
+#: classes/class-lithe-theme.php:175
 msgid "The primary widget area"
 msgstr "Область виджетов в боковой панели"
 
-#: classes/class-lithe-theme.php:178
+#: classes/class-lithe-theme.php:221
 msgid "Dark Blue"
 msgstr "Темно-синий"
 
-#: classes/class-lithe-theme.php:183
+#: classes/class-lithe-theme.php:226
 msgid "Dark Red"
 msgstr "Темно-красный"
 
-#: classes/class-lithe-theme.php:188
+#: classes/class-lithe-theme.php:231
 msgid "White"
 msgstr "Белый"
 
-#: classes/class-lithe-theme.php:193
+#: classes/class-lithe-theme.php:236
 msgid "Very Light Gray"
 msgstr "Очень светлый серый"
 
-#: classes/class-lithe-theme.php:198
+#: classes/class-lithe-theme.php:241
 msgid "Light Gray"
 msgstr "Светло-серый"
 
-#: classes/class-lithe-theme.php:203
+#: classes/class-lithe-theme.php:246
 msgid "Dark Gray"
 msgstr "Темно-серый"
 
-#: classes/class-lithe-shortcodes.php:87
+#: classes/class-lithe-shortcodes.php:88
 msgid "required"
 msgstr "обязательное поле"
 
-#: classes/class-lithe-shortcodes.php:106
+#: classes/class-lithe-shortcodes.php:107
 msgid "Loading..."
 msgstr "Загрузка..."
 
-#: classes/class-lithe-shortcodes.php:120
+#: classes/class-lithe-shortcodes.php:121
 msgid "Privacy"
 msgstr "Конфиденциальность"
 
-#: classes/class-lithe-shortcodes.php:121
+#: classes/class-lithe-shortcodes.php:122
 msgid "Terms of Service"
 msgstr "Условия использования"
 
-#: classes/class-lithe-shortcodes.php:124
+#: classes/class-lithe-shortcodes.php:125
 msgid "Form is protected by reCAPTCHA from Google"
 msgstr "Форма защищена сервисом reCAPTCHA от Google"
 
@@ -256,36 +256,36 @@ msgctxt "At certain time"
 msgid "\\a\\t"
 msgstr "в"
 
-#: includes/template-functions.php:173
+#: includes/template-functions.php:199
 msgid "Breadcrumbs"
 msgstr "Хлебные крошки"
 
-#: includes/template-functions.php:401
+#: includes/template-functions.php:427
 #, php-format
 msgid "%s Views"
 msgstr "%s просмотров"
 
-#: includes/template-functions.php:413
+#: includes/template-functions.php:439
 msgid "Leave a comment"
 msgstr "Оставить комментарий"
 
-#: includes/template-functions.php:414
+#: includes/template-functions.php:440
 msgid "on"
 msgstr "на"
 
-#: includes/template-functions.php:417
+#: includes/template-functions.php:443
 msgid "0 Comments"
 msgstr "Нет комментариев"
 
-#: includes/template-functions.php:418
+#: includes/template-functions.php:444
 msgid "1 Comment"
 msgstr "1 комментарий"
 
-#: includes/template-functions.php:419
+#: includes/template-functions.php:445
 msgid "% Comments"
 msgstr "% комментариев"
 
-#: includes/template-functions.php:421
+#: includes/template-functions.php:447
 msgid "Comments are off for this post"
 msgstr "Комментарии отключены"
 
@@ -606,14 +606,22 @@ msgstr "Погода Lithe"
 msgid "Weather widget for Lithe theme"
 msgstr "Погодный виджет для темы Lithe"
 
-#: classes/widgets/class-lithe-widget-weather.php:137
+#: classes/widgets/class-lithe-widget-weather.php:145
 msgid "Missing widget id"
 msgstr "Отсутствует идентификатор виджета"
 
-#: classes/widgets/class-lithe-widget-weather.php:173
-#: classes/widgets/class-lithe-widget-weather.php:190
+#: classes/widgets/class-lithe-widget-weather.php:181
+#: classes/widgets/class-lithe-widget-weather.php:198
 msgid "New Weather Widget"
 msgstr "Новый виджет погоды"
+
+#: classes/widgets/class-lithe-widget-vk.php:14
+msgid "Lithe VK Widget"
+msgstr "Группа ВК Lithe"
+
+#: classes/widgets/class-lithe-widget-vk.php:15
+msgid "VK group widget for Lithe theme"
+msgstr "Виджет группы ВК для темы Lithe"
 
 #: classes/meta-boxes/class-lithe-meta-box-trainer-timetable.php:36
 msgid "Trainer timetable will be available after selecting sports and venues."
@@ -669,6 +677,10 @@ msgstr ""
 #: classes/taxonomies/views/view-venue-add-form-fields.php:4
 msgid "Link"
 msgstr "Ссылка"
+
+#: classes/widgets/views/view-vk-form.php:3
+msgid "Group ID:"
+msgstr "ID группы:"
 
 #: classes/widgets/views/view-weather-forecast.php:25
 msgid "km/h"

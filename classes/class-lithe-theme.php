@@ -171,9 +171,9 @@ if ( ! class_exists('Lithe_Theme') ) {
         public function register_widget_areas(): void {
             register_sidebar( array(
                 'name'          => __( 'Primary Widget Area', 'lithe' ),
-                'id'            => 'sidebar-1',
+                'id'            => 'sidebar-primary',
                 'description'   => __( 'The primary widget area', 'lithe' ),
-                'before_widget' => '<div class="sidebar-widget has-light-gray-box-shadow has-very-light-gray-background-color has-light-gray-border-color">',
+                'before_widget' => '<div id="%1$s" class="sidebar-widget has-light-gray-box-shadow has-very-light-gray-background-color has-light-gray-border-color %2$s">',
                 'after_widget'  => '</div>',
                 'before_title'  => '<h3 class="sidebar-widget-title has-dark-gray-border-color has-light-gray-text-shadow">',
                 'after_title'   => '</h3>',

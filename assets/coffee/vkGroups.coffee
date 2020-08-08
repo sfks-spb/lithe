@@ -1,60 +1,72 @@
-import {Html} from './html.coffee'
 import {Features} from './features.coffee'
 
 export class VkGroups
 
-    constructor: (@id, @group_id, options) ->
+    constructor: (@selector, options) ->
         @options = Object.assign VkGroups.defaults, options || {}
         @changeTheme detail: window.lithe.theme if window.lithe
-        document.addEventListener "DOMContentLoaded", @observe, false
+        document.addEventListener "DOMContentLoaded", @init, false
         document.addEventListener "ThemeChanged", @changeTheme, false
-        window.addEventListener "resize", @changeSize, if Features.passiveListener then { passive: true } else false
 
-    observe: =>
-        @window_width = window.innerWidth
-        @container = document.getElementById @id
-        if @container
-            @observer = new MutationObserver @processMutations
-            @observer.observe @container, childList: true, attributes: false, subtree: false
-            @reload()
-        else
-            console.warn 'VkGroups: container with id "' + @id + '" not found'
+    init: =>
+        @sidebars = document.querySelectorAll '.widget-area'
+
+        if @sidebars
+            sidebar.dataset.sidebarWidth = sidebar.clientWidth for sidebar in @sidebars
+            observer = new MutationObserver @processMutations
+            @containers = document.querySelectorAll '.vk-group'
+            for container in @containers
+                observer.observe container, childList: true, attributes: false, subtree: false
+            @reloadAll()
+            window.addEventListener "resize", @changeSize, if Features.passiveListener then { passive: true } else false
 
     processMutations: (mutations) =>
-        for mutation in mutations
-            if mutation.type == "childList"
+        for mutation in mutations when mutation.type == "childList"
                 for node in mutation.addedNodes when node instanceof HTMLElement
-                    @element = node
-                    @element.addEventListener "load", (event) =>
-                        Html.tag "vk-widget-complete"
-                    return
+                    node.addEventListener "load", () =>
+                        node.closest('.sidebar-widget').classList.add 'vk-widget-loaded'
+
+        return
 
     changeTheme: (event) =>
         theme = event.detail
         if VkGroups.themes[theme]
             @options["color" + (i + 1)] = VkGroups.themes[theme][i] for color, i in VkGroups.themes[theme]
-            @reload()
+            @reloadAll()
         else
             console.warn 'VkGroups: theme "' + @theme + '" not defined'
 
-    changeSize: () =>
-        if @window_width != window.innerWidth && @window_width < lithe.breakpoints['aussie']
+    changeSize: =>
+        if @sidebars
             clearTimeout @resizeTimeout if @resizeTimeout
             @resizeTimeout = setTimeout =>
-                @reload()
-            , 500
+                for sidebar in @sidebars when sidebar.clientWidth != Number sidebar.dataset.sidebarWidth
+                    @reloadSidebar sidebar
+                return
+            , 300
 
-        @window_width = window.innerWidth
+    reloadAll: ->
+        @reload container for container in @containers if @containers
 
-    reload: ->
-        if @container
-            if VK
-                Html.untag "vk-widget-complete"
-                @element.remove() if @element
-                @container.style = ''
-                VK.Widgets.Group @id, @options, @group_id
-            else
-                console.error "VkGroups: VK OpenAPI not loaded"
+    reloadSidebar: (sidebar) ->
+        containers = sidebar.querySelectorAll '.vk-group'
+        @reload container for container in containers if containers
+        sidebar.dataset.sidebarWidth = sidebar.clientWidth
+
+    reload: (container) ->
+        if typeof VK == 'object'
+            container.closest('.sidebar-widget').classList.remove 'vk-widget-loaded'
+
+            setTimeout =>
+                iframe = container.querySelector 'iframe'
+                iframe.remove() if iframe
+                container.style = ''
+                VK.Widgets.Group container.id, @options, container.dataset.groupId
+            , 300
+
+            return
+        else
+            console.error "VkGroups: VK OpenAPI not loaded"
 
 VkGroups.defaults =
     mode:     3

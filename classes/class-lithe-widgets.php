@@ -11,6 +11,7 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
          */
         protected $widgets = array(
             Lithe_Widget_Weather::class,
+            Lithe_Widget_VK::class,
         );
 
         /**

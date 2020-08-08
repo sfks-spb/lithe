@@ -1,20 +1,17 @@
-.sidebar-widget:first-of-type {
+div.widget_lithe_vk_widget {
     padding: 0;
-	max-height: 0;
-	visibility: hidden;
+    max-height: 0;
+    visibility: hidden;
     transition: transform .3s $ease-out-quartic, max-height .3s $ease-out-quartic;
 
-    iframe {
-        transition: transform .3s $ease-out-quartic;
-        transform: translateY(-100%);
+    &:not(.vk-widget-loaded) {
+        margin-top: 0;
+        margin-bottom: 0;
     }
-}
 
-.vk-widget-complete .sidebar-widget:first-of-type {
-	max-height: 300px;
-	visibility: visible;
-
-    iframe {
-        transform: translateY(0);
+    &.vk-widget-loaded {
+        max-height: 300px;
+        visibility: visible;
     }
+
 }

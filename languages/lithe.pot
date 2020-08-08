@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lithe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-07 02:59+0000\n"
+"POT-Creation-Date: 2020-08-08 22:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,47 +15,47 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.4.0; wp-5.4.1"
 
-#: functions.php:9
+#: functions.php:11
 msgid "Header Horizontal Menu"
 msgstr ""
 
-#: functions.php:10
+#: functions.php:12
 msgid "Header Social Menu"
 msgstr ""
 
-#: functions.php:11
+#: functions.php:13
 msgid "Sidebar Menu"
 msgstr ""
 
-#: functions.php:12
+#: functions.php:14
 msgid "Sidebar Extra Menu"
 msgstr ""
 
-#: functions.php:13
+#: functions.php:15
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:89
+#: functions.php:93
 msgid "Royal Canin"
 msgstr ""
 
-#: functions.php:90
+#: functions.php:94
 msgid "Royal Canin logo"
 msgstr ""
 
-#: functions.php:96
+#: functions.php:100
 msgid "Pronature"
 msgstr ""
 
-#: functions.php:97
+#: functions.php:101
 msgid "Pronature logo"
 msgstr ""
 
-#: functions.php:103
+#: functions.php:107
 msgid "AVZ"
 msgstr ""
 
-#: functions.php:104
+#: functions.php:108
 msgid "AVZ logo"
 msgstr ""
 
@@ -123,63 +123,63 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: classes/class-lithe-theme.php:94
+#: classes/class-lithe-theme.php:133
 msgid "Athlete"
 msgstr ""
 
-#: classes/class-lithe-theme.php:124
+#: classes/class-lithe-theme.php:163
 msgid "Read more"
 msgstr ""
 
-#: classes/class-lithe-theme.php:134
+#: classes/class-lithe-theme.php:173
 msgid "Primary Widget Area"
 msgstr ""
 
-#: classes/class-lithe-theme.php:136
+#: classes/class-lithe-theme.php:175
 msgid "The primary widget area"
 msgstr ""
 
-#: classes/class-lithe-theme.php:178
+#: classes/class-lithe-theme.php:221
 msgid "Dark Blue"
 msgstr ""
 
-#: classes/class-lithe-theme.php:183
+#: classes/class-lithe-theme.php:226
 msgid "Dark Red"
 msgstr ""
 
-#: classes/class-lithe-theme.php:188
+#: classes/class-lithe-theme.php:231
 msgid "White"
 msgstr ""
 
-#: classes/class-lithe-theme.php:193
+#: classes/class-lithe-theme.php:236
 msgid "Very Light Gray"
 msgstr ""
 
-#: classes/class-lithe-theme.php:198
+#: classes/class-lithe-theme.php:241
 msgid "Light Gray"
 msgstr ""
 
-#: classes/class-lithe-theme.php:203
+#: classes/class-lithe-theme.php:246
 msgid "Dark Gray"
 msgstr ""
 
-#: classes/class-lithe-shortcodes.php:87
+#: classes/class-lithe-shortcodes.php:88
 msgid "required"
 msgstr ""
 
-#: classes/class-lithe-shortcodes.php:106
+#: classes/class-lithe-shortcodes.php:107
 msgid "Loading..."
 msgstr ""
 
-#: classes/class-lithe-shortcodes.php:120
+#: classes/class-lithe-shortcodes.php:121
 msgid "Privacy"
 msgstr ""
 
-#: classes/class-lithe-shortcodes.php:121
+#: classes/class-lithe-shortcodes.php:122
 msgid "Terms of Service"
 msgstr ""
 
-#: classes/class-lithe-shortcodes.php:124
+#: classes/class-lithe-shortcodes.php:125
 msgid "Form is protected by reCAPTCHA from Google"
 msgstr ""
 
@@ -254,36 +254,36 @@ msgctxt "At certain time"
 msgid "\\a\\t"
 msgstr ""
 
-#: includes/template-functions.php:173
+#: includes/template-functions.php:199
 msgid "Breadcrumbs"
 msgstr ""
 
-#: includes/template-functions.php:401
+#: includes/template-functions.php:427
 #, php-format
 msgid "%s Views"
 msgstr ""
 
-#: includes/template-functions.php:413
+#: includes/template-functions.php:439
 msgid "Leave a comment"
 msgstr ""
 
-#: includes/template-functions.php:414
+#: includes/template-functions.php:440
 msgid "on"
 msgstr ""
 
-#: includes/template-functions.php:417
+#: includes/template-functions.php:443
 msgid "0 Comments"
 msgstr ""
 
-#: includes/template-functions.php:418
+#: includes/template-functions.php:444
 msgid "1 Comment"
 msgstr ""
 
-#: includes/template-functions.php:419
+#: includes/template-functions.php:445
 msgid "% Comments"
 msgstr ""
 
-#: includes/template-functions.php:421
+#: includes/template-functions.php:447
 msgid "Comments are off for this post"
 msgstr ""
 
@@ -604,13 +604,21 @@ msgstr ""
 msgid "Weather widget for Lithe theme"
 msgstr ""
 
-#: classes/widgets/class-lithe-widget-weather.php:137
+#: classes/widgets/class-lithe-widget-weather.php:145
 msgid "Missing widget id"
 msgstr ""
 
-#: classes/widgets/class-lithe-widget-weather.php:173
-#: classes/widgets/class-lithe-widget-weather.php:190
+#: classes/widgets/class-lithe-widget-weather.php:181
+#: classes/widgets/class-lithe-widget-weather.php:198
 msgid "New Weather Widget"
+msgstr ""
+
+#: classes/widgets/class-lithe-widget-vk.php:14
+msgid "Lithe VK Widget"
+msgstr ""
+
+#: classes/widgets/class-lithe-widget-vk.php:15
+msgid "VK group widget for Lithe theme"
 msgstr ""
 
 #: classes/meta-boxes/class-lithe-meta-box-trainer-timetable.php:36
@@ -664,6 +672,10 @@ msgstr ""
 
 #: classes/taxonomies/views/view-venue-add-form-fields.php:4
 msgid "Link"
+msgstr ""
+
+#: classes/widgets/views/view-vk-form.php:3
+msgid "Group ID:"
 msgstr ""
 
 #: classes/widgets/views/view-weather-forecast.php:25

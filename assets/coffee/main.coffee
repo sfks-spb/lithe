@@ -15,7 +15,7 @@ Lithe =
 
     init: ->
         Lithe.jsIsAvailable()
-        Lithe.vkGroups    = new VkGroups 'vk_groups', 110220285
+        Lithe.vkGroups    = new VkGroups '.vk-group'
         Lithe.widgets     = new Widgets '[data-widget-action]'
         Lithe.carousels   = new Carousels
         Lithe.collapsible = new Collapsible '.collapsible-toggle'

@@ -101,7 +101,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
          *
          * @return void
          */
-        public function widget( array $args, array $instance ): void {
+        public function widget( $args, $instance ): void {
             echo $args['before_widget'];
             echo $args['before_title'] . esc_html( $instance[ 'title' ] ) . $args['after_title'];
 
@@ -152,7 +152,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
             ob_start();
 
             lithe_render( 'widgets/views/view-weather-forecast', array(
-                'forecast'  => $this->get_next_hour_forecast( $instance ),
+                'forecast'  => $this->get_next_hour_forecast( $options ),
                 'icons'     => $this->icons,
                 'locations' => $this->locations,
             ) );
@@ -174,7 +174,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
          *
          * @return void
          */
-        public function form( array $instance ): void {
+        public function form( $instance ): void {
 
             lithe_render( 'widgets/views/view-weather-form', array(
                 'widget'          => $this,
@@ -193,7 +193,7 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
          *
          * @return array
          */
-        public function update( array $new_instance, array $old_instance ): array {
+        public function update( $new_instance, $old_instance ): array {
             return array(
                 'title'           => ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : __( 'New Weather Widget', 'lithe' ),
                 'apikey'          => ( ! empty( $new_instance['apikey'] ) ) ? sanitize_text_field( $new_instance['apikey'] ) : '',
