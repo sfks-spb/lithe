@@ -100,11 +100,14 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
          */
         public function widget( $args, $instance ) {
             echo $args['before_widget'];
+            echo $args['before_title'] . esc_html( $instance[ 'title' ] ) . $args['after_title'];
 
             ?>
-                <?php echo $args['before_title'] . esc_html( $instance[ 'title' ] ) . $args['after_title']; ?></h3>
 
-                <div class="weather-content" data-widget-action="refresh_weather" data-widget-id="<?php echo esc_attr($this->number); ?>" data-widget-update-interval="120">
+                <div class="weather-content"
+                    data-widget-action="refresh_weather"
+                    data-widget-id="<?php echo esc_attr($this->number); ?>"
+                    data-widget-update-interval="120">
 
                     <?php
                         lithe_render( 'widgets/views/view-weather-forecast', array(
@@ -117,6 +120,8 @@ if ( ! class_exists( 'Lithe_Widget_Weather' ) ) {
                 </div>
 
                 <div class="weather-footer"><?php lithe_render( 'widgets/views/view-weather-footer' ); ?></div>
+                    <?php lithe_render( 'widgets/views/view-weather-footer' ); ?>
+                </div>
 
             <?php
 
