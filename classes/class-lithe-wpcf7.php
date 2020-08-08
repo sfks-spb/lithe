@@ -76,7 +76,7 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
                 'utm_campaign',
             );
 
-            $atts_list = array();
+            $inputs = array();
 
             foreach ( $tag->options as $option ) {
 
@@ -86,18 +86,14 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
 
                 if ( ! in_array( $name, $allowed_opts ) || ! isset( $option_parts[1] ) ) continue;
 
-                $atts_list[] = array(
+                $atts = array(
                     'type'  => 'hidden',
                     'name'  => 'utm_' . $name,
                     'value' => $option_parts[1],
                 );
 
-            }
-
-            $inputs = array();
-
-            foreach ( $atts_list as $atts ) {
                 $inputs[] = sprintf( '<input %s />', wpcf7_format_atts( $atts ) );
+
             }
 
             return implode( "\n", $inputs );
