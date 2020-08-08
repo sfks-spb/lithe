@@ -130,11 +130,11 @@ if ( ! class_exists('Lithe_Rest') ) {
 
             if ( is_string( $callback ) ) {
 
-                list( $classname, $fn ) = explode( '@', $handler, 2 );
+                list( $classname, $fn ) = explode( '@', $callback, 2 );
 
                 if ( ! array_key_exists( $classname, $this->controllers ) ) {
                     $this->controllers[ $classname ] = new $classname;
-                }
+                } 
 
                 $callback = array( $this->controllers[ $classname ], $fn );
 
