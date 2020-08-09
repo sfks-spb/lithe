@@ -22,6 +22,7 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
             add_filter( 'wpcf7_form_action_url', array( $this, 'save_current_form_config' ) );
             add_filter( 'wpcf7_posted_data', array( $this, 'handle_meta_posted_data' ), 5 );
             add_filter( 'wpcf7_posted_data', array( $this, 'handle_utm_posted_data' ), 6 );
+            add_filter( 'wpcf7_posted_data', array( $this, 'add_container_url_with_utm' ), 7 );
             add_action( 'wpcf7_init', array( $this, 'add_custom_form_tags' ) );
             add_action( 'wpcf7_after_save', array( $this, 'save_form_meta_fields' ), 10, 1 );
             add_action( 'wp_print_footer_scripts', array( $this, 'add_config_data_storage' ), 8 );
@@ -74,6 +75,8 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
                 'utm_source',
                 'utm_medium',
                 'utm_campaign',
+                'utm_content',
+                'utm_term',
             );
 
             $inputs = array();
@@ -82,13 +85,13 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
 
                 $option_parts = explode( ':', $option, 2 );
 
-                $name = $option_parts[0];
+                $name = 'utm_' . $option_parts[0];
 
                 if ( ! in_array( $name, $allowed_opts ) || ! isset( $option_parts[1] ) ) continue;
 
                 $atts = array(
                     'type'  => 'hidden',
-                    'name'  => 'utm_' . $name,
+                    'name'  => $name,
                     'value' => $option_parts[1],
                 );
 
@@ -146,6 +149,8 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
                 'utm_source',
                 'utm_medium',
                 'utm_campaign',
+                'utm_content',
+                'utm_term',
             );
 
             $query = array();
@@ -162,6 +167,38 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
 
             return $posted_data;
 
+        }
+
+        /**
+         * Places container URL with utm query.
+         *
+         * @param  array $posted_data Data posted via form.
+         *
+         * @return array
+         */
+        public function add_container_url_with_utm( array $posted_data ): array {
+
+            if ( array_key_exists( '_wpcf7_container_post', $_POST ) ) {
+
+                $container_url = get_permalink( $_POST[ '_wpcf7_container_post' ] );
+
+                if ( array_key_exists( 'utm_query', $posted_data ) ) {
+
+                    $query_start = '?';
+
+                    if ( false !== strpos( $container_url, '?' ) ) {
+                        $query_start = '&';
+                    }
+
+                    $container_url .= $query_start . $posted_data['utm_query'];
+
+                }
+
+                $posted_data['container_url'] = $container_url;
+
+            }
+
+            return $posted_data;
         }
 
         /**
