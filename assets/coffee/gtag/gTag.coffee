@@ -23,3 +23,12 @@ export class GTag
         eventArgs['event_label'] = eventLabel
 
         @dataLayerPush 'event', eventAction, eventArgs
+
+    withTimeout: (callback, timeout) ->
+        called = false
+        fn = () =>
+            if not called
+                called = true
+                callback()
+        setTimeout fn, timeout || 1000
+        return fn

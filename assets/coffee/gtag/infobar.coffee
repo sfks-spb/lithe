@@ -9,5 +9,10 @@ export class Infobar extends GTag
             link.addEventListener 'click', @detailsClick, false for link in links
 
     detailsClick: (event) =>
-        label = event.target.previousElementSibling
-        super.event 'Click', label.innerText if label
+        event.preventDefault();
+        link = event.target
+        label = link.previousElementSibling
+        super.event 'Click',
+            label.innerText || 'Infobar Link',
+            'event_callback': super.withTimeout () =>
+                document.location = link.getAttribute 'href'

@@ -581,6 +581,19 @@ var GTag = class GTag {
     return this.dataLayerPush('event', eventAction, eventArgs);
   }
 
+  withTimeout(callback, timeout) {
+    var called, fn;
+    called = false;
+    fn = () => {
+      if (!called) {
+        called = true;
+        return callback();
+      }
+    };
+    setTimeout(fn, timeout || 1000);
+    return fn;
+  }
+
 };
 
 var boundMethodCheck = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
@@ -620,6 +633,30 @@ var Forms = class Forms extends GTag {
 
 var boundMethodCheck$1 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
+var SiteTitle = class SiteTitle extends GTag {
+  constructor() {
+    super('Site Title');
+    this.siteTitleClick = this.siteTitleClick.bind(this);
+    this.button = document.querySelector('#site-title a');
+    if (this.button) {
+      this.button.addEventListener('click', this.siteTitleClick, false);
+    }
+  }
+
+  siteTitleClick(event) {
+    boundMethodCheck$1(this, SiteTitle);
+    event.preventDefault();
+    return super.event('Click', this.button.getAttribute('title') || 'Site Logo', {
+      'event_callback': super.withTimeout(() => {
+        return document.location = this.button.getAttribute('href');
+      })
+    });
+  }
+
+};
+
+var boundMethodCheck$2 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+
 var Infobar = class Infobar extends GTag {
   constructor() {
     var i, len, link, links;
@@ -635,17 +672,21 @@ var Infobar = class Infobar extends GTag {
   }
 
   detailsClick(event) {
-    var label;
-    boundMethodCheck$1(this, Infobar);
-    label = event.target.previousElementSibling;
-    if (label) {
-      return super.event('Click', label.innerText);
-    }
+    var label, link;
+    boundMethodCheck$2(this, Infobar);
+    event.preventDefault();
+    link = event.target;
+    label = link.previousElementSibling;
+    return super.event('Click', label.innerText || 'Infobar Link', {
+      'event_callback': super.withTimeout(() => {
+        return document.location = link.getAttribute('href');
+      })
+    });
   }
 
 };
 
-var boundMethodCheck$2 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+var boundMethodCheck$3 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
 var ScrollTop$1 = class ScrollTop extends GTag {
   constructor() {
@@ -660,14 +701,14 @@ var ScrollTop$1 = class ScrollTop extends GTag {
 
   scrollTopClick(event) {
     var title;
-    boundMethodCheck$2(this, ScrollTop);
+    boundMethodCheck$3(this, ScrollTop);
     title = document.querySelector('h1.entry-title');
     return super.event('Click', title ? title.innerText : 'Scroll Top Button');
   }
 
 };
 
-var boundMethodCheck$3 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+var boundMethodCheck$4 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
 var Themes = class Themes extends GTag {
   constructor() {
@@ -680,7 +721,7 @@ var Themes = class Themes extends GTag {
   }
 
   themeChange(theme, event) {
-    boundMethodCheck$3(this, Themes);
+    boundMethodCheck$4(this, Themes);
     return super.event(this.events.themeChange[event.type], theme === 'dark' ? 'Dark' : 'Light');
   }
 
@@ -692,30 +733,35 @@ var Themes = class Themes extends GTag {
 
 };
 
-var boundMethodCheck$4 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+var boundMethodCheck$5 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
 var Comments = class Comments extends GTag {
   constructor() {
-    var form;
     super('Comments');
     this.commentFormSubmit = this.commentFormSubmit.bind(this);
-    form = document.querySelector('#commentform');
-    if (form) {
-      form.addEventListener('submit', this.commentFormSubmit, false);
+    this.form = document.querySelector('#commentform');
+    if (this.form) {
+      this.form.addEventListener('submit', this.commentFormSubmit, false);
     }
   }
 
   commentFormSubmit(event) {
     var title;
-    boundMethodCheck$4(this, Comments);
+    boundMethodCheck$5(this, Comments);
+    event.preventDefault();
     title = document.querySelector('h1.entry-title');
-    return super.event('Comment', title ? title.innerText : '');
+    return super.event('Comment', title ? title.innerText : '', {
+      'event_callback': super.withTimeout(() => {
+        return this.form.submit();
+      })
+    });
   }
 
 };
 
 var GTag$1 = {
   forms: new Forms(),
+  siteTitle: new SiteTitle(),
   infobar: new Infobar(),
   scrollTop: new ScrollTop$1(),
   themes: new Themes(),
