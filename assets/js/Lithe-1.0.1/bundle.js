@@ -536,7 +536,7 @@ var Views = class Views {
     var counter;
     counter = document.querySelector('#post-' + response.post_id + ' .entry-views-count');
     if (counter) {
-      return counter.innerHTML = response.views_human;
+      return counter.innerHTML = response.views_string;
     }
   }
 

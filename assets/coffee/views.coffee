@@ -52,4 +52,4 @@ export class Views
 
     transferComplete: (response) ->
         counter = document.querySelector '#post-' + response.post_id + ' .entry-views-count'
-        counter.innerHTML = response.views_human if counter
+        counter.innerHTML = response.views_string if counter

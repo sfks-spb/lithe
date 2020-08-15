@@ -20,11 +20,11 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
                 return rest_ensure_response( $data );
             }
 
-            $data['post_id'] = (int) $post_ID;
-
             $views = get_post_meta( $post_ID, 'post_view_count', true );
-            list( $data['views'], $data['views_human'] ) = $this->format_views( $views );
 
+            $data['post_id'] = (int) $post_ID;
+            $data['views'] = $this->views_to_integer( $views );
+            $data['views_string'] = $this->views_to_human_readable( $data['views'] );
 
             return rest_ensure_response( $data );
         }
@@ -45,28 +45,45 @@ if ( ! class_exists('Lithe_Post_Views_Controller') ) {
                 return rest_ensure_response( $data );
             }
 
-            $data['post_id'] = (int) $post_ID;
-
             $views = get_post_meta( $post_ID, 'post_view_count', true );
-            list( $data['views'], $data['views_human'] ) = $this->format_views( $views );
 
-            update_post_meta( $post_ID, 'post_view_count', ++$data['views'] );
+            $data['post_id'] = (int) $post_ID;
+            $data['views'] = $this->views_to_integer( $views ) + 1;
+            $data['views_string'] = $this->views_to_human_readable( $data['views'] );
+
+            update_post_meta( $post_ID, 'post_view_count', $data['views'] );
 
             return rest_ensure_response( $data );
         }
 
         /**
-         * Formats views as int and human readable string.
+         * Formats views as integer.
          *
-         * @param  array|int $views Views counter.
+         * @param  array|string $views Views count.
          *
-         * @return array
+         * @return int
          */
-        protected function format_views( $views ): array {
-            $views = ( empty( $views ) ) ? 0 : $views;
-            $views_human = ( $views >= 1000 ) ? round( $views / 1000, 1 ) . 'K' : $views;
+        protected function views_to_integer( $views ): int {
+            if ( empty( $views ) ) {
+                return 0;
+            }
 
-            return array( $views, $views_human );
+            return (int) $views;
+        }
+
+        /**
+         * Formats views as human readable string.
+         *
+         * @param  int $views Views count.
+         *
+         * @return string
+         */
+        protected function views_to_human_readable( int $views ): string {
+            if ( $views >= 1000 ) {
+                return round( $views / 1000, 1 ) . 'K';
+            }
+
+            return (string) $views;
         }
 
     }
