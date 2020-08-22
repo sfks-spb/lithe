@@ -51,23 +51,3 @@
         padding-left: 30px;
     }
 }
-
-.cc-window {
-    font-size: $font-size-medium;
-
-    &.cc-banner {
-        padding: .6em 1.1em;
-    }
-}
-
-.cc-banner .cc-message {
-    text-align: center;
-}
-
-.cc-theme-classic .cc-btn {
-    font-weight: $font-weight-normal;
-
-    @include hover-active() {
-        color: white;
-    }
-}

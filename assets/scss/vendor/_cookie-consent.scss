@@ -1,0 +1,25 @@
+.cc-window {
+    font-size: $font-size-medium;
+}
+
+.cc-window.cc-banner {
+    max-width: $content-width + 50px;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 4px var(--lt-light-gray-color);
+    padding: .6em 1.1em;
+}
+
+.cc-banner .cc-message {
+    text-align: center;
+    margin-right: 2em;
+}
+
+.cc-theme-classic .cc-btn {
+    font-weight: $font-weight-normal;
+    margin: 0 auto;
+
+    @include hover-active() {
+        color: white;
+    }
+}

@@ -414,6 +414,31 @@ template {
   background: none;
 }
 
+.cc-window {
+  font-size: 1.54rem;
+}
+
+.cc-window.cc-banner {
+  max-width: 1190px;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px 4px var(--lt-light-gray-color);
+  padding: 0.6em 1.1em;
+}
+
+.cc-banner .cc-message {
+  text-align: center;
+  margin-right: 2em;
+}
+
+.cc-theme-classic .cc-btn {
+  font-weight: 400;
+  margin: 0 auto;
+}
+.cc-theme-classic .cc-btn:hover, .cc-theme-classic .cc-btn:active {
+  color: white;
+}
+
 .hentry .addtoany_content {
   clear: none;
   overflow: hidden;
@@ -2506,24 +2531,6 @@ div.wpcf7 .input-group > span {
   .site-copyright-content {
     padding-left: 30px;
   }
-}
-
-.cc-window {
-  font-size: 1.54rem;
-}
-.cc-window.cc-banner {
-  padding: 0.6em 1.1em;
-}
-
-.cc-banner .cc-message {
-  text-align: center;
-}
-
-.cc-theme-classic .cc-btn {
-  font-weight: 400;
-}
-.cc-theme-classic .cc-btn:hover, .cc-theme-classic .cc-btn:active {
-  color: white;
 }
 
 #home-slides {
