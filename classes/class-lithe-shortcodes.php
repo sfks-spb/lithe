@@ -145,6 +145,8 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
             $fields = shortcode_atts( array(
                 'from'        => null,
                 'till'        => null,
+                'before'      => null,
+                'after'       => null,
                 'exclude_cap' => 'edit_others_posts',
             ), $atts );
 
@@ -158,7 +160,7 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
 
                 $from_dt = lithe_strtotime( $fields['from'] );
 
-                if ( false !== $from_dt && $now < $from_dt ) $content = null;
+                if ( false !== $from_dt && $now < $from_dt ) $content = $fields['before'];
 
             }
 
@@ -166,11 +168,11 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
 
                 $till_dt = lithe_strtotime( $fields['till'] );
 
-                if ( false !== $till_dt && $now > $till_dt  ) $content = null;
+                if ( false !== $till_dt && $now > $till_dt  ) $content = $fields['after'];
 
             }
 
-            return $content;
+            return do_shortcode( $content );
 
         }
 
