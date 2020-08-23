@@ -28,13 +28,14 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
             parent::__construct( $atts );
 
             $this->add_class( 'item-photo' );
+
             $this->src = esc_url(
-                lithe_photon_prepend_uri(
+                lithe_photon_url(
                     lithe()->carousel->do_tags( $this->src ) ) );
 
             if ( '' !== $this->src_retina ) {
                 $this->src_retina = esc_url(
-                    lithe_photon_prepend_uri(
+                    lithe_photon_url(
                         lithe()->carousel->do_tags( $this->src_retina ) ) );
             }
         }

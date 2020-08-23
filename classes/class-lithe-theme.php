@@ -357,6 +357,7 @@ if ( ! class_exists('Lithe_Theme') ) {
             include_once $template_directory . '/classes/class-lithe-post-types.php';
             include_once $template_directory . '/classes/class-lithe-meta-boxes.php';
             include_once $template_directory . '/classes/class-lithe-wpcf7.php';
+            include_once $template_directory . '/classes/class-lithe-nextgen-gallery.php';
 
             include_once $template_directory . '/classes/class-lithe-svg.php';
             include_once $template_directory . '/includes/svg-functions.php';

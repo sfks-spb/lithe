@@ -106,51 +106,21 @@ if ( ! function_exists( 'lithe_register_menus' ) ) {
 
 }
 
-if ( ! function_exists( 'lithe_photon_uri' ) ) {
+if ( ! function_exists( 'lithe_photon_url' ) ) {
 
     /**
-     * Gets Jetpack's image CDN url
+     * Gets Photon image url.
      *
-     * @param  string $protocol
+     * @param  string $image_url Publicly accesable image URL.
+     * @param  array  $args      URL arguments.
+     * @param  string $scheme    URL scheme. (https or http)
      *
      * @return string
      */
-    function lithe_photon_uri( string $protocol = 'https' ): string {
-        static $current = 0;
-        $max = 3;
+    function lithe_photon_url( string $image_url, array $args = array(), ?string $scheme = 'https' ): string {
 
-        if ( $current > $max ) {
-            $current = 0;
-        }
+        return apply_filters( 'jetpack_photon_url', $image_url, $args, $scheme );
 
-        return $protocol . '://i' . $current++ . '.wp.com';
-    }
-
-}
-
-if ( ! function_exists( 'lithe_photon_prepend_uri' ) ) {
-
-    /**
-     * Prepends Jetpack's image CDN url.
-     *
-     * @param  string $uri Uri for CDNfication.
-     * @param  array  $params Uri parameters.
-     * @param  string $protocol Uri protocol. (https or http)
-     *
-     * @return string
-     */
-    function lithe_photon_prepend_uri( string $uri, array $params = array(), string $protocol = 'https' ): string {
-        $uri = preg_replace( '/https?:\/\//i', lithe_photon_uri( $protocol ) . '/', $uri );
-
-        if ( 'https' === $protocol ) {
-            $params[ 'ssl' ] = 1;
-        }
-
-        if ( false !== strpos( $uri, '?' ) ) {
-            $uri = str_replace( '?', '?' . http_build_query( $params ) . '&', $uri );
-        }
-
-        return $uri;
     }
 
 }
