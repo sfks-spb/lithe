@@ -601,6 +601,10 @@ body {
   display: table;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .separator, #aside-nav:after, #mobile-nav .menu-item:not(:last-of-type)::after, .hentry hr, body:not(.single) .hentry:not(:last-of-type)::after {
   width: 100%;
   height: 1px;
