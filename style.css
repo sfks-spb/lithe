@@ -1432,6 +1432,7 @@ table.dataTable tbody ul li::before {
 
 .post-tags {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
 }
 @media (min-width: 600px) {

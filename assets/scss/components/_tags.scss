@@ -1,5 +1,6 @@
 .post-tags  {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 
     @include respond-to('aussie') {
