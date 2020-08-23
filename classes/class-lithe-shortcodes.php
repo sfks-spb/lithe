@@ -151,7 +151,7 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
             ), $atts );
 
             if ( is_user_logged_in() && current_user_can( trim( $fields['exclude_cap'] ) ) ) {
-                return '<span class="hidden-content">' . $content . '</span>';
+                return '<span class="hidden-content">' . do_shortcode( $content ) . '</span>';
             }
 
             $now = lithe_now();
