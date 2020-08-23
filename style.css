@@ -356,42 +356,37 @@ template {
 .wp-block-image img {
   height: auto;
 }
-
-.wp-block-image .alignleft,
-.wp-block-image .alignright {
+.wp-block-image figure.alignleft,
+.wp-block-image figure.alignright {
   width: 100%;
   float: none;
 }
 @media (min-width: 600px) {
-  .wp-block-image .alignleft,
-.wp-block-image .alignright {
+  .wp-block-image figure.alignleft,
+.wp-block-image figure.alignright {
     width: auto;
     max-width: 50%;
   }
 }
-
-.wp-block-image .alignright {
+.wp-block-image figure.alignright {
   margin-left: 0;
 }
 @media (min-width: 600px) {
-  .wp-block-image .alignright {
+  .wp-block-image figure.alignright {
     margin-left: 1em;
     float: right;
   }
 }
-
 @media (min-width: 600px) {
-  .wp-block-image .alignleft {
+  .wp-block-image figure.alignleft {
     float: left;
   }
 }
-
-.single-post .wp-block-image > figure {
+.single-post .wp-block-image {
   max-width: 100%;
 }
 @media (min-width: 900px) {
-  .single-post .wp-block-image > figure {
-    max-width: 75%;
+  .single-post .wp-block-image {
     float: none;
     margin-right: auto;
     margin-left: auto;
