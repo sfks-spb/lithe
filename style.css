@@ -1914,6 +1914,9 @@ ul.menu {
     display: block;
   }
 }
+#header-menu > label {
+  color: var(--lt-nav-color);
+}
 #header-menu .compact-logo {
   display: none;
   height: 30px;

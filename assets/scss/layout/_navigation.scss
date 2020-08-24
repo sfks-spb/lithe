@@ -67,6 +67,10 @@ ul.menu {
         }
     }
 
+    > label {
+        color: var(--lt-nav-color);
+    }
+
     .compact-logo {
         display: none;
         height: 30px;
