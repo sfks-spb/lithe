@@ -16,7 +16,7 @@
 
                     <ul class="related-post-meta">
 
-                        <li class="related-post-date"><?php the_date( 'j F Y' ); ?></li>
+                        <li class="related-post-date"><?php echo get_the_date( 'j F Y' ); ?></li>
                         <li class="related-post-title"><?php the_title(); ?></li>
 
                     </ul>
