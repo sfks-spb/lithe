@@ -421,6 +421,43 @@ if ( ! function_exists( 'lithe_comments_link' ) ) {
     }
 }
 
+if ( ! function_exists( 'lithe_post_thumbnail' ) ) {
+
+    /**
+     * Outputs post thumbnail.
+     *
+     * @global WP_Post $post Current post instance.
+     *
+     * @return void
+     */
+    function lithe_post_thumbnail(): void {
+        global $post;
+
+        $thumbnail_id = get_post_thumbnail_id( $post->ID );
+        $attr = array(
+            'alt' => get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ),
+        );
+
+        if ( is_singular() ) {
+
+            printf(
+                '<div class="post-image">%s</div>',
+                get_the_post_thumbnail( $post->ID, 'lithe_medium', $attr )
+            );
+
+        } else {
+
+            printf(
+                '<a href="%1$s" class="post-image">%2$s</a>',
+                esc_attr( get_permalink( $post->ID ) ),
+                get_the_post_thumbnail( $post->ID, 'lithe_medium', $attr )
+            );
+
+        }
+
+    }
+}
+
 if ( ! function_exists( 'lithe_sports' ) ) {
 
     /**

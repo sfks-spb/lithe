@@ -251,7 +251,8 @@ if ( ! class_exists('Lithe_Theme') ) {
 
             // Thumbnails
             add_theme_support( 'post-thumbnails' );
-            set_post_thumbnail_size( 250, 200, true );
+            add_image_size( 'lithe_related', 250, 150, true );
+            add_image_size( 'lithe_medium', 820, 600, true );
 
             // Yoast SEO breadcrumbs
             add_theme_support( 'yoast-seo-breadcrumbs' );

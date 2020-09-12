@@ -11,12 +11,15 @@
                 <a rel="nofollow" title="<?php echo esc_attr( get_the_title() ); ?>" href="<?php the_permalink(); ?>">
 
                     <span class="related-post-thumbnail">
-                        <?php the_post_thumbnail( array( 250, 200 ) ); ?>
+
+                        <?php the_post_thumbnail( 'lithe_related' ); ?>
+
                     </span>
 
                     <ul class="related-post-meta">
 
                         <li class="related-post-date"><?php echo get_the_date( 'j F Y' ); ?></li>
+
                         <li class="related-post-title"><?php the_title(); ?></li>
 
                     </ul>

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lithe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-08 22:21+0000\n"
-"PO-Revision-Date: 2020-08-08 22:23+0000\n"
+"POT-Creation-Date: 2020-09-11 21:53+0000\n"
+"PO-Revision-Date: 2020-09-11 21:54+0000\n"
 "Last-Translator: \n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -13,73 +13,78 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.4.1; wp-5.4.2"
-
-#: functions.php:11
-msgid "Header Horizontal Menu"
-msgstr "Горизонтальное меню в заголовке"
-
-#: functions.php:12
-msgid "Header Social Menu"
-msgstr "Социальное меню в заголовке"
-
-#: functions.php:13
-msgid "Sidebar Menu"
-msgstr "Боковое меню"
-
-#: functions.php:14
-msgid "Sidebar Extra Menu"
-msgstr "Дополнительное боковое меню"
-
-#: functions.php:15
-msgid "Footer Menu"
-msgstr "Меню в подвале"
-
-#: functions.php:93
-msgid "Royal Canin"
-msgstr "Royal Canin"
-
-#: functions.php:94
-msgid "Royal Canin logo"
-msgstr "логотип Royal Canin"
-
-#: functions.php:100
-msgid "Pronature"
-msgstr "Pronature"
-
-#: functions.php:101
-msgid "Pronature logo"
-msgstr "логотип Pronature"
-
-#: functions.php:107
-msgid "AVZ"
-msgstr "АВЗ"
-
-#: functions.php:108
-msgid "AVZ logo"
-msgstr "логотип АВЗ"
-
-#: searchform-mobile.php:3 searchform-mobile.php:14 searchform-mobile.php:15
-msgid "Search"
-msgstr "Поиск"
-
-#: searchform-mobile.php:10
-msgid "Show search"
-msgstr "Показать поиск"
-
-#: searchform-mobile.php:11
-msgid "Hide search"
-msgstr "Скрыть поиск"
+"X-Loco-Version: 2.4.3; wp-5.4.2"
 
 #. Name of the template
 msgid "Full Width Template"
 msgstr "Шаблон в полную ширину"
 
-#: index.php:37
+#: D:/Projects/lithe/comments.php:52
+msgid "Comments are closed."
+msgstr "Комментарии закрыты."
+
+#: D:/Projects/lithe/footer.php:15
+msgid "ROO \"SFCS\""
+msgstr "РОО \"СФКС\""
+
+#: D:/Projects/lithe/footer.php:16
+msgid ""
+"If this website's materials are used, a link to the website must be provided."
+msgstr "При использовании материалов сайта, ссылка обязательна."
+
+#: D:/Projects/lithe/footer.php:42
+msgid "Go to Top"
+msgstr "Наверх"
+
+#: D:/Projects/lithe/functions.php:11
+msgid "Header Horizontal Menu"
+msgstr "Горизонтальное меню в заголовке"
+
+#: D:/Projects/lithe/functions.php:12
+msgid "Header Social Menu"
+msgstr "Социальное меню в заголовке"
+
+#: D:/Projects/lithe/functions.php:13
+msgid "Sidebar Menu"
+msgstr "Боковое меню"
+
+#: D:/Projects/lithe/functions.php:14
+msgid "Sidebar Extra Menu"
+msgstr "Дополнительное боковое меню"
+
+#: D:/Projects/lithe/functions.php:15
+msgid "Footer Menu"
+msgstr "Меню в подвале"
+
+#: D:/Projects/lithe/functions.php:93
+msgid "Royal Canin"
+msgstr "Royal Canin"
+
+#: D:/Projects/lithe/functions.php:94
+msgid "Royal Canin logo"
+msgstr "логотип Royal Canin"
+
+#: D:/Projects/lithe/functions.php:100
+msgid "Pronature"
+msgstr "Pronature"
+
+#: D:/Projects/lithe/functions.php:101
+msgid "Pronature logo"
+msgstr "логотип Pronature"
+
+#: D:/Projects/lithe/functions.php:107
+msgid "AVZ"
+msgstr "АВЗ"
+
+#: D:/Projects/lithe/functions.php:108
+msgid "AVZ logo"
+msgstr "логотип АВЗ"
+
+#: D:/Projects/lithe/index.php:37
 msgid "General sponsors"
 msgstr "Наши постоянные спонсоры"
 
-#: index.php:42
+#: D:/Projects/lithe/index.php:42
 #, php-format
 msgid ""
 "If you're interested in featuring your brand here, please don't hesitate to "
@@ -88,782 +93,548 @@ msgstr ""
 "Мы готовы к сотрудничеству, напишите нам по адресу %2$s или воспользуйтесь "
 "%1$s."
 
-#: index.php:43
+#: D:/Projects/lithe/index.php:43
 msgid "contact form"
 msgstr "формой обратной связи"
 
-#: comments.php:52
-msgid "Comments are closed."
-msgstr "Комментарии закрыты."
+#: D:/Projects/lithe/searchform-mobile.php:3
+#: D:/Projects/lithe/searchform-mobile.php:14
+#: D:/Projects/lithe/searchform-mobile.php:15
+msgid "Search"
+msgstr "Поиск"
 
-#: footer.php:15
-msgid "ROO \"SFCS\""
-msgstr "РОО \"СФКС\""
+#: D:/Projects/lithe/searchform-mobile.php:10
+msgid "Show search"
+msgstr "Показать поиск"
 
-#: footer.php:16
-msgid ""
-"If this website's materials are used, a link to the website must be provided."
-msgstr "При использовании материалов сайта, ссылка обязательна."
+#: D:/Projects/lithe/searchform-mobile.php:11
+msgid "Hide search"
+msgstr "Скрыть поиск"
 
-#: footer.php:42
-msgid "Go to Top"
-msgstr "Наверх"
-
-#: classes/class-lithe-meta-boxes.php:30
-msgid "Trainer's Profile"
-msgstr "Профиль тренера"
-
-#: classes/class-lithe-meta-boxes.php:39
-msgid "Trainer's Timetable"
-msgstr "Расписание тренера"
-
-#: classes/class-lithe-meta-boxes.php:49
-msgid "Dogs's Profile"
-msgstr "Профиль собаки"
-
-#: classes/class-lithe-breadcrumbs.php:39
+#: D:/Projects/lithe/classes/class-lithe-breadcrumbs.php:39
 msgid "Home"
 msgstr "Домой"
 
-#: classes/class-lithe-theme.php:133
-msgid "Athlete"
-msgstr "Спортсмен"
-
-#: classes/class-lithe-theme.php:163
-msgid "Read more"
-msgstr "Читать дальше"
-
-#: classes/class-lithe-theme.php:173
-msgid "Primary Widget Area"
-msgstr "Основная область виджетов"
-
-#: classes/class-lithe-theme.php:175
-msgid "The primary widget area"
-msgstr "Область виджетов в боковой панели"
-
-#: classes/class-lithe-theme.php:221
-msgid "Dark Blue"
-msgstr "Темно-синий"
-
-#: classes/class-lithe-theme.php:226
-msgid "Dark Red"
-msgstr "Темно-красный"
-
-#: classes/class-lithe-theme.php:231
-msgid "White"
-msgstr "Белый"
-
-#: classes/class-lithe-theme.php:236
-msgid "Very Light Gray"
-msgstr "Очень светлый серый"
-
-#: classes/class-lithe-theme.php:241
-msgid "Light Gray"
-msgstr "Светло-серый"
-
-#: classes/class-lithe-theme.php:246
-msgid "Dark Gray"
-msgstr "Темно-серый"
-
-#: classes/class-lithe-shortcodes.php:88
-msgid "required"
-msgstr "обязательное поле"
-
-#: classes/class-lithe-shortcodes.php:107
-msgid "Loading..."
-msgstr "Загрузка..."
-
-#: classes/class-lithe-shortcodes.php:121
-msgid "Privacy"
-msgstr "Конфиденциальность"
-
-#: classes/class-lithe-shortcodes.php:122
-msgid "Terms of Service"
-msgstr "Условия использования"
-
-#: classes/class-lithe-shortcodes.php:125
-msgid "Form is protected by reCAPTCHA from Google"
-msgstr "Форма защищена сервисом reCAPTCHA от Google"
-
-#: classes/class-lithe-customizer.php:41
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:41
 msgctxt "Plain logo"
 msgid "Plain"
 msgstr "Обычный"
 
-#: classes/class-lithe-customizer.php:42
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:42
 msgid "Stay At Home"
 msgstr "Оставайтесь дома"
 
-#: classes/class-lithe-customizer.php:46
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:46
 msgid "Site logo"
 msgstr "Логотип"
 
-#: classes/class-lithe-customizer.php:63
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:63
 msgid "Infobar"
 msgstr "Информационная строка"
 
-#: classes/class-lithe-customizer.php:64
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:64
 msgid "Infobar below the header on the home page."
 msgstr "Информационная строка под шапкой сайта на главной."
 
-#: classes/class-lithe-customizer.php:72 template-parts/infobar-top.php:32
-#: assets/js/cookieconsent-3.1.1/package.php:11
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:72
+#: D:/Projects/lithe/template-parts/infobar-top.php:32
+#: D:/Projects/lithe/assets/js/cookieconsent-3.1.1/package.php:11
 msgid "Learn more"
 msgstr "Подробная информация"
 
-#: classes/class-lithe-customizer.php:79
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:79
 msgid "FontAwesome icon name (leave empty for no icon)"
 msgstr "Имя иконки FontAwesome (оставьте пустым, чтобы не отображать иконку)"
 
-#: classes/class-lithe-customizer.php:86
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:86
 msgid "FontAwesome icon collection"
 msgstr "Коллекция иконки FontAwesome"
 
-#: classes/class-lithe-customizer.php:91
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:91
 msgid "Solid"
 msgstr "Сплошные"
 
-#: classes/class-lithe-customizer.php:92
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:92
 msgid "Regular"
 msgstr "Обычные"
 
-#: classes/class-lithe-customizer.php:93
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:93
 msgid "Brands"
 msgstr "Бренды"
 
-#: classes/class-lithe-customizer.php:98
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:98
 msgid "Message (leave empty to hide infobar)"
 msgstr "Сообщение (оставьте пустым, чтобы не отображать информационную строку)"
 
-#: classes/class-lithe-customizer.php:105
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:105
 msgid "Link text"
 msgstr "Текст ссылки"
 
-#: classes/class-lithe-customizer.php:112
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:112
 msgid "Link URL (leave empty for no button)"
 msgstr "Адрес ссылки (оставьте пустым, чтобы не отображать ссылку)"
 
-#: classes/class-lithe-customizer.php:119
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:119
 msgid "Link Title"
 msgstr "Подпись ссылки"
 
-#: classes/class-lithe-customizer.php:126
+#: D:/Projects/lithe/classes/class-lithe-customizer.php:126
 msgid "Background color"
 msgstr "Цвет фона"
 
-#: includes/template-functions.php:11
+#: D:/Projects/lithe/classes/class-lithe-meta-boxes.php:30
+msgid "Post Style"
+msgstr "Стиль записи"
+
+#: D:/Projects/lithe/classes/class-lithe-meta-boxes.php:40
+msgid "Trainer's Profile"
+msgstr "Профиль тренера"
+
+#: D:/Projects/lithe/classes/class-lithe-meta-boxes.php:49
+msgid "Trainer's Timetable"
+msgstr "Расписание тренера"
+
+#: D:/Projects/lithe/classes/class-lithe-meta-boxes.php:59
+msgid "Dogs's Profile"
+msgstr "Профиль собаки"
+
+#: D:/Projects/lithe/classes/class-lithe-shortcodes.php:88
+msgid "required"
+msgstr "обязательное поле"
+
+#: D:/Projects/lithe/classes/class-lithe-shortcodes.php:107
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#: D:/Projects/lithe/classes/class-lithe-shortcodes.php:121
+msgid "Privacy"
+msgstr "Конфиденциальность"
+
+#: D:/Projects/lithe/classes/class-lithe-shortcodes.php:122
+msgid "Terms of Service"
+msgstr "Условия использования"
+
+#: D:/Projects/lithe/classes/class-lithe-shortcodes.php:125
+msgid "Form is protected by reCAPTCHA from Google"
+msgstr "Форма защищена сервисом reCAPTCHA от Google"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:133
+msgid "Athlete"
+msgstr "Спортсмен"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:163
+msgid "Read more"
+msgstr "Читать дальше"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:173
+msgid "Primary Widget Area"
+msgstr "Основная область виджетов"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:175
+msgid "The primary widget area"
+msgstr "Область виджетов в боковой панели"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:221
+msgid "Dark Blue"
+msgstr "Темно-синий"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:226
+msgid "Dark Red"
+msgstr "Темно-красный"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:231
+msgid "White"
+msgstr "Белый"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:236
+msgid "Very Light Gray"
+msgstr "Очень светлый серый"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:241
+msgid "Light Gray"
+msgstr "Светло-серый"
+
+#: D:/Projects/lithe/classes/class-lithe-theme.php:246
+msgid "Dark Gray"
+msgstr "Темно-серый"
+
+#: D:/Projects/lithe/includes/template-functions.php:11
 msgctxt "At certain time"
 msgid "\\a\\t"
 msgstr "в"
 
-#: includes/template-functions.php:199
+#: D:/Projects/lithe/includes/template-functions.php:169
 msgid "Breadcrumbs"
 msgstr "Хлебные крошки"
 
-#: includes/template-functions.php:427
+#: D:/Projects/lithe/includes/template-functions.php:399
 #, php-format
 msgid "%s Views"
 msgstr "%s просмотров"
 
-#: includes/template-functions.php:439
+#: D:/Projects/lithe/includes/template-functions.php:411
 msgid "Leave a comment"
 msgstr "Оставить комментарий"
 
-#: includes/template-functions.php:440
+#: D:/Projects/lithe/includes/template-functions.php:412
 msgid "on"
 msgstr "на"
 
-#: includes/template-functions.php:443
+#: D:/Projects/lithe/includes/template-functions.php:415
 msgid "0 Comments"
 msgstr "Нет комментариев"
 
-#: includes/template-functions.php:444
+#: D:/Projects/lithe/includes/template-functions.php:416
 msgid "1 Comment"
 msgstr "1 комментарий"
 
-#: includes/template-functions.php:445
+#: D:/Projects/lithe/includes/template-functions.php:417
 msgid "% Comments"
 msgstr "% комментариев"
 
-#: includes/template-functions.php:447
+#: D:/Projects/lithe/includes/template-functions.php:419
 msgid "Comments are off for this post"
 msgstr "Комментарии отключены"
 
-#: template-parts/entry-header.php:18
+#: D:/Projects/lithe/template-parts/entry-header.php:18
 msgid "Edit"
 msgstr "Изменить"
 
-#: template-parts/related-posts.php:3
-msgid "You might also find interesting..."
-msgstr "Читайте также..."
-
-#: template-parts/theme-switcher.php:1
-msgid "Switch color scheme"
-msgstr "Сменить цветовую схему"
-
-#: template-parts/theme-switcher.php:5
-msgid "Switch to light color scheme"
-msgstr "Переключится на светлую тему"
-
-#: template-parts/theme-switcher.php:11
-msgid "Switch to dark color scheme"
-msgstr "Переключится на темную тему"
-
-#: template-parts/header-menu.php:5
+#: D:/Projects/lithe/template-parts/header-menu.php:5
 msgid "Show or hide menu"
 msgstr "Показать или скрыть меню"
 
-#: classes/post-types/class-lithe-post-type-trainer.php:32
-#: classes/post-types/class-lithe-post-type-trainer.php:43
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:102
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:42
-msgid "Trainers"
-msgstr "Тренеры"
+#: D:/Projects/lithe/template-parts/related-posts.php:3
+msgid "You might also find interesting..."
+msgstr "Читайте также..."
 
-#: classes/post-types/class-lithe-post-type-trainer.php:33
-msgid "Trainer"
-msgstr "Тренер"
+#: D:/Projects/lithe/template-parts/theme-switcher.php:1
+msgid "Switch color scheme"
+msgstr "Сменить цветовую схему"
 
-#: classes/post-types/class-lithe-post-type-trainer.php:34
-msgctxt "Add new trainer"
-msgid "Add New"
-msgstr "Добавить нового"
+#: D:/Projects/lithe/template-parts/theme-switcher.php:5
+msgid "Switch to light color scheme"
+msgstr "Переключится на светлую тему"
 
-#: classes/post-types/class-lithe-post-type-trainer.php:35
-msgid "Add New Trainer"
-msgstr "Добавить нового тренера"
+#: D:/Projects/lithe/template-parts/theme-switcher.php:11
+msgid "Switch to dark color scheme"
+msgstr "Переключится на темную тему"
 
-#: classes/post-types/class-lithe-post-type-trainer.php:36
-msgid "Edit Trainer"
-msgstr "Редактировать тренера"
+#: D:/Projects/lithe/classes/meta-boxes/class-lithe-meta-box-trainer-timetable.php:36
+msgid "Trainer timetable will be available after selecting sports and venues."
+msgstr "Расписание тренера можно указать после выбора видов спорта и площадок."
 
-#: classes/post-types/class-lithe-post-type-trainer.php:37
-msgid "New Trainer"
-msgstr "Новый тренер"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:38
-msgid "All Trainers"
-msgstr "Все тренеры"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:39
-msgid "View Trainers"
-msgstr "Посмотреть тренеров"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:40
-msgid "Search Trainers"
-msgstr "Искать тренера"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:41
-msgid "No trainers found"
-msgstr "Тренер не найден"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:42
-msgid "No trainers found in the Trash"
-msgstr "Тренеры не найдены в Корзине"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:46
-msgid "Holds trainers and trainer specific data"
-msgstr "Содержит тренеров и их данные"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:67
-#: classes/meta-boxes/views/view-trainer-profile.php:26
-msgid "Phone"
-msgstr "Телефон"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:68
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:22
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:30
-msgid "Sports"
-msgstr "Виды спорта"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:69
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:38
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:46
-msgid "Venues"
-msgstr "Площадки"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:95
-msgid "Unable to get list of sports"
-msgstr "Невозможно получить список видов спорта"
-
-#: classes/post-types/class-lithe-post-type-trainer.php:106
-msgid "Unable to get list of venues"
-msgstr "Невозможно получить список площадок"
-
-#: classes/post-types/class-lithe-post-type-trial.php:32
-#: classes/post-types/class-lithe-post-type-trial.php:43
-msgid "Trials"
-msgstr "Соревнования"
-
-#: classes/post-types/class-lithe-post-type-trial.php:33
-msgid "Trial"
-msgstr "Соревнование"
-
-#: classes/post-types/class-lithe-post-type-trial.php:34
-msgctxt "Add new trial"
-msgid "Add New"
-msgstr "Добавить новое"
-
-#: classes/post-types/class-lithe-post-type-trial.php:35
-msgid "Add New Trial"
-msgstr "Добавить новое соревнование"
-
-#: classes/post-types/class-lithe-post-type-trial.php:36
-msgid "Edit Trial"
-msgstr "Редактировать соревнование"
-
-#: classes/post-types/class-lithe-post-type-trial.php:37
-msgid "New Trial"
-msgstr "Новое соревнование"
-
-#: classes/post-types/class-lithe-post-type-trial.php:38
-msgid "All Trials"
-msgstr "Все соревнования"
-
-#: classes/post-types/class-lithe-post-type-trial.php:39
-msgid "View Trials"
-msgstr "Просмотреть соревнования"
-
-#: classes/post-types/class-lithe-post-type-trial.php:40
-msgid "Search Trials"
-msgstr "Искать соревнование"
-
-#: classes/post-types/class-lithe-post-type-trial.php:41
-msgid "No trials found"
-msgstr "Соревнования не найдены"
-
-#: classes/post-types/class-lithe-post-type-trial.php:42
-msgid "No trials found in the Trash"
-msgstr "Соревнования не найдены в Корзине"
-
-#: classes/post-types/class-lithe-post-type-trial.php:46
-msgid "Holds trials and tracks specific data"
-msgstr "Содержит информацию о соревнованиях и трассах"
-
-#: classes/post-types/class-lithe-post-type-dog.php:32
-#: classes/post-types/class-lithe-post-type-dog.php:43
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:60
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:32
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:43
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:60
 msgid "Dogs"
 msgstr "Собаки"
 
-#: classes/post-types/class-lithe-post-type-dog.php:33
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:33
 msgid "Dog"
 msgstr "Собака"
 
-#: classes/post-types/class-lithe-post-type-dog.php:34
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:34
 msgctxt "Add new dog"
 msgid "Add New"
 msgstr "Добавить новую"
 
-#: classes/post-types/class-lithe-post-type-dog.php:35
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:35
 msgid "Add New Dog"
 msgstr "Добавить новую собаку"
 
-#: classes/post-types/class-lithe-post-type-dog.php:36
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:36
 msgid "Edit Dog"
 msgstr "Редактировать собаку"
 
-#: classes/post-types/class-lithe-post-type-dog.php:37
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:37
 msgid "New Dog"
 msgstr "Новая собака"
 
-#: classes/post-types/class-lithe-post-type-dog.php:38
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:38
 msgid "All Dogs"
 msgstr "Все собаки"
 
-#: classes/post-types/class-lithe-post-type-dog.php:39
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:39
 msgid "View Dogs"
 msgstr "Просмотреть собак"
 
-#: classes/post-types/class-lithe-post-type-dog.php:40
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:40
 msgid "Search Dogs"
 msgstr "Искать собаку"
 
-#: classes/post-types/class-lithe-post-type-dog.php:41
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:41
 msgid "No dogs found"
 msgstr "Собака не найдена"
 
-#: classes/post-types/class-lithe-post-type-dog.php:42
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:42
 msgid "No dogs found in the Trash"
 msgstr "Собаки не найдены в Корзине"
 
-#: classes/post-types/class-lithe-post-type-dog.php:46
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-dog.php:46
 msgid "Holds dogs and dog specific data"
 msgstr "Содержит собак и их данные"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:39
-#: classes/meta-boxes/views/view-trainer-timetable.php:7
-msgid "Venue"
-msgstr "Площадка"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:32
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:43
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:42
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:102
+msgid "Trainers"
+msgstr "Тренеры"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:40
-msgid "Search Venues"
-msgstr "Искать площадку"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:33
+msgid "Trainer"
+msgstr "Тренер"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:41
-msgid "All Venues"
-msgstr "Все площадки"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:34
+msgctxt "Add new trainer"
+msgid "Add New"
+msgstr "Добавить нового"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:42
-msgid "Edit Venue"
-msgstr "Редактировать площадку"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:35
+msgid "Add New Trainer"
+msgstr "Добавить нового тренера"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:43
-msgid "Update Venue"
-msgstr "Обновить площадку"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:36
+msgid "Edit Trainer"
+msgstr "Редактировать тренера"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:44
-msgid "Add New Venue"
-msgstr "Добавить новую площадку"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:37
+msgid "New Trainer"
+msgstr "Новый тренер"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:45
-msgid "New Venue"
-msgstr "Новая площадка"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:38
+msgid "All Trainers"
+msgstr "Все тренеры"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:100
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:17
-#: classes/taxonomies/views/view-venue-add-form-fields.php:15
-msgid "Address"
-msgstr "Адрес"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:39
+msgid "View Trainers"
+msgstr "Посмотреть тренеров"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:101
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:4
-msgid "Website"
-msgstr "Сайт"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:40
+msgid "Search Trainers"
+msgstr "Искать тренера"
 
-#: classes/taxonomies/class-lithe-taxonomy-venue.php:127
-msgid "(link)"
-msgstr "(ссылка)"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:41
+msgid "No trainers found"
+msgstr "Тренер не найден"
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:23
-#: classes/meta-boxes/views/view-trainer-timetable.php:12
-msgid "Sport"
-msgstr "Вид спорта"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:42
+msgid "No trainers found in the Trash"
+msgstr "Тренеры не найдены в Корзине"
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:24
-msgid "Search Sports"
-msgstr "Искать вид спорта"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:46
+msgid "Holds trainers and trainer specific data"
+msgstr "Содержит тренеров и их данные"
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:25
-msgid "All Sports"
-msgstr "Все виды спорта"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:67
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:26
+msgid "Phone"
+msgstr "Телефон"
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:26
-msgid "Edit Sport"
-msgstr "Редактировать вид спорта"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:68
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:22
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:30
+msgid "Sports"
+msgstr "Виды спорта"
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:27
-msgid "Update Sport"
-msgstr "Обновить вид спорта"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:69
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:38
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:46
+msgid "Venues"
+msgstr "Площадки"
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:28
-msgid "Add New Sport"
-msgstr "Добавить новый вид спорта"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:95
+msgid "Unable to get list of sports"
+msgstr "Невозможно получить список видов спорта"
 
-#: classes/taxonomies/class-lithe-taxonomy-sport.php:29
-msgid "New Sport"
-msgstr "Новый вид спорта"
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trainer.php:106
+msgid "Unable to get list of venues"
+msgstr "Невозможно получить список площадок"
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:33
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:41
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:32
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:43
+msgid "Trials"
+msgstr "Соревнования"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:33
+msgid "Trial"
+msgstr "Соревнование"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:34
+msgctxt "Add new trial"
+msgid "Add New"
+msgstr "Добавить новое"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:35
+msgid "Add New Trial"
+msgstr "Добавить новое соревнование"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:36
+msgid "Edit Trial"
+msgstr "Редактировать соревнование"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:37
+msgid "New Trial"
+msgstr "Новое соревнование"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:38
+msgid "All Trials"
+msgstr "Все соревнования"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:39
+msgid "View Trials"
+msgstr "Просмотреть соревнования"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:40
+msgid "Search Trials"
+msgstr "Искать соревнование"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:41
+msgid "No trials found"
+msgstr "Соревнования не найдены"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:42
+msgid "No trials found in the Trash"
+msgstr "Соревнования не найдены в Корзине"
+
+#: D:/Projects/lithe/classes/post-types/class-lithe-post-type-trial.php:46
+msgid "Holds trials and tracks specific data"
+msgstr "Содержит информацию о соревнованиях и трассах"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:33
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:41
 msgid "Breeds"
 msgstr "Породы"
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:34
-#: classes/meta-boxes/views/view-dog-profile.php:32
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:34
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:32
 msgid "Breed"
 msgstr "Порода"
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:35
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:35
 msgid "Search Breeds"
 msgstr "Искать породу"
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:36
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:36
 msgid "All Breeds"
 msgstr "Все породы"
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:37
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:37
 msgid "Edit Breed"
 msgstr "Редактировать породу"
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:38
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:38
 msgid "Update Breed"
 msgstr "Обновить породу"
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:39
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:39
 msgid "Add New Breed"
 msgstr "Добавить новую породу"
 
-#: classes/taxonomies/class-lithe-taxonomy-breed.php:40
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-breed.php:40
 msgid "New Breed"
 msgstr "Новая порода"
 
-#: classes/widgets/class-lithe-widget-weather.php:84
-msgid "Lithe Weather Widget"
-msgstr "Погода Lithe"
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:23
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-timetable.php:12
+msgid "Sport"
+msgstr "Вид спорта"
 
-#: classes/widgets/class-lithe-widget-weather.php:85
-msgid "Weather widget for Lithe theme"
-msgstr "Погодный виджет для темы Lithe"
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:24
+msgid "Search Sports"
+msgstr "Искать вид спорта"
 
-#: classes/widgets/class-lithe-widget-weather.php:145
-msgid "Missing widget id"
-msgstr "Отсутствует идентификатор виджета"
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:25
+msgid "All Sports"
+msgstr "Все виды спорта"
 
-#: classes/widgets/class-lithe-widget-weather.php:181
-#: classes/widgets/class-lithe-widget-weather.php:198
-msgid "New Weather Widget"
-msgstr "Новый виджет погоды"
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:26
+msgid "Edit Sport"
+msgstr "Редактировать вид спорта"
 
-#: classes/widgets/class-lithe-widget-vk.php:14
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:27
+msgid "Update Sport"
+msgstr "Обновить вид спорта"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:28
+msgid "Add New Sport"
+msgstr "Добавить новый вид спорта"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-sport.php:29
+msgid "New Sport"
+msgstr "Новый вид спорта"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:39
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-timetable.php:7
+msgid "Venue"
+msgstr "Площадка"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:40
+msgid "Search Venues"
+msgstr "Искать площадку"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:41
+msgid "All Venues"
+msgstr "Все площадки"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:42
+msgid "Edit Venue"
+msgstr "Редактировать площадку"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:43
+msgid "Update Venue"
+msgstr "Обновить площадку"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:44
+msgid "Add New Venue"
+msgstr "Добавить новую площадку"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:45
+msgid "New Venue"
+msgstr "Новая площадка"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:100
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:15
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:17
+msgid "Address"
+msgstr "Адрес"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:101
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:4
+msgid "Website"
+msgstr "Сайт"
+
+#: D:/Projects/lithe/classes/taxonomies/class-lithe-taxonomy-venue.php:127
+msgid "(link)"
+msgstr "(ссылка)"
+
+#: D:/Projects/lithe/classes/widgets/class-lithe-widget-vk.php:16
 msgid "Lithe VK Widget"
 msgstr "Группа ВК Lithe"
 
-#: classes/widgets/class-lithe-widget-vk.php:15
+#: D:/Projects/lithe/classes/widgets/class-lithe-widget-vk.php:17
 msgid "VK group widget for Lithe theme"
 msgstr "Виджет группы ВК для темы Lithe"
 
-#: classes/meta-boxes/class-lithe-meta-box-trainer-timetable.php:36
-msgid "Trainer timetable will be available after selecting sports and venues."
-msgstr "Расписание тренера можно указать после выбора видов спорта и площадок."
+#: D:/Projects/lithe/classes/widgets/class-lithe-widget-weather.php:84
+msgid "Lithe Weather Widget"
+msgstr "Погода Lithe"
 
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:9
-#: classes/taxonomies/views/view-venue-add-form-fields.php:8
-msgid "Venue's website or social network link."
-msgstr "Адрес сайта или группы в социальной сети."
+#: D:/Projects/lithe/classes/widgets/class-lithe-widget-weather.php:85
+msgid "Weather widget for Lithe theme"
+msgstr "Погодный виджет для темы Lithe"
 
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:22
-#: classes/taxonomies/views/view-venue-add-form-fields.php:19
-msgid "Venue's physical address."
-msgstr "Физический адрес площадки."
+#: D:/Projects/lithe/classes/widgets/class-lithe-widget-weather.php:145
+msgid "Missing widget id"
+msgstr "Отсутствует идентификатор виджета"
 
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:30
-#: classes/taxonomies/views/view-venue-add-form-fields.php:26
-msgid "Coordinates"
-msgstr "Координаты"
+#: D:/Projects/lithe/classes/widgets/class-lithe-widget-weather.php:181
+#: D:/Projects/lithe/classes/widgets/class-lithe-widget-weather.php:198
+msgid "New Weather Widget"
+msgstr "Новый виджет погоды"
 
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:35
-#: classes/taxonomies/views/view-venue-add-form-fields.php:30
-msgid "Venue's coordinates."
-msgstr "Координаты площадки."
-
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:41
-#: classes/taxonomies/views/view-venue-add-form-fields.php:34
-msgid "Weather Widget"
-msgstr "Погодный виджет"
-
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:47
-#: classes/taxonomies/views/view-venue-add-form-fields.php:39
-msgid "Location ID"
-msgstr "ID местоположения"
-
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:52
-#: classes/taxonomies/views/view-venue-add-form-fields.php:43
-msgid "Venue's location ID for the weather widget."
-msgstr "ID местоположения площадки для погодного виджета."
-
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:60
-#: classes/taxonomies/views/view-venue-add-form-fields.php:50
-msgid "Position"
-msgstr "Положение"
-
-#: classes/taxonomies/views/view-venue-edit-form-fields.php:65
-#: classes/taxonomies/views/view-venue-add-form-fields.php:54
-msgid "Venue's position in the weather widget. Lower numbers go first."
-msgstr ""
-"Положение площадки в погодном виджете. Чем больше номер, тем ниже площадка в "
-"списке."
-
-#: classes/taxonomies/views/view-venue-add-form-fields.php:4
-msgid "Link"
-msgstr "Ссылка"
-
-#: classes/widgets/views/view-vk-form.php:3
-msgid "Group ID:"
-msgstr "ID группы:"
-
-#: classes/widgets/views/view-weather-forecast.php:25
-msgid "km/h"
-msgstr "км/ч"
-
-#: classes/widgets/views/view-weather-forecast.php:37
-msgid "Updated:"
-msgstr "Обновлено:"
-
-#: classes/widgets/views/view-weather-form.php:3
-msgid "Title:"
-msgstr "Заголовок:"
-
-#: classes/widgets/views/view-weather-form.php:10
-msgid "API Key (from developer.accuweather.com):"
-msgstr "Ключ API (с developer.accuweather.com):"
-
-#: classes/widgets/views/view-weather-form.php:17
-msgid "Update Interval:"
-msgstr "Интервал обновления:"
-
-#: classes/widgets/views/view-weather-form.php:19
-msgid "3 hours"
-msgstr "каждые 3 часа"
-
-#: classes/widgets/views/view-weather-form.php:20
-msgid "6 hours"
-msgstr "каждые 6 часов"
-
-#: classes/widgets/views/view-weather-form.php:21
-msgid "12 hours"
-msgstr "каждые 12 часов"
-
-#: classes/widgets/views/view-weather-footer.php:3
-#, php-format
-msgid "Weather data provided by %s"
-msgstr "Данные о погоде предоставлены %s"
-
-#: classes/meta-boxes/views/view-trainer-profile.php:2
-msgid "First Name"
-msgstr "Имя"
-
-#: classes/meta-boxes/views/view-trainer-profile.php:4
-msgid "Trainer's first name."
-msgstr "Имя тренера."
-
-#: classes/meta-boxes/views/view-trainer-profile.php:8
-msgid "Middle Name"
-msgstr "Отчество"
-
-#: classes/meta-boxes/views/view-trainer-profile.php:10
-msgid "Trainer's middle name."
-msgstr "Отчество тренера."
-
-#: classes/meta-boxes/views/view-trainer-profile.php:14
-msgid "Last Name"
-msgstr "Фамилия"
-
-#: classes/meta-boxes/views/view-trainer-profile.php:16
-msgid "Trainer's last name."
-msgstr "Фамилия тренера."
-
-#: classes/meta-boxes/views/view-trainer-profile.php:20
-msgid "Organization"
-msgstr "Организация"
-
-#: classes/meta-boxes/views/view-trainer-profile.php:22
-msgid "Organization that trainer is a part of."
-msgstr "Организация, в которой состоит тренер."
-
-#: classes/meta-boxes/views/view-trainer-profile.php:28
-msgid "Trainer's contact phone."
-msgstr "Контактный телефон тренера."
-
-#: classes/meta-boxes/views/view-trainer-profile.php:32
-msgid "E-Mail"
-msgstr "E-Mail"
-
-#: classes/meta-boxes/views/view-trainer-profile.php:34
-msgid "Trainer's contact e-mail."
-msgstr "E-mail тренера."
-
-#: classes/meta-boxes/views/view-trainer-profile.php:38
-msgid "Social Network"
-msgstr "Социальная сеть"
-
-#: classes/meta-boxes/views/view-trainer-profile.php:40
-msgid "Link to trainer's social network profile."
-msgstr "Ссылка на профиль тренера в соцсети."
-
-#: classes/meta-boxes/views/view-trainer-timetable.php:2
-msgid "Trainer's schedule on different venues."
-msgstr "Расписание тренера на площадках."
-
-#: classes/meta-boxes/views/view-trainer-timetable.php:13
-msgid "Timetable"
-msgstr "Расписание"
-
-#: classes/meta-boxes/views/view-dog-profile.php:2
-msgid "Full Name"
-msgstr "Полное имя"
-
-#: classes/meta-boxes/views/view-dog-profile.php:4
-msgid "Dog's full name (as written in pedigree)."
-msgstr "Полное имя собаки (как записано в родословной)."
-
-#: classes/meta-boxes/views/view-dog-profile.php:8
-msgid "Name"
-msgstr "Домашняя кличка"
-
-#: classes/meta-boxes/views/view-dog-profile.php:10
-msgid "Dog's name."
-msgstr "Домашняя кличка собаки"
-
-#: classes/meta-boxes/views/view-dog-profile.php:14
-msgid "Birthday"
-msgstr "День рождения"
-
-#: classes/meta-boxes/views/view-dog-profile.php:16
-msgid "Dog's birthday date."
-msgstr "Дата рождения собаки."
-
-#: classes/meta-boxes/views/view-dog-profile.php:23
-msgid "Gender"
-msgstr "Пол"
-
-#: classes/meta-boxes/views/view-dog-profile.php:25
-msgid "Male"
-msgstr "Кобель"
-
-#: classes/meta-boxes/views/view-dog-profile.php:26
-msgid "Female"
-msgstr "Сука"
-
-#: classes/meta-boxes/views/view-dog-profile.php:28
-msgid "Dog's gender."
-msgstr "Пол собаки"
-
-#: classes/meta-boxes/views/view-dog-profile.php:34
-msgid "Dog's breed."
-msgstr "Порода собаки."
-
-#: classes/meta-boxes/views/view-dog-profile.php:38
-msgid "Pedigree No"
-msgstr "Номер родословной"
-
-#: classes/meta-boxes/views/view-dog-profile.php:40
-msgid "Dog's pedigree number."
-msgstr "Номер родословной собаки."
-
-#: classes/meta-boxes/views/view-dog-profile.php:44
-msgid "Tattoo No"
-msgstr "Клеймо"
-
-#: classes/meta-boxes/views/view-dog-profile.php:46
-msgid "Dog's tattoo number."
-msgstr "Номер клейма собаки."
-
-#: classes/meta-boxes/views/view-dog-profile.php:50
-msgid "Microchip No"
-msgstr "Номер чипа"
-
-#: classes/meta-boxes/views/view-dog-profile.php:52
-msgid "Dog's microchip number."
-msgstr "Номер чипа собаки."
-
-#: classes/meta-boxes/views/view-dog-profile.php:56
-msgid "Workbook No"
-msgstr "Номер рабочей книжки"
-
-#: classes/meta-boxes/views/view-dog-profile.php:58
-msgid "Dog's workbook number."
-msgstr "Номер рабочей книжки собаки."
-
-#: classes/meta-boxes/views/view-dog-profile.php:62
-msgid "Height"
-msgstr "Высота"
-
-#: classes/meta-boxes/views/view-dog-profile.php:64
-msgid "Dog's height (in cm)."
-msgstr "Высота собаки в холке (см)."
-
-#: assets/js/cookieconsent-3.1.1/package.php:9
+#: D:/Projects/lithe/assets/js/cookieconsent-3.1.1/package.php:9
 msgid ""
 "This site uses cookies to improve your experience. By continuing to browse "
 "you are agreeing to our use of cookies."
@@ -872,9 +643,265 @@ msgstr ""
 "удобства пользования. Продолжая работу, вы даете свое согласие на обработку "
 "указанных выше данных."
 
-#: assets/js/cookieconsent-3.1.1/package.php:10
+#: D:/Projects/lithe/assets/js/cookieconsent-3.1.1/package.php:10
 msgid "Dismiss"
 msgstr "Принять"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:2
+msgid "Full Name"
+msgstr "Полное имя"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:4
+msgid "Dog's full name (as written in pedigree)."
+msgstr "Полное имя собаки (как записано в родословной)."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:8
+msgid "Name"
+msgstr "Домашняя кличка"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:10
+msgid "Dog's name."
+msgstr "Домашняя кличка собаки"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:14
+msgid "Birthday"
+msgstr "День рождения"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:16
+msgid "Dog's birthday date."
+msgstr "Дата рождения собаки."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:23
+msgid "Gender"
+msgstr "Пол"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:25
+msgid "Male"
+msgstr "Кобель"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:26
+msgid "Female"
+msgstr "Сука"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:28
+msgid "Dog's gender."
+msgstr "Пол собаки"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:34
+msgid "Dog's breed."
+msgstr "Порода собаки."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:38
+msgid "Pedigree No"
+msgstr "Номер родословной"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:40
+msgid "Dog's pedigree number."
+msgstr "Номер родословной собаки."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:44
+msgid "Tattoo No"
+msgstr "Клеймо"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:46
+msgid "Dog's tattoo number."
+msgstr "Номер клейма собаки."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:50
+msgid "Microchip No"
+msgstr "Номер чипа"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:52
+msgid "Dog's microchip number."
+msgstr "Номер чипа собаки."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:56
+msgid "Workbook No"
+msgstr "Номер рабочей книжки"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:58
+msgid "Dog's workbook number."
+msgstr "Номер рабочей книжки собаки."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:62
+msgid "Height"
+msgstr "Высота"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-dog-profile.php:64
+msgid "Dog's height (in cm)."
+msgstr "Высота собаки в холке (см)."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-post-style.php:5
+msgid "Post Image Float"
+msgstr "Положение изображения записи"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-post-style.php:7
+msgid "Center"
+msgstr "По центру"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-post-style.php:8
+msgid "Left"
+msgstr "Слева"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-post-style.php:9
+msgid "Right"
+msgstr "Справа"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-post-style.php:11
+msgid "Post image position relative to the content or excerpt."
+msgstr "Положение изображение записи относительно содержимого."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:2
+msgid "First Name"
+msgstr "Имя"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:4
+msgid "Trainer's first name."
+msgstr "Имя тренера."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:8
+msgid "Middle Name"
+msgstr "Отчество"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:10
+msgid "Trainer's middle name."
+msgstr "Отчество тренера."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:14
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:16
+msgid "Trainer's last name."
+msgstr "Фамилия тренера."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:20
+msgid "Organization"
+msgstr "Организация"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:22
+msgid "Organization that trainer is a part of."
+msgstr "Организация, в которой состоит тренер."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:28
+msgid "Trainer's contact phone."
+msgstr "Контактный телефон тренера."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:32
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:34
+msgid "Trainer's contact e-mail."
+msgstr "E-mail тренера."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:38
+msgid "Social Network"
+msgstr "Социальная сеть"
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-profile.php:40
+msgid "Link to trainer's social network profile."
+msgstr "Ссылка на профиль тренера в соцсети."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-timetable.php:2
+msgid "Trainer's schedule on different venues."
+msgstr "Расписание тренера на площадках."
+
+#: D:/Projects/lithe/classes/meta-boxes/views/view-trainer-timetable.php:13
+msgid "Timetable"
+msgstr "Расписание"
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:4
+msgid "Link"
+msgstr "Ссылка"
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:8
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:9
+msgid "Venue's website or social network link."
+msgstr "Адрес сайта или группы в социальной сети."
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:19
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:22
+msgid "Venue's physical address."
+msgstr "Физический адрес площадки."
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:26
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:30
+msgid "Coordinates"
+msgstr "Координаты"
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:30
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:35
+msgid "Venue's coordinates."
+msgstr "Координаты площадки."
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:34
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:41
+msgid "Weather Widget"
+msgstr "Погодный виджет"
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:39
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:47
+msgid "Location ID"
+msgstr "ID местоположения"
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:43
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:52
+msgid "Venue's location ID for the weather widget."
+msgstr "ID местоположения площадки для погодного виджета."
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:50
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:60
+msgid "Position"
+msgstr "Положение"
+
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-add-form-fields.php:54
+#: D:/Projects/lithe/classes/taxonomies/views/view-venue-edit-form-fields.php:65
+msgid "Venue's position in the weather widget. Lower numbers go first."
+msgstr ""
+"Положение площадки в погодном виджете. Чем больше номер, тем ниже площадка в "
+"списке."
+
+#: D:/Projects/lithe/classes/widgets/views/view-vk-form.php:3
+msgid "Group ID:"
+msgstr "ID группы:"
+
+#: D:/Projects/lithe/classes/widgets/views/view-weather-footer.php:3
+#, php-format
+msgid "Weather data provided by %s"
+msgstr "Данные о погоде предоставлены %s"
+
+#: D:/Projects/lithe/classes/widgets/views/view-weather-forecast.php:25
+msgid "km/h"
+msgstr "км/ч"
+
+#: D:/Projects/lithe/classes/widgets/views/view-weather-forecast.php:37
+msgid "Updated:"
+msgstr "Обновлено:"
+
+#: D:/Projects/lithe/classes/widgets/views/view-weather-form.php:3
+msgid "Title:"
+msgstr "Заголовок:"
+
+#: D:/Projects/lithe/classes/widgets/views/view-weather-form.php:10
+msgid "API Key (from developer.accuweather.com):"
+msgstr "Ключ API (с developer.accuweather.com):"
+
+#: D:/Projects/lithe/classes/widgets/views/view-weather-form.php:17
+msgid "Update Interval:"
+msgstr "Интервал обновления:"
+
+#: D:/Projects/lithe/classes/widgets/views/view-weather-form.php:19
+msgid "3 hours"
+msgstr "каждые 3 часа"
+
+#: D:/Projects/lithe/classes/widgets/views/view-weather-form.php:20
+msgid "6 hours"
+msgstr "каждые 6 часов"
+
+#: D:/Projects/lithe/classes/widgets/views/view-weather-form.php:21
+msgid "12 hours"
+msgstr "каждые 12 часов"
 
 #. Name of the theme
 msgid "Lithe"

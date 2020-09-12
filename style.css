@@ -1371,6 +1371,40 @@ label input[type=checkbox] + span::after {
   color: var(--lt-gray-color);
 }
 
+.post-image > img {
+  width: 100%;
+  height: auto;
+}
+
+.post-image-center .post-image,
+.post-image-left .post-image,
+.post-image-right .post-image {
+  max-width: 100%;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 600px) {
+  .post-image-left .post-image,
+.post-image-right .post-image {
+    max-width: 50%;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .post-image-left .post-image {
+    float: left;
+    margin-right: 1em;
+  }
+}
+
+@media (min-width: 600px) {
+  .post-image-right .post-image {
+    float: right;
+    margin-left: 1em;
+  }
+}
+
 .tablepress {
   border-width: 1px;
   border-style: solid;
