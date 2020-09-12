@@ -13,6 +13,8 @@ get_header();
 
     if ( have_posts() ) {
 
+        lithe_breadcrumbs();
+
         while ( have_posts() ) {
             the_post();
 
