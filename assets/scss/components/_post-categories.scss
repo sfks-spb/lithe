@@ -5,15 +5,16 @@ ul.post-categories li {
     margin: 0;
 }
 
+ul.post-categories {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 ul.post-categories li {
     display: inline-block;
     padding: 5px 10px;
     margin: 0 5px 5px 0;
     background: var(--lt-brand-blue-color);
-
-    @include respond-to('aussie') {
-        margin-bottom: 0;
-    }
 
     @include undecorated-link(var(--lt-white-color), var(--lt-white-color));
 
