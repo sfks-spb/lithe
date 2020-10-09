@@ -426,32 +426,27 @@ if ( ! function_exists( 'lithe_post_thumbnail' ) ) {
     /**
      * Outputs post thumbnail.
      *
+     * @param  string $before Output before thumbnail.
+     * @param  string $after  Output after thumbnail.
+     *
      * @global WP_Post $post Current post instance.
      *
      * @return void
      */
-    function lithe_post_thumbnail(): void {
+    function lithe_post_thumbnail(string $before = '', string $after = ''): void {
         global $post;
 
-        $thumbnail_id = get_post_thumbnail_id( $post->ID );
-        $attr = array(
-            'alt' => get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ),
-        );
+        if ( has_post_thumbnail( $post->ID ) ) {
 
-        if ( is_singular() ) {
+            $thumbnail_id = get_post_thumbnail_id( $post->ID );
 
-            printf(
-                '<div class="post-image">%s</div>',
-                get_the_post_thumbnail( $post->ID, 'lithe_medium', $attr )
-            );
+            echo $before;
 
-        } else {
+            the_post_thumbnail( 'lithe_medium', array(
+                'alt' => get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ),
+            ) );
 
-            printf(
-                '<a href="%1$s" class="post-image">%2$s</a>',
-                esc_attr( get_permalink( $post->ID ) ),
-                get_the_post_thumbnail( $post->ID, 'lithe_medium', $attr )
-            );
+            echo $after;
 
         }
 

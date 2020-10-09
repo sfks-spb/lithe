@@ -1380,22 +1380,43 @@ label input[type=checkbox] + span::after {
   color: var(--lt-gray-color);
 }
 
-.post-image > img {
-  width: 100%;
-  height: auto;
+.entry-content {
+  display: flex;
 }
 
-.post-image-center .post-image,
-.post-image-left .post-image,
-.post-image-right .post-image {
+.post-content,
+.post-image {
+  flex-basis: 50%;
+  flex-direction: row;
+}
+.singular .post-content,
+.singular .post-image {
+  flex-direction: column;
+}
+
+.post-image {
+  display: block;
   max-width: 100%;
   margin-bottom: 1em;
 }
+.post-image > img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
 
+.post-image-left .post-image,
+.post-image-left .post-content,
+.post-image-right .post-image,
+.post-image-right .post-content {
+  flex-basis: 100%;
+}
 @media (min-width: 600px) {
   .post-image-left .post-image,
-.post-image-right .post-image {
-    max-width: 50%;
+.post-image-left .post-content,
+.post-image-right .post-image,
+.post-image-right .post-content {
+    flex-basis: 50%;
     margin-bottom: 0;
   }
 }

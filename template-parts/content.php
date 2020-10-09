@@ -7,9 +7,14 @@
     <div class="entry-content">
 
         <?php
-            $excerpt = ( has_excerpt() ) ? '<p>' . get_the_excerpt() . '</p>' : '';
-            if ( is_singular() ) echo $excerpt;
-            if ( has_post_thumbnail() ) lithe_post_thumbnail();
+            $excerpt = ( has_excerpt() ) ? apply_filters( 'the_excerpt', get_the_excerpt() ) : '';
+
+            if ( is_singular() ) {
+                echo $excerpt;
+                lithe_post_thumbnail( '<div class="post-image">', '</div>' );
+            } else {
+                lithe_post_thumbnail( '<a class="post-image" href="' . esc_attr( get_permalink() ) . '">', '</a>' );
+            }
         ?>
 
         <div class="post-content">
@@ -37,7 +42,7 @@
 
         <?php if ( is_single() ) lithe_related_posts(); ?>
 
-        <?php if ( ( is_single() && is_page() ) && ( comments_open() || get_comments_number() ) && ! post_password_required() ): ?>
+        <?php if ( ( is_single() || is_page() ) && ( comments_open() || get_comments_number() ) && ! post_password_required() ): ?>
 
             <div class="comments-wrapper">
 
