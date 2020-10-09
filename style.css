@@ -393,6 +393,15 @@ template {
   }
 }
 
+.wp-block-button__link {
+  font-size: 1.54rem;
+  border-radius: 5px;
+}
+
+.is-style-outline .wp-block-button__link {
+  color: inherit;
+}
+
 .owl-carousel {
   transition: opacity 0.3s cubic-bezier(0.17, 0.84, 0.44, 1);
   opacity: 0;

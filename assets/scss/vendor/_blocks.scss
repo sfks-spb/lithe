@@ -42,3 +42,11 @@
 
 }
 
+.wp-block-button__link {
+    font-size: $font-size-medium;
+    border-radius: 5px;
+}
+
+.is-style-outline .wp-block-button__link {
+    color: inherit;
+}
