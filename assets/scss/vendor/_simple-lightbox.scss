@@ -1,6 +1,10 @@
-.sl-wrapper button {
+div.sl-wrapper button {
     &:hover,
     &:focus {
         background: none !important;
     }
+}
+
+div.sl-overlay {
+    color: var(--lt-white-color);
 }
