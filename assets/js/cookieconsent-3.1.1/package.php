@@ -28,7 +28,7 @@ window.cookieconsent.initialise({
     "link": cookieconsent_l10n.link,
     "href": "' . get_home_url( null, 'about/privacy' ) . '"
   },
-  "position": "bottom",
+  "position": "bottom-right",
   "theme": "classic",
   "container": document.getElementById("site-footer"),
 });

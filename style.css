@@ -406,28 +406,16 @@ template {
   background: none;
 }
 
-.cc-window {
+.cc-window.cc-floating {
   font-size: 1.54rem;
+  box-shadow: 0 0 4px 2px var(--lt-light-gray-color);
+  border-radius: 0;
 }
-
-.cc-window.cc-banner {
-  max-width: 1190px;
-  margin: 0 auto 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px 4px var(--lt-light-gray-color);
-  padding: 0.6em 1.1em;
-}
-
-.cc-banner .cc-message {
-  text-align: center;
-  margin-right: 2em;
-}
-
-.cc-theme-classic .cc-btn {
+.cc-window.cc-floating .cc-btn {
   font-weight: 400;
   margin: 0 auto;
 }
-.cc-theme-classic .cc-btn:hover, .cc-theme-classic .cc-btn:active {
+.cc-window.cc-floating .cc-btn:hover, .cc-window.cc-floating .cc-btn:active {
   color: white;
 }
 
