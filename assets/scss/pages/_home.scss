@@ -3,55 +3,48 @@
     overflow: hidden;
 }
 
-#home-slides .owl-carousel {
-    .item-photo {
-        overflow: hidden;
+#home-slides {
+    .owl-carousel {
+        .item-photo {
+            overflow: hidden;
 
-        img {
-            margin-left: 50%;
-            transform: translateX(-50%);
-            width: auto;
-            height: 350px;
+            img {
+                margin-left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+                height: 350px;
 
-            @include respond-to('aussie') {
-                width: 100%;
-                height: auto;
+                @include respond-to('aussie') {
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
-    }
 
-    .title-card {
-        position: absolute;
-        padding: 10px;
-        z-index: z('carousel-control');
-        top: 0;
-        right: 0;
-        font-size: $font-size-very-small;
-        line-height: 1.5;
-        color: var(--lt-carousel-text-color);
-        text-align: right;
-        text-shadow: 1px 1px 2px var(--lt-light-gray-shadow-color);
-        background: linear-gradient(90deg, transparent 0%, rgba(black, 0.38) 100%);
-    }
-
-    .owl-item:nth-child(odd) {
         .title-card {
-            left: 0;
-            right: initial;
-            text-align: left;
-            background: linear-gradient(270deg, transparent 0%, rgba(black, 0.38) 100%);
+            position: absolute;
+            padding: 10px;
+            z-index: z('carousel-control');
+            bottom: 0;
+            right: 0;
+            font-size: $font-size-small;
+            line-height: 1.5;
+            color: var(--lt-carousel-text-color);
+            text-align: right;
+            text-shadow: 1px 1px 2px var(--lt-light-gray-shadow-color);
+            background: linear-gradient(90deg, transparent 0%, rgba(black, 0.58) 100%);
+        }
+
+        .author {
+            display: block;
         }
     }
 
-    .author {
-        display: block;
-    }
-
-    .owl-dots {
+    div.owl-dots {
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 0;
+        top: 0;
         z-index: z('carousel-control');
         padding: 5px 10px;
         display: none;
@@ -65,62 +58,77 @@
         }
     }
 
-    .owl-dot span {
+    button.owl-dot span {
         background: transparent;
-        border: 1px solid var(--lt-white-color);
+        width: 14px;
+        height: 14px;
+        border: 2px solid var(--lt-white-color);
     }
 
-    .owl-dot.active span {
+    button.owl-dot.active span::after {
+        width: 6px;
+        height: 6px;
+        display: block;
+        border-radius: 50%;
+        content: '';
         background: var(--lt-white-color);
+        @include center();
     }
 }
 
 #home-sponsors {
-    margin: 10px 0;
-	padding: 10px;
-    text-align: center;
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
 
-    .title {
-        font-size: $font-size-large;
+    .owl-carousel {
+        flex: 0 0 75%;
+        width: 75%;
+        padding-top: 2.4rem;
+        padding-bottom: 2.4rem;
 
         @include respond-to('podenco') {
-            display: inline-block;
-            width: 29%;
+            padding: 1.2rem;
         }
-    }
 
-    .sponsor-us {
-        border-top-width: 1px;
-        border-top-style: solid;
-        text-align: center;
-        padding: 5px;
-        font-size: $font-size-very-small;
-        line-height: 2.2rem;
+        .item {
+            width: 120px;
+            height: 45px;
+            margin: 0 auto;
+        }
+
+        .item a > img {
+            transition: transform .3s $ease-out-quartic;
+        }
+
+        .item a:hover > img {
+            transform: scale(105%);
+        }
     }
 }
 
-#home-sponsors .owl-carousel {
-    margin-top: 20px;
-    margin-bottom: 20px;
+.sponsor-us {
+    border-top-width: 1px;
+    border-top-style: solid;
+    text-align: center;
+    padding: 5px;
+    font-size: $font-size-very-small;
+    line-height: 2.2rem;
+}
 
-    .item {
-        width: 120px;
-        height: 45px;
-        margin: 0 auto;
-    }
+.sponsors-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
 
-    .item a > img {
-        transition: transform .3s $ease-out-quartic;
+    @include respond-to('podenco') {
+        flex-direction: row;
     }
+}
 
-    .item a:hover > img {
-        transform: scale(105%);
-    }
-
-    @include respond-to('labrador') {
-        width: 70%;
-        display: inline-block;
-        vertical-align: middle;
-        margin: 10px 0;
-    }
+.sponsors-title {
+    font-size: $font-size-large;
+    flex: 1 0 25%;
+    text-align: right;
 }

@@ -22,6 +22,7 @@
         line-height: $header-logo-height;
         background: none;
         display: none;
+        font-size: $font-size-small;
 
         @include svg-icon('large');
 
@@ -41,7 +42,7 @@
     font-size: 30px;
 
     @include undecorated-link() {
-        font-weight: $font-weight-bold;
+        @extend .font-family-serif;
     }
 
     svg {

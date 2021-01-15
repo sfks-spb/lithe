@@ -335,7 +335,10 @@ if ( ! class_exists('Lithe_Theme') ) {
                 ->register_style( 'lithe-style', get_stylesheet_uri(), array(), $this->version )
                 ->register_style( 'lithe-print-style', get_template_directory_uri() . '/print.css', null, $this->version, 'print' )
                 ->register_style( 'lithe-fonts' )
-                ->add_inline_style( 'lithe-fonts', '@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif&display=swap");' );
+                ->add_inline_style(
+                    'lithe-fonts',
+                    '@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Playfair+Display:wght@400;500&display=swap");'
+                );
         }
 
         /**

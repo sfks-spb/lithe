@@ -30,56 +30,56 @@ function lithe_carousels(): void {
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-frisbee.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-frisbee.jpg',
-            'title'      => 'Русский Охотничий Спаниель Вилюй, фризби',
+            'title'      => 'Русский Охотничий Спаниель Вилюй',
             'author'     => 'Els Keurlinckx',
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-flyball.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-flyball.jpg',
-            'title'      => 'Джек-рассел-террьер Тусса, флайбол',
+            'title'      => 'Джек-рассел-террьер Тусса',
             'author'     => 'Виктор Быков',
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility2.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility2.jpg',
-            'title'      => 'Вельш Корги Пемброк Хина, аджилити',
+            'title'      => 'Вельш Корги Пемброк Хина',
             'author'     => 'Ирина Евстрахина',
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility3.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility3.jpg',
-            'title'      => 'Пти-брабансон Арни, аджилити',
+            'title'      => 'Пти-брабансон Арни',
             'author'     => 'Сергей Корсаков',
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility4.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility4.jpg',
-            'title'      => 'Вельш Корги Пемброк Форкий Стронг, аджилити',
+            'title'      => 'Вельш Корги Пемброк Форкий Стронг',
             'author'     => 'Сергей Корсаков',
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility5.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility5.jpg',
-            'title'      => 'Бордер-колли Лисса, аджилити',
+            'title'      => 'Бордер-колли Лисса',
             'author'     => 'Анна Аверьянова',
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility6.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility6.jpg',
-            'title'      => 'Вельш Корги Пемброк Арнольд, аджилити',
+            'title'      => 'Вельш Корги Пемброк Арнольд',
             'author'     => 'Сергей Корсаков',
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility7.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility7.jpg',
-            'title'      => 'Пудель Юста, аджилити',
+            'title'      => 'Пудель Юста',
             'author'     => 'Анна Аверьянова',
         ) ),
 

@@ -34,9 +34,13 @@ get_header();
 
             <div id="home-sponsors" class="has-very-light-gray-background-color">
 
-                <span class="title"><?php _e( 'General sponsors', 'lithe' ); ?>:</span>
+                <div class="sponsors-container">
 
-                <?php lithe_carousel( 'sponsors', 'shuffled' ); ?>
+                    <span class="sponsors-title"><?php _e( 'General sponsors', 'lithe' ); ?></span>
+
+                    <?php lithe_carousel( 'sponsors', 'shuffled' ); ?>
+
+                </div>
 
                 <div class="sponsor-us has-dark-gray-color has-gray-border-color">
                     <?php printf( __( 'If you\'re interested in featuring your brand here, please don\'t hesitate to reach us via the %1$s or by email %2$s.', 'lithe' ),

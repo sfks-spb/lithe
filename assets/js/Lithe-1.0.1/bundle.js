@@ -14,9 +14,7 @@ var Html = {
 
 Html.node = document.html || document.getElementsByTagName('html')[0];
 
-var passiveListener;
-
-var Features = passiveListener = () => {
+var Features = () => {
   var passiveSupported;
   passiveSupported = false;
   try {
@@ -93,12 +91,12 @@ var VkGroups = class VkGroups {
   }
 
   changeTheme(event) {
-    var color, i, j, len, ref, theme;
+    var i, j, len, ref, theme;
     theme = event.detail;
     if (VkGroups.themes[theme]) {
       ref = VkGroups.themes[theme];
       for (i = j = 0, len = ref.length; j < len; i = ++j) {
-        color = ref[i];
+        ref[i];
         this.options["color" + (i + 1)] = VkGroups.themes[theme][i];
       }
       return this.reloadAll();
@@ -662,7 +660,7 @@ var Infobar = class Infobar extends GTag {
     var i, len, link, links;
     super('Infobar');
     this.detailsClick = this.detailsClick.bind(this);
-    links = document.querySelectorAll('.infobar-link');
+    links = document.querySelectorAll('.infobar-link > a');
     if (links) {
       for (i = 0, len = links.length; i < len; i++) {
         link = links[i];
@@ -676,7 +674,7 @@ var Infobar = class Infobar extends GTag {
     boundMethodCheck$2(this, Infobar);
     event.preventDefault();
     link = event.target;
-    label = link.previousElementSibling;
+    label = document.querySelector('.infobar-content');
     return super.event('Click', label.innerText || 'Infobar Link', {
       'event_callback': super.withTimeout(() => {
         return document.location = link.getAttribute('href');
@@ -768,6 +766,47 @@ var GTag$1 = {
   comments: new Comments()
 };
 
+var Venues = class Venues {
+  constructor() {
+    this.init = this.init.bind(this);
+    this.getVenues = this.getVenues.bind(this);
+    this.transferComplete = this.transferComplete.bind(this);
+    this.http = new HttpClient();
+    this.http.on("load", this.transferComplete);
+    document.addEventListener("DOMContentLoaded", this.init, false);
+  }
+
+  init() {
+    var i, len, results, sport, sports;
+    sports = document.querySelectorAll('.sport-item');
+    if (sports) {
+      results = [];
+      for (i = 0, len = sports.length; i < len; i++) {
+        sport = sports[i];
+        results.push(sport.addEventListener('click', this.getVenues, false));
+      }
+      return results;
+    }
+  }
+
+  getVenues(event) {
+    var sportId;
+    event.preventDefault();
+    sportId = event.target.dataset.sportId;
+    if (sportId) {
+      return http.get(window.lithe.rest.root + '/venues', {
+        'sport_id': sportId,
+        'include_trainers': 1
+      });
+    }
+  }
+
+  transferComplete(response) {
+    return console.log(response);
+  }
+
+};
+
 var Lithe;
 
 Lithe = {
@@ -783,6 +822,9 @@ Lithe = {
     Lithe.sticky = new Sticky('.sticky');
     Lithe.scrollTop = new ScrollTop('#go-top', 768);
     Lithe.views = new Views();
+    if (document.querySelector('body.page-template-template-venues')) {
+      Lithe.venues = new Venues();
+    }
   }
 };
 

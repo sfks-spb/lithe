@@ -175,6 +175,7 @@ ul.menu {
     line-height: 45px;
     text-shadow: 1px 1px 2px var(--lt-light-gray-shadow-color);
     margin: 10px;
+    font-size: $font-size-very-small;
 
     &:after {
         @extend .separator;
@@ -207,7 +208,7 @@ ul.menu {
 
 .aside-nav-bottom {
     font-family: $sans-serif-font-stack;
-    font-size: $font-size-small;
+    font-size: $font-size-very-small;
 }
 
 #footer-nav {

@@ -1,23 +1,83 @@
 .infobar {
 	background: var(--lt-brand-blue-color);
 	color: var(--lt-infobar-text-color);
-    font-size: $font-size-very-small;
+    font-size: $font-size-small;
     margin: 10px 0;
     line-height: 1.8rem;
-
-    @include link($primary: var(--lt-infobar-text-color), $active: var(--lt-infobar-text-color)) {
-        white-space: nowrap;
-    }
-
-    @include respond-to('podenco') {
-        font-size: $font-size-small;
-    }
+    height: 64px;
 }
 
 .infobar-wrapper {
-    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+
+.infobar-icon {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 64px;
+    font-size: $font-size-very-large;
+    width: 64px;
+    height: 64px;
+    background: var(--lt-brand-red-color);
+    display: none;
+
+    @include respond-to('aussie') {
+        display: block;
+    }
+
+    & > i,
+    & > svg {
+        @include center('vertically');
+    }
 }
 
 .infobar-content {
-    margin: 10px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    padding-right: 1.2rem;
+    padding-left: 1.2rem;
+
+    @include respond-to('labrador') {
+        padding-right: 2.4rem;
+    }
+}
+
+.infobar-link {
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding-right: 1.2rem;
+
+    @include undecorated-link($primary: var(--lt-infobar-text-color), $active: var(--lt-infobar-text-color)) {
+        white-space: nowrap;
+        padding: 13px 16px;
+        background-color: var(--lt-infobar-link-background-color);
+        border-radius: 5px;
+        @include center('vertically');
+
+        & > i,
+        & > svg {
+            pointer-events: none;
+            @include respond-to('labrador') {
+                margin-left: 0.5em;
+            }
+        }
+    }
+}
+
+.infobar-link-content {
+    display: none;
+    pointer-events: none;
+
+    @include respond-to('labrador') {
+        display: inline;
+    }
 }

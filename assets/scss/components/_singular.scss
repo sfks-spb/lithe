@@ -1,5 +1,5 @@
 .entry-content {
-    margin-top: 1.2rem;
+    margin-top: 2.4rem;
     @extend .clearfix;
 }
 
@@ -47,7 +47,12 @@
 }
 
 .hentry {
-    /* Separator */
+    /* Top separator */
+    @at-root body:not(.single):not(.page) .hentry:first-of-type::before {
+        @extend .separator;
+    }
+
+    /* Bottom separator */
     @at-root body:not(.single) .hentry:not(:last-of-type)::after {
         @extend .separator;
     }
@@ -59,7 +64,7 @@
     h5,
     h6 {
         margin-bottom: 1rem;
-        font-weight: $font-weight-normal;
+        font-weight: $font-weight-semi;
         line-height: 1.25em;
         letter-spacing: -0.0125em;
     }
@@ -67,6 +72,8 @@
     .entry-title,
     h1 {
         font-size: 2.4rem;
+        margin-top: 2.4rem;
+        margin-bottom: 2.4rem;
     }
 
     h2 {
@@ -104,7 +111,8 @@
     }
 
     p {
-        margin-bottom: 1.9rem;
+        margin-top: 0;
+        margin-bottom: 2.4rem;
         line-height: 1.5;
     }
 

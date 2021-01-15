@@ -35,7 +35,7 @@
     right: 0;
 
     @include respond-to('labrador') {
-        font-size: $font-size-medium;
+        font-size: $font-size-small;
         pointer-events: none;
         cursor: auto;
         left: 0;

@@ -8,6 +8,7 @@ ul.post-categories li {
 ul.post-categories {
     display: flex;
     flex-wrap: wrap;
+    font-size: $font-size-small;
 }
 
 ul.post-categories li {
