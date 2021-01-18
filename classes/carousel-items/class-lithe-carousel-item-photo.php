@@ -73,7 +73,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
             $this->add_attr( 'aria-label', $this->title );
 
             if ( '' !== $this->author ) {
-                $html .= '<span class="author"><i class="fas fa-camera"></i> ' . $this->author  . '</span>';
+                $html .= '<span class="author"><i class="fas fa-copyright"></i> ' . $this->author  . '</span>';
             }
 
             $html .= '</span>';

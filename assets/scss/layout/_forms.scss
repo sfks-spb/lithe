@@ -1,6 +1,6 @@
 @keyframes sending {
     0% {
-        transform: translateX(-80px);
+        transform: translateX(-90px);
     }
     33% {
         transform: translateX(0) rotateZ(0);
@@ -9,7 +9,7 @@
         transform: translateX(0) rotateZ(360deg);
     }
     100% {
-        transform: translateX(80px) rotateZ(360deg);
+        transform: translateX(90px) rotateZ(360deg);
     }
 }
 
@@ -27,6 +27,7 @@
 
 .disclaimer {
     font-style: italic;
+    font-size: $font-size-small;
 }
 
 div.wpcf7 {
@@ -103,19 +104,19 @@ div.wpcf7 {
 
     .lithe-ajax-loader,
     .wpcf7-submit {
-        width: 120px;
-        height: 40px;
+        width: 130px;
+        height: 42px;
         @include center('horizontally');
     }
 
     .lithe-ajax-loader {
         display: inline-block;
-        left: -moz-calc(50% - 120px);
-        left: calc(50% - 120px);
+        left: -moz-calc(50% - 130px);
+        left: calc(50% - 130px);
         top: 0;
         vertical-align: bottom;
         text-align: center;
-        padding: 4px 0;
+        padding: 2px 0;
         background: var(--lt-brand-red-color);
         border-radius: 5px;
         margin: 0;

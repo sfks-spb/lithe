@@ -11,8 +11,12 @@ ul.partners > li {
     margin-top: 1.4rem;
     margin-bottom: 1.4rem;
 
-    a {
+    @include undecorated-link(var(--lt-text-color), var(--lt-brand-red-color)) {
         display: block;
+
+        @include hover-active() {
+            text-decoration: none;
+        }
     }
 
     img {

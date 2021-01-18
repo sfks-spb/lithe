@@ -3,6 +3,14 @@
     @extend .clearfix;
 }
 
+.post-content {
+    & > p:not(.alert) > a:not(.more-link),
+    & > ul a,
+    & > ol a {
+        @extend .popup-link;
+    }
+}
+
 .entry-meta, .entry-title {
     margin-bottom: .5em;
 }
@@ -39,13 +47,6 @@
     }
 }
 
-.tldr {
-    background: var(--lt-tldr-background-color);
-    padding: 0 3px;
-    color: var(--lt-tldr-color);
-    font-style: normal;
-}
-
 .hentry {
     /* Top separator */
     @at-root body:not(.single):not(.page) .hentry:first-of-type::before {
@@ -71,9 +72,21 @@
 
     .entry-title,
     h1 {
-        font-size: 2.4rem;
+        font-size: $font-size-very-large;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    h2.entry-title {
         margin-top: 2.4rem;
-        margin-bottom: 2.4rem;
+    }
+
+    @include respond-to('aussie') {
+        .entry-title,
+        h1 {
+            font-size: 2em;
+            margin-bottom: 2.4rem;
+        }
     }
 
     h2 {
@@ -95,9 +108,10 @@
 
     ul, ol {
         margin: 0;
-        padding-bottom: 1.9rem;
         padding-left: 2.5rem;
         list-style: none;
+        margin-bottom: 2.4rem;
+        line-height: 1.5;
     }
 
     ol li,
@@ -114,6 +128,21 @@
         margin-top: 0;
         margin-bottom: 2.4rem;
         line-height: 1.5;
+    }
+
+    .tldr,
+    em {
+        background: var(--lt-tldr-background-color);
+        padding: 0 3px;
+        color: var(--lt-tldr-color);
+        font-style: normal;
+    }
+
+    strong {
+        text-decoration: none;
+        border-bottom: 3px solid var(--lt-brand-blue-color);
+        padding: 0px 3px;
+        font-weight: normal;
     }
 
     figure {
