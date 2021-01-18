@@ -9,7 +9,7 @@ import get from 'lodash/get'
 import has from 'lodash/has'
 import size from 'lodash/size'
 import { __ } from '@wordpress/i18n'
-import { __experimentalCreateInterpolateElement } from '@wordpress/element'
+import { createInterpolateElement } from '@wordpress/element'
 
 export default function KitConfigView({ kitToken }) {
   const kitTokenIsActive = useSelector(state => get(state, 'options.kitToken') === kitToken)
@@ -93,7 +93,7 @@ export default function KitConfigView({ kitToken }) {
               </td>
             </tr>
             <tr>
-              <th className={ styles['label'] }>{ __( 'Version 4 Compatability', 'font-awesome' ) }</th>
+              <th className={ styles['label'] }>{ __( 'Version 4 Compatibility', 'font-awesome' ) }</th>
               <td className={ styles['value'] }>
                 { v4Compat ? 'On' : 'Off' }
                 { getDetectionStatusForOption('v4Compat') }
@@ -103,7 +103,7 @@ export default function KitConfigView({ kitToken }) {
         </table>
         <p className={ styles['tip-text'] }>
           {
-            __experimentalCreateInterpolateElement(
+            createInterpolateElement(
               __( 'Make changes on <a>fontawesome.com/kits <externalLinkIcon/></a>', 'font-awesome' ),
               {
                 // eslint-disable-next-line jsx-a11y/anchor-has-content
