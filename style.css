@@ -1,3 +1,15 @@
+/*
+Theme Name: Lithe
+Text Domain: lithe
+Version: 1.2
+Requires at least: 4.7
+Requires PHP: 7.0
+Description: Very lithe theme for dear friends.
+Author: denpamusic
+Author URI: https://denpa.pro/
+License: MIT
+License URI: https://opensource.org/licenses/MIT
+*/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -719,18 +731,6 @@ div.ngg-navigation a.next:hover::before {
   left: 3px;
 }
 
-/*
-Theme Name: Lithe
-Text Domain: lithe
-Version: 1.2
-Requires at least: 4.7
-Requires PHP: 7.0
-Description: Very lithe theme for dear friends.
-Author: denpamusic
-Author URI: https://denpa.pro/
-License: MIT
-License URI: https://opensource.org/licenses/MIT
-*/
 div.sl-wrapper button:hover, div.sl-wrapper button:focus {
   background: none !important;
 }
@@ -952,7 +952,7 @@ body {
   }
 }
 
-.popup-link, .sponsor-us a, .post-content > p:not(.alert) > a:not(.more-link), .post-content > ul a, .post-content > ol a, .alert.has-vivid-red-background-color a {
+.popup-link, .sponsor-us a, .post-content p:not(.alert) > a:not(.more-link), .post-content > ul a, .post-content > ol a, .alert.has-vivid-red-background-color a {
   color: var(--lt-text-color);
   text-decoration: none;
   padding: 0 3px;
@@ -961,7 +961,7 @@ body {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 50%, var(--lt-brand-blue-color) 51%);
   background-size: 100% 200%;
 }
-.popup-link:hover, .sponsor-us a:hover, .post-content > p:not(.alert) > a:hover:not(.more-link), .post-content > ul a:hover, .post-content > ol a:hover, .alert.has-vivid-red-background-color a:hover, .popup-link:active, .sponsor-us a:active, .post-content > p:not(.alert) > a:active:not(.more-link), .post-content > ul a:active, .post-content > ol a:active, .alert.has-vivid-red-background-color a:active {
+.popup-link:hover, .sponsor-us a:hover, .post-content p:not(.alert) > a:hover:not(.more-link), .post-content > ul a:hover, .post-content > ol a:hover, .alert.has-vivid-red-background-color a:hover, .popup-link:active, .sponsor-us a:active, .post-content p:not(.alert) > a:active:not(.more-link), .post-content > ul a:active, .post-content > ol a:active, .alert.has-vivid-red-background-color a:active {
   color: var(--lt-brand-blue-color);
   background-position: 0 100%;
   color: var(--lt-white-color);
