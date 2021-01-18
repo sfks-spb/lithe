@@ -4,7 +4,7 @@
 }
 
 .post-content {
-    & > p:not(.alert) > a:not(.more-link),
+    p:not(.alert) > a:not(.more-link),
     & > ul a,
     & > ol a {
         @extend .popup-link;
