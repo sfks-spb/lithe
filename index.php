@@ -45,7 +45,7 @@ get_header();
                 <div class="sponsor-us has-dark-gray-color has-gray-border-color">
                     <?php printf( __( 'If you\'re interested in featuring your brand here, please don\'t hesitate to reach us via the %1$s or by email %2$s.', 'lithe' ),
                         '<a href=' . esc_attr( get_home_url( null, '/about/contact/' ) ) . '>' . __( 'contact form', 'lithe' ) . '</a>',
-                        lithe_get_antispam( 'info@sfks.ru', 'email' ) ); ?>
+                        do_shortcode( '[lithe-email subject="' . __( 'Sponsorship Offer', 'lithe' ) . '"]info@sfks.ru[/lithe-email]' ) ); ?>
                 </div>
 
             </div>

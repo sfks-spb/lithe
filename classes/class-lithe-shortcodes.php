@@ -11,7 +11,8 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
          */
         public function __construct() {
             $this->register( array(
-                'antispam'             => 'antispam_shortcode',
+                'email'                => 'antispam_email_shortcode',
+                'phone'                => 'antispam_phone_shortcode',
                 'tldr'                 => 'tldr_shortcode',
                 'required'             => 'required_shortcode',
                 'spinner'              => 'spinner_shortcode',
@@ -40,27 +41,50 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         }
 
         /**
-         * Adds antispam shortcode.
+         * Adds antispam shortcode for email addresses.
          *
          * @param  array       $atts Shortcode attributes. By default empty string ''.
          * @param  string|null $content Shortcode content.
          *
          * @return string
          */
-        public function antispam_shortcode( array $atts, ?string $content = null ): string {
+        public function antispam_email_shortcode( $atts, ?string $content = null ): string {
             $fields = shortcode_atts( array(
-                'phone' => null,
-                'email' => null,
-                'text'  => null,
+                'text'    => $content,
+                'subject' => null,
+                'body'    => null,
+                'cc'      => null,
             ), $atts );
 
-            foreach( $fields as $type => $value ) {
-                if ( ! is_null( $value ) ) {
-                    return lithe_get_antispam( $value, $type );
+            $href = antispambot( 'mailto:' . (string) $content ) . '?';
+
+            foreach ( array( 'subject', 'body', 'cc' ) as $param ) {
+                if ( ! is_null( $fields[ $param ] ) ) {
+                    $href .= $param . '=' . $fields[ $param ] . '&';
                 }
             }
 
-            return lithe_get_antispam( $content );
+            return sprintf( '<a href="%s"><span class="email hidden">rms@netfleet.cloud</span>%s</a>',
+                    esc_attr( rtrim( $href, '?&' ) ),
+                    antispambot( $fields['text'] ) );
+        }
+
+        /**
+         * Adds antispam shortcode for phone numbers.
+         *
+         * @param  array       $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null $content Shortcode content.
+         *
+         * @return string
+         */
+        public function antispam_phone_shortcode( $atts, ?string $content = null ): string {
+            $fields = shortcode_atts( array(
+                'text' => $content,
+            ), $atts );
+
+            return sprintf( '<a href="%1$s">%2$s</a>',
+                    esc_attr( antispambot( 'tel:' . (string) $content ) ),
+                    antispambot( $fields['text'] ) );
         }
 
         /**

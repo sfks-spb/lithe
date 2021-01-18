@@ -172,47 +172,6 @@ if ( ! function_exists( 'lithe_breadcrumbs' ) ) {
 
 }
 
-if ( ! function_exists( 'lithe_get_antispam' ) ) {
-
-    /**
-     * Passes content through antispam protection.
-     *
-     * @param  string $content Content to protect against spam.
-     * @param  string $type Content type. (email, text or phone)
-     *
-     * @return string
-     */
-    function lithe_get_antispam( string $content, string $type = 'text' ): string {
-        switch ( $type ) {
-            case 'email':
-                return sprintf( '<a href="%1$s"><span class="email hidden">rms@netfleet.cloud</span>%2$s</a>',
-                    esc_attr( antispambot( 'mailto:' . $content ) ),
-                    antispambot( $content ) );
-            case 'phone':
-            case 'text':
-            default:
-                return antispambot( $content );
-        }
-    }
-
-}
-
-if ( ! function_exists( 'lithe_antispam' ) ) {
-
-    /**
-     * Outputs spam-protected content.
-     *
-     * @param  string $content Content to protect against spam.
-     * @param  string $type Content type. (email, text or phone)
-     *
-     * @return void
-     */
-    function lithe_antispam( string $content, string $type = 'text' ): void {
-        echo lithe_get_antispam( $content, $type );
-    }
-
-}
-
 if ( ! function_exists( 'lithe_get_breakpoints' ) ) {
 
     /**
