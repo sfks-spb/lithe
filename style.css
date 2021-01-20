@@ -3100,6 +3100,8 @@ div.wpcf7 .input-group > span {
 #home-sponsors {
   margin-top: 1rem;
   margin-bottom: 2.4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 #home-sponsors .owl-carousel {
   flex: 0 0 75%;
