@@ -43,8 +43,8 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds antispam shortcode for email addresses.
          *
-         * @param  array       $atts Shortcode attributes. By default empty string ''.
-         * @param  string|null $content Shortcode content.
+         * @param  string|array $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null  $content Shortcode content.
          *
          * @return string
          */
@@ -72,8 +72,8 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds antispam shortcode for phone numbers.
          *
-         * @param  array       $atts Shortcode attributes. By default empty string ''.
-         * @param  string|null $content Shortcode content.
+         * @param  string|array $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null  $content Shortcode content.
          *
          * @return string
          */
@@ -90,8 +90,8 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds tl;dr shortcode.
          *
-         * @param  array       $atts Shortcode attributes. By default empty string ''.
-         * @param  string|null $content Shortcode content.
+         * @param  string|array $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null  $content Shortcode content.
          *
          * @return string
          */
@@ -115,8 +115,8 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds spinner element shortcode.
          *
-         * @param  array       $atts Shortcode attributes. By default empty string ''.
-         * @param  string|null $content Shortcode content.
+         * @param  string|array $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null  $content Shortcode content.
          *
          * @return string
          */
@@ -134,8 +134,8 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds recaptcha disclaimer shortcode.
          *
-         * @param  array       $atts Shortcode attributes. By default empty string ''.
-         * @param  string|null $content Shortcode content.
+         * @param  string|array $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null  $content Shortcode content.
          *
          * @return string
          */
@@ -159,8 +159,8 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
         /**
          * Adds shortcode for time-based availability of content.
          *
-         * @param  array       $atts Shortcode attributes. By default empty string ''.
-         * @param  string|null $content Shortcode content.
+         * @param  string|array $atts Shortcode attributes. By default empty string ''.
+         * @param  string|null  $content Shortcode content.
          *
          * @return string|null
          */
