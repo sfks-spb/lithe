@@ -58,11 +58,15 @@ get_header();
 		<header class="archive-header">
 
             <?php if ( $archive_title ): ?>
+
                 <h1 class="archive-title"><?php echo wp_kses_post( $archive_title ); ?></h1>
+
             <?php endif; ?>
 
             <?php if ( $archive_subtitle ): ?>
+
                 <div class="archive-subtitle"><?php echo wp_kses_post( wpautop( $archive_subtitle ) ); ?></div>
+
             <?php endif; ?>
 
 		</header>
@@ -71,6 +75,7 @@ get_header();
 
     <?php
         if ( have_posts() ) {
+
             while ( have_posts() ) {
                 the_post();
 
@@ -78,6 +83,7 @@ get_header();
             }
 
             the_posts_pagination();
+
         }
     ?>
 

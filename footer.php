@@ -44,5 +44,7 @@
         <span class="ngg-simplelightbox"></span><!-- dirty fix for ngg lightbox js error -->
 
         <?php wp_footer(); ?>
+
     </body>
+
 </html>

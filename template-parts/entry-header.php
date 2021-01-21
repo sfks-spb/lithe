@@ -2,10 +2,14 @@
 
     <?php
         if ( is_singular() ) {
+
             if ( ! ( is_page() || has_category( 1 ) ) ) the_category();
             the_title( '<h1 class="entry-title">', '</h1>' );
+
         } else {
+
             the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
+
         }
     ?>
 

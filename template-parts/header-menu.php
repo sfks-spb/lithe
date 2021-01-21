@@ -6,7 +6,7 @@
 
 </label>
 
-<a title="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?>" href="<?php echo home_url( '/' ); ?>" class="compact-logo" rel="home">
+<a title="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?>" href="<?php echo esc_attr( home_url( '/' ) ); ?>" class="compact-logo" rel="home">
 
     <?php lithe_site_logo_compact( 'logo-' . get_theme_mod( 'lithe_logo_svg', 'plain' ) ); ?>
 

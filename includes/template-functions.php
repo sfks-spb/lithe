@@ -274,7 +274,7 @@ if ( ! function_exists( 'lithe_site_logo' ) ) {
         echo '<' . $tag . ' id="site-title">';
 
         ?>
-            <a title="<?php echo esc_attr( $title ); ?>" href="<?php echo home_url( '/' ); ?>" rel="home">
+            <a title="<?php echo esc_attr( $title ); ?>" href="<?php echo esc_attr( home_url( '/' ) ); ?>" rel="home">
 
                 <?php lithe_site_logo_compact( $logo, $title ); ?><span class="font-family-serif"><?php bloginfo( 'name' ); ?></span>
 
