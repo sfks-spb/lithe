@@ -723,12 +723,6 @@ var Themes = class Themes extends GTag {
     return super.event(this.events.themeChange[event.type], theme === 'dark' ? 'Dark' : 'Light');
   }
 
-  getFormMeta(formId) {
-    if (window._lithe_wpcf7 && window._lithe_wpcf7.hasOwnProperty(formId)) {
-      return window._lithe_wpcf7[formId];
-    }
-  }
-
 };
 
 var boundMethodCheck$5 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
