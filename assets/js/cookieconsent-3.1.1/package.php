@@ -26,7 +26,7 @@ window.cookieconsent.initialise({
     "message": cookieconsent_l10n.message,
     "dismiss": cookieconsent_l10n.dismiss,
     "link": cookieconsent_l10n.link,
-    "href": "' . get_home_url( null, 'about/privacy' ) . '"
+    "href": "' . esc_js( get_home_url( null, 'about/privacy' ) ) . '"
   },
   "position": "bottom-right",
   "theme": "classic",

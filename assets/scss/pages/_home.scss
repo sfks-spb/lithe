@@ -74,16 +74,22 @@
         width: 14px;
         height: 14px;
         border: 2px solid var(--lt-white-color);
+
+        &::after {
+            width: 6px;
+            height: 6px;
+            display: block;
+            border-radius: 50%;
+            content: '';
+            background: var(--lt-white-color);
+            opacity: 0;
+            transition: opacity .2s ease;
+            @include center();
+        }
     }
 
     button.owl-dot.active span::after {
-        width: 6px;
-        height: 6px;
-        display: block;
-        border-radius: 50%;
-        content: '';
-        background: var(--lt-white-color);
-        @include center();
+        opacity: 1;
     }
 }
 
