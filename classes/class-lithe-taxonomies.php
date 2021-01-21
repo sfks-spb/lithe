@@ -5,15 +5,11 @@ if ( ! class_exists( 'Lithe_Taxonomies' ) ) {
     class Lithe_Taxonomies {
 
         /**
-         * Contains list of custom taxonomy classnames.
+         * Contains list of custom taxonomies.
          *
          * @var array
          */
-        protected $taxonomies = array(
-            Lithe_Taxonomy_Venue::class,
-            Lithe_Taxonomy_Sport::class,
-            Lithe_Taxonomy_Breed::class,
-        );
+        protected $taxonomies = array( 'venue', 'sport', 'breed' );
 
         /**
          * Constructs new lithe taxonomies instance.
@@ -37,7 +33,15 @@ if ( ! class_exists( 'Lithe_Taxonomies' ) ) {
             register_taxonomy_for_object_type( 'category', 'page' );
 
             foreach( $this->taxonomies as $taxonomy ) {
-                ( new $taxonomy )->register();
+
+                $classname = 'Lithe_Taxonomy_' . ucwords( $taxonomy );
+
+                if ( class_exists( $classname ) ) {
+
+                    ( new $classname )->register();
+
+                }
+
             }
 
         }
@@ -48,12 +52,15 @@ if ( ! class_exists( 'Lithe_Taxonomies' ) ) {
          * @return void
          */
         protected function includes(): void {
-            $post_types_directory = get_template_directory() . '/classes/taxonomies/';
+            $taxonomies_directory = trailingslashit( lithe_get_classes_directory_path( 'taxonomies' ) );
 
-            include_once $post_types_directory . 'class-lithe-taxonomy.php';
-            include_once $post_types_directory . 'class-lithe-taxonomy-sport.php';
-            include_once $post_types_directory . 'class-lithe-taxonomy-venue.php';
-            include_once $post_types_directory . 'class-lithe-taxonomy-breed.php';
+            include $taxonomies_directory . 'class-lithe-taxonomy.php';
+
+            foreach( $this->taxonomies as $taxonomy ) {
+
+                include $taxonomies_directory . 'class-lithe-taxonomy-' . strtolower( $taxonomy ) . '.php';
+
+            }
         }
 
     }

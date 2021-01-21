@@ -275,7 +275,7 @@ if ( ! class_exists('Lithe_Theme') ) {
         /**
          * Gets path to file in classes directory.
          *
-         * @param  string $path Relative path to file inside classes directory.
+         * @param  string|null $path Relative path to file inside classes directory.
          *
          * @return string
          */

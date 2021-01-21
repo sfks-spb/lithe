@@ -5,12 +5,6 @@
 </div>
 
 <div class="form-field">
-    <div><label for="name"><?php _e( 'Name', 'lithe' ); ?></label></div>
-    <input type="text" name="name" value="<?php echo get_post_meta($post->ID, 'name', true); ?>" />
-    <p class="description"><?php _e( "Dog's name.", 'lithe' ); ?></p>
-</div>
-
-<div class="form-field">
     <div><label for="dob"><?php _e( 'Birthday', 'lithe' ); ?></label></div>
     <input type="datetime-local" name="dob" value="<?php echo get_post_meta($post->ID, 'dob', true); ?>" />
     <p class="description"><?php _e( "Dog's birthday date.", 'lithe' ); ?></p>

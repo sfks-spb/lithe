@@ -18,7 +18,6 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
          */
         protected $meta_kses = array(
             'full_name'    => 'strip',
-            'name'         => 'strip',
             'dob'          => 'strip',
             'gender'       => 'strip',
             'breed'        => 'strip',

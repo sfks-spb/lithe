@@ -65,6 +65,20 @@ if ( ! function_exists( 'lithe_now' ) ) {
 
 }
 
+if ( ! function_exists( 'lithe_get_classes_directory_path' ) ) {
+
+    /**
+     * Constructs path in classes directory.
+     *
+     * @param  string|null $path Relative path to file inside classes directory.
+     *
+     * @return void
+     */
+    function lithe_get_classes_directory_path( ?string $path ): string {
+        return lithe()->get_classes_directory_path( $path );
+    }
+}
+
 if ( ! function_exists( 'lithe_render' ) ) {
 
     /**

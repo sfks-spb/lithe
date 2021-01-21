@@ -5,14 +5,11 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
     class Lithe_Widgets {
 
         /**
-         * Contains list of widget classnames.
+         * Contains list of widgets.
          *
          * @var array
          */
-        protected $widgets = array(
-            Lithe_Widget_Weather::class,
-            Lithe_Widget_VK::class,
-        );
+        protected $widgets = array( 'weather', 'VK' );
 
         /**
          * Constructs new lithe widget manager instance.
@@ -21,6 +18,7 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
          */
         public function __construct() {
             $this->includes();
+
             add_action( 'widgets_init', array( $this, 'register_widgets' ) );
         }
 
@@ -30,9 +28,19 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
          * @return void
          */
         public function register_widgets(): void {
+
             foreach ( $this->widgets as $widget ) {
-                register_widget( $widget );
+
+                $classname = 'Lithe_Widget_' . ucwords( $widget );
+
+                if ( class_exists( $classname ) ) {
+
+                    register_widget( $classname );
+
+                }
+
             }
+
         }
 
         /**
@@ -41,11 +49,10 @@ if ( ! class_exists( 'Lithe_Widgets' ) ) {
          * @return void
          */
         protected function includes(): void {
-            $template_directory = get_template_directory();
+            $widgets_directory = trailingslashit( lithe_get_classes_directory_path( 'widgets' ) );
 
             foreach ( $this->widgets as $widget ) {
-                $widget_file = 'class-' . strtolower( str_replace( '_', '-', $widget ) ) . '.php';
-                include_once $template_directory . '/classes/widgets/' . $widget_file;
+                include $widgets_directory . 'class-lithe-widget-' . strtolower( $widget ) . '.php';
             }
         }
 

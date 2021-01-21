@@ -5,15 +5,11 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
     class Lithe_Post_Types {
 
         /**
-         * Contains list of custom post type classnames.
+         * Contains list of custom post types.
          *
          * @var array
          */
-        protected $post_types = array(
-            Lithe_Post_Type_Trainer::class,
-            Lithe_Post_Type_Dog::class,
-            Lithe_Post_Type_Trial::class,
-        );
+        protected $post_types = array( 'trainer', 'dog', 'trial' );
 
         /**
          * Constructs new lithe post types instance.
@@ -32,9 +28,17 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
          * @return void
          */
         public function register_post_types(): void {
+
             foreach ( $this->post_types as $post_type ) {
-                ( new $post_type )->register();
+
+                $classname = 'Lithe_Post_Type_' . ucwords( $post_type );
+
+                if ( class_exists( $classname ) ) {
+                    ( new $classname )->register();
+                }
+
             }
+
         }
 
         /**
@@ -43,12 +47,15 @@ if ( ! class_exists( 'Lithe_Post_Types' ) ) {
          * @return void
          */
         protected function includes(): void {
-            $post_types_directory = get_template_directory() . '/classes/post-types/';
+            $post_types_directory = trailingslashit( lithe_get_classes_directory_path( 'post-types' ) );
 
-            include_once $post_types_directory . 'class-lithe-post-type.php';
-            include_once $post_types_directory . 'class-lithe-post-type-trainer.php';
-            include_once $post_types_directory . 'class-lithe-post-type-dog.php';
-            include_once $post_types_directory . 'class-lithe-post-type-trial.php';
+            include $post_types_directory . 'class-lithe-post-type.php';
+
+            foreach( $this->post_types as $post_type ) {
+
+                include $post_types_directory . 'class-lithe-post-type-' . strtolower( $post_type ) . '.php';
+
+            }
         }
 
     }

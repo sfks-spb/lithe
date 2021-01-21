@@ -56,6 +56,51 @@ if ( ! class_exists( 'Lithe_Post_Type_Dog' ) ) {
 
         }
 
+        /**
+         * Gets custom post type columns.
+         *
+         * @return array
+         */
+        public function columns(): array {
+            return array(
+                'full_name' => __( 'Full Name', 'lithe' ),
+                'gender'    => __( 'Gender', 'lithe' ),
+                'breed'     => __( 'Breed', 'lithe' ),
+                'height'    => __( 'Height', 'lithe' ),
+            );
+        }
+
+        /**
+         * Handles custom columns output.
+         *
+         * @param  string $column Current column name.
+         * @param  int    $post_id Current post id.
+         *
+         * @return void
+         */
+        public function custom_columns( string $column, int $post_id ): void {
+
+            switch ( $column ) {
+
+                case 'full_name':
+                    echo get_post_meta( $post_id, 'full_name', true );
+                    break;
+
+                case 'gender':
+                    echo ( 'f' === get_post_meta( $post_id, 'gender', true ) ) ? __( 'Female', 'lithe' ) : __( 'Male', 'lithe' );
+                    break;
+
+                case 'breed':
+                    echo get_post_meta( $post_id, 'breed', true );
+                    break;
+
+                case 'height':
+                    echo get_post_meta( $post_id, 'height', true );
+                    break;
+            }
+
+        }
+
     }
 
 }
