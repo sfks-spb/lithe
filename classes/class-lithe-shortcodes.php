@@ -5,36 +5,45 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
     class Lithe_Shortcodes {
 
         /**
+         * List of shortcodes.
+         *
+         * @var array
+         */
+        protected $shortcodes = array(
+            'email'                => 'antispam_email_shortcode',
+            'phone'                => 'antispam_phone_shortcode',
+            'required'             => 'required_shortcode',
+            'spinner'              => 'spinner_shortcode',
+            'recaptcha-disclaimer' => 'recaptcha_disclaimer_shortcode',
+            'available'            => 'available_shortcode',
+        );
+
+        /**
          * Constructs new lithe shortcodes instance.
          *
          * @return void
          */
         public function __construct() {
-            $this->register( array(
-                'email'                => 'antispam_email_shortcode',
-                'phone'                => 'antispam_phone_shortcode',
-                'tldr'                 => 'tldr_shortcode',
-                'required'             => 'required_shortcode',
-                'spinner'              => 'spinner_shortcode',
-                'recaptcha-disclaimer' => 'recaptcha_disclaimer_shortcode',
-                'available'            => 'available_shortcode',
-            ) );
+            $this->register();
         }
 
         /**
          * Registers shortcodes.
          *
-         * @param  array $shortcodes List of shortcode handlers.
-         *
          * @return Lithe_Shortcodes
          */
-        public function register( array $shortcodes ): self {
-            foreach ( $shortcodes as $shortcode => $callback ) {
-                if ( is_string( $callback ) && is_callable( array( $this, $callback ) ) ) {
+        public function register(): self {
+
+            foreach ( $this->shortcodes as $shortcode => $callback ) {
+
+                if ( is_callable( array( $this, $callback ) ) ) {
+
                     $callback = array( $this, $callback );
+
                 }
 
                 add_shortcode( "lithe-$shortcode", $callback );
+
             }
 
             return $this;
@@ -49,6 +58,7 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
          * @return string
          */
         public function antispam_email_shortcode( $atts, ?string $content = null ): string {
+
             $fields = shortcode_atts( array(
                 'text'    => $content,
                 'subject' => null,
@@ -59,14 +69,17 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
             $href = antispambot( 'mailto:' . (string) $content ) . '?';
 
             foreach ( array( 'subject', 'body', 'cc' ) as $param ) {
+
                 if ( ! is_null( $fields[ $param ] ) ) {
                     $href .= $param . '=' . $fields[ $param ] . '&';
                 }
+
             }
 
-            return sprintf( '<a href="%s"><span class="email hidden">rms@netfleet.cloud</span>%s</a>',
+            return sprintf( '<a href="%s"><span class="email hidden" style="display: none;">rms@netfleet.cloud</span>%s</a>',
                     esc_attr( rtrim( $href, '?&' ) ),
                     antispambot( $fields['text'] ) );
+
         }
 
         /**
@@ -78,6 +91,7 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
          * @return string
          */
         public function antispam_phone_shortcode( $atts, ?string $content = null ): string {
+
             $fields = shortcode_atts( array(
                 'text' => $content,
             ), $atts );
@@ -85,18 +99,7 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
             return sprintf( '<a href="%1$s">%2$s</a>',
                     esc_attr( antispambot( 'tel:' . (string) $content ) ),
                     antispambot( $fields['text'] ) );
-        }
 
-        /**
-         * Adds tl;dr shortcode.
-         *
-         * @param  string|array $atts Shortcode attributes. By default empty string ''.
-         * @param  string|null  $content Shortcode content.
-         *
-         * @return string
-         */
-        public function tldr_shortcode( $atts, ?string $content = null ): string {
-            return '<span class="tldr">' . $content . '</span>';
         }
 
         /**
@@ -121,6 +124,7 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
          * @return string
          */
         public function spinner_shortcode( $atts, ?string $content = null ): string {
+
             $fields = shortcode_atts(  array(
                 'prefix' => 'fas',
                 'icon'   => 'sync',
