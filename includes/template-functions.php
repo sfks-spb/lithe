@@ -5,9 +5,15 @@ if ( ! function_exists( 'lithe_date_format' ) ) {
     /**
      * Gets date format.
      *
+     * @param  string $style Format style. (full or compact)
+     *
      * @return string
      */
-    function lithe_date_format(): string {
+    function lithe_date_format( string $style = 'full' ): string {
+        if ( 'compact' === $style ) {
+            return 'j F Y';
+        }
+
         return 'j F Y ' . _x( '\a\\t', 'At certain time', 'lithe' ) . ' H:i';
     }
 }
@@ -148,7 +154,7 @@ if ( ! function_exists( 'lithe_the_post_meta' ) ) {
      */
     function lithe_the_post_meta(): void {
         ?>
-        <span class="entry-date"><i class="far fa-clock fa-fw"></i> <time datetime="<?php echo esc_attr( get_the_time( 'c' ) ); ?>"><?php the_time( lithe_date_format() ); ?></time></span>
+        <span class="entry-date"><i class="far fa-clock fa-fw"></i> <time datetime="<?php echo esc_attr( get_the_time( 'c' ) ); ?>"><?php the_time( lithe_date_format( 'compact' ) ); ?></time></span>
         <span class="entry-author"><i class="far fa-user fa-fw"></i> <?php the_author(); ?></span>
         <?php
     }

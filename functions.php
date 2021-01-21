@@ -30,57 +30,57 @@ function lithe_carousels(): void {
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-frisbee.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-frisbee.jpg',
-            'title'      => 'Русский Охотничий Спаниель Вилюй',
-            'author'     => 'Els Keurlinckx',
+            'title'      => __( 'Russian Spaniel', 'lithe' ) . ' ' . __( 'Vilui', 'lithe' ),
+            'author'     => __( 'Els Keurlinckx', 'lithe' ),
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-flyball.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-flyball.jpg',
-            'title'      => 'Джек-рассел-террьер Тусса',
-            'author'     => 'Виктор Быков',
+            'title'      => __( 'Jack Russell Terrier', 'lithe') . ' ' . __( 'Tussa', 'lithe' ),
+            'author'     => __( 'Viktor Bykov', 'lithe' ),
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility2.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility2.jpg',
-            'title'      => 'Вельш Корги Пемброк Хина',
-            'author'     => 'Ирина Евстрахина',
+            'title'      => __( 'Pembroke Welsh Corgi', 'lithe' ) . ' ' . __( 'Hina', 'lithe' ),
+            'author'     => __( 'Irina Evstrahina', 'lithe' ),
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility3.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility3.jpg',
-            'title'      => 'Пти-брабансон Арни',
-            'author'     => 'Сергей Корсаков',
+            'title'      => __( 'Petit Brabancon', 'lithe' ) . ' ' . __( 'Arni', 'lithe' ),
+            'author'     => __( 'Sergey Korsakov', 'lithe' ),
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility4.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility4.jpg',
-            'title'      => 'Вельш Корги Пемброк Форкий Стронг',
-            'author'     => 'Сергей Корсаков',
+            'title'      => __( 'Pembroke Welsh Corgi', 'lithe' ) . ' ' . __( 'Forky Strong', 'lithe' ),
+            'author'     => __( 'Sergey Korsakov', 'lithe' ),
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility5.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility5.jpg',
-            'title'      => 'Бордер-колли Лисса',
-            'author'     => 'Анна Аверьянова',
+            'title'      => __( 'Border Collie', 'lithe' ) . ' ' . __( 'Lissa', 'lithe' ),
+            'author'     => __( 'Anna Averiyanova', 'lithe' ),
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility6.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility6.jpg',
-            'title'      => 'Вельш Корги Пемброк Арнольд',
-            'author'     => 'Сергей Корсаков',
+            'title'      => __( 'Pembroke Welsh Corgi', 'lithe' ) . ' ' . __( 'Arnold', 'lithe' ),
+            'author'     => __( 'Sergey Korsakov', 'lithe' ),
         ) ),
 
         lithe_carousel_photo( array(
             'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility7.jpg?resize=812,400',
             'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility7.jpg',
-            'title'      => 'Пудель Юста',
-            'author'     => 'Анна Аверьянова',
+            'title'      => __( 'Poodle', 'lithe' ) . ' ' . __( 'Justa', 'lithe' ),
+            'author'     => __( 'Anna Averiyanova', 'lithe' ),
         ) ),
 
     ) );

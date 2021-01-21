@@ -38,7 +38,7 @@ if ( comments_open() || pings_open() ) {
 
     <span class="comment-consent">
 
-        Нажимая на кнопку "Отправить комментарий", вы подтверждаете свое согласие на обработку персональных данных в соответствии с нашей <a href="https://sfks.ru/about/privacy/">политикой конфиденциальности</a>.
+        <?php printf( __( 'By clicking "Post Comment" you\'re agreeing to our %1$s.', 'lithe' ), '<a href="' . esc_attr( get_home_url( null, 'about/privacy' ) ) . '">' . __( 'privacy policy', 'lithe' ) . '</a>' ); ?>
 
     </span>
 
