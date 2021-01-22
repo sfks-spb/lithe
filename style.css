@@ -952,7 +952,8 @@ body {
   }
 }
 
-.popup-link, .sponsor-us a, .post-content p:not(.alert) > a:not(.more-link), .post-content > ul a, .post-content > ol a, .alert.has-vivid-red-background-color a {
+.popup-link, .sponsor-us a, .post-content p.has-vivid-red-background-color a,
+.post-content p.has-dark-blue-background-color a, .post-content p > a:not(.more-link), .post-content > ul a, .post-content > ol a {
   color: var(--lt-text-color);
   text-decoration: none;
   padding: 0 3px;
@@ -961,7 +962,9 @@ body {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 50%, var(--lt-brand-blue-color) 51%);
   background-size: 100% 200%;
 }
-.popup-link:hover, .sponsor-us a:hover, .post-content p:not(.alert) > a:hover:not(.more-link), .post-content > ul a:hover, .post-content > ol a:hover, .alert.has-vivid-red-background-color a:hover, .popup-link:active, .sponsor-us a:active, .post-content p:not(.alert) > a:active:not(.more-link), .post-content > ul a:active, .post-content > ol a:active, .alert.has-vivid-red-background-color a:active {
+.popup-link:hover, .sponsor-us a:hover, .post-content p.has-vivid-red-background-color a:hover,
+.post-content p.has-dark-blue-background-color a:hover, .post-content p > a:hover:not(.more-link), .post-content > ul a:hover, .post-content > ol a:hover, .popup-link:active, .sponsor-us a:active, .post-content p.has-vivid-red-background-color a:active,
+.post-content p.has-dark-blue-background-color a:active, .post-content p > a:active:not(.more-link), .post-content > ul a:active, .post-content > ol a:active {
   color: var(--lt-brand-blue-color);
   background-position: 0 100%;
   color: var(--lt-white-color);
@@ -1532,18 +1535,6 @@ label input[type=checkbox] + span::after {
   margin-right: 5px;
 }
 
-.alert.has-vivid-red-background-color a {
-  color: var(--lt-nav-color);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 50%, var(--lt-nav-color) 51%);
-  border-bottom-color: var(--lt-nav-color);
-}
-.alert.has-vivid-red-background-color a a:visited {
-  color: var(--lt-nav-color);
-}
-.alert.has-vivid-red-background-color a:hover, .alert.has-vivid-red-background-color a:active {
-  color: var(--lt-tldr-color);
-}
-
 .pagination {
   text-align: center;
 }
@@ -1627,6 +1618,22 @@ label input[type=checkbox] + span::after {
 
 .entry-content {
   margin-top: 2.4rem;
+}
+
+.post-content p.has-vivid-red-background-color a,
+.post-content p.has-dark-blue-background-color a {
+  color: var(--lt-nav-color);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 50%, var(--lt-nav-color) 51%);
+  border-bottom-color: var(--lt-nav-color);
+}
+.post-content p.has-vivid-red-background-color a a:visited,
+.post-content p.has-dark-blue-background-color a a:visited {
+  color: var(--lt-nav-color);
+}
+.post-content p.has-vivid-red-background-color a:hover, .post-content p.has-vivid-red-background-color a:active,
+.post-content p.has-dark-blue-background-color a:hover,
+.post-content p.has-dark-blue-background-color a:active {
+  color: var(--lt-tldr-color);
 }
 
 .entry-meta, .entry-title {
@@ -1748,6 +1755,7 @@ label input[type=checkbox] + span::after {
 }
 .hentry figure {
   margin: 0;
+  margin-bottom: 2.4rem;
 }
 .hentry blockquote {
   border-left-width: 5px;
