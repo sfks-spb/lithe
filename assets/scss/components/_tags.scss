@@ -19,10 +19,10 @@
         @extend .button-outline;
 
         @include hover-active() {
-            color: var(--lt-brand-red-color);
+            color: var(--lt-red-color);
 
             .tag-count {
-                color: var(--lt-brand-red-color);
+                color: var(--lt-red-color);
             }
         }
 

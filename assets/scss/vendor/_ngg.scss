@@ -232,7 +232,7 @@ div.ngg-navigation {
     a.next,
     a.prev {
         background: none;
-        border: 1px solid var(--lt-brand-blue-color);
+        border: 1px solid var(--lt-blue-color);
         margin-left: 8px;
         margin-bottom: 8px;
         text-decoration: none;
@@ -244,14 +244,14 @@ div.ngg-navigation {
         padding: 0;
         line-height: 40px;
         border-radius: 5px !important;
-        color: var(--lt-brand-blue-color);
+        color: var(--lt-blue-color);
         transition: background .6s, color .6s;
     }
 
     span.current,
     a.page-numbers:hover {
         color: var(--lt-white-color);
-        background: var(--lt-brand-blue-color);
+        background: var(--lt-blue-color);
     }
 
     a.prev,
@@ -265,7 +265,7 @@ div.ngg-navigation {
             content: '';
             visibility: visible;
             display: block;
-            border-color: var(--lt-brand-blue-color);
+            border-color: var(--lt-blue-color);
             border-style: solid;
             border-width: 2px 2px 0 0;
             content: '';
@@ -281,7 +281,7 @@ div.ngg-navigation {
     a.prev,
     a.next {
         &:hover {
-            color: var(--lt-brand-blue-color) !important;
+            color: var(--lt-blue-color) !important;
         }
     }
 

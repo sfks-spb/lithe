@@ -217,36 +217,67 @@ if ( ! class_exists('Lithe_Theme') ) {
 
             // Colors
             add_theme_support( 'editor-color-palette', array(
+
                 array(
-                    'name' => __( 'Dark Blue', 'lithe' ),
-                    'slug' => 'dark-blue',
+                    'name'  => __( 'Blue', 'lithe' ),
+                    'slug'  => 'blue',
                     'color' => '#037dc7',
                 ),
+
                 array(
-                    'name' => __( 'Dark Red', 'lithe' ),
-                    'slug' => 'dark-red',
+                    'name'  => __( 'Dark Blue', 'lithe' ),
+                    'slug'  => 'dark-blue',
+                    'color' => '#105991',
+                ),
+
+                array(
+                    'name'  => __( 'Red', 'lithe' ),
+                    'slug'  => 'red',
                     'color' => '#e74040',
                 ),
+
                 array(
-                    'name' => __( 'White', 'lithe' ),
-                    'slug' => 'white',
+                    'name'  => __( 'Dark Red', 'lithe' ),
+                    'slug'  => 'dark-red',
+                    'color' => '#b21b24',
+                ),
+
+                array(
+                    'name'  => __( 'White', 'lithe' ),
+                    'slug'  => 'white',
                     'color' => '#ffffff',
                 ),
+
                 array(
-                    'name' => __( 'Very Light Gray', 'lithe' ),
-                    'slug' => 'very-light-gray',
+                    'name'  => __( 'Very Light Gray', 'lithe' ),
+                    'slug'  => 'very-light-gray',
                     'color' => '#fefefe',
                 ),
+
                 array(
-                    'name' => __( 'Light Gray', 'lithe' ),
-                    'slug' => 'light-gray',
+                    'name'  => __( 'Light Gray', 'lithe' ),
+                    'slug'  => 'light-gray',
+                    'color' => '#eeeeee',
+                ),
+
+                array(
+                    'name'  => __( 'Gray', 'lithe' ),
+                    'slug'  => 'gray',
                     'color' => '#b4b4b4',
                 ),
+
                 array(
-                    'name' => __( 'Dark Gray', 'lithe' ),
-                    'slug' => 'dark-gray',
-                    'color' => '#3f3f3f',
+                    'name'  => __( 'Dark Gray', 'lithe' ),
+                    'slug'  => 'dark-gray',
+                    'color' => '#6a6a6a',
                 ),
+
+                array(
+                    'name'  => __( 'Very Dark Gray', 'lithe' ),
+                    'slug'  => 'very-dark-gray',
+                    'color' => '#454545',
+                ),
+
             ) );
 
             // Thumbnails

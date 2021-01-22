@@ -28,7 +28,7 @@
     display: inline-block;
 
     @include hover-active() {
-        color: var(--lt-brand-blue-color);
+        color: var(--lt-blue-color);
         border-color: var(--lt-active-button-border-color);
         background: var(--lt-button-background-color);
         box-shadow: inset 0 0 9px var(--lt-light-blue-shadow-color);
@@ -62,7 +62,7 @@
     border-style: solid;
     transform: scale(0);
     opacity: 0.9;
-    color: var(--lt-brand-blue-color);
+    color: var(--lt-blue-color);
     box-shadow: 0 0 6px var(--lt-light-gray-color);
 
     &::after {

@@ -117,7 +117,7 @@ div.wpcf7 {
         vertical-align: bottom;
         text-align: center;
         padding: 2px 0;
-        background: var(--lt-brand-red-color);
+        background: var(--lt-red-color);
         border-radius: 5px;
         margin: 0;
         color: white;
@@ -162,11 +162,11 @@ div.wpcf7 {
     }
 
     .wpcf7-not-valid-tip {
-        color: var(--lt-brand-red-color);
+        color: var(--lt-red-color);
     }
 
     .wpcf7-not-valid {
-        border-color: var(--lt-brand-red-color);
+        border-color: var(--lt-red-color);
         box-shadow: inset 0 0 9px var(--lt-light-red-shadow-color);
     }
 

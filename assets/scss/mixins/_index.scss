@@ -51,11 +51,11 @@
 }
 
 /// @access public
-/// @param {color} $primary [var(--lt-brand-blue-color)] - primary link color
+/// @param {color} $primary [var(--lt-blue-color)] - primary link color
 /// @param {color} $active [false] - active link color
 /// @param {color} $visited [$primary] - visited link color
 /// @content
-@mixin link($primary: var(--lt-brand-blue-color), $active: false, $visited: $primary) {
+@mixin link($primary: var(--lt-blue-color), $active: false, $visited: $primary) {
     a {
         color: $primary;
 
@@ -74,11 +74,11 @@
 }
 
 /// @access public
-/// @param {color} $primary [var(--lt-brand-blue-color)] - primary link color
+/// @param {color} $primary [var(--lt-blue-color)] - primary link color
 /// @param {color} $active [false] - active link color
 /// @param {color} $visited [$primary] - visited link color
 /// @content
-@mixin undecorated-link($primary: var(--lt-brand-blue-color), $active: false, $visited: $primary) {
+@mixin undecorated-link($primary: var(--lt-blue-color), $active: false, $visited: $primary) {
     @include link($primary, $active, $visited) {
         text-decoration: none;
         @content

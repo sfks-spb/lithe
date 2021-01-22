@@ -137,7 +137,7 @@ ul.menu {
 
 #mobile-nav {
     display: block;
-    background: var(--lt-brand-blue-color);
+    background: var(--lt-blue-color);
 
     ul.menu {
         flex-direction: column;
@@ -161,7 +161,7 @@ ul.menu {
         @include ellipsis;
 
         @include hover-active() {
-            color: var(--lt-brand-blue-color);
+            color: var(--lt-blue-color);
             background: var(--lt-very-light-gray-color);
         }
     }
@@ -195,7 +195,7 @@ ul.menu {
         padding-left: 48px;
 
         @include hover-active() {
-            color: var(--lt-brand-red-color);
+            color: var(--lt-red-color);
             background: var(--lt-aside-nav-background-color);
         }
 
@@ -241,7 +241,7 @@ ul.menu {
             }
         }
 
-        @include undecorated-link($primary: var(--lt-brand-blue-color), $active: var(--lt-brand-blue-color)) {
+        @include undecorated-link($primary: var(--lt-blue-color), $active: var(--lt-blue-color)) {
             border-bottom: 1px solid var(--lt-active-button-border-color);
         }
     }

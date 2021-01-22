@@ -8,11 +8,11 @@
     border-bottom-style: solid;
     font-size: $font-size-small;
 
-    @include undecorated-link(var(--lt-gray-color), var(--lt-brand-red-color));
+    @include undecorated-link(var(--lt-gray-color), var(--lt-red-color));
 }
 
 .breadcrumbs-separator {
-    color: var(--lt-brand-blue-color);
+    color: var(--lt-blue-color);
     margin: 0 8px;
 }
 

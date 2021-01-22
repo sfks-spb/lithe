@@ -57,7 +57,7 @@ button {
 	padding: 10px 20px;
 	box-shadow: none;
 	border: 0 none;
-	background: var(--lt-brand-blue-color);
+	background: var(--lt-blue-color);
 	color: var(--lt-very-light-gray-color);
 	border-radius: 5px;
 	transition: background .3s $ease-out-quartic;
@@ -72,7 +72,7 @@ button {
     &:not([disabled]):hover,
     &:not([disabled]):focus {
         color: var(--lt-active-button-color);
-        background: var(--lt-brand-red-color);
+        background: var(--lt-red-color);
     }
 }
 
@@ -98,7 +98,7 @@ label input[type=radio] {
     }
 
     &:checked + span::after {
-        background: var(--lt-brand-blue-color);
+        background: var(--lt-blue-color);
         transform: scale(1);
     }
 }
@@ -112,7 +112,7 @@ label input[type=radio] + span {
     }
 
     &::before {
-        border: 1px solid var(--lt-brand-blue-color);
+        border: 1px solid var(--lt-blue-color);
         width: 16px;
         height: 16px;
         box-shadow: inset 0px 1px 3px var(--lt-light-gray-shadow-color);
@@ -136,8 +136,8 @@ label input[type=radio] + span {
 
 label input[type=checkbox]:checked + span {
     &::before {
-      	background: var(--lt-brand-blue-color);
-        border-color: var(--lt-brand-blue-color);
+      	background: var(--lt-blue-color);
+        border-color: var(--lt-blue-color);
     }
 
     &::after {
@@ -149,7 +149,7 @@ label input[type=checkbox] + span {
     padding-left: 25px;
 
     &::before {
-        border: 1px solid var(--lt-brand-blue-color);
+        border: 1px solid var(--lt-blue-color);
         width: 16px;
         height: 16px;
         box-shadow: inset 0px 1px 3px var(--lt-light-gray-shadow-color);

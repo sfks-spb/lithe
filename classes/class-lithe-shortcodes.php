@@ -111,7 +111,7 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
          * @return string
          */
         public function required_shortcode( $atts, ?string $content = null ): string {
-            return '<span class="required has-dark-red-color">
+            return '<span class="required has-red-color">
                 <i title="' . __( 'required', 'lithe' ) . '" class="fas fa-asterisk fa-sm" aria-label="' . __( 'required', 'lithe' ) . '"></i></span>';
         }
 

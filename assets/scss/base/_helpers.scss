@@ -87,13 +87,13 @@
     color: var(--lt-text-color);
     text-decoration: none;
     padding: 0 3px;
-    border-bottom: 3px solid var(--lt-brand-blue-color);
+    border-bottom: 3px solid var(--lt-blue-color);
     transition: background .1s,color .1s;
-    background-image: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,0) 50%,var(--lt-brand-blue-color) 51%);
+    background-image: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,0) 50%,var(--lt-blue-color) 51%);
     background-size: 100% 200%;
 
     @include hover-active() {
-        color: var(--lt-brand-blue-color);
+        color: var(--lt-blue-color);
         background-position: 0 100%;
         color: var(--lt-white-color);
         border-color: transparent;

@@ -13,7 +13,7 @@
         &:not(.current) {
 
             @include hover-active() {
-                color: var(--lt-brand-red-color);
+                color: var(--lt-red-color);
                 background: var(--lt-button-background-color);
                 border-color: var(--lt-active-button-border-color);
                 box-shadow: inset 0 0 9px var(--lt-light-blue-shadow-color);

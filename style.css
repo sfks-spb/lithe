@@ -463,7 +463,7 @@ div.a2a_kit > a:hover .a2a_svg, div.a2a_kit > a:active .a2a_svg {
   background-color: white !important;
 }
 .dark-theme div.a2a_kit > a:hover span.a2a_svg > svg g, .dark-theme div.a2a_kit > a:hover path, .dark-theme div.a2a_kit > a:active span.a2a_svg > svg g, .dark-theme div.a2a_kit > a:active path {
-  fill: var(--lt-brand-red-color) !important;
+  fill: var(--lt-red-color) !important;
 }
 
 .ngg-albumoverview.default-view {
@@ -669,7 +669,7 @@ div.ngg-navigation a.page-numbers,
 div.ngg-navigation a.next,
 div.ngg-navigation a.prev {
   background: none;
-  border: 1px solid var(--lt-brand-blue-color);
+  border: 1px solid var(--lt-blue-color);
   margin-left: 8px;
   margin-bottom: 8px;
   text-decoration: none;
@@ -681,13 +681,13 @@ div.ngg-navigation a.prev {
   padding: 0;
   line-height: 40px;
   border-radius: 5px !important;
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   transition: background 0.6s, color 0.6s;
 }
 div.ngg-navigation span.current,
 div.ngg-navigation a.page-numbers:hover {
   color: var(--lt-white-color);
-  background: var(--lt-brand-blue-color);
+  background: var(--lt-blue-color);
 }
 div.ngg-navigation a.prev,
 div.ngg-navigation a.next {
@@ -701,7 +701,7 @@ div.ngg-navigation a.next:before {
   content: "";
   visibility: visible;
   display: block;
-  border-color: var(--lt-brand-blue-color);
+  border-color: var(--lt-blue-color);
   border-style: solid;
   border-width: 2px 2px 0 0;
   content: "";
@@ -714,7 +714,7 @@ div.ngg-navigation a.next:before {
 }
 div.ngg-navigation a.prev:hover,
 div.ngg-navigation a.next:hover {
-  color: var(--lt-brand-blue-color) !important;
+  color: var(--lt-blue-color) !important;
 }
 div.ngg-navigation a.prev::before {
   transform: rotate(225deg);
@@ -747,7 +747,7 @@ div.sl-overlay {
 
 :root ::-moz-selection,
 :root ::selection {
-  background: var(--lt-brand-blue-color);
+  background: var(--lt-blue-color);
   color: var(--lt-very-light-gray-color);
 }
 :root h1,
@@ -756,7 +756,7 @@ div.sl-overlay {
 :root h4,
 :root h5,
 :root h6 {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 :root nav ul, :root nav li {
   list-style: none;
@@ -764,13 +764,13 @@ div.sl-overlay {
   margin: 0;
 }
 :root a {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 :root a a:visited {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 :root a:hover, :root a:active {
-  color: var(--lt-brand-red-color);
+  color: var(--lt-red-color);
 }
 :root .has-white-background-color {
   background-color: var(--lt-white-color);
@@ -826,23 +826,23 @@ div.sl-overlay {
 :root .has-very-dark-gray-border-color {
   border-color: var(--lt-very-dark-gray-color);
 }
-:root .has-dark-blue-background-color {
-  background-color: var(--lt-brand-blue-color);
+:root .has-blue-background-color {
+  background-color: var(--lt-blue-color);
 }
-:root .has-dark-blue-color {
-  color: var(--lt-brand-blue-color);
+:root .has-blue-color {
+  color: var(--lt-blue-color);
 }
-:root .has-dark-blue-border-color {
-  border-color: var(--lt-brand-blue-color);
+:root .has-blue-border-color {
+  border-color: var(--lt-blue-color);
 }
-:root .has-dark-red-background-color {
-  background-color: var(--lt-brand-red-color);
+:root .has-red-background-color {
+  background-color: var(--lt-red-color);
 }
-:root .has-dark-red-color {
-  color: var(--lt-brand-red-color);
+:root .has-red-color {
+  color: var(--lt-red-color);
 }
-:root .has-dark-red-border-color {
-  border-color: var(--lt-brand-red-color);
+:root .has-red-border-color {
+  border-color: var(--lt-red-color);
 }
 
 html {
@@ -957,15 +957,15 @@ body {
   color: var(--lt-text-color);
   text-decoration: none;
   padding: 0 3px;
-  border-bottom: 3px solid var(--lt-brand-blue-color);
+  border-bottom: 3px solid var(--lt-blue-color);
   transition: background 0.1s, color 0.1s;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 50%, var(--lt-brand-blue-color) 51%);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 50%, var(--lt-blue-color) 51%);
   background-size: 100% 200%;
 }
 .popup-link:hover, .sponsor-us a:hover, .post-content p.has-vivid-red-background-color a:hover,
 .post-content p.has-dark-blue-background-color a:hover, .post-content p > a:hover:not(.more-link), .post-content > ul a:hover, .post-content > ol a:hover, .popup-link:active, .sponsor-us a:active, .post-content p.has-vivid-red-background-color a:active,
 .post-content p.has-dark-blue-background-color a:active, .post-content p > a:active:not(.more-link), .post-content > ul a:active, .post-content > ol a:active {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   background-position: 0 100%;
   color: var(--lt-white-color);
   border-color: transparent;
@@ -1055,7 +1055,7 @@ body {
 }
 
 .infobar {
-  background: var(--lt-brand-blue-color);
+  background: var(--lt-blue-color);
   color: var(--lt-infobar-text-color);
   font-size: 1.6rem;
   margin: 1rem 0;
@@ -1080,7 +1080,7 @@ body {
   font-size: 2.2rem;
   width: 64px;
   height: 64px;
-  background: var(--lt-brand-red-color);
+  background: var(--lt-red-color);
   display: none;
 }
 @media (min-width: 600px) {
@@ -1172,11 +1172,11 @@ body {
   color: var(--lt-gray-color);
 }
 .breadcrumbs a:hover, .breadcrumbs a:active {
-  color: var(--lt-brand-red-color);
+  color: var(--lt-red-color);
 }
 
 .breadcrumbs-separator {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   margin: 0 8px;
 }
 
@@ -1219,7 +1219,7 @@ body {
 .post-tags a:hover,
 .button-outline:active,
 .post-tags a:active {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   border-color: var(--lt-active-button-border-color);
   background: var(--lt-button-background-color);
   box-shadow: inset 0 0 9px var(--lt-light-blue-shadow-color);
@@ -1249,7 +1249,7 @@ body {
   border-style: solid;
   transform: scale(0);
   opacity: 0.9;
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   box-shadow: 0 0 6px var(--lt-light-gray-color);
 }
 #go-top::after {
@@ -1416,7 +1416,7 @@ button {
   padding: 10px 20px;
   box-shadow: none;
   border: 0 none;
-  background: var(--lt-brand-blue-color);
+  background: var(--lt-blue-color);
   color: var(--lt-very-light-gray-color);
   border-radius: 5px;
   transition: background 0.3s cubic-bezier(0.17, 0.84, 0.44, 1);
@@ -1435,7 +1435,7 @@ input[type=button]:not([disabled]):focus,
 button:not([disabled]):hover,
 button:not([disabled]):focus {
   color: var(--lt-active-button-color);
-  background: var(--lt-brand-red-color);
+  background: var(--lt-red-color);
 }
 
 select {
@@ -1457,7 +1457,7 @@ label input[type=radio]:hover + span::after {
   transform: scale(1);
 }
 label input[type=radio]:checked + span::after {
-  background: var(--lt-brand-blue-color);
+  background: var(--lt-blue-color);
   transform: scale(1);
 }
 
@@ -1468,7 +1468,7 @@ label input[type=radio] + span::before, label input[type=radio] + span::after {
   box-sizing: content-box;
 }
 label input[type=radio] + span::before {
-  border: 1px solid var(--lt-brand-blue-color);
+  border: 1px solid var(--lt-blue-color);
   width: 16px;
   height: 16px;
   box-shadow: inset 0px 1px 3px var(--lt-light-gray-shadow-color);
@@ -1489,8 +1489,8 @@ label input[type=radio] + span::after {
 }
 
 label input[type=checkbox]:checked + span::before {
-  background: var(--lt-brand-blue-color);
-  border-color: var(--lt-brand-blue-color);
+  background: var(--lt-blue-color);
+  border-color: var(--lt-blue-color);
 }
 label input[type=checkbox]:checked + span::after {
   transform: rotate(45deg) scale(1);
@@ -1500,7 +1500,7 @@ label input[type=checkbox] + span {
   padding-left: 25px;
 }
 label input[type=checkbox] + span::before {
-  border: 1px solid var(--lt-brand-blue-color);
+  border: 1px solid var(--lt-blue-color);
   width: 16px;
   height: 16px;
   box-shadow: inset 0px 1px 3px var(--lt-light-gray-shadow-color);
@@ -1548,7 +1548,7 @@ label input[type=checkbox] + span::after {
   transition: border-color 0.3s cubic-bezier(0.17, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.17, 0.84, 0.44, 1);
 }
 .pagination .page-numbers:not(.current):hover, .pagination .page-numbers:not(.current):active {
-  color: var(--lt-brand-red-color);
+  color: var(--lt-red-color);
   background: var(--lt-button-background-color);
   border-color: var(--lt-active-button-border-color);
   box-shadow: inset 0 0 9px var(--lt-light-blue-shadow-color);
@@ -1641,10 +1641,10 @@ label input[type=checkbox] + span::after {
 }
 
 .entry-title a {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 .entry-title a a:visited {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 .entry-title a:hover, .entry-title a:active {
   color: var(--lt-text-color);
@@ -1655,15 +1655,15 @@ label input[type=checkbox] + span::after {
   align-items: center;
   background: var(--lt-entry-meta-background-color);
   padding: 10px 5px;
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   font-size: 1.84rem;
 }
 .entry-meta a {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   text-decoration: none;
 }
 .entry-meta a a:visited {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 .entry-meta > span {
   padding: 0 7px;
@@ -1749,7 +1749,7 @@ label input[type=checkbox] + span::after {
 }
 .hentry strong {
   text-decoration: none;
-  border-bottom: 3px solid var(--lt-brand-blue-color);
+  border-bottom: 3px solid var(--lt-blue-color);
   padding: 0px 3px;
   font-weight: normal;
 }
@@ -1760,7 +1760,7 @@ label input[type=checkbox] + span::after {
 .hentry blockquote {
   border-left-width: 5px;
   border-left-style: solid;
-  border-color: var(--lt-brand-blue-color);
+  border-color: var(--lt-blue-color);
   padding: 1.3rem 0 1.3rem 1.8rem;
   margin-bottom: 1.7rem;
   background: var(--lt-blockquote-background-color);
@@ -1883,13 +1883,13 @@ table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > td.dtr-control::be
   line-height: 14px;
   font-size: 14px;
   content: "+";
-  background-color: var(--lt-brand-blue-color);
+  background-color: var(--lt-blue-color);
   display: inline-block;
   vertical-align: middle;
 }
 table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child::before, table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child::before {
   content: "-";
-  background-color: var(--lt-brand-blue-color);
+  background-color: var(--lt-blue-color);
 }
 
 table.dataTable tbody ul li::before {
@@ -1916,10 +1916,10 @@ table.dataTable tbody ul li::before {
   width: 100%;
 }
 .post-tags a:hover, .post-tags a:active {
-  color: var(--lt-brand-red-color);
+  color: var(--lt-red-color);
 }
 .post-tags a:hover .tag-count, .post-tags a:active .tag-count {
-  color: var(--lt-brand-red-color);
+  color: var(--lt-red-color);
 }
 @media (min-width: 600px) {
   .post-tags a {
@@ -2023,7 +2023,7 @@ ul.partners > li a a:visited {
   color: var(--lt-text-color);
 }
 ul.partners > li a:hover, ul.partners > li a:active {
-  color: var(--lt-brand-red-color);
+  color: var(--lt-red-color);
 }
 ul.partners > li a:hover, ul.partners > li a:active {
   text-decoration: none;
@@ -2174,7 +2174,7 @@ ul.post-categories li {
   display: inline-block;
   padding: 5px 10px;
   margin: 0 5px 5px 0;
-  background: var(--lt-brand-blue-color);
+  background: var(--lt-blue-color);
 }
 ul.post-categories li a {
   color: var(--lt-white-color);
@@ -2206,7 +2206,7 @@ ul.weather-forecast > li .forecast-extra {
   display: inline-block;
 }
 ul.weather-forecast > li svg {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 
 .forecast-data {
@@ -2308,11 +2308,11 @@ div.widget_lithe_vk_widget.vk-widget-loaded {
   font-size: 30px;
 }
 #site-title a {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   text-decoration: none;
 }
 #site-title a a:visited {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 #site-title svg {
   width: 40px;
@@ -2473,7 +2473,7 @@ ul.menu {
 
 #mobile-nav {
   display: block;
-  background: var(--lt-brand-blue-color);
+  background: var(--lt-blue-color);
 }
 #mobile-nav ul.menu {
   flex-direction: column;
@@ -2501,7 +2501,7 @@ ul.menu {
   color: var(--lt-very-light-gray-color);
 }
 #mobile-nav a:hover, #mobile-nav a:active {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   background: var(--lt-very-light-gray-color);
 }
 
@@ -2527,16 +2527,16 @@ ul.menu {
   }
 }
 #aside-nav a {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   text-decoration: none;
   display: block;
   padding-left: 48px;
 }
 #aside-nav a a:visited {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 #aside-nav a:hover, #aside-nav a:active {
-  color: var(--lt-brand-red-color);
+  color: var(--lt-red-color);
   background: var(--lt-aside-nav-background-color);
 }
 #aside-nav a svg {
@@ -2584,15 +2584,15 @@ ul.menu {
   }
 }
 #footer-nav .menu-item a {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
   text-decoration: none;
   border-bottom: 1px solid var(--lt-active-button-border-color);
 }
 #footer-nav .menu-item a a:visited {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 #footer-nav .menu-item a:hover, #footer-nav .menu-item a:active {
-  color: var(--lt-brand-blue-color);
+  color: var(--lt-blue-color);
 }
 
 #site-sidebar {
@@ -2880,7 +2880,7 @@ div.wpcf7 .lithe-ajax-loader {
   vertical-align: bottom;
   text-align: center;
   padding: 2px 0;
-  background: var(--lt-brand-red-color);
+  background: var(--lt-red-color);
   border-radius: 5px;
   margin: 0;
   color: white;
@@ -2919,10 +2919,10 @@ div.wpcf7 form .wpcf7-response-output .message {
   font-weight: 400;
 }
 div.wpcf7 .wpcf7-not-valid-tip {
-  color: var(--lt-brand-red-color);
+  color: var(--lt-red-color);
 }
 div.wpcf7 .wpcf7-not-valid {
-  border-color: var(--lt-brand-red-color);
+  border-color: var(--lt-red-color);
   box-shadow: inset 0 0 9px var(--lt-light-red-shadow-color);
 }
 div.wpcf7 form.spam .wpcf7-response-output svg,
@@ -3182,8 +3182,10 @@ div.wpcf7 .input-group > span {
   --lt-gray-color: #b4b4b4;
   --lt-dark-gray-color: #6a6a6a;
   --lt-very-dark-gray-color: #454545;
-  --lt-brand-blue-color: #037dc7;
-  --lt-brand-red-color: #e74040;
+  --lt-blue-color: #037dc7;
+  --lt-dark-blue-color: #105991;
+  --lt-red-color: #e74040;
+  --lt-dark-red-color: #b21b24;
   --lt-bg-gradient-start-color: #5091dd;
   --lt-bg-gradient-end-color: #030617;
   --lt-header-gradient-start-color: #3b679e;
@@ -3230,7 +3232,8 @@ div.wpcf7 .input-group > span {
   --lt-gray-color: #959595;
   --lt-dark-gray-color: #f3f3f3;
   --lt-very-dark-gray-color: #fefefe;
-  --lt-brand-blue-color: #fefefe;
+  --lt-blue-color: #fefefe;
+  --lt-dark-blue-color: #fefefe;
   --lt-bg-gradient-start-color: #333333;
   --lt-bg-gradient-end-color: #212121;
   --lt-header-gradient-start-color: #3f3f3f;

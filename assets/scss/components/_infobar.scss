@@ -1,5 +1,5 @@
 .infobar {
-	background: var(--lt-brand-blue-color);
+	background: var(--lt-blue-color);
 	color: var(--lt-infobar-text-color);
     font-size: $font-size-small;
     margin: 1rem 0;
@@ -25,7 +25,7 @@
     font-size: $font-size-very-large;
     width: 64px;
     height: 64px;
-    background: var(--lt-brand-red-color);
+    background: var(--lt-red-color);
     display: none;
 
     @include respond-to('aussie') {

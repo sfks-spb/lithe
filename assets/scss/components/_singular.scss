@@ -25,7 +25,7 @@
 }
 
 .entry-title {
-    @include link(var(--lt-brand-blue-color), var(--lt-text-color));
+    @include link(var(--lt-blue-color), var(--lt-text-color));
 }
 
 .entry-meta {
@@ -33,7 +33,7 @@
     align-items: center;
     background: var(--lt-entry-meta-background-color);
     padding: 10px 5px;
-    color: var(--lt-brand-blue-color);
+    color: var(--lt-blue-color);
     font-size: $font-size-medium;
     @include undecorated-link;
 
@@ -149,7 +149,7 @@
 
     strong {
         text-decoration: none;
-        border-bottom: 3px solid var(--lt-brand-blue-color);
+        border-bottom: 3px solid var(--lt-blue-color);
         padding: 0px 3px;
         font-weight: normal;
     }
@@ -162,7 +162,7 @@
     blockquote {
         border-left-width: 5px;
         border-left-style: solid;
-        border-color: var(--lt-brand-blue-color);
+        border-color: var(--lt-blue-color);
         padding: 1.3rem 0 1.3rem 1.8rem;
         margin-bottom: 1.7rem;
         background: var(--lt-blockquote-background-color);

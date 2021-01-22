@@ -59,7 +59,7 @@ table.dataTable.dtr-inline.collapsed > tbody {
                 line-height: 14px;
                 font-size: 14px;
                 content: '+';
-                background-color: var(--lt-brand-blue-color);
+                background-color: var(--lt-blue-color);
                 display: inline-block;
                 vertical-align: middle;
             }
@@ -70,7 +70,7 @@ table.dataTable.dtr-inline.collapsed > tbody {
         td, th {
             &:first-child::before {
                 content: '-';
-                background-color: var(--lt-brand-blue-color);
+                background-color: var(--lt-blue-color);
             }
         }
     }
