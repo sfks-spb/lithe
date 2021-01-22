@@ -463,15 +463,24 @@ var Sticky = class Sticky {
 
 };
 
+var range;
+
+range = (size, startAt = 0) => {
+  return Array.from(new Array(size), (x, i) => {
+    return i + startAt;
+  });
+};
+
 var Views = class Views {
   constructor() {
     this.init = this.init.bind(this);
     this.storeView = this.storeView.bind(this);
+    this.transferComplete = this.transferComplete.bind(this);
     this.http = new HttpClient();
     this.http.on("load", this.transferComplete);
     this.storage = window.localStorage;
     this.views = this.getViews();
-    document.addEventListener("DOMContentLoaded", this.init, false);
+    window.addEventListener("load", this.init, false);
   }
 
   init() {
@@ -531,11 +540,26 @@ var Views = class Views {
   }
 
   transferComplete(response) {
-    var counter;
+    var counter, difference, previous;
     counter = document.querySelector('#post-' + response.post_id + ' .entry-views-count');
-    if (counter) {
-      return counter.innerHTML = response.views_string;
+    previous = Number(counter.innerHTML);
+    difference = response.views - previous;
+    if (difference >= 256 || difference === 0) {
+      // don't animate more than 256 views difference or with no difference if view count
+      return counter.innerHTML = response.views;
     }
+    return this.animateCounter(counter, range(difference, previous + 1));
+  }
+
+  animateCounter(element, views) {
+    var animationInterval, cursor;
+    cursor = 0;
+    return animationInterval = setInterval(() => {
+      element.innerHTML = views[cursor];
+      if (typeof views[++cursor] === 'undefined') {
+        return clearInterval(animationInterval);
+      }
+    }, 20);
   }
 
 };

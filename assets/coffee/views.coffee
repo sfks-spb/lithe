@@ -1,4 +1,5 @@
 import {HttpClient} from './httpClient.coffee'
+import {range} from './utils.coffee'
 
 export class Views
 
@@ -7,7 +8,7 @@ export class Views
         @http.on "load", @transferComplete
         @storage = window.localStorage
         @views = @getViews()
-        document.addEventListener "DOMContentLoaded", @init, false
+        window.addEventListener "load", @init, false
 
     init: () =>
         @posts = document.querySelectorAll '.post'
@@ -50,6 +51,17 @@ export class Views
         @views.push postId
         @storage.setItem 'postViews', JSON.stringify @views
 
-    transferComplete: (response) ->
+    transferComplete: (response) =>
         counter = document.querySelector '#post-' + response.post_id + ' .entry-views-count'
-        counter.innerHTML = response.views_string if counter
+        previous = Number counter.innerHTML
+        difference = response.views - previous
+        # don't animate more than 256 views difference or with no difference if view count
+        return counter.innerHTML = response.views if difference >= 256 or difference == 0
+        @animateCounter counter, range difference, previous + 1
+
+    animateCounter: (element, views) ->
+        cursor = 0
+        animationInterval = setInterval () =>
+            element.innerHTML = views[cursor]
+            clearInterval animationInterval if typeof views[++cursor] == 'undefined'
+        , 20
