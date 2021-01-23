@@ -81,7 +81,13 @@ if ( ! function_exists( 'lithe_get_classes_directory_path' ) ) {
      * @return void
      */
     function lithe_get_classes_directory_path( ?string $path ): string {
-        return lithe()->get_classes_directory_path( $path );
+        $classes_directory = trailingslashit( get_template_directory() ) . 'classes';
+
+        if ( is_null( $path ) ) {
+            return $classes_directory;
+        }
+
+        return trailingslashit( $classes_directory ) . $path;
     }
 }
 
@@ -97,7 +103,7 @@ if ( ! function_exists( 'lithe_render' ) ) {
      */
     function lithe_render( string $view, array $args = array() ): void {
 
-        $view_path = lithe()->get_classes_directory_path(  $view . '.php' );
+        $view_path = lithe_get_classes_directory_path(  $view . '.php' );
 
         if ( is_file( $view_path ) ) {
 
@@ -443,24 +449,23 @@ if ( ! function_exists( 'lithe_sports' ) ) {
 
         $sports = get_terms( array(
             'taxonomy'   => 'sport',
-            'order'      => 'DESC',
+            'order'      => 'ASC',
             'hide_empty' => true,
         ) );
 
         if ( ! empty( $sports ) ):
         ?>
-            <ul class="sports-list">
+            <select class="sports-list" name="sports">
+
+            <option value="0"><?php esc_html_e( 'All', 'lithe' ); ?></option>
 
             <?php foreach( $sports as $sport ): ?>
 
-                <li class="sport-item" data-sport-id="<?php echo esc_attr( $sport->term_id ); ?>">
-                    <?php echo esc_html( $sport->name ); ?>
-                    <span class="sport-trainers-count"><?php echo $sport->count; ?></span>
-                </li>
+                <option value="<?php echo esc_attr( $sport->term_id ); ?>"><?php echo esc_html( $sport->name ) ?></option>
 
             <?php endforeach; ?>
 
-            </ul>
+            </select>
         <?php
         endif;
 

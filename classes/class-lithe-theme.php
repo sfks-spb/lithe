@@ -16,7 +16,7 @@ if ( ! class_exists('Lithe_Theme') ) {
          *
          * @var Lithe_Theme
          */
-        public static $instance = null;
+        protected static $instance;
 
         /**
          * Contains asset loader instance.
@@ -59,8 +59,8 @@ if ( ! class_exists('Lithe_Theme') ) {
          * @return Lithe_Theme
          */
         public static function instance(): self {
-            if ( is_null( self::$instance ) ) {
-                self::$instance = new self();
+            if ( ! isset( self::$instance ) ) {
+                self::$instance = new static();
             }
 
             return self::$instance;
@@ -71,7 +71,7 @@ if ( ! class_exists('Lithe_Theme') ) {
          *
          * @return void
          */
-        public function __construct() {
+        protected function __construct() {
             $this->includes();
 
             $this->version = wp_get_theme()->get( 'Version' );
@@ -301,23 +301,6 @@ if ( ! class_exists('Lithe_Theme') ) {
 
             // add support for async and defer scripts
             add_filter( 'script_loader_tag', $this->assets->get_filter(), 10, 2 );
-        }
-
-        /**
-         * Gets path to file in classes directory.
-         *
-         * @param  string|null $path Relative path to file inside classes directory.
-         *
-         * @return string
-         */
-        public function get_classes_directory_path( ?string $path ): string {
-            $classes_directory = trailingslashit( get_template_directory() ) . 'classes';
-
-            if ( is_null( $path ) ) {
-                return $classes_directory;
-            }
-
-            return trailingslashit( $classes_directory ) . $path;
         }
 
         /**
