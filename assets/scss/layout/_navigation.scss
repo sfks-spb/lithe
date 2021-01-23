@@ -243,6 +243,10 @@ ul.menu {
 
         @include undecorated-link($primary: var(--lt-blue-color), $active: var(--lt-blue-color)) {
             border-bottom: 1px solid var(--lt-active-button-border-color);
+
+            @include hover-active() {
+                border-bottom-color: var(--lt-blue-color);
+            }
         }
     }
 }

@@ -2594,6 +2594,9 @@ ul.menu {
 #footer-nav .menu-item a:hover, #footer-nav .menu-item a:active {
   color: var(--lt-blue-color);
 }
+#footer-nav .menu-item a:hover, #footer-nav .menu-item a:active {
+  border-bottom-color: var(--lt-blue-color);
+}
 
 #site-sidebar {
   display: block;
