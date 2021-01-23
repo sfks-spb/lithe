@@ -20,7 +20,6 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
             'full_name'    => 'strip',
             'dob'          => 'strip',
             'gender'       => 'strip',
-            'breed'        => 'strip',
             'pedigree_no'  => 'strip',
             'tattoo'       => 'strip',
             'microchip_no' => 'strip',
@@ -38,8 +37,14 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
         public static function render( WP_Post $post ): void {
             wp_nonce_field( 'lithe_save_data', 'lithe_meta_nonce' );
 
+            $breed = get_the_terms( $post, 'breed' );
+            $breed_id = ( empty( $breed ) ) ? null : $breed[0]->term_id;
+
             lithe_render( 'meta-boxes/views/view-dog-profile', array(
-                'post' => $post,
+                'post'     => $post,
+                'gender'   => get_post_meta($post->ID, 'gender', true),
+                'breed_id' => $breed_id,
+                'breeds'   => get_terms( array( 'taxonomy' => 'breed', 'hide_empty' => false ) ),
             ) );
         }
 
@@ -64,6 +69,18 @@ if ( ! class_exists('Lithe_Meta_Box_Dog_Profile') ) {
                 } else {
                     update_post_meta( $post_id, $meta_key, wp_kses( $_POST[ $meta_key ], $allowed_html ) );
                 }
+
+            }
+
+            // handle breed as post term
+            if ( array_key_exists( 'breed', $_POST ) && $_POST['breed'] !== '' ) {
+
+                if ( is_numeric( $_POST['breed'] ) ) {
+                    // convert to array of IDs
+                    $_POST['breed'] = array( (int) $_POST['breed'] );
+                }
+
+                wp_set_post_terms( $post_id, $_POST['breed'], 'breed', false );
 
             }
 

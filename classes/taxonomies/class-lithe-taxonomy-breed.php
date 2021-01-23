@@ -57,7 +57,7 @@ if ( ! class_exists( 'Lithe_Taxonomy_Breed' ) ) {
          */
         public function columns(): array {
             return array(
-                'posts'     => __( 'Dogs', 'lithe' ),
+                'posts' => __( 'Dogs', 'lithe' ),
             );
         }
 

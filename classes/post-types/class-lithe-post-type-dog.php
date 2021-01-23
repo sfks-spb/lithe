@@ -91,7 +91,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Dog' ) ) {
                     break;
 
                 case 'breed':
-                    echo get_post_meta( $post_id, 'breed', true );
+                    echo get_the_terms( $post, 'breed' )[0]->name;
                     break;
 
                 case 'height':
