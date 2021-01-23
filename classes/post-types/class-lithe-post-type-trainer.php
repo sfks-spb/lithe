@@ -50,7 +50,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
                 'has_archive'     => false,
                 'menu_icon'       => 'dashicons-welcome-learn-more',
                 'taxonomies'      => array( 'venue', 'sport' ),
-                'rewrite'         => array( 'slug' => $this->handle ),
+                'rewrite'         => array( 'slug' => $this->handle . 's' ),
                 'map_meta_cap'    => true,
                 'capability_type' => $this->handle,
             ) );

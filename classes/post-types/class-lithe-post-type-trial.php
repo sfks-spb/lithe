@@ -49,7 +49,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Trial' ) ) {
                 'supports'        => array( 'title', 'editor' ),
                 'has_archive'     => true,
                 'menu_icon'       => 'dashicons-awards',
-                'rewrite'         => array( 'slug' => $this->handle ),
+                'rewrite'         => array( 'slug' => $this->handle . 's' ),
                 'map_meta_cap'    => true,
                 'capability_type' => $this->handle,
             ) );
