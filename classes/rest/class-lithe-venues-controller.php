@@ -98,6 +98,37 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
             $venue['trainers'] = $trainers;
 
             return ( ! empty( $trainers ) ) ? true : false;
+
+        }
+
+        /**
+         * Gets venue sports.
+         *
+         * @param  array $venue Venue data.
+         *
+         * @global wpdb $wpdb WordPress database instance.
+         *
+         * @return array
+         */
+        protected function get_sports_for_venue( array $venue ): array {
+
+            global $wpdb;
+
+            $sport_ids = $wpdb->get_col( $wpdb->prepare( "
+                SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
+                WHERE pm.meta_key = %s
+                ORDER BY pm.meta_value DESC",
+                'sports_' . $venue['id'] ) );
+
+            if ( empty( $sport_ids ) ) return array();
+
+            return get_terms( array(
+                'taxonomy' => 'sport',
+                'include'  => $sport_ids,
+                'fields'   => 'id=>name',
+                'orderby'  => 'id',
+            ) );
+
         }
 
         /**
@@ -109,11 +140,14 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
          * @return array
          */
         protected function get_trainers_for_venue( array $venue, ?int $sport_id ): array {
+
             return get_posts( array(
                 'post_type'  => 'trainer',
                 'meta_key'   => 'sports_' . $venue['id'],
                 'meta_value' => $sport_id,
+                'nopaging'   => true,
             ) );
+
         }
 
         /**
@@ -148,6 +182,7 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
             }
 
             return $data;
+
         }
 
         /**
@@ -174,6 +209,8 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
             foreach ( $meta_fields as $field ) {
                 $data[ $field ] = esc_html( get_term_meta( $venue->term_id, $field, true ) );
             }
+
+            $data['sports'] = $this->get_sports_for_venue( $data );
 
             return $data;
 
