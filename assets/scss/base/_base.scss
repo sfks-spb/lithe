@@ -32,7 +32,9 @@
     @include has-color('dark-gray',       var(--lt-dark-gray-color));
     @include has-color('very-dark-gray',  var(--lt-very-dark-gray-color));
     @include has-color('blue',            var(--lt-blue-color));
+    @include has-color('dark-blue',       var(--lt-dark-blue-color));
     @include has-color('red',             var(--lt-red-color));
+    @include has-color('dark-red',        var(--lt-dark-red-color));
 }
 
 html {

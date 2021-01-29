@@ -835,6 +835,15 @@ div.sl-overlay {
 :root .has-blue-border-color {
   border-color: var(--lt-blue-color);
 }
+:root .has-dark-blue-background-color {
+  background-color: var(--lt-dark-blue-color);
+}
+:root .has-dark-blue-color {
+  color: var(--lt-dark-blue-color);
+}
+:root .has-dark-blue-border-color {
+  border-color: var(--lt-dark-blue-color);
+}
 :root .has-red-background-color {
   background-color: var(--lt-red-color);
 }
@@ -843,6 +852,15 @@ div.sl-overlay {
 }
 :root .has-red-border-color {
   border-color: var(--lt-red-color);
+}
+:root .has-dark-red-background-color {
+  background-color: var(--lt-dark-red-color);
+}
+:root .has-dark-red-color {
+  color: var(--lt-dark-red-color);
+}
+:root .has-dark-red-border-color {
+  border-color: var(--lt-dark-red-color);
 }
 
 html {
