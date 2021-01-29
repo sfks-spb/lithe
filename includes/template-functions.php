@@ -439,33 +439,32 @@ if ( ! function_exists( 'lithe_post_thumbnail' ) ) {
                 );
 
                 $index = 0;
-                ?>
+            ?>
 
                 <div class="rellax-image">
 
                     <?php foreach ( $layers as $layer => $speed ): $index++ ?>
 
-                            <div class="rellax rellax-<?php echo esc_attr( $layer ); ?>" data-rellax-speed="<?php echo $speed; ?>">
+                        <div class="rellax rellax-<?php echo esc_attr( $layer ); ?>" data-rellax-speed="<?php echo $speed; ?>">
 
-                                <img alt="" class="wp-post-image" src="<?php echo esc_attr( str_replace( ".$thumbnail_extension", "-${index}.$thumbnail_extension", $thumbnail_url ) ); ?>" sizes="(max-width: 820px) 100vw, 820px" width="820" height="600">
+                            <img alt="" class="wp-post-image" src="<?php echo esc_attr( str_replace( ".$thumbnail_extension", "-${index}.$thumbnail_extension", $thumbnail_url ) ); ?>" sizes="(max-width: 820px) 100vw, 820px" width="820" height="600">
 
-                            </div>
+                        </div>
 
                     <?php endforeach; ?>
 
-                </div>
-
-                <?php
-
-            } else {
-
-                $thumbnail_id = get_post_thumbnail_id( $post->ID );
-
-                the_post_thumbnail( 'lithe_medium', array(
-                    'alt' => get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ),
-                ) );
+            <?php
 
             }
+
+            $thumbnail_id = get_post_thumbnail_id( $post->ID );
+
+            the_post_thumbnail( 'lithe_medium', array(
+                'alt'   => get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ),
+                'class' => ( is_singular() && $parallax ? 'rellax-overlay' : '' ),
+            ) );
+
+            if ( is_singular() && $parallax ) echo '</div>';
 
             echo $after;
 

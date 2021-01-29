@@ -1854,16 +1854,19 @@ label input[type=checkbox] + span::after {
   position: relative;
   overflow: hidden;
 }
-.rellax-image .rellax {
+.rellax-image .rellax,
+.rellax-image .rellax-overlay {
   position: absolute;
   top: 0;
   left: 0;
 }
-.rellax-image .rellax > img {
+.rellax-image .rellax > img,
+.rellax-image .rellax-overlay > img {
   vertical-align: top;
 }
-.rellax-image .rellax-foreground {
+.rellax-image .rellax-overlay {
   position: relative;
+  opacity: 0;
 }
 
 .dataTables_wrapper {
