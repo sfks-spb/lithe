@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lithe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 05:50+0000\n"
+"POT-Creation-Date: 2021-01-29 23:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: includes/template-functions.php:496
+#: includes/template-functions.php:551
 msgid "All"
 msgstr ""
 
@@ -654,6 +654,14 @@ msgstr ""
 
 #: classes/meta-boxes/views/view-post-style.php:25
 msgid "Post Image Parallax"
+msgstr ""
+
+#: classes/meta-boxes/views/view-post-style.php:44
+msgid "Post Image Parallax Layers"
+msgstr ""
+
+#: classes/meta-boxes/views/view-post-style.php:50
+msgid "Post image parallax layers separated by comma."
 msgstr ""
 
 #: classes/meta-boxes/views/view-post-style.php:17

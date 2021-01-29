@@ -36,3 +36,17 @@
     <p class="description"><?php _e( 'Post image should have parallax effect.', 'lithe' ); ?></p>
 
 </div>
+
+<div class="form-field">
+
+    <div>
+
+        <label for="post_image_parallax_layers"><?php _e( 'Post Image Parallax Layers', 'lithe' ); ?></label>
+
+    </div>
+
+    <input type="text" name="post_image_parallax_layers" value="<?php echo $post_image_parallax_layers; ?>" />
+
+    <p class="description"><?php _e( 'Post image parallax layers separated by comma.', 'lithe' ); ?></p>
+
+</div>

@@ -415,60 +415,116 @@ if ( ! function_exists( 'lithe_post_thumbnail' ) ) {
      * @param  string $after  Output after thumbnail.
      *
      * @global WP_Post $post Current post instance.
+     * @global array   $_wp_additional_image_sizes Array of additional image sizes.
      *
      * @return void
      */
     function lithe_post_thumbnail(string $before = '', string $after = ''): void {
+
         global $post;
 
         if ( has_post_thumbnail( $post->ID ) ) {
 
-            $parallax = get_post_meta( get_the_ID(), 'post_image_parallax', true );
-
             echo $before;
 
-            if ( is_singular() && $parallax ) {
+            if ( lithe_has_parallax_thumbnail() && is_singular() ) {
 
-                $thumbnail_url = get_the_post_thumbnail_url( $post->ID, 'lithe_medium' );
-                $thumbnail_extension = pathinfo( $thumbnail_url, PATHINFO_EXTENSION );
+                lithe_the_parallax_thumbnail();
 
-                $layers = array(
-                    'background' => 1,
-                    'midground'  => -2,
-                    'foreground' => 0,
-                );
+            } else {
 
-                $index = 0;
-            ?>
+                $thumbnail_id = get_post_thumbnail_id( $post->ID );
 
-                <div class="rellax-image">
-
-                    <?php foreach ( $layers as $layer => $speed ): $index++ ?>
-
-                        <div class="rellax rellax-<?php echo esc_attr( $layer ); ?>" data-rellax-speed="<?php echo $speed; ?>">
-
-                            <img alt="" class="wp-post-image" src="<?php echo esc_attr( str_replace( ".$thumbnail_extension", "-${index}.$thumbnail_extension", $thumbnail_url ) ); ?>" sizes="(max-width: 820px) 100vw, 820px" width="820" height="600">
-
-                        </div>
-
-                    <?php endforeach; ?>
-
-            <?php
+                the_post_thumbnail( 'lithe_medium', array(
+                    'alt'   => get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ),
+                    'class' => $class,
+                ) );
 
             }
-
-            $thumbnail_id = get_post_thumbnail_id( $post->ID );
-
-            the_post_thumbnail( 'lithe_medium', array(
-                'alt'   => get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ),
-                'class' => ( is_singular() && $parallax ? 'rellax-overlay' : '' ),
-            ) );
-
-            if ( is_singular() && $parallax ) echo '</div>';
 
             echo $after;
 
         }
+
+    }
+
+}
+
+if ( ! function_exists( 'lithe_the_parallax_thumbnail' ) ) {
+
+    /**
+     * Outputs parallax thumbnail.
+     *
+     * @global WP_Post $post Current post instance.
+     * @global array   $_wp_additional_image_sizes Array of additional image sizes.
+     *
+     * @return void
+     */
+    function lithe_the_parallax_thumbnail(): void {
+
+        global $post;
+        global $_wp_additional_image_sizes;
+
+        $thumbnail_id = get_post_thumbnail_id( $post->ID );
+        $thumbnail_url = get_the_post_thumbnail_url( $post->ID, 'lithe_medium' );
+        $thumbnail_width = $_wp_additional_image_sizes['lithe_medium']['width'];
+        $thumbnail_height = $_wp_additional_image_sizes['lithe_medium']['height'];
+        $thumbnail_ext = pathinfo( $thumbnail_url, PATHINFO_EXTENSION );
+
+        $class = 'rellax-fallback';
+        $layers = get_post_meta( $post->ID, 'post_image_parallax_layers', true );
+
+        echo '<div class="rellax-image">';
+
+        if ( ! empty( $layers ) ) {
+
+            $class = 'rellax-overlay';
+            $layers = explode( ',', $layers );
+
+            foreach ( $layers as $layer => $speed ) {
+
+                set_query_var( 'width', $thumbnail_width );
+                set_query_var( 'height', $thumbnail_height );
+                set_query_var( 'layer', ++$layer );
+                set_query_var( 'speed', trim( $speed ) );
+                set_query_var( 'url', str_replace( ".${thumbnail_ext}", "-${layer}.${thumbnail_ext}", $thumbnail_url ) );
+
+                get_template_part( 'template-parts/parallax-layer' );
+
+            }
+
+        }
+
+        the_post_thumbnail( 'lithe_medium', array(
+            'alt'   => get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ),
+            'class' => $class,
+        ) );
+
+        echo '</div>';
+
+    }
+
+}
+
+if ( ! function_exists( 'lithe_has_parallax_thumbnail' ) ) {
+    /**
+     * Checks whether post has parallax thumbnail.
+     *
+     * @global WP_Post $post Current post instance.
+     *
+     * @return bool
+     */
+    function lithe_has_parallax_thumbnail(): bool {
+
+        global $post;
+
+        $parallax = get_post_meta( $post->ID, 'post_image_parallax', true );
+
+        if ( $parallax ) {
+            return true;
+        }
+
+        return false;
 
     }
 }

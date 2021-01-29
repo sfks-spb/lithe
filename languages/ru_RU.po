@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Lithe\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-11 21:53+0000\n"
-"PO-Revision-Date: 2021-01-29 05:51+0000\n"
+"PO-Revision-Date: 2021-01-29 23:44+0000\n"
 "Last-Translator: СФКС\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -93,7 +93,7 @@ msgstr "Добавить новую площадку"
 msgid "Address"
 msgstr "Адрес"
 
-#: includes/template-functions.php:496
+#: includes/template-functions.php:551
 msgid "All"
 msgstr "Все"
 
@@ -658,7 +658,15 @@ msgstr "Положение изображения записи"
 
 #: classes/meta-boxes/views/view-post-style.php:25
 msgid "Post Image Parallax"
-msgstr "Эффект паралакса для изображения записи"
+msgstr "Эффект параллакса для изображения записи"
+
+#: classes/meta-boxes/views/view-post-style.php:44
+msgid "Post Image Parallax Layers"
+msgstr "Слои параллакса для изображения записи"
+
+#: classes/meta-boxes/views/view-post-style.php:50
+msgid "Post image parallax layers separated by comma."
+msgstr "Слой разделенные через запятую."
 
 #: classes/meta-boxes/views/view-post-style.php:17
 msgid "Post image position relative to the content or excerpt."
