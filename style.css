@@ -1814,8 +1814,7 @@ label input[type=checkbox] + span::after {
   margin-bottom: 2.4rem;
   overflow: hidden;
 }
-
-.post-image > img {
+.post-image img {
   width: 100%;
   height: auto;
   vertical-align: top;
@@ -1849,6 +1848,22 @@ label input[type=checkbox] + span::after {
     float: right;
     margin-left: 1em;
   }
+}
+
+.rellax-image {
+  position: relative;
+  overflow: hidden;
+}
+.rellax-image .rellax {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rellax-image .rellax > img {
+  vertical-align: top;
+}
+.rellax-image .rellax-foreground {
+  position: relative;
 }
 
 .dataTables_wrapper {

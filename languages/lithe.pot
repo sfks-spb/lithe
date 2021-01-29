@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lithe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-22 00:29+0000\n"
+"POT-Creation-Date: 2021-01-29 05:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,11 +15,11 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.4.0; wp-5.4.1"
 
-#: includes/template-functions.php:396
+#: includes/template-functions.php:402
 msgid "% Comments"
 msgstr ""
 
-#: includes/template-functions.php:378
+#: includes/template-functions.php:384
 #, php-format
 msgid "%s Views"
 msgstr ""
@@ -28,11 +28,11 @@ msgstr ""
 msgid "(link)"
 msgstr ""
 
-#: includes/template-functions.php:394
+#: includes/template-functions.php:400
 msgid "0 Comments"
 msgstr ""
 
-#: includes/template-functions.php:395
+#: includes/template-functions.php:401
 msgid "1 Comment"
 msgstr ""
 
@@ -91,6 +91,10 @@ msgstr ""
 #: classes/taxonomies/views/view-venue-add-form-fields.php:15
 #: classes/taxonomies/views/view-venue-edit-form-fields.php:17
 msgid "Address"
+msgstr ""
+
+#: includes/template-functions.php:496
+msgid "All"
 msgstr ""
 
 #: classes/taxonomies/class-lithe-taxonomy-breed.php:36
@@ -154,7 +158,7 @@ msgstr ""
 msgid "Background color"
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:8
+#: classes/meta-boxes/views/view-dog-profile.php:19
 msgid "Birthday"
 msgstr ""
 
@@ -170,13 +174,13 @@ msgstr ""
 msgid "Brands"
 msgstr ""
 
-#: includes/template-functions.php:189
+#: includes/template-functions.php:195
 msgid "Breadcrumbs"
 msgstr ""
 
 #: classes/post-types/class-lithe-post-type-dog.php:68
 #: classes/taxonomies/class-lithe-taxonomy-breed.php:34
-#: classes/meta-boxes/views/view-dog-profile.php:26
+#: classes/meta-boxes/views/view-dog-profile.php:50
 msgid "Breed"
 msgstr ""
 
@@ -190,7 +194,7 @@ msgstr ""
 msgid "By clicking \"Post Comment\" you're agreeing to our %1$s."
 msgstr ""
 
-#: classes/meta-boxes/views/view-post-style.php:5
+#: classes/meta-boxes/views/view-post-style.php:11
 msgid "Center"
 msgstr ""
 
@@ -198,7 +202,7 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: includes/template-functions.php:398
+#: includes/template-functions.php:404
 msgid "Comments are off for this post"
 msgstr ""
 
@@ -227,6 +231,10 @@ msgstr ""
 msgid "denpamusic"
 msgstr ""
 
+#: classes/meta-boxes/views/view-post-style.php:31
+msgid "Disabled"
+msgstr ""
+
 #: assets/js/cookieconsent-3.1.1/package.php:10
 msgid "Dismiss"
 msgstr ""
@@ -235,39 +243,39 @@ msgstr ""
 msgid "Dog"
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:10
+#: classes/meta-boxes/views/view-dog-profile.php:25
 msgid "Dog's birthday date."
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:28
+#: classes/meta-boxes/views/view-dog-profile.php:64
 msgid "Dog's breed."
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:4
+#: classes/meta-boxes/views/view-dog-profile.php:11
 msgid "Dog's full name (as written in pedigree)."
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:22
+#: classes/meta-boxes/views/view-dog-profile.php:43
 msgid "Dog's gender."
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:58
+#: classes/meta-boxes/views/view-dog-profile.php:131
 msgid "Dog's height (in cm)."
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:46
+#: classes/meta-boxes/views/view-dog-profile.php:104
 msgid "Dog's microchip number."
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:34
+#: classes/meta-boxes/views/view-dog-profile.php:78
 msgid "Dog's pedigree number."
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:40
+#: classes/meta-boxes/views/view-dog-profile.php:92
 msgid "Dog's tattoo number."
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:52
+#: classes/meta-boxes/views/view-dog-profile.php:117
 msgid "Dog's workbook number."
 msgstr ""
 
@@ -317,8 +325,12 @@ msgstr ""
 msgid "Els Keurlinckx"
 msgstr ""
 
+#: classes/meta-boxes/views/view-post-style.php:32
+msgid "Enabled"
+msgstr ""
+
 #: classes/post-types/class-lithe-post-type-dog.php:90
-#: classes/meta-boxes/views/view-dog-profile.php:20
+#: classes/meta-boxes/views/view-dog-profile.php:39
 msgid "Female"
 msgstr ""
 
@@ -347,7 +359,7 @@ msgid "Form is protected by reCAPTCHA from Google"
 msgstr ""
 
 #: classes/post-types/class-lithe-post-type-dog.php:66
-#: classes/meta-boxes/views/view-dog-profile.php:2
+#: classes/meta-boxes/views/view-dog-profile.php:5
 msgid "Full Name"
 msgstr ""
 
@@ -356,7 +368,7 @@ msgid "Full Width Template"
 msgstr ""
 
 #: classes/post-types/class-lithe-post-type-dog.php:67
-#: classes/meta-boxes/views/view-dog-profile.php:17
+#: classes/meta-boxes/views/view-dog-profile.php:31
 msgid "Gender"
 msgstr ""
 
@@ -385,7 +397,7 @@ msgid "Header Social Menu"
 msgstr ""
 
 #: classes/post-types/class-lithe-post-type-dog.php:69
-#: classes/meta-boxes/views/view-dog-profile.php:56
+#: classes/meta-boxes/views/view-dog-profile.php:125
 msgid "Height"
 msgstr ""
 
@@ -462,11 +474,11 @@ msgstr ""
 msgid "Learn more"
 msgstr ""
 
-#: includes/template-functions.php:390
+#: includes/template-functions.php:396
 msgid "Leave a comment"
 msgstr ""
 
-#: classes/meta-boxes/views/view-post-style.php:6
+#: classes/meta-boxes/views/view-post-style.php:12
 msgid "Left"
 msgstr ""
 
@@ -520,7 +532,7 @@ msgid "Location ID"
 msgstr ""
 
 #: classes/post-types/class-lithe-post-type-dog.php:90
-#: classes/meta-boxes/views/view-dog-profile.php:19
+#: classes/meta-boxes/views/view-dog-profile.php:37
 msgid "Male"
 msgstr ""
 
@@ -528,7 +540,7 @@ msgstr ""
 msgid "Message (leave empty to hide infobar)"
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:44
+#: classes/meta-boxes/views/view-dog-profile.php:99
 msgid "Microchip No"
 msgstr ""
 
@@ -593,7 +605,7 @@ msgstr ""
 msgid "No trials found in the Trash"
 msgstr ""
 
-#: includes/template-functions.php:391
+#: includes/template-functions.php:397
 msgid "on"
 msgstr ""
 
@@ -605,7 +617,7 @@ msgstr ""
 msgid "Organization that trainer is a part of."
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:32
+#: classes/meta-boxes/views/view-dog-profile.php:72
 msgid "Pedigree No"
 msgstr ""
 
@@ -636,12 +648,20 @@ msgstr ""
 msgid "Position"
 msgstr ""
 
-#: classes/meta-boxes/views/view-post-style.php:3
+#: classes/meta-boxes/views/view-post-style.php:5
 msgid "Post Image Float"
 msgstr ""
 
-#: classes/meta-boxes/views/view-post-style.php:9
+#: classes/meta-boxes/views/view-post-style.php:25
+msgid "Post Image Parallax"
+msgstr ""
+
+#: classes/meta-boxes/views/view-post-style.php:17
 msgid "Post image position relative to the content or excerpt."
+msgstr ""
+
+#: classes/meta-boxes/views/view-post-style.php:36
+msgid "Post image should have parallax effect."
 msgstr ""
 
 #: classes/class-lithe-meta-boxes.php:30
@@ -684,7 +704,7 @@ msgstr ""
 msgid "required"
 msgstr ""
 
-#: classes/meta-boxes/views/view-post-style.php:7
+#: classes/meta-boxes/views/view-post-style.php:13
 msgid "Right"
 msgstr ""
 
@@ -795,7 +815,7 @@ msgstr ""
 msgid "Switch to light color scheme"
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:38
+#: classes/meta-boxes/views/view-dog-profile.php:86
 msgid "Tattoo No"
 msgstr ""
 
@@ -945,6 +965,10 @@ msgstr ""
 msgid "Venues"
 msgstr ""
 
+#. Name of the template
+msgid "Venues Template"
+msgstr ""
+
 #: classes/class-lithe-theme.php:276
 msgid "Very Dark Gray"
 msgstr ""
@@ -1004,7 +1028,7 @@ msgstr ""
 msgid "White"
 msgstr ""
 
-#: classes/meta-boxes/views/view-dog-profile.php:50
+#: classes/meta-boxes/views/view-dog-profile.php:111
 msgid "Workbook No"
 msgstr ""
 

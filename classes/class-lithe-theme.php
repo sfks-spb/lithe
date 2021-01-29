@@ -334,6 +334,7 @@ if ( ! class_exists('Lithe_Theme') ) {
                 'OwlCarousel2@2.3.4',
                 'cookieconsent@3.1.1',
                 'OpenAPI@1.6.8',
+                'rellax@1.12.1',
                 'Lithe@1.0.1',
             ) );
         }

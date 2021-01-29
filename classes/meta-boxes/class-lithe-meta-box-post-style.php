@@ -17,7 +17,8 @@ if ( ! class_exists('Lithe_Meta_Box_Post_Style') ) {
          * @var array
          */
         protected $meta_kses = array(
-            'post_image_float' => 'strip',
+            'post_image_float'    => 'strip',
+            'post_image_parallax' => 'strip',
         );
 
         /**
@@ -31,7 +32,8 @@ if ( ! class_exists('Lithe_Meta_Box_Post_Style') ) {
             wp_nonce_field( 'lithe_save_data', 'lithe_meta_nonce' );
 
             lithe_render( 'meta-boxes/views/view-post-style', array(
-                'post' => $post,
+                'post_image_float'    => get_post_meta( $post->ID, 'post_image_float', true ),
+                'post_image_parallax' => get_post_meta( $post->ID, 'post_image_parallax', true ),
             ) );
         }
 

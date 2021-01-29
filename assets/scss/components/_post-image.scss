@@ -2,13 +2,13 @@
     display: block;
     margin-bottom: 2.4rem;
     overflow: hidden;
-}
 
-.post-image > img {
-    width: 100%;
-    height: auto;
-    vertical-align: top;
-    transform: scale(1.0);
+    img {
+        width: 100%;
+        height: auto;
+        vertical-align: top;
+        transform: scale(1.0);
+    }
 }
 
 .post-image-center,
@@ -39,5 +39,24 @@
     @include respond-to('aussie') {
         float: right;
         margin-left: 1em;
+    }
+}
+
+.rellax-image {
+    position: relative;
+    overflow: hidden;
+
+    .rellax {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        & > img {
+            vertical-align: top;
+        }
+    }
+
+    .rellax-foreground {
+        position: relative;
     }
 }
