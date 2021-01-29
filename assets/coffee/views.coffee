@@ -53,6 +53,7 @@ export class Views
 
     transferComplete: (response) =>
         counter = document.querySelector '#post-' + response.post_id + ' .entry-views-count'
+        return if not counter
         previous = Number counter.innerHTML
         difference = response.views - previous
         # don't animate more than 256 views difference or with no difference if view count
