@@ -542,6 +542,9 @@ var Views = class Views {
   transferComplete(response) {
     var counter, difference, previous;
     counter = document.querySelector('#post-' + response.post_id + ' .entry-views-count');
+    if (!counter) {
+      return;
+    }
     previous = Number(counter.innerHTML);
     difference = response.views - previous;
     if (difference >= 256 || difference === 0) {
