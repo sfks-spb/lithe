@@ -789,41 +789,124 @@ var GTag$1 = {
 
 var Venues = class Venues {
   constructor() {
-    this.init = this.init.bind(this);
+    this.initLists = this.initLists.bind(this);
     this.getVenues = this.getVenues.bind(this);
-    this.transferComplete = this.transferComplete.bind(this);
-    this.http = new HttpClient();
-    this.http.on("load", this.transferComplete);
-    document.addEventListener("DOMContentLoaded", this.init, false);
-  }
-
-  init() {
-    var i, len, results, sport, sports;
-    sports = document.querySelectorAll('.sport-item');
-    if (sports) {
-      results = [];
-      for (i = 0, len = sports.length; i < len; i++) {
-        sport = sports[i];
-        results.push(sport.addEventListener('click', this.getVenues, false));
-      }
-      return results;
-    }
-  }
-
-  getVenues(event) {
-    var sportId;
-    event.preventDefault();
-    sportId = event.target.dataset.sportId;
-    if (sportId) {
-      return http.get(window.lithe.rest.root + '/venues', {
-        'sport_id': sportId,
-        'include_trainers': 1
+    this.venuesComplete = this.venuesComplete.bind(this);
+    this.getTrainers = this.getTrainers.bind(this);
+    ymaps.ready(() => {
+      this.objectManager = new ymaps.ObjectManager();
+      this.objectManager.objects.options.set({
+        iconLayout: 'default#image',
+        iconImageHref: lithe.home + '/wp-content/themes/lithe/assets/js/placemark.png',
+        iconImageSize: [40, 45],
+        iconImageOffset: [-20, -44]
       });
+      this.venuesMap = new ymaps.Map('venues-map', {
+        center: [59.880, 30.3],
+        zoom: 10,
+        controls: ['typeSelector', 'zoomControl']
+      }, {
+        restrictMapArea: [[59, 29], [61, 32]]
+      });
+      this.venuesMap.geoObjects.add(this.objectManager);
+      this.initLists();
+      this.getVenues();
+      return this.getLocation();
+    });
+    this.venueList = document.querySelector('#venues-list');
+    this.venues = new HttpClient();
+    this.venues.on("load", this.venuesComplete);
+  }
+
+  initLists() {
+    var i, len, list, lists, results;
+    lists = document.querySelectorAll('.sports-list');
+    results = [];
+    for (i = 0, len = lists.length; i < len; i++) {
+      list = lists[i];
+      results.push(list.addEventListener('change', (event) => {
+        var sportId;
+        sportId = event.target.value;
+        list.value = sportId;
+        return this.getVenues(sportId);
+      }, false));
+    }
+    return results;
+  }
+
+  getLocation() {
+    return ymaps.geolocation.get({
+      provider: 'auto'
+    }).then((result) => {
+      result.geoObjects.options.set('preset', 'islands#bluePersonCircleIcon');
+      result.geoObjects.get(0).properties.set({
+        hintContent: 'Вы здесь'
+      });
+      return this.venuesMap.geoObjects.add(result.geoObjects);
+    });
+  }
+
+  getVenues(sportId) {
+    if (typeof sportId === 'undefined') {
+      sportId = 0;
+    }
+    this.venueList.dataset.sportId = sportId;
+    return this.venues.get(window.lithe.rest.root + '/venues', {
+      'sport_id': sportId
+    });
+  }
+
+  venuesComplete(response) {
+    var i, item, len, ref, venue;
+    if (response.meta.placemarks) {
+      this.objectManager.removeAll();
+      this.objectManager.add(response.meta.placemarks);
+    }
+    this.venueList.innerHTML = '';
+    ref = response.data;
+    for (i = 0, len = ref.length; i < len; i++) {
+      venue = ref[i];
+      item = document.createElement('div');
+      item.className = 'venue-item';
+      item.dataset.venueId = venue.id;
+      item.innerHTML += '<header>';
+      item.innerHTML += '<h3>' + venue.name + '</h3>';
+      item.innerHTML += '<ul>';
+      item.innerHTML += '<li>' + venue.address + '</li>';
+      item.innerHTML += '</ul>';
+      item.innerHTML += '<header>';
+      this.venueList.appendChild(item);
+      this.trainers = new HttpClient();
+      this.trainers.on("load", this.trainersComplete.bind(item));
+      this.getTrainers(venue.id);
     }
   }
 
-  transferComplete(response) {
-    return console.log(response);
+  getTrainers(venueId) {
+    var sportId;
+    sportId = this.venueList.dataset.sportId;
+    return this.trainers.get(window.lithe.rest.root + '/trainers', {
+      'venue_id': venueId,
+      'sport_id': sportId
+    });
+  }
+
+  trainersComplete(response) {
+    var i, item, len, ref, results, trainer;
+    ref = response.data;
+    results = [];
+    for (i = 0, len = ref.length; i < len; i++) {
+      trainer = ref[i];
+      item = document.createElement('ul');
+      item.className = 'trainer-item';
+      item.innerHTML += '<li>' + trainer.last_name + ' ' + trainer.first_name + '</li>';
+      item.innerHTML += '<li><a href="tel:' + trainer.phone + '">' + trainer.phone + '</a></li>';
+      if (typeof trainer.timetable !== 'undefined') {
+        item.innerHTML += '<li class="trainer-timetable">' + trainer.timetable + '</li>';
+      }
+      results.push(this.appendChild(item));
+    }
+    return results;
   }
 
 };

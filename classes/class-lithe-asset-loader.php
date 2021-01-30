@@ -36,16 +36,18 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
          * @return string
          */
         public function filter_script_loader_tag( string $tag, string $handle ): string {
+
             foreach ( array( 'async', 'defer' ) as $attr ) {
-    			    	if ( ! wp_scripts()->get_data( $handle, $attr ) ) {
-    					      continue;
-    				    }
 
-    				    if ( ! preg_match( ":\s$attr(=|>|\s):", $tag ) ) {
-    					      $tag = preg_replace( ':(?=></script>):', " $attr", $tag, 1 );
-    				    }
+                if ( ! wp_scripts()->get_data( $handle, $attr ) ) {
+                    continue;
+                }
 
-    				    break;
+                if ( ! preg_match( ":\s$attr(=|>|\s):", $tag ) ) {
+                    $tag = preg_replace( ':(?=></script>):', " $attr", $tag, 1 );
+                }
+
+                break;
             }
 
             return $tag;
@@ -60,6 +62,29 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
          */
         public function get_assets_file_uri( string $file ): string {
             return get_theme_file_uri( $this->assets_directory ) . $file;
+        }
+
+        /**
+         * Loads all packages.
+         *
+         * @return Lithe_Asset_Loader
+         */
+        public function load_packages_all(): self {
+
+            $packages = array();
+
+            foreach ( new DirectoryIterator( get_theme_file_path( $this->assets_directory ) ) as $file_info ) {
+
+                if ( $file_info->isFile() || $file_info->isDot() || ! is_file( $file_info->getPathname() . '/package.php' ) ) {
+                    continue;
+                }
+
+                $packages[] = $file_info->getFilename();
+
+            }
+
+            return $this->load_packages( $packages );
+
         }
 
         /**
@@ -78,25 +103,27 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
                     continue;
                 }
 
-                $name_parts = explode( '@', $package, 2 );
-                $name = $name_parts[0];
-                $version = ( isset( $name_parts[1] ) ) ? $name_parts[1] : null;
-
-                $manifest_directory = ( null === $version ) ? $name : $name . '-' . $version;
-                $manifest_file = get_theme_file_path( $this->assets_directory . $manifest_directory ) . '/package.php';
+                $manifest_file = get_theme_file_path( $this->assets_directory . $package ) . '/package.php';
 
                 if ( ! is_file( $manifest_file ) ) {
                     continue;
                 }
 
+                if ( false !== strpos( $package, '@' ) ) {
+                    list( $package, $version ) = explode( '@', $package, 2 );
+                }
+
                 $manifest = new Lithe_Asset_Manifest( $manifest_file );
-                $manifest->set_name( $name );
+                $manifest->set_name( $package );
                 $manifest->set_version( $version );
                 $manifest->set_loader( $this );
+
                 $this->loaded[ $package ] = $manifest->load();
+
             }
 
             return $this;
+
         }
 
         /**
@@ -143,6 +170,7 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
          * @return Lithe_Asset_Loader
          */
         public function add_before_script( string $handle, $data ): self {
+
             if ( is_array( $data ) ) {
                 $data = implode("\n", $data);
             }
@@ -150,6 +178,7 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
             wp_add_inline_script( $handle, $data, 'before' );
 
             return $this;
+
         }
 
         /**
@@ -161,6 +190,7 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
          * @return Lithe_Asset_Loader
          */
         public function add_after_script( string $handle, $data ): self {
+
             if ( is_array( $data ) ) {
                 $data = implode("\n", $data);
             }
@@ -168,6 +198,7 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
             wp_add_inline_script( $handle, $data, 'after' );
 
             return $this;
+
         }
 
         /**

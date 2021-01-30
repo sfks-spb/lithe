@@ -127,7 +127,7 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
                 return $file;
             }
 
-            return $this->loader->get_assets_file_uri( $this->name . '-' . $this->version . '/' . $file );
+            return $this->loader->get_assets_file_uri( $this->name . '@' . $this->version . '/' . $file );
         }
 
         /**

@@ -325,18 +325,8 @@ if ( ! class_exists('Lithe_Theme') ) {
                 wp_enqueue_script( 'comment-reply' );
             }
 
-            // load packages
-            $this->assets->load_packages( array(
-                'GoogleTag',
-                'YandexMetrika',
-                'YandexMaps',
-                'DataTables-Responsive@2.2.5',
-                'OwlCarousel2@2.3.4',
-                'cookieconsent@3.1.1',
-                'OpenAPI@1.6.8',
-                'rellax@1.12.1',
-                'Lithe@1.0.1',
-            ) );
+            // load all packages
+            $this->assets->load_packages_all();
         }
 
         /**

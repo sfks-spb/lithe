@@ -3,10 +3,15 @@
 return array(
 
     'scripts' => array(
+
         'default' => array(
+
             'src' => 'bundle.js',
+
             'atts' => array( 'defer' => true ),
+
             'deps' => array( 'jquery', 'owlcarousel2', 'openapi' ),
+
             'before' => '
 var TS=function(e,t,s,h){return class{constructor(t){this.selector=t,this.loaded=this.loaded.bind(this),this.switch=this.switch.bind(this),e.addEventListener("DOMContentLoaded",this.loaded)}loaded(){if(this.toggle=e.querySelector(this.selector),this.toggle)return this.toggle.addEventListener("click",this.switch);console.error("ThemeSwitcher: error: theme switcher element ["+this.selector+"] not found")}switch(){this.setTheme("dark"==this.theme?"light":"dark"),s.setItem("theme",this.theme)}animate(){if(this.toggle){var e=this.toggle;e.classList.add("switching");setTimeout(()=>{e.classList.remove("switching");},700)}}userPrefersDark(){return t.matchMedia&&t.matchMedia("(prefers-color-scheme: dark)").matches}addClass(e){h.classList.add(e)}removeClass(e){h.classList.remove(e)}setTheme(t){return this.animate(),this.removeClass(this.theme+"-theme"),e.dispatchEvent(new CustomEvent("ThemeChanged",{detail:t})),this.theme=t,this.addClass(t+"-theme"),this.theme}getTheme(){return this.theme?this.theme:s.getItem("theme")?this.setTheme(s.getItem("theme")):this.setTheme(this.userPrefersDark()?"dark":"light")}}}(document,window,localStorage,document.html||document.getElementsByTagName("html")[0]);
 window.lithe = window.lithe || {};
@@ -18,7 +23,9 @@ window.lithe.themeSwitcher = new TS(".theme-switcher");
 window.lithe.theme = window.lithe.themeSwitcher.getTheme();
 window.lithe.breakpoints = ' . lithe_get_breakpoints_json() . ';
             ',
+
         ),
+
     ),
 
 );
