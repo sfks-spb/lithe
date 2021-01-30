@@ -21,9 +21,9 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
         /**
          * Contains package version.
          *
-         * @var string
+         * @var string|null
          */
-        public $version;
+        public $version = null;
 
         /**
          * Contains list of scripts to load.
@@ -56,8 +56,6 @@ if ( ! class_exists( 'Lithe_Asset_Manifest' ) ) {
             if ( is_array( $manifest ) && array_key_exists( 'styles', $manifest ) ) {
                 $this->styles = $manifest['styles'];
             }
-
-            $this->version = lithe()->version;
         }
 
         /**

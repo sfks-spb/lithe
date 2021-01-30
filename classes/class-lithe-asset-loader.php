@@ -109,13 +109,14 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
                     continue;
                 }
 
+                $manifest = new Lithe_Asset_Manifest( $manifest_file );
+
                 if ( false !== strpos( $package, '@' ) ) {
                     list( $package, $version ) = explode( '@', $package, 2 );
+                    $manifest->set_version( $version );
                 }
 
-                $manifest = new Lithe_Asset_Manifest( $manifest_file );
                 $manifest->set_name( $package );
-                $manifest->set_version( $version );
                 $manifest->set_loader( $this );
 
                 $this->loaded[ $package ] = $manifest->load();
