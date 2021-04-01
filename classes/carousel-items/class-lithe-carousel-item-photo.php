@@ -68,9 +68,12 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
          */
         protected function append_title_card( string &$html ): void {
             $html = preg_replace( '/\/>$/', 'alt="' . esc_attr( $this->title ) . '" />', $html );
-            $html .= '<span class="title-card">' . $this->title;
+            $html .= '<span class="title-card">';
 
-            $this->add_attr( 'aria-label', $this->title );
+            if ( '' !== $this->title ) {
+                $html .= $this->title;
+                $this->add_attr( 'aria-label', $this->title );
+            }
 
             if ( '' !== $this->author ) {
                 $html .= '<span class="author"><i class="fas fa-copyright"></i> ' . $this->author  . '</span>';
