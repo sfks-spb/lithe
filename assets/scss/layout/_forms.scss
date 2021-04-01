@@ -96,10 +96,23 @@ div.wpcf7 {
         margin: 2.1rem 0;
     }
 
+    form > p:last-of-type {
+        display: none;
+    }
+
     .wpcf7-select,
     .wpcf7-text,
     .wpcf7-date {
         height: 40px;
+    }
+
+    form.submitting .lithe-ajax-loader {
+        animation: pulsation 3s infinite;
+        opacity: 1;
+
+        > svg {
+            animation: sending 3s infinite;
+        }
     }
 
     .lithe-ajax-loader,
@@ -128,14 +141,10 @@ div.wpcf7 {
         > svg {
             transition: transform .2s $ease-out-quartic;
         }
+    }
 
-        &.is-active {
-            animation: pulsation 3s infinite;
-        }
-
-        &.is-active > svg {
-            animation: sending 3s infinite;
-        }
+    .ajax-loader::before {
+        display: none !important;
     }
 
     .ajax-loader:not(.lithe-ajax-loader) {
@@ -200,6 +209,14 @@ div.wpcf7 {
             > label:not(:first-of-type) {
                 margin-top: 0;
                 margin-left: 20px;
+            }
+
+            > .wpcf7-form-control-wrap {
+                input[type="date"],
+                input[type="text"] {
+                    margin-top: -10px;
+                    margin-left: 5px;
+                }
             }
         }
 

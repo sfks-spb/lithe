@@ -282,12 +282,12 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
 
             switch( $status ) {
                 case 'mail_sent_ok':
-                    $message = '<i class="fas fa-check"></i><span class="message">' . $message . '</span>';
+                    //$message = '<i class="fas fa-check"></i><span class="message">' . $message . '</span>';
                     break;
                 case 'mail_sent_ng':
                 case 'validation_error':
                 case 'spam':
-                    $message = '<i class="fas fa-exclamation-triangle"></i><span class="message">' . $message . '</span>';
+                    //$message = '<i class="fas fa-exclamation-triangle"></i><span class="message">' . $message . '</span>';
                     break;
             }
 

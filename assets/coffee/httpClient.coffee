@@ -39,11 +39,9 @@ export class HttpClient
 
 HttpClient.defaults =
     headers:
-        post: {
+        post:
             "Content-type": "application/x-www-form-urlencoded"
-        }
         get: {}
-        put: {
+        put:
             "Content-type": "application/x-www-form-urlencoded"
-        }
         delete: {}

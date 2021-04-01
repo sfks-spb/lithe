@@ -970,7 +970,7 @@ body {
   }
 }
 
-.popup-link, .sponsor-us a, .post-content p.has-vivid-red-background-color a,
+.popup-link, #venues-list a, .sponsor-us a, .post-content p.has-vivid-red-background-color a,
 .post-content p.has-dark-blue-background-color a, .post-content p > a:not(.more-link), .post-content > ul a, .post-content > ol a {
   color: var(--lt-text-color);
   text-decoration: none;
@@ -1771,7 +1771,7 @@ label input[type=checkbox] + span::after {
   padding: 0px 3px;
   font-weight: normal;
 }
-.hentry figure {
+.hentry > figure {
   margin: 0;
   margin-bottom: 2.4rem;
 }
@@ -2898,10 +2898,20 @@ div.wpcf7 h2, div.wpcf7 h3, div.wpcf7 h4 {
 div.wpcf7 p {
   margin: 2.1rem 0;
 }
+div.wpcf7 form > p:last-of-type {
+  display: none;
+}
 div.wpcf7 .wpcf7-select,
 div.wpcf7 .wpcf7-text,
 div.wpcf7 .wpcf7-date {
   height: 40px;
+}
+div.wpcf7 form.submitting .lithe-ajax-loader {
+  animation: pulsation 3s infinite;
+  opacity: 1;
+}
+div.wpcf7 form.submitting .lithe-ajax-loader > svg {
+  animation: sending 3s infinite;
 }
 div.wpcf7 .lithe-ajax-loader,
 div.wpcf7 .wpcf7-submit {
@@ -2930,11 +2940,8 @@ div.wpcf7 .lithe-ajax-loader {
 div.wpcf7 .lithe-ajax-loader > svg {
   transition: transform 0.2s cubic-bezier(0.17, 0.84, 0.44, 1);
 }
-div.wpcf7 .lithe-ajax-loader.is-active {
-  animation: pulsation 3s infinite;
-}
-div.wpcf7 .lithe-ajax-loader.is-active > svg {
-  animation: sending 3s infinite;
+div.wpcf7 .ajax-loader::before {
+  display: none !important;
 }
 div.wpcf7 .ajax-loader:not(.lithe-ajax-loader) {
   display: none;
@@ -2991,6 +2998,11 @@ div.wpcf7 .input-group > label:not(:first-of-type) {
   div.wpcf7 .input-group > label:not(:first-of-type) {
     margin-top: 0;
     margin-left: 20px;
+  }
+  div.wpcf7 .input-group > .wpcf7-form-control-wrap input[type=date],
+div.wpcf7 .input-group > .wpcf7-form-control-wrap input[type=text] {
+    margin-top: -10px;
+    margin-left: 5px;
   }
 }
 div.wpcf7 .input-group .wpcf7-form-control-wrap {
