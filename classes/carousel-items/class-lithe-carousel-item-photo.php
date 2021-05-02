@@ -53,7 +53,7 @@ if ( ! class_exists( 'Lithe_Carousel_Item_Photo' ) ) {
                 $this->use_lazy_load( $html );
             }
 
-            if ( '' !== $this->title ) {
+            if ( ! ( '' === $this->title && '' === $this->author )  ) {
                 $this->add_class( 'has-title-card' );
                 $this->append_title_card( $html );
             }

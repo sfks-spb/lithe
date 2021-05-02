@@ -44,11 +44,31 @@
 
 .wp-block-buttons {
     margin-bottom: 2.4rem;
+
+    > .wp-block-button {
+        margin-bottom: 0;
+    }
+
+    &.aligncenter {
+        justify-content: center;
+    }
 }
 
-.wp-block-button__link {
+.is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-button__link.is-style-outline:not(.has-text-color) {
+    color: var(--lt-blue-color);
+}
+
+.wp-block-buttons a.wp-block-button__link {
     font-size: $font-size-medium;
     border-radius: 5px;
+    border-color: var(--lt-blue-color);
+    transition: background-color .3s, box-shadow 1s $ease-in-out-quartic;
+
+    @include hover-active() {
+        color: var(--lt-white-color);
+        background-color: var(--lt-blue-color);
+        box-shadow: 0 0 22px var(--lt-gray-color);
+    }
 }
 
 .is-style-outline .wp-block-button__link {

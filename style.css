@@ -396,10 +396,27 @@ template {
 .wp-block-buttons {
   margin-bottom: 2.4rem;
 }
+.wp-block-buttons > .wp-block-button {
+  margin-bottom: 0;
+}
+.wp-block-buttons.aligncenter {
+  justify-content: center;
+}
 
-.wp-block-button__link {
+.is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-button__link.is-style-outline:not(.has-text-color) {
+  color: var(--lt-blue-color);
+}
+
+.wp-block-buttons a.wp-block-button__link {
   font-size: 1.84rem;
   border-radius: 5px;
+  border-color: var(--lt-blue-color);
+  transition: background-color 0.3s, box-shadow 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.wp-block-buttons a.wp-block-button__link:hover, .wp-block-buttons a.wp-block-button__link:active {
+  color: var(--lt-white-color);
+  background-color: var(--lt-blue-color);
+  box-shadow: 0 0 22px var(--lt-gray-color);
 }
 
 .is-style-outline .wp-block-button__link {
@@ -970,7 +987,7 @@ body {
   }
 }
 
-.popup-link, #venues-list a, .sponsor-us a, .post-content p.has-vivid-red-background-color a,
+.popup-link, .sponsor-us a, .post-content p.has-vivid-red-background-color a,
 .post-content p.has-dark-blue-background-color a, .post-content p > a:not(.more-link), .post-content > ul a, .post-content > ol a {
   color: var(--lt-text-color);
   text-decoration: none;

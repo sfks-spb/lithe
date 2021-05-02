@@ -63,17 +63,17 @@ function lithe_carousels(): void {
         ) ),
 
         lithe_carousel_photo( array(
-            'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility5.jpg?resize=812,400',
-            'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility5.jpg',
-            'title'      => __( 'Border Collie', 'lithe' ) . ' ' . __( 'Lissa', 'lithe' ),
-            'author'     => __( 'Anna Averiyanova', 'lithe' ),
+            'src'        => 'https://sfks.ru/wp-content/uploads/2021/04/carousel-frisbee2.jpg?resize=812,400',
+            'src-retina' => 'https://sfks.ru/wp-content/uploads/2021/04/carousel-frisbee2.jpg',
+            'title'      => __( 'Frisbee Trials', 'lithe' ) . ' "' . __( 'Kluchi ot Goroda', 'lithe' ) . '"',
+            'author'     => __( 'Yana Fedorova', 'lithe' ),
         ) ),
 
         lithe_carousel_photo( array(
-            'src'        => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility6.jpg?resize=812,400',
-            'src-retina' => 'https://sfks.ru/wp-content/uploads/2020/07/carousel-agility6.jpg',
-            'title'      => __( 'Pembroke Welsh Corgi', 'lithe' ) . ' ' . __( 'Arnold', 'lithe' ),
-            'author'     => __( 'Sergey Korsakov', 'lithe' ),
+            'src'        => 'https://sfks.ru/wp-content/uploads/2021/03/carousel-agility8.jpg?resize=812,400',
+            'src-retina' => 'https://sfks.ru/wp-content/uploads/2021/03/carousel-agility8.jpg',
+            'title'      => __( 'Border Collie', 'lithe' ) . ' ' . __( 'Jackie', 'lithe' ),
+            'author'     => __( 'Anastasi Belskai', 'lithe' ),
         ) ),
 
         lithe_carousel_photo( array(
