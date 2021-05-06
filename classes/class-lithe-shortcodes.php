@@ -76,7 +76,8 @@ if ( ! class_exists( 'Lithe_Shortcodes' ) ) {
 
             }
 
-            return sprintf( '<a href="%s"><span class="email hidden" style="display: none;">rms@netfleet.cloud</span>%s</a>',
+            return sprintf( '<a href="%s"><span class="email hidden" style="display: none;">'
+                    . __( 'Please upgrade your browser!', 'lithe' ) . '</span>%s</a>',
                     esc_attr( rtrim( $href, '?&' ) ),
                     antispambot( $fields['text'] ) );
 
