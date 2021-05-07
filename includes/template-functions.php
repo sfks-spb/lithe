@@ -440,6 +440,13 @@ if ( ! function_exists( 'lithe_post_thumbnail' ) ) {
                     'class' => $class,
                 ) );
 
+                if ( is_singular() ) {
+
+                    $attribution = get_the_excerpt( $thumbnail_id );
+                    if ( ! empty( $attribution ) ) echo '<span class="attribution">' . __( 'Image By', 'lithe' ) . ': ' . $attribution . '</span>';
+
+                }
+
             }
 
             echo $after;

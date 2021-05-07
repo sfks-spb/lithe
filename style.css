@@ -636,6 +636,7 @@ div.a2a_kit > a:hover .a2a_svg, div.a2a_kit > a:active .a2a_svg {
   z-index: 300;
   visibility: hidden;
   pointer-events: none;
+  margin-bottom: 0;
 }
 .ngg-albumoverview.default-view .ngg-album-compact p.ngg-album-gallery-image-counter > strong {
   visibility: visible;
@@ -1830,12 +1831,25 @@ label input[type=checkbox] + span::after {
   display: block;
   margin-bottom: 2.4rem;
   overflow: hidden;
+  position: relative;
 }
 .post-image img {
   width: 100%;
   height: auto;
   vertical-align: top;
   transform: scale(1);
+}
+.post-image .attribution {
+  display: block;
+  font-size: 1.4rem;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  padding: 10px;
+  background: var(--lt-attribution-background-color);
+  color: var(--lt-attribution-color);
+  pointer-events: none;
+  text-shadow: 1px 1px 2px var(--lt-very-dark-gray-color);
 }
 
 .post-image-center .post-image,
@@ -3264,7 +3278,7 @@ div.wpcf7 .input-group > span {
   --lt-theme-switcher-moon-color: #037dc7;
   --lt-logo-color: #037dc7;
   --lt-input-color: #212121;
-  --lt-input-background-color: white;
+  --lt-input-background-color: #ffffff;
   --lt-nav-color: #fefefe;
   --lt-nav-active-color: #037dc7;
   --lt-nav-background-color: #ffffff;
@@ -3290,6 +3304,8 @@ div.wpcf7 .input-group > span {
   --lt-tldr-background-color: rgba(3, 125, 199, .1);
   --lt-wpcf7-invalid-color: #ffb900;
   --lt-wpcf7-sent-color: #46b450;
+  --lt-attribution-background-color: rgba(0, 0, 0, .2);
+  --lt-attribution-color: #ffffff;
 }
 
 .dark-theme {
