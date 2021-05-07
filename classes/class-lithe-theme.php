@@ -85,9 +85,21 @@ if ( ! class_exists('Lithe_Theme') ) {
             add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
             add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
             add_action( 'widgets_init', array( $this, 'register_widget_areas' ) );
+            add_action( 'wp_head', array( $this, 'add_site_favicon' ), 1 );
+            add_action( 'admin_head', array( $this, 'add_site_favicon' ), 1 );
             add_action( 'init', array( $this, 'add_roles' ) );
             add_action( 'font_awesome_preferences', array( $this, 'register_fontawesome_preferences' ) );
             add_filter( 'the_content_more_link', array( $this, 'modify_read_more_link' ) );
+            add_filter( 'get_site_icon_url', '__return_false' );
+        }
+
+        /**
+         * Adds site favicon, 2021 style
+         *
+         * @return void
+         */
+        public function add_site_favicon(): void {
+            get_template_part( 'template-parts/favicon', '2021' );
         }
 
         /**

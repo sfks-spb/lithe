@@ -23,9 +23,19 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
             add_filter( 'wpcf7_posted_data', array( $this, 'handle_meta_posted_data' ), 5 );
             add_filter( 'wpcf7_posted_data', array( $this, 'handle_utm_posted_data' ), 6 );
             add_filter( 'wpcf7_posted_data', array( $this, 'add_container_url_with_utm' ), 7 );
+            add_filter( 'wpcf7_recaptcha_threshold', array( $this, 'change_recaptcha_threshold' ) );
             add_action( 'wpcf7_init', array( $this, 'add_custom_form_tags' ) );
             add_action( 'wpcf7_after_save', array( $this, 'save_form_meta_fields' ), 10, 1 );
             add_action( 'wp_print_footer_scripts', array( $this, 'add_config_data_storage' ), 8 );
+        }
+
+        /**
+         * Changes default recaptcha threshold.
+         *
+         * @return float
+         */
+        public function change_recaptcha_threshold( float $threshold ): float {
+            return is_page( 'contact' ) ? $threshold : 0.05;
         }
 
         /**
