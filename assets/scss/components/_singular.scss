@@ -60,6 +60,7 @@
     /* Top separator */
     @at-root body:not(.single):not(.page) .hentry:first-of-type::before {
         @extend .separator;
+        margin-top: 4.8rem;
     }
 
     /* Bottom separator */

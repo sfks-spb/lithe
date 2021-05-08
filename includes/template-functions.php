@@ -440,16 +440,42 @@ if ( ! function_exists( 'lithe_post_thumbnail' ) ) {
                     'class' => $class,
                 ) );
 
-                if ( is_singular() ) {
-
-                    $attribution = get_the_excerpt( $thumbnail_id );
-                    if ( ! empty( $attribution ) ) echo '<span class="attribution">' . __( 'Image By', 'lithe' ) . ': ' . $attribution . '</span>';
-
-                }
+                if ( is_singular() ) lithe_post_thumbnail_attribution( $thumbnail_id );
 
             }
 
             echo $after;
+
+        }
+
+    }
+
+}
+
+if ( ! function_exists( 'lithe_post_thumbnail_attribution' ) ) {
+
+    /**
+     * Outputs post thumbnail attribution link.
+     *
+     * @param  int $thumbnail_id - numerical ID of post thumbnail
+     *
+     * @return void
+     */
+    function lithe_post_thumbnail_attribution( int $thumbnail_id ): void {
+
+        $attribution = get_the_excerpt( $thumbnail_id );
+
+        if ( ! empty( $attribution ) ) {
+
+            $template = '<span class="attribution">%s</span>';
+
+            $attribution_parts = explode( ',', $attribution );
+            if ( count( $attribution_parts ) > 1 ) {
+                $template = '<a class="attribution" href="' . esc_attr( $attribution_parts[1] ) . '" rel="noreferrer nofollow">%s</a>';
+            }
+
+            $content = __( 'Image By', 'lithe' ) . ': ' . esc_html( $attribution_parts[0] );
+            printf( $template, $content );
 
         }
 

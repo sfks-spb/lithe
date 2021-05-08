@@ -2,6 +2,20 @@
 
 <article <?php post_class( ( empty( $post_image_class ) ) ? '' : 'post-image-' . $post_image_class ); ?> id="post-<?php the_ID(); ?>" data-id="<?php the_ID(); ?>">
 
+    <?php if ( is_sticky() && ! is_singular() ): ?>
+
+        <span class="post-sticky-icon awaits-icons">
+
+            <span class="stars">
+
+                <i class="far fa-star fa-fw"></i><i class="far fa-star fa-fw fa-lg"></i><i class="far fa-star fa-fw"></i>
+
+            </span>
+
+        </span>
+
+    <?php endif; ?>
+
     <?php get_template_part( 'template-parts/entry-header' ); ?>
 
     <div class="entry-content">

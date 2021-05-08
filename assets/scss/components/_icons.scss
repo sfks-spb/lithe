@@ -1,6 +1,6 @@
 .awaits-icons {
 	opacity: 0;
-	transition: all .3s $ease-out-quartic, opacity .4s $ease-out-quartic;
+	transition: transform .3s $ease-out-quartic, opacity .4s $ease-out-quartic;
 
     .fontawesome-i2svg-active & {
         opacity: 1;

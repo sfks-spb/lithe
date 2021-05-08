@@ -20,8 +20,13 @@
         padding: 10px;
         background: var(--lt-attribution-background-color);
         color: var(--lt-attribution-color);
-        pointer-events: none;
         text-shadow: 1px 1px 2px var(--lt-very-dark-gray-color);
+        text-decoration: none;
+
+        @include hover-active() {
+            text-decoration: none;
+            color: #fff;
+        }
     }
 }
 
