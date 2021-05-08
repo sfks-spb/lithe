@@ -40,6 +40,7 @@ if ( ! class_exists( 'Lithe_Customizer' ) ) {
             $choices = array_combine( array_keys( Lithe_SVG::$logos ), array(
                 _x( 'Plain', 'Plain logo', 'lithe' ),
                 __( 'Stay At Home', 'lithe' ),
+                __( 'Victory Day', 'lithe' ),
             ) );
 
             $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'lithe_logo_svg', array(
