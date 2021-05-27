@@ -1730,7 +1730,7 @@ body:not(.single):not(.page) .hentry:first-of-type::before {
 .hentry h4,
 .hentry h5,
 .hentry h6 {
-  margin-bottom: 1rem;
+  margin-bottom: 2.4rem;
   font-weight: 500;
   line-height: 1.25em;
   letter-spacing: -0.0125em;
@@ -1752,7 +1752,7 @@ body:not(.single):not(.page) .hentry:first-of-type::before {
   }
 }
 .hentry h2 {
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 .hentry h3 {
   font-size: 1.8rem;
@@ -1944,23 +1944,20 @@ body:not(.single):not(.page) .hentry:first-of-type::before {
   background: var(--lt-light-gray-color);
 }
 
-table.dataTable.dtr-inline.collapsed > tbody tr.child ul.dtr-details > li {
-  padding-bottom: 0;
-}
-table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > td.dtr-control, table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > th.dtr-control {
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control, table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control {
   z-index: -1;
 }
-table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > td.dtr-control::before, table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > th.dtr-control::before {
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control::before, table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control::before {
   color: var(--lt-very-light-gray-color);
-  border-radius: 0;
-  box-shadow: none;
-  font-family: inherit;
   line-height: 14px;
   font-size: 14px;
+  width: 14px;
+  height: 14px;
+  text-align: center;
   content: "+";
   background-color: var(--lt-blue-color);
   display: inline-block;
-  vertical-align: middle;
+  margin-right: 2px;
 }
 table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child::before, table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child::before {
   content: "-";
