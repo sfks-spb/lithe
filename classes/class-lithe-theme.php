@@ -91,6 +91,7 @@ if ( ! class_exists('Lithe_Theme') ) {
             add_action( 'font_awesome_preferences', array( $this, 'register_fontawesome_preferences' ) );
             add_filter( 'the_content_more_link', array( $this, 'modify_read_more_link' ) );
             add_filter( 'get_site_icon_url', '__return_false' );
+            add_filter( 'get_the_archive_title_prefix', '__return_false' );
         }
 
         /**

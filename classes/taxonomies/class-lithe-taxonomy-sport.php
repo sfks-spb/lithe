@@ -17,7 +17,7 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
          * @return void
          */
         public function register(): void {
-            register_taxonomy( $this->handle, 'trainer', array(
+            register_taxonomy( $this->handle, array( 'trainer', 'post', 'page' ), array(
                 'labels' => array(
                     'name'          => __( 'Sports', 'lithe' ),
                     'singular_name' => __( 'Sport', 'lithe' ),
@@ -29,6 +29,9 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
                     'new_item_name' => __( 'New Sport', 'lithe' ),
                     'menu_name'     => __( 'Sports', 'lithe' ),
                 ),
+                'public'       => true,
+                'show_in_rest' => true,
+                'rewrite'      => array( 'slug' => $this->handle . 's' ),
             ) );
         }
 
@@ -39,8 +42,39 @@ if ( ! class_exists( 'Lithe_Taxonomy_Sport' ) ) {
          */
         public function columns(): array {
             return array(
-                'posts'     => __( 'Trainers', 'lithe' ),
+                'trainers'     => __( 'Trainers', 'lithe' ),
             );
+        }
+
+        /**
+         * Handles custom columns output.
+         *
+         * @param  string $content Current column content.
+         * @param  string $column_name Current column name.
+         * @param  int    $term_id Current term id.
+         *
+         * @return void
+         */
+        public function custom_columns( string $content, string $column_name, int $term_id ) {
+
+            switch ( $column_name ) {
+
+                case 'trainers':
+                    $trainers = new WP_Query( array(
+                        'post_type' => 'trainer',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'sport',
+                                'terms'    => $term_id,
+                            ),
+                        ),
+                    ) );
+
+                    echo $trainers->found_posts;
+                    break;
+
+            }
+
         }
 
         /**

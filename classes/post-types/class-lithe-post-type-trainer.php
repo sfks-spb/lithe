@@ -44,7 +44,7 @@ if ( ! class_exists( 'Lithe_Post_Type_Trainer' ) ) {
                     'parent_item_colon'  => '',
                 ),
                 'description'     => __( 'Holds trainers and trainer specific data', 'lithe' ),
-                'public'          => true,
+                'public'          => false,
                 'menu_position'   => 5,
                 'supports'        => array( 'title' ),
                 'has_archive'     => false,

@@ -59,7 +59,7 @@ get_header();
 
             <?php if ( $archive_title ): ?>
 
-                <h1 class="archive-title"><?php echo wp_kses_post( $archive_title ); ?></h1>
+                <h1 class="archive-title"><?php echo lithe_mb_ucfirst( wp_kses_post( $archive_title ) ); ?></h1>
 
             <?php endif; ?>
 

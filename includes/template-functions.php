@@ -18,6 +18,27 @@ if ( ! function_exists( 'lithe_date_format' ) ) {
     }
 }
 
+if ( ! function_exists( 'lithe_mb_ucfirst' ) ) {
+
+    /**
+     * Multibyte ucfirst alternative.
+     *
+     * @param  string $string String to change case.
+     * @param  string $encoding String encoding.
+     *
+     * @return string
+     */
+    function lithe_mb_ucfirst( string $string, string $encoding = null ): string {
+        if (null === $encoding) {
+            $encoding = mb_internal_encoding();
+        }
+
+        return mb_strtoupper(mb_substr($string, 0, 1, $encoding), $encoding) .
+            mb_substr($string, 1, null, $encoding);
+    }
+
+}
+
 if ( ! function_exists( 'lithe_timezone' ) ) {
 
     /**
@@ -242,26 +263,30 @@ if ( ! function_exists( 'lithe_the_tags' ) ) {
     function lithe_the_tags() {
         global $post;
 
-        $terms = get_the_terms( $post->ID, 'post_tag' );
-
-        if ( is_wp_error( $terms ) ) {
-            return $terms;
-        }
-
-        if ( empty( $terms ) ) {
-            return false;
-        }
-
         $links = array();
 
-        foreach ( $terms as $term ) {
-            $link = get_term_link( $term, 'post_tag' );
+        foreach( array( 'sport', 'post_tag' ) as $term_name ) {
 
-            if ( is_wp_error( $link ) ) {
-                return $link;
+            $terms = get_the_terms( $post->ID, $term_name );
+
+            if ( is_wp_error( $terms ) ) {
+                return $terms;
             }
 
-            $links[] = '<a class="tag" href="' . esc_url( $link ) . '" rel="tag"><i class="fas fa-hashtag fa-sm"></i> ' . $term->name . ' <span class="tag-count">' . $term->count . '</span></a>';
+            if ( empty( $terms ) ) {
+                continue;
+            }
+
+            foreach ( $terms as $term ) {
+                $link = get_term_link( $term, $term_name );
+
+                if ( is_wp_error( $link ) ) {
+                    return $link;
+                }
+
+                $links[] = '<a class="tag" href="' . esc_url( $link ) . '" rel="tag"><i class="fas fa-hashtag fa-sm"></i> ' . $term->name . ' <span class="tag-count">' . $term->count . '</span></a>';
+            }
+
         }
 
         echo join( '', $links );
@@ -342,11 +367,15 @@ if ( ! function_exists( 'lithe_related_posts' ) ) {
                 'caller_get_posts' => 1,
             ) );
 
-            set_query_var( 'related', $related );
-            get_template_part( 'template-parts/related-posts' );
-            set_query_var( 'related', false );
+            if ( $related->have_posts() ) {
 
-            wp_reset_postdata();
+                set_query_var( 'related', $related );
+                get_template_part( 'template-parts/related-posts' );
+                set_query_var( 'related', false );
+
+                wp_reset_postdata();
+
+            }
         }
     }
 }
