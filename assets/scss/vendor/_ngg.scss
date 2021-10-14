@@ -286,7 +286,7 @@ div.ngg-navigation {
         }
     }
 
-    a.prev {
+    a.next {
         &::before {
             transform: rotate(225deg);
             right: 0;
@@ -297,7 +297,7 @@ div.ngg-navigation {
         }
     }
 
-    a.next {
+    a.prev {
         &::before {
             transform: rotate(45deg);
             left: 0;

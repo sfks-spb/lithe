@@ -734,18 +734,18 @@ div.ngg-navigation a.prev:hover,
 div.ngg-navigation a.next:hover {
   color: var(--lt-blue-color) !important;
 }
-div.ngg-navigation a.prev::before {
+div.ngg-navigation a.next::before {
   transform: rotate(225deg);
   right: 0;
 }
-div.ngg-navigation a.prev:hover::before {
+div.ngg-navigation a.next:hover::before {
   right: 3px;
 }
-div.ngg-navigation a.next::before {
+div.ngg-navigation a.prev::before {
   transform: rotate(45deg);
   left: 0;
 }
-div.ngg-navigation a.next:hover::before {
+div.ngg-navigation a.prev:hover::before {
   left: 3px;
 }
 
@@ -2964,7 +2964,7 @@ div.wpcf7 .wpcf7-date {
 }
 div.wpcf7 form.submitting .lithe-ajax-loader {
   animation: pulsation 3s infinite;
-  opacity: 1;
+  display: inline-block;
 }
 div.wpcf7 form.submitting .lithe-ajax-loader > svg {
   animation: sending 3s infinite;
@@ -2978,7 +2978,7 @@ div.wpcf7 .wpcf7-submit {
   transform: translateX(-50%);
 }
 div.wpcf7 .lithe-ajax-loader {
-  display: inline-block;
+  display: none;
   left: -moz-calc(50% - 130px);
   left: calc(50% - 130px);
   top: 0;
@@ -2996,10 +2996,10 @@ div.wpcf7 .lithe-ajax-loader {
 div.wpcf7 .lithe-ajax-loader > svg {
   transition: transform 0.2s cubic-bezier(0.17, 0.84, 0.44, 1);
 }
-div.wpcf7 .ajax-loader::before {
+div.wpcf7 .wpcf7-spinner::before {
   display: none !important;
 }
-div.wpcf7 .ajax-loader:not(.lithe-ajax-loader) {
+div.wpcf7 .wpcf7-spinner:not(.lithe-ajax-loader) {
   display: none;
 }
 div.wpcf7 form .wpcf7-response-output {

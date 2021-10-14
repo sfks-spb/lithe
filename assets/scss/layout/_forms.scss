@@ -108,7 +108,7 @@ div.wpcf7 {
 
     form.submitting .lithe-ajax-loader {
         animation: pulsation 3s infinite;
-        opacity: 1;
+        display: inline-block;
 
         > svg {
             animation: sending 3s infinite;
@@ -123,7 +123,7 @@ div.wpcf7 {
     }
 
     .lithe-ajax-loader {
-        display: inline-block;
+        display: none;
         left: -moz-calc(50% - 130px);
         left: calc(50% - 130px);
         top: 0;
@@ -143,11 +143,11 @@ div.wpcf7 {
         }
     }
 
-    .ajax-loader::before {
+    .wpcf7-spinner::before {
         display: none !important;
     }
 
-    .ajax-loader:not(.lithe-ajax-loader) {
+    .wpcf7-spinner:not(.lithe-ajax-loader) {
         display: none;
     }
 
