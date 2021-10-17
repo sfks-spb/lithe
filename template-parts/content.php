@@ -44,7 +44,7 @@
 
     <?php if ( is_singular() ): ?>
 
-        <?php if ( has_tag() ): ?>
+        <?php if ( has_tag() || lithe_has_sport() ): ?>
 
             <div class="post-tags meta-wrapper">
 

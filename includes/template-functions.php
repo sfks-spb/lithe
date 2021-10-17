@@ -251,6 +251,22 @@ if ( ! function_exists( 'lithe_get_breakpoints_json' ) ) {
 
 }
 
+if ( ! function_exists( 'lithe_has_sport' ) ) {
+
+    /**
+     * Checks if post belongs to a sport.
+     *
+     * @param  string       $tag Tag to search for.
+     * @param  WP_Post|null $post Post instance.
+     *
+     * @return bool
+     */
+    function lithe_has_sport( $tag = '', $post = null ) {
+        return has_term( $tag, 'sport', $post );
+    }
+
+}
+
 if ( ! function_exists( 'lithe_the_tags' ) ) {
 
     /**
