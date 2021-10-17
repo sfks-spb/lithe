@@ -23,10 +23,40 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
             add_filter( 'wpcf7_posted_data', array( $this, 'handle_meta_posted_data' ), 5 );
             add_filter( 'wpcf7_posted_data', array( $this, 'handle_utm_posted_data' ), 6 );
             add_filter( 'wpcf7_posted_data', array( $this, 'add_container_url_with_utm' ), 7 );
+            add_filter( 'wpcf7_posted_data', array( $this, 'add_app_id_posted_data' ), 8 );
             add_filter( 'wpcf7_recaptcha_threshold', array( $this, 'change_recaptcha_threshold' ) );
             add_action( 'wpcf7_init', array( $this, 'add_custom_form_tags' ) );
             add_action( 'wpcf7_after_save', array( $this, 'save_form_meta_fields' ), 10, 1 );
             add_action( 'wp_print_footer_scripts', array( $this, 'add_config_data_storage' ), 8 );
+        }
+
+        /**
+         *
+         */
+        public function add_app_id_posted_data( array $posted_data ): array {
+
+            $form = WPCF7_ContactForm::get_current();
+            $form_meta = get_post_meta( $form->id(), '_flamingo', true );
+
+            if ( ! empty( $form_meta ) ) {
+
+                $channel_id = isset( $form_meta['channel'] ) ?
+                    $form_meta['channel'] :
+                    wpcf7_flamingo_add_channel( $form->name(), $form->title() );
+
+                if ( $channel_id ) {
+
+                    $serial_number = 1 + (int) Flamingo_Inbound_Message::count(
+                        array( 'channel_id' => $channel_id )
+                    );
+
+                    $posted_data['app-id'] = $channel_id . '/' . $serial_number;
+
+                }
+
+            }
+
+            return $posted_data;
         }
 
         /**
@@ -35,7 +65,13 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
          * @return float
          */
         public function change_recaptcha_threshold( float $threshold ): float {
-            return is_page( 'contact' ) ? $threshold : 0.05;
+            $form = WPCF7_ContactForm::get_current();
+
+            if ( ! empty( $form ) ) {
+                return ( 7716 === (int) $form->id() ) ? $threshold : 0.5;
+            }
+
+            return $threshold;
         }
 
         /**
@@ -147,6 +183,38 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
         }
 
         /**
+         * Places container URL with utm query.
+         *
+         * @param  array $posted_data Data posted via form.
+         *
+         * @return array
+         */
+        public function add_container_url_with_utm( array $posted_data ): array {
+
+            if ( array_key_exists( '_wpcf7_container_post', $_POST ) ) {
+
+                $container_url = get_permalink( $_POST[ '_wpcf7_container_post' ] );
+
+                if ( array_key_exists( 'utm_query', $posted_data ) ) {
+
+                    $query_start = '?';
+
+                    if ( false !== strpos( $container_url, '?' ) ) {
+                        $query_start = '&';
+                    }
+
+                    $container_url .= $query_start . $posted_data['utm_query'];
+
+                }
+
+                $posted_data['container_url'] = $container_url;
+
+            }
+
+            return $posted_data;
+        }
+
+        /**
          * Places utm query string into the posted data.
          *
          * @param  array $posted_data Data posted via form.
@@ -177,38 +245,6 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
 
             return $posted_data;
 
-        }
-
-        /**
-         * Places container URL with utm query.
-         *
-         * @param  array $posted_data Data posted via form.
-         *
-         * @return array
-         */
-        public function add_container_url_with_utm( array $posted_data ): array {
-
-            if ( array_key_exists( '_wpcf7_container_post', $_POST ) ) {
-
-                $container_url = get_permalink( $_POST[ '_wpcf7_container_post' ] );
-
-                if ( array_key_exists( 'utm_query', $posted_data ) ) {
-
-                    $query_start = '?';
-
-                    if ( false !== strpos( $container_url, '?' ) ) {
-                        $query_start = '&';
-                    }
-
-                    $container_url .= $query_start . $posted_data['utm_query'];
-
-                }
-
-                $posted_data['container_url'] = $container_url;
-
-            }
-
-            return $posted_data;
         }
 
         /**
