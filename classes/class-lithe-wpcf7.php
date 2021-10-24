@@ -68,7 +68,7 @@ if ( ! class_exists( 'Lithe_WPCF7' ) ) {
             $form = WPCF7_ContactForm::get_current();
 
             if ( ! empty( $form ) ) {
-                return ( 7716 === (int) $form->id() ) ? $threshold : 0.5;
+                return ( 7716 === (int) $form->id() ) ? $threshold : 0.05;
             }
 
             return $threshold;
