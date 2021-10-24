@@ -8,6 +8,7 @@ import {Sticky} from './sticky.coffee'
 import {Views} from './views.coffee'
 import {GTag} from './gtag/index.coffee'
 import {Venues} from './venues.coffee'
+import {Switcheroo} from './switcheroo.coffee'
 
 Lithe =
     jsIsAvailable: ->
@@ -22,7 +23,8 @@ Lithe =
         Lithe.sticky      = new Sticky '.sticky'
         Lithe.scrollTop   = new ScrollTop '#go-top', 768
         Lithe.views       = new Views
-        Lithe.venues      = new Venues if document.querySelector('body.page-template-template-venues')
+        Lithe.venues      = new Venues if document.querySelector 'body.page-template-template-venues'
+        Lithe.switcheroo  = new Switcheroo if document.querySelector '[data-switcheroo]'
 
         return
 
