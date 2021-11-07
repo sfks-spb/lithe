@@ -24,6 +24,24 @@ window.lithe.theme = window.lithe.themeSwitcher.getTheme();
 window.lithe.breakpoints = ' . lithe_get_breakpoints_json() . ';
             ',
 
+            'condition' => ! is_admin(),
+
+        ),
+
+        'admin' => array(
+
+            'src' => 'admin.js',
+
+            'l10n' => array(
+
+                'trainers_photo' => __( 'Trainer\'s Photo', 'lithe' ),
+
+                'use_this_photo' => __( 'Use this photo', 'lithe' ),
+
+            ),
+
+            'condition' => is_admin(),
+
         ),
 
     ),

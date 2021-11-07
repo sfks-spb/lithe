@@ -84,6 +84,7 @@ if ( ! class_exists('Lithe_Theme') ) {
             add_action( 'switch_theme', array( $this, 'maybe_deactivate_fontawesome' ) );
             add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
             add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
+            add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
             add_action( 'widgets_init', array( $this, 'register_widget_areas' ) );
             add_action( 'wp_head', array( $this, 'add_site_favicon' ), 1 );
             add_action( 'admin_head', array( $this, 'add_site_favicon' ), 1 );
@@ -358,6 +359,22 @@ if ( ! class_exists('Lithe_Theme') ) {
                     '@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Playfair+Display:wght@400;500&display=swap");'
                 );
         }
+
+        /**
+         * Registers admin scripts.
+         *
+         * @param string Admin page name.
+         *
+         * @return void
+         */
+        public function register_admin_scripts( $hook ): void {
+            if ( ! did_action( 'wp_enqueue_media' ) ) {
+                wp_enqueue_media();
+            }
+
+            $this->assets->load_packages( array( 'Lithe@1.0.1' ) );
+        }
+
 
         /**
          * Includes dependencies.

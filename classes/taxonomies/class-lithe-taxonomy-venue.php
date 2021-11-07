@@ -88,6 +88,8 @@ if ( ! class_exists( 'Lithe_Taxonomy_Venue' ) ) {
 
             }
 
+            update_term_meta( $term_id, 'updated_at', time() );
+
         }
 
         /**

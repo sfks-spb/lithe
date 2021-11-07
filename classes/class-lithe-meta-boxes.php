@@ -45,6 +45,16 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
             );
 
             add_meta_box(
+                'trainer-photo',
+                __( "Trainer's Photo", 'lithe' ),
+                'Lithe_Meta_Box_Trainer_Photo::render',
+                'trainer',
+                'normal',
+                'high'
+            );
+
+
+            add_meta_box(
                 'trainer-timetable',
                 __( "Trainer's Timetable", 'lithe' ),
                 'Lithe_Meta_Box_Trainer_Timetable::render',
@@ -112,6 +122,7 @@ if ( ! class_exists('Lithe_Meta_Boxes') ) {
             include_once $meta_boxes_directory . 'class-lithe-meta-box.php';
             include_once $meta_boxes_directory . 'class-lithe-meta-box-post-style.php';
             include_once $meta_boxes_directory . 'class-lithe-meta-box-trainer-profile.php';
+            include_once $meta_boxes_directory . 'class-lithe-meta-box-trainer-photo.php';
             include_once $meta_boxes_directory . 'class-lithe-meta-box-trainer-timetable.php';
             include_once $meta_boxes_directory . 'class-lithe-meta-box-dog-profile.php';
         }

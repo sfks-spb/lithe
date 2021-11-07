@@ -13,28 +13,21 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
          */
         public function get_venue( WP_REST_Request $request ) {
 
-            $venue_id = $request['id'];
-
-            $data = array();
-
-            if ( ! $venue_id ) {
-                return rest_ensure_response( $data );
-            }
-
-            $venue = get_term( $venue_id, 'venue' );
+            $venue = get_term( $request['id'], 'venue' );
 
             if ( empty( $venue ) ) {
-                return rest_ensure_response( $data );
+                return rest_ensure_response( array() );
             }
 
-            $data = $this->get_venue_data( $venue );
-
-            return rest_ensure_response( $data );
+            return rest_ensure_response( array(
+                'data' => $this->get_venue_data( $venue ),
+                'meta' => array(),
+            ) );
 
         }
 
         /**
-         * Gets venues by sport id.
+         * Gets venues.
          *
          * @param  WP_REST_Request $request WordPress request instance.
          *
@@ -42,75 +35,142 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
          */
         public function get_venues( WP_REST_Request $request ) {
 
-            $sport_ID = $request['sport_id'];
-
             $venues = get_terms( array(
                 'taxonomy' => 'venue',
                 'order'    => 'DESC',
             ) );
 
-            foreach ( $venues as $index => &$venue ) {
-                $venue = $this->get_venue_data( $venue );
+            $filtered = array();
 
-                if ( ! $sport_ID && 1 != $request['include_trainers'] ) continue;
+            foreach ( $venues as $index => $venue ) {
 
-                $fn = ( 1 == $request['include_trainers'] ) ? 'filter_venues_and_include_trainers' : 'filter_venues';
-
-                if ( ! $this->$fn( $venue, $sport_ID ) ) {
-                    unset( $venues[ $index ] );
+                if ( $request['sport_id'] && ! $this->venue_has_trainers( $venue, $request['sport_id'] ) ) {
+                    continue;
                 }
+
+                $filtered[] = $this->get_venue_data( $venue );
+
             }
 
-            return rest_ensure_response( $venues );
+            return rest_ensure_response( array(
+                'data' => $filtered,
+                'meta' => array(
+                    'placemarks' => $this->get_placemarks( $filtered ),
+                    'count'      => count( $filtered ),
+                ),
+            ) );
 
         }
 
         /**
-         * Filters venues by sport id.
+         * Checks if venue has trainers for specific sport.
          *
-         * @param  array    &$venue Venue data.
+         * @param  WP_Term  $venue Venue term.
          * @param  int|null $sport_id Current sport id.
          *
          * @return bool
          */
-        protected function filter_venues( array &$venue, ?int $sport_id ): bool {
-            $trainers = $this->get_trainers_for_venue( $venue, $sport_id );
+        protected function venue_has_trainers( WP_Term $venue, ?int $sport_id ): bool {
 
-            return ( ! empty( $trainers ) ) ? true : false;
+            $wp_query = new WP_Query( array(
+                'post_type'  => 'trainer',
+                'meta_key'   => 'sports_' . $venue->term_id,
+                'meta_value' => $sport_id,
+            ) );
+
+            return $wp_query->have_posts();
+
         }
 
         /**
-         * Filters venues by sport id and includes trainers.
+         * Gets placemarks for venues.
          *
-         * @param  array    &$venue Venue data.
-         * @param  int|null $sport_id Current sport id.
+         * @param  array $data Venues data.
          *
-         * @return bool
+         * @return array
          */
-        protected function filter_venues_and_include_trainers( array &$venue, ?int $sport_id ): bool {
+        protected function get_placemarks( array $data ): array {
+            $features = array();
 
-            $trainers = $this->get_trainers_for_venue( $venue, $sport_id );
-
-            foreach ( $trainers as &$trainer ) {
-                $trainer = $this->get_trainer_data( $trainer, $venue['id'], $sport_id );
+            foreach ( $data as $venue_data ) {
+                $features[] = $this->get_feature_for_venue( $venue_data );
             }
 
-            $venue['trainers'] = $trainers;
+            return array(
+                'type'     => 'FeatureCollection',
+                'features' => $features,
+            );
+        }
 
-            return ( ! empty( $trainers ) ) ? true : false;
+        /**
+         * Gets placemark features for venue data.
+         *
+         * @param  array $venue_data Venue data.
+         *
+         * @return array
+         */
+        protected function get_feature_for_venue( array $venue_data ): array {
+
+            return array(
+                'type'       => 'Feature',
+                'id'         => $venue_data['id'],
+                'geometry'   => $this->get_placemark_geometry_for_venue( $venue_data ),
+                'properties' => $this->get_placemark_properties_for_venue( $venue_data ),
+            );
+
+        }
+
+        /**
+         * Gets placemark geometry for venue data.
+         *
+         * @param  array $venue_data
+         *
+         * @return array
+         */
+        protected function get_placemark_geometry_for_venue( array $venue_data ): array {
+            list( $lat, $lon ) = explode( ', ', $venue_data['coords'] );
+
+            return array(
+                'type'        => 'Point',
+                'coordinates' => array( (double) $lat, (double) $lon ),
+            );
+        }
+
+        /**
+         * Gets placemark properties for venue data.
+         *
+         * @param  array $venue_data
+         *
+         * @return array
+         */
+        protected function get_placemark_properties_for_venue( array $venue_data ): array {
+
+            $ballon_header = '<b>' . $venue_data['name'] . '</b><br /><span class="venue-type">' .
+                __( 'Dog Training Ground', 'lithe' ) . '</span>';
+
+            $ballon_body = '<b>' . __( 'Address', 'lithe' ) . '</b>: ' . $venue_data['address'] . '<br>' .
+                '<b>' . __( 'Trainers on the ground', 'lithe' ) . '</b>: ' . $venue_data['trainers'] . '<br>' .
+                '<ul class="sport-tags"><li>' . implode( '</li><li>', $venue_data['sports'] ) . '</li></ul>';
+
+            return array(
+                'balloonContentHeader' => $ballon_header,
+                'balloonContentBody'   => $ballon_body,
+                'balloonContentFooter' => __( 'Updated at', 'lithe' ) . ':<br>' . $venue_data['updated_at'],
+                'hintContent'          => __( 'Dog Training Ground', 'lithe' ) . ' "' . $venue_data['name'] . '"',
+            );
 
         }
 
         /**
          * Gets venue sports.
          *
-         * @param  array $venue Venue data.
+         * @param  array $venue_data Venue data.
          *
          * @global wpdb $wpdb WordPress database instance.
          *
          * @return array
          */
-        protected function get_sports_for_venue( array $venue ): array {
+        protected function get_sports_for_venue( array $venue_data ): array {
 
             global $wpdb;
 
@@ -118,7 +178,7 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
                 SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
                 WHERE pm.meta_key = %s
                 ORDER BY pm.meta_value DESC",
-                'sports_' . $venue['id'] ) );
+                'sports_' . $venue_data['id'] ) );
 
             if ( empty( $sport_ids ) ) return array();
 
@@ -128,60 +188,6 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
                 'fields'   => 'id=>name',
                 'orderby'  => 'id',
             ) );
-
-        }
-
-        /**
-         * Gets trainer list for current venue.
-         *
-         * @param  array    $venue Venue data.
-         * @param  int|null $sport_id Current sport id.
-         *
-         * @return array
-         */
-        protected function get_trainers_for_venue( array $venue, ?int $sport_id ): array {
-
-            return get_posts( array(
-                'post_type'  => 'trainer',
-                'meta_key'   => 'sports_' . $venue['id'],
-                'meta_value' => $sport_id,
-                'nopaging'   => true,
-            ) );
-
-        }
-
-        /**
-         * Gets trainer data from post object.
-         *
-         * @param  WP_Post  $trainer Current trainer post instance.
-         * @param  int      $venue_id Current venue id.
-         * @param  int|null $sport_id Current sport id.
-         *
-         * @return array
-         */
-        protected function get_trainer_data( WP_Post $trainer, int $venue_id, ?int $sport_id ): array {
-
-            static $meta_fields = array(
-                'first_name',
-                'middle_name',
-                'last_name',
-                'phone',
-                'email',
-                'social',
-                'organization',
-            );
-
-            $data = array(
-                'id'           => $trainer->ID,
-                'display_name' => esc_html( $trainer->post_title ),
-                'timetable'    => get_post_meta( $trainer->ID, 'timetable_' . $venue_id . '-' . $sport_id, true ),
-            );
-
-            foreach ( $meta_fields as $field ) {
-                $data[ $field ] = esc_html( get_post_meta( $trainer->ID, $field, true ) );
-            }
-
-            return $data;
 
         }
 
@@ -204,12 +210,15 @@ if ( ! class_exists('Lithe_Venues_Controller') ) {
                 'id'          => $venue->term_id,
                 'name'        => esc_html( $venue->name ),
                 'description' => esc_html( $venue->description ),
+                'trainers'    => $venue->count,
             );
 
             foreach ( $meta_fields as $field ) {
                 $data[ $field ] = esc_html( get_term_meta( $venue->term_id, $field, true ) );
             }
 
+            $updated_at = get_term_meta( $venue->term_id, 'updated_at', true );
+            $data['updated_at'] = wp_date( lithe_date_format(), (int) $updated_at );
             $data['sports'] = $this->get_sports_for_venue( $data );
 
             return $data;

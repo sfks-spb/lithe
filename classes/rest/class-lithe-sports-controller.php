@@ -16,14 +16,16 @@ if ( ! class_exists('Lithe_Sports_Controller') ) {
             $sports = get_terms( array(
                 'taxonomy'   => 'sport',
                 'order'      => 'DESC',
-                'hide_empty' => ( $request['hide_empty'] ? false : true ),
             ) );
 
-            foreach ( $sports as &$sport ) {
-                $sport = $this->get_sport_data( $sport );
-            }
+            foreach ( $sports as &$sport ) $sport[] = $this->get_sport_data( $sport );
 
-            return rest_ensure_response( $sports );
+            return rest_ensure_response( array(
+                'data' => $sports,
+                'meta' => array(
+                    'count' => count( $sports ),
+                ),
+            ) );
 
         }
 

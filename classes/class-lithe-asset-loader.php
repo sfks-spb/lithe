@@ -212,7 +212,7 @@ if ( ! class_exists( 'Lithe_Asset_Loader' ) ) {
          * @return Lithe_Asset_Loader
          */
         public function localize_script( string $handle, string $object_name, array $l10n ): self {
-            wp_localize_script( $handle, $object_name, $l10n );
+            wp_localize_script( $handle, lithe_dashes_to_camelcase( $object_name ), $l10n );
 
             return $this;
         }

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner, faCheck, faSkull } from '@fortawesome/free-solid-svg-icons'
 import { mountConflictDetectionReporter, isConflictDetectionReporterMounted } from './mountConflictDetectionReporter'
 import { __, sprintf } from '@wordpress/i18n'
-import { createInterpolateElement } from '@wordpress/element'
+import createInterpolateElement from './createInterpolateElement'
 
 export default function ConflictDetectionScannerSection() {
   const dispatch = useDispatch()
@@ -20,11 +20,14 @@ export default function ConflictDetectionScannerSection() {
 
   useEffect(() => {
     if(showConflictDetectionReporter && !isConflictDetectionReporterMounted()) {
-      mountConflictDetectionReporter({
-        report: params => store.dispatch(reportDetectedConflicts(params)),
-        store,
-        now: true
-      })
+      // We are not setting up the reporting hook, because the conflict scanner
+      // script is not actually going to run when it's initially activated from
+      // this view. The conflict scanner box will appear to alert the user,
+      // but the actual functionality will not be enabled until the next page
+      // load, when the conflict detection JavaScript will be enqueued and loaded
+      // in the page.
+
+      mountConflictDetectionReporter(store)
     }
   }, [ showConflictDetectionReporter, store ])
 

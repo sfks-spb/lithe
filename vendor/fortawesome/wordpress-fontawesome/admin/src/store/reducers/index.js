@@ -468,6 +468,11 @@ export default combineReducers({
   pluginVersion: simple,
   preferenceConflictDetection,
   preferenceConflicts,
+  restApiNamespace: simple,
+  rootUrl: simple,
+  mainCdnAssetUrl: simple,
+  mainCdnAssetIntegrity: simple,
+  enableIconChooser: coerceBool,
   releases: simple,
   settingsPageUrl: simple,
   showAdmin: coerceBool,
@@ -477,5 +482,8 @@ export default combineReducers({
   unregisteredClientsDeletionStatus, 
   userAttemptedToStopScanner,
   v3DeprecationWarning,
-  v3DeprecationWarningStatus
+  v3DeprecationWarningStatus,
+  webpackPublicPath: simple,
+  isGutenbergPage: coerceBool,
+  usingCompatJs: coerceBool
 })

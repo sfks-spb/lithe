@@ -22,13 +22,14 @@
 - [Special Notes on plugin-sigma](#special-notes-on-plugin-sigma)
 - [Remote Debugging with VSCode](#remote-debugging-with-vscode)
 - [Redis Cache Setup](#redis-cache-setup)
+- [Analyze Webpack Bundle](#analyze-webpack-bundle)
 
 <!-- tocstop -->
 
 # Introduction
 
 This repo provides a multi-dimensional Docker-based development environment to help developers work with the `font-awesome`
-plugin under a variety of conditions: WordPress version tags `4.9.8` and `latest`,
+plugin under a variety of conditions: WordPress version tags `4.9` and `latest`,
 crossed with `development` and `integration`.
 
 The `development` option mounts this plugin code as a read-write volume inside a container, and also
@@ -48,10 +49,15 @@ activated to help with testing and exploring interaction with the plugin at run 
 ## 0. Install PHP
 
 Most of our PHP code will run inside a Docker container under the version of PHP installed within that container.
-However, some of the tools for building or running composer will run outside of the container, in the host environment,
+However, some tools for building or running composer will run outside the container, in the host environment,
 so you'll need a workable version of PHP installed in your host environment.
 
-If you can run `$ php --version` and it shows a PHP version that's 7.1 or later, that should be good enough.
+You could run this to see what version of php is used in the `wordpress:latest` docker
+image:
+
+```
+$ docker run --rm wordpress:latest php --version
+```
 
 Otherwise, install php in a way appropriate to your host environment. On macOS, use:
 
@@ -74,11 +80,11 @@ Dockerfiles in `docker/`.
 
 For example, to build two images:
 ```bash
-$ bin/build-docker-images 4.9.8 latest
+$ bin/build-docker-images 4.9 latest
 ```
 
 Once you build these, you won't need to rebuild them unless something changes in the underlying
-image dependencies. For a historic WordPress release like `4.9.8` that may never occur.
+image dependencies.
 
 For `latest`, this could happen if you see that the [`wordpress:latest` tag on Docker Hub](https://hub.docker.com/_/wordpress)
 is updated. When a new version of WordPress is released, it can take a little while before a new Docker image
@@ -87,17 +93,17 @@ image on DockerHub, not always as current as the latest WordPress release.
 
 Each image is a pre-requisite for its corresponding container environment.
 So if you want to be able to run `bin/dev latest`, you have to first make sure you've built the underlying
-docker image with `bin/build-docker-images latest`. 
+docker image with `bin/build-docker-images latest`.
 
 _BEWARE_: there's one place where this difference in "latest" might shoot us in the foot:
 The `docker/install-wp-tests-docker.sh` script runs during the image build process to
 install the core WordPress testing files that are important for our `phpunit` test run to work.
 It takes a _WordPress_ version tag as an argument. So when the WordPress "latest" version (say `5.0.1`)
 and the DockerHub "latest" version are temporarily out of sync, you could be in a state where
-the WordPress `5.0.0` (in our example) is running, but with tests tagged for WordPress `5.0.1` are 
+the WordPress `5.0.0` (in our example) is running, but with tests tagged for WordPress `5.0.1` are
 installed. Probably this won't cause a real problem, but beware.
 
-## 3. set up .env.local
+## 3. Set up .env.local
 
 In the top-level of this repo, create a plain text file called `.env.local` that has at least
 the following in it:
@@ -107,13 +113,13 @@ WP_ADMIN_EMAIL=foo@example.com
 ```
 
 Replace `foo@example.com` with a real email address where you can receive admin messages
-from this local install of WordPress, if it sends any (it tends not to). 
+from this local install of WordPress, if it sends any (it tends not to).
 
 This file is not checked into git. It's listed in `.gitignore`.
 
 ### Redis Cache Extra Steps
 
-If you know that you'll be install the WP Redis plugin to test behavior with caching,
+If you know that you'll be installing the WP Redis plugin to test behavior with caching,
 then you'll need to add at least the following environment variable to `.env.local` as well:
 
 ```bash
@@ -136,7 +142,7 @@ CACHE_DB=1111 # default: 0
 Designers and developers internal to Font Awesome can also run local instances of
 the Font Awesome, Font Awesome API, and kit edge apps.
 
-1. make sure the `devenv` is up to date
+1. make sure the `devenv` is up-to-date
 1. in the `devenv` repo, run `bin/dev-wordpress`
 1. add entries for the following to your `.env.local` (replacing the URLs with the appropriate ones if they change)
     ```bash
@@ -147,12 +153,12 @@ the Font Awesome, Font Awesome API, and kit edge apps.
     *Heads Up!* make sure to use `host.docker.internal` in that API URL, because
     the WordPress server needs to be able to reach the API server from inside the docker container.
     That KIT_LOADER_BASE one needs to be `fa.test` because this is a URL that the
-    browser (running in the host) will need to reach. 
+    browser (running in the host) will need to reach.
 1. run `bin/dev` in the `fontawesome` repo if you need to do things with kit configs or API Tokens
 
 ## 4. Add the wp.test host name
 
-On Unix-like OSes, such as Mac OS, you do this by editing your `/etc/hosts` file
+On Unix-like OSes, such as macOS, you do this by editing your `/etc/hosts` file
 and adding a line like this:
 
 ```
@@ -175,7 +181,7 @@ This table shows the matrix for running each container environment:
 
 | version tag  | development | integration |
 | --- | --- | --- |
-| 4.9.8 | `$ bin/dev 4.9.8` | `$ bin/integration 4.9.8` |
+| 4.9 | `$ bin/dev 4.9` | `$ bin/integration 4.9` |
 | latest | `$ bin/dev latest` | `$ bin/integration latest` |
 
 Run one of these from the top-level directory that contains the `docker-compose.yml` config file.
@@ -185,10 +191,10 @@ Leave it running in one terminal window and do the rest of the workflow in some 
 *Setup Required*
 
 At this point, everything is running, but when it's the first time you've run it (or since you
-cleared the docker data volume), WordPress has not yet been setup. There's a script for that below.
+cleared the docker data volume), WordPress has not yet been set up. There's a script for that below.
 
 *Stopping the Environment*
- 
+
 When you're ready to stop this environment, use `CTRL-C` in that terminal window where it's running.
 
 *Restarting*
@@ -212,11 +218,11 @@ $ docker-compose down
 You could also be a little more ninja-ish and use `docker ps` to find the running containers you know
 you want to stop, find the container ID for each, and then for each one do `docker container stop <container_id>`.
 
-## 6. install composer (PHP package manager)
+## 6. Install composer (PHP package manager)
 
-On Mac OS X, it can be installed via `brew install composer`
+On macOS, it can be installed via `brew install composer`
 
-## 7. update composer dependencies
+## 7. Update composer dependencies
 
 From the top-level directory that contains `composer.json`:
 
@@ -226,14 +232,35 @@ composer install
 
 ## 8. OPTIONAL: start the admin React app's development build (in development)
 
+### The main admin JS bundle
+
 In one terminal window, `cd admin`, and then:
 
-  (a) `yarn`
+  (a) `npm install`
 
-  (b) `yarn start` to fire up webpack development server, if you want to run in development mode with
-      hot module reloading and such.
-      This will start up another web server that serves up the assets for the React app separately from
-      the WordPress site, so leave it running while you develop.
+  (b) `npm run start` to fire up webpack.
+
+      This uses wp-scripts (webpack under the hood) to build the static assets under
+      `admin/build`. There's no webpack dev server any more. Webpack will notice
+      changes to the JavaScript files and rebuild on the fly, but it won't reload
+      in the browser automatically. Just refresh your browser page.
+
+### The WordPress 4 compat bundle
+
+This will probably not change very much, so it may not be necessary to rebuild at all.
+And if you're doing development work only in WordPress 5, you can skip this altogether.
+
+If you do need to update what's in this bundle, though, then you just build another
+static production build like this:
+
+```
+$ cd wp-compat-v4
+$ npm install
+$ npm run build
+```
+
+This will create `wp-compat-v4/build/compat.js`, which the plugin looks for and
+enqueues automatically when it detects that it's running under WordPress 4.
 
 ## 9. OPTIONAL: If you have an older version of Docker or one that doesn't support host.docker.internal
 
@@ -244,7 +271,7 @@ on ports in the host environment.
 
 If you don't have `host.docker.internal` support for some reason, you could set up
 a loopback address with the following IP from your host OS.
-On Mac OS the command might look like this:
+On macOS the command might look like this:
 
 `sudo ifconfig lo0 alias 169.254.254.254`
 
@@ -261,7 +288,7 @@ Here are some of the operations that require the container to talk back to the h
 - Webpack dev server port for React hot module reloading
 - Font Awesome GraphQL API (when running that service locally)
 
-## 10. run `bin/setup`
+## 10. Run `bin/setup`
 
 This does the initial WordPress admin setup that happens first on any freshly installed WordPress
 site. We're just doing it from the command line with the script to be quick and convenient.
@@ -282,9 +309,9 @@ You can login to the admin dashboard at [http://wp.test:8765/wp-admin](http://wp
 bin/configure-debugging
 ```
 
-This will setup debugging configuration in `wp-config.php` inside the container
+This will set up debugging configuration in `wp-config.php` inside the container
 and will also install several plugins to power the debug bar available from the
-upper right hand nav bar when logged into WordPress as admin.
+upper right-hand nav bar when logged into WordPress as admin.
 
 ## 12. Install and/or Activate the Font Awesome plugin
 
@@ -295,7 +322,7 @@ to uninstall it, it seems to wipe out the plugin's code from the working directo
 So, probably don't do that.
 
 If you're running the `bin/integration` environment, install via zip archive upload or directly
-from the WordPress plugins directory. [See above](#development) for more details. 
+from the WordPress plugins directory. [See above](#development) for more details.
 
 After activating the plugin you can access the Font Awesome admin page here:
 `http://wp.test:8765/wp-admin/options-general.php?page=font-awesome`
@@ -330,7 +357,7 @@ This will run `wp` inside the default container and list plugins.
 To run this under a different container, provide the container's name or id with `-c`:
 
 ```bash
-$ bin/wp -c 193d46dcb77b plugin list 
+$ bin/wp -c 193d46dcb77b plugin list
 ```
 
 Everything about the command line is the same as you'd normally use for `wp`, except the first
@@ -367,16 +394,16 @@ $ bin/clean
 
 This will kill and remove docker containers and delete their data volumes.
 
-It will also try to clean up helper containers created by PhpStorm, if you're using that IDE. 
+It will also try to clean up helper containers created by PhpStorm, if you're using that IDE.
 
-If you do something accidentally to modify the wordpress container and put it into a weird state
+If you do something accidentally to modify the Wordpress container and put it into a weird state
 somehow, or even if you just want to re-initialize the whole WordPress environment (i.e. the app and the mysql db),
 this is how you can do it.
- 
+
 This doesn't remove the docker _images_, just the containers and their data volumes.
 So you won't have to rebuild images after a `clean`. But also, if what you're trying to do is
 remove those images, you'll need to use `docker image rm <image_id>`.
- 
+
 After a `bin/clean`, you'll need to run a new environment again, such as `bin/dev` and also
 re-run setup, like `bin/setup`.
 
@@ -426,7 +453,7 @@ $ bin/wp transient delete font-awesome-releases --network
 Temporarily, this plugin supports Font Awesome version 3 icon names, but also warns that their use is
 deprecated. Finally, it allows the site owner to "snooze" the deprecation warning. The state of that
 detection or snoozing is stored in an expiring transient: `font-awesome-v3-deprecation-data`.
-  
+
 Inspect it:
 
 ```bash
@@ -447,32 +474,32 @@ $ bin/wp transient delete font-awesome-v3-deprecation-data
 
 3. Update the plugin version const in `includes/class-fontawesome.php`
 
-4. Update the version in `admin/package.json`
+4. Update the versions in `admin/package.json` and `compat-js/package.json`
 
 5. Wait on changing the "Stable Tag" in `readme.txt` until after we've made the changes in the `svn` repo below.
 
 6. Build the API docs
 
-- make sure you have `graphviz` installed (on mac OS, you can do this with `brew install graphviz`)
+- make sure you have `graphviz` installed (on macOS, you can do this with `brew install graphviz`)
 - run `composer cleandocs` if you want to make sure that you're building from scratch
-- run `composer install --dev` to install the dev-only phpDocumentor package 
+- run `composer install --dev` to install the dev-only phpDocumentor package
 - run `composer docs` to build the docs into the `docs/` directory
 
   This command will incrementally rebuild docs with any updates you make to the phpDoc
   in the source code files.
- 
+
   See also: [Run a Local Docs Server](#run-a-local-docs-server)
 
   *WARNING*: look at the output from this docs command and make sure there are no
-  instances of parse errors. Also manually inspect the output in `docs/` to ensure
+  instances of parse errors. Also, manually inspect the output in `docs/` to ensure
   that the expected classes are documented there, especially the main class with API
   documentation: `FontAwesome`.
-  
+
   For reasons not yet understood, sometimes the phpdocumentor parser chokes.
 
-- `git add docs` to stage them for commit (and eventually commit them) 
+- `git add docs` to stage them for commit (and eventually commit them)
 
-7. Build production admin app and WordPress distribution layout into `wp-dist` 
+7. Build production admin app and WordPress distribution layout into `wp-dist`
 
 ```bash
 $ composer dist
@@ -488,20 +515,71 @@ This zip file can be distributed as a download for the WordPress plugin and used
 the plugin by "upload" in the WordPress admin dashboard.
 
 `admin/build`: production build of the admin UI React app. This need to be committed so that it
-can be included in the composer package (which is really just a pull of this repo)  
+can be included in the composer package (which is really just a pull of this repo)
 
 8. Run through some manual acceptance testing
 
-Load up the `integration` WordPress environment in this repo (see above for how to do that).
+**WordPress 4.7, 4.8, 4.9**
 
-Install the Font Awesome plugin from the admin dashboard by uploading the `font-awesome.zip` file
+For each of these 4.x environments, run and setup the corresponding integration container, like:
+```
+bin/integration 4.7
+bin/setup -c com.fontawesome.wordpress-4.7-integration
+```
+
+Install and activate the Font Awesome plugin from the admin dashboard by uploading the `font-awesome.zip` file
 that was created in the previous step.
 
+Run through the following, with the JavaScript console open, looking for any warnings or errors:
+
+1. Load the plugin settings page.
+1. Change from Web Font to SVG and save.
+1. Create a new post (which will be in the Classic Editor)
+1. Click the "Add Font Awesome" button
+1. Search for something, and click to insert an icon from the results
+
+**WordPress 5.0**
+
+Setup the integration environment as above, but also do the following editor
+integration tests intead:
+
+1. Install the Classic Editor plugin
+1. Create a post with the Classic Editor
+1. Click the "Add Font Awesome" media button
+1. Search for something, and click to insert an icon from the results
+1. Create a new post, switching to the Gutenberg / Block Editor
+1. Expect to see a compatibility warning that the Icon Chooser is not enabled,
+    but otherwise expect the Block Editor to function normally
+
+**WordPress 5.4**
+
+Setup the integration environment as above. Do the same tests as on 5.0, but also
+expect the Icon Chooser to be enabled within the Block Editor:
+
+1. Create a post with the Block Editor
+1. Activate the Icon Chooser
+1. Search for something, and click to insert an icon from the results
+
+**WordPress latest**
+
+Again, fire up and setup the integration container for `latest`:
+```
+bin/integration
+bin/setup
+```
+
+...and install the plugin via the newly built `font-awesome.zip` file.
+
 - activate and deactivate the plugin: expect no errors
-    - use wp-cli to ensure that the `font-awesome-releases` _site_ transient has been deleted
-    - the `font-awesome` option should remain
+    - upon deactivation, site transients like `font-awesome-last-used-release` should be deleted
+    - options like `font-awesome` or `font-awesome-releases` should remain upon deactivation
+    - verify these via db query, such as, from within the container:
+        ```
+        $ wp --allow-root db query 'select option_id, option_name from wp_options where option_name like "%awesome%";'
+        ```
 - delete/uninstall: expect no errors
-    - use wp-cli to ensure that the `font-awesome` option has been deleted
+    - use wp-cli or db query to ensure that the `font-awesome` option has been deleted
+    - use wp-cli or db query to ensure that transients have been deleted
 - with Use CDN settings
     - activate `theme-alpha`, `plugin-beta`, `plugin-delta`, `plugin-eta`, `plugin-gamma`, and `plugin-zeta`
     - expect to see all of their preferences listed on the Troubleshoot page
@@ -511,11 +589,14 @@ that was created in the previous step.
     - block plugin-gamma's version (css) and expect it to be blocked, but not plugin-delta's version (js)
     - delete the blocked plugin-gamma version. expect that to work, and then see its css load again after visiting another page.
     - change settings on the Use CDN settings tab to enable Pro. Theme alpha should show pro icon(s).
-    - change change settings on the Use CDN settings table to use SVG technology. Expect to see a preference warning from `plugin-beta`. 
+    - change change settings on the Use CDN settings table to use SVG technology. Expect to see a preference warning from `plugin-beta`.
         - switch to the Troublehsoot tab and expect to see the `plugin-beta` warning indicated on the table.
     - view the site: expect to see all of those integration plugins doing their thing with no missing icons
-    - deactivate all of those integration testing plugins and activate `plugin-epsilon`: expect a fatal error admin notice in the admin UI, but it should not crash WordPress or throw an exception with stack trace in the browser.  
-- deactivate `plugin-gamma` and try several of those things again (without its garbage data in the API responses)
+    - deactivate all of those integration testing plugins and activate `plugin-epsilon`
+        - expect an error notice after the preference check when changing preferences in the Use CDN view.
+        - expect to see an error object in the JSON response of the REST request to the `config` endpoint
+            when saving changes.
+        - it should not crash WordPress or throw an exception with stack trace in the browser
 - with Use a Kit
     - Add a real API Token from a real fontawesome.com account
     - Select a kit that uses svg tech
@@ -528,8 +609,58 @@ that was created in the previous step.
     - Re-run the conflict detector (plugin-gamma and plugin-delta should both be active)
     - make sure the conflict scanner detects the same conflicts
       now when using a kit as it did when we used CDN.
-- ( If you know how to properly test with `plugin-sigma`--it's more complicated--go for it. )
-- verify that we're not overriding `window._` (lodash), `window.React` (or any other [relevant globals](https://make.wordpress.org/core/2018/12/06/javascript-packages-and-interoperability-in-5-0-and-beyond/)). See also [this forum topic](https://wordpress.org/support/topic/lodash-overrides-window-_-underscore-js-variable/).
+- Use the Icon Chooser
+    - Insert an icon into a post using the Icon Chooser from the block editor
+    - Install the Classic Editor plugin and insert an icon into a post using the Icon Chooser from the classic editor
+    - On a post editing page with the Classic Editor, open the JavaScript console and check the following:
+        - `!!wp.editor.mediaUpload` should be `false` (because we should not be loading `wp-editor`, aka `@wordpress/editor` here. [See forum topic.](https://wordpress.org/support/topic/plugin-conflicts-with-rankmath/))
+        - `!!wp.blockEditor` should be `false` for the same reason (`wp-block-editor` aka `@wordpress/block-editor`)
+        - `!!wp.blocks` should be `false` for the same reason (`wp-block` aka `@wordpress/blocks`)
+        - (TODO: we should add automated testing for these regression tests.)
+    - Ideally, do each of the both under all of the following conditions:
+        1. Use with CDN, Free
+        1. Use with CDN, Pro (expect a UI message in the Icon Chooser notifying that Pro icons are only available in the Icon Chooser for Pro _Kits_)
+        1. Use with Kit, Free
+        1. Use with Kit, Pro (expect to see all styles and Pro icons)
+    - Spin up a separate WordPress 4.7 container, install the plugin in that, and insert an icon into a post using the Icon Chooser in the classic editor
+- If you know how to properly test with `plugin-sigma`--it's more complicated--go for it.
+- Verify that we're not overriding `window._` (lodash), `window.React` (or any other [relevant globals](https://make.wordpress.org/core/2018/12/06/javascript-packages-and-interoperability-in-5-0-and-beyond/)).
+    - This can be done in the block editor:
+        1. create a new post in the block editor
+        1. open the browser's JavaScript console
+        1. look at the value of the globals: `window._.VERSION` and `window.React.version`. They should be the same as whatever this version of WordPress ships with--not the versions that may be used in our admin JS bundle, if different.
+    - To be more comprehensive, check it also in each of the following scenarios:
+        1. When running the Conflict Detector
+        1. On the admin settings page
+
+    - See also [this forum topic](https://wordpress.org/support/topic/lodash-overrides-window-_-underscore-js-variable/).
+        **HEADS UP!** This tricky issue has come up, been fixed, and regressed more than once. So
+        this investigation is especially important any time the JavaScript build
+        process is adjusted. Reason: if code splitting is being used in the JavaScript build, then _any_
+        chunk that's loaded could possibly introduce this problem.
+
+        Currently (as of plugin v4.0.2), the webpack config uses `babel-plugin-lodash` to
+        rewrite lodash imports throughout the whole codebase (and we're including `node_modules` in that)
+        in order to convert any thing like:
+
+        ```
+        import { get } from 'lodash'
+        ```
+
+        to something like:
+
+        ```
+        import get from 'lodash/get'
+        ```
+
+        which avoids the `lodash.js` module import that is responsible for the global assignment side
+        effect (at least in the current version of lodash!)
+
+        Other components in the WordPress ecosystem may depend on the particular, globally available
+        version of lodash that ships in WordPress Core. So the impact of this bug
+        regressing will be that this plugin causes some other plugin or theme to break.
+        In the past, this has included Visual Composer, or themes based on the popular
+        starter theme [Underscores](https://underscores.me/).
 - **Test loader lifecycle scenarios involving composer packages**
     - under `integrations/plugins/plugin-sigma` and `integrations/themes/theme-mu`, make sure the `composer.json` in each case points to a relevant version of this repo's composer package (a particular development branch on GitHub, for example)
     - make sure that `composer update` has been run recently to ensure that those components load the version of the package that you intend to be testing
@@ -544,7 +675,8 @@ that was created in the previous step.
 
                 This retrieves the main `font-awesome` option from the wpdb, which would be created upon initialization and only removed upon _uninstall_
 
-            - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-releases --network`
+            - `bin/wp -c com.fontawesome.wordpress-latest-integration option get font-awesome-releases`
+            - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-last-used-release --network`
         - If there's stuff there and you haven't activated anything yet, then it's leftover from prior db container state. An easy way to start from scratch:
             1. kill the currently running container
             1. `bin/clean` will put you back into a clean state
@@ -555,9 +687,13 @@ that was created in the previous step.
 
             This should now show the initial/default state of the main option
 
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-releases --network`
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration option get font-awesome-releases`
 
             This should now show a bunch of metadata about FA releases
+
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-last-used-release --network`
+
+            This should now just the slice of release metadata for the currently configured release
 
     - Activate theme-mu and expect no errors
         `bin/wp -c com.fontawesome.wordpress-latest-integration theme activate theme-mu`
@@ -565,19 +701,19 @@ that was created in the previous step.
         (theme-mu uses the wordpress-fontawesome composer package also)
 
     - Deactivate theme-mu by activating some other theme. In this case, we expect no db changes, because the loader should see that plugin-sigma is still active. Afterward, the querying the `font-awesome` option and `font-awesome-releases` transient should continue to show the same truthy, non-empty results as before.
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration theme activate twentynineteen`
-        
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration theme activate theme-alpha`
+
         (or any other available theme)
 
         - `bin/wp -c com.fontawesome.wordpress-latest-integration option get font-awesome`
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-releases --network`
-    - Deactivate plugin-sigma and expect that the `font-awesome` option remains, but the `font-awesome-releases` transient is removed:
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-last-used-release --network`
+    - Deactivate plugin-sigma and expect that the `font-awesome` option remains, but the `font-awesome-last-used-release` transient is removed:
         - `bin/wp -c com.fontawesome.wordpress-latest-integration plugin deactivate plugin-sigma`
         - `bin/wp -c com.fontawesome.wordpress-latest-integration option get font-awesome`
 
             This should be non-empty/truthy.
 
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-releases --network`
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-last-used-release --network`
 
             This should be empty/falsy.
 
@@ -586,23 +722,25 @@ that was created in the previous step.
 
             (Using a direct `docker exec` command here instead of the `bin/wp` so we can run it as the root user inside the container)
 
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-releases --network`
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-last-used-release --network`
             This should again be non-empty/truthy.
             Of course the `font-awesome` option should still be truthy.
     - Deactivate _and_ uninstall the Font Awesome plugin and expect that the `font-awesome` option is now gone as well:
         - `bin/wp -c com.fontawesome.wordpress-latest-integration plugin deactivate font-awesome`
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-releases --network`
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-last-used-release --network`
 
             This should now be empty.
 
         - `bin/wp -c com.fontawesome.wordpress-latest-integration plugin uninstall font-awesome`
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration option get font-awesome`
 
-            This should now be empty as well.
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration option get font-awesome`
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration option get font-awesome-releases`
+
+            These should now be empty as well.
 
     - Activate theme-mu, expect all data to be initialized:
         - `bin/wp -c com.fontawesome.wordpress-latest-integration theme activate theme-mu`
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-releases --network`
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-last-used-release --network`
 
             This should again be non-empty/truthy.
 
@@ -611,12 +749,12 @@ that was created in the previous step.
             This should be non-empty/truthy.
 
     - Finally, deactivate theme-mu by activating another theme. This should cause _both_ the deactivate _and_ uninstall logic to be triggered, because it's the last client of Font Awesome, and it's a theme (apparently themes don't have separate deactivation and uninstall logic like plugins have).
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration theme activate twentynineteen`
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration theme activate theme-alpha`
         - `bin/wp -c com.fontawesome.wordpress-latest-integration option get font-awesome`
 
             This should be empty.
 
-        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-releases --network`
+        - `bin/wp -c com.fontawesome.wordpress-latest-integration transient get font-awesome-last-used-release --network`
 
             This should be empty.
 
@@ -628,13 +766,13 @@ To check it out initially:
 svn co https://plugins.svn.wordpress.org/font-awesome wp-svn
 ```
 
-If you've already checked it out, make sure it's up to date:
+If you've already checked it out, make sure it's up-to-date:
 
 ```bash
 $ cd wp-svn
 $ svn up
 $ cd ..
-``` 
+```
 
 10. Copy plugin directory assets and wp-dist layout into `wp-svn/trunk`
 
@@ -659,7 +797,7 @@ You can do `svn delete` on lots of files with that status at once like this:
 
 ```bash
 $ svn stat | grep '^\!' | sed 's/^\![\ ]*trunk/trunk/' | xargs svn delete
-``` 
+```
 
 If there are files with `?` status, that indicates they are being added and you should do `svn add` on each of them.
 
@@ -678,7 +816,7 @@ If there's an editor dotfile or other directory that should be ignored by `svn`,
 
 ```bash
 $ svn propset svn:ignore .idea .
-``` 
+```
 
 12. Check in the new trunk
 
@@ -690,7 +828,7 @@ It should point to the previous release that has a subdirectory under `tags/`.
 `svn ci` is what publishes the plugin code to the WordPress plugins directory, making it public.
 
 ```bash
-$ svn ci -m 'Update trunk for release 42.1.2' 
+$ svn ci -m 'Update trunk for release 42.1.2'
 ```
 
 If you're not already authenticated to `svn`, add the `--username` option to `svn ci` and it will prompt you for your
@@ -700,13 +838,13 @@ password. After the first `svn ci` caches the credentials, you probably won't ne
 
 13. Create the new svn release tag
 
-First, make sure `svn stat` is clean. We want to make sure that the trunk is all committed and clean before we take a 
+First, make sure `svn stat` is clean. We want to make sure that the trunk is all committed and clean before we take a
 snapshot of it for the release tag.
 
 This will snapshot `trunk` as a new release tag. Replace the example tag name with the real release tag name.
 
 ```bash
-$ svn cp trunk tags/42.1.2 
+$ svn cp trunk tags/42.1.2
 ```
 
 14. Update `Stable tag` and `Tested up to` tags in `readme.txt`
@@ -756,7 +894,7 @@ You'll probably just need to `kill` that `pid` and re-launch it.
 Or to avoid the timeout hassle, just do:
 ```bash
 cd docsrv
-yarn
+npm install
 node index.js
 ```
 
@@ -765,12 +903,12 @@ node index.js
 `plugin-sigma` demonstrates how a third-party plugin developer could include this Font Awesome plugin as a composer
 dependency. In this scenario, the WordPress site admin does not need to separately install the Font Awesome plugin.
 
-In order to activate it you must first run `composer install --prefer-dist` from the 
+In order to activate it you must first run `composer install --prefer-dist` from the
 `integrations/plugins/plugin-sigma` directory.
 
 # Remote Debugging with VSCode
 
-(Only the "latest" WordPress docker image has the xdebug extension. Hack `Dockerfile-4.9.8` if you need it in the 4.9.8 image as well.)
+(Only the "latest" WordPress docker image has the xdebug extension. Hack `Dockerfile-4.9` if you need it in the 4.9 image as well.)
 
 1. Install the PHP Debug (Felix Becker) extension in VSCode
 1. Restart VSCode
@@ -808,7 +946,7 @@ In order to activate it you must first run `composer install --prefer-dist` from
     ```bash
     bin/wp redis info
     ```
-1. the `bin/cache-show` script might help
+1. The `bin/cache-show` script might help
 1. You're on your own (for now) to make sure the cache is flushed or otherwise
    doesn't interfere with your expectations when you switch environments.
 
@@ -839,3 +977,12 @@ bin/env /bin/bash
 ```bash
 wp --allow-root core update --version=5.4 /tmp/wordpress-5.4-latest.zip
 ```
+
+# Analyze Webpack Bundle
+
+The webpack configs for both `admin/` and `compat-js/` include the `BundleAnalyzerPlugin`,
+which produces a corresponding `webpack-stats.html` file in the corresponding
+directory on each build.
+
+Just open that html file in a web browser to see the analysis of what's actually
+in the bundle.

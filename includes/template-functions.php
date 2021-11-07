@@ -1,5 +1,36 @@
 <?php
 
+if ( ! function_exists( 'lithe_dashes_to_camelcase' ) ) {
+
+    /**
+     * Converts string with dashes to camelcase.
+     *
+     * @param  string $string Original string.
+     * @param  mixed  $args Arguments for capitalization.
+     *
+     * @return string
+     */
+    function lithe_dashes_to_camelcase( $string, $args = array() ): string {
+
+        $defaults = array(
+            'capitalize_first' => false,
+        );
+
+        $args = wp_parse_args( $args, $defaults );
+
+        $str = str_replace( ' ', '', ucwords( str_replace( '-', ' ', $string ) ) );
+
+        if ( ! $args[ 'capitalize_first' ] ) {
+
+            $str[0] = strtolower( $str[0] );
+
+        }
+
+        return $str;
+    }
+
+}
+
 if ( ! function_exists( 'lithe_date_format' ) ) {
 
     /**
@@ -612,19 +643,52 @@ if ( ! function_exists( 'lithe_sports' ) ) {
     /**
      * Outputs sports list.
      *
+     * @param  array $args
+     *
      * @return void
      */
-    function lithe_sports(): void {
+    function lithe_sports( $args = array() ): void {
+        global $wpdb;
+
+        $defaults = array(
+            'hide_empty' => false,
+            'hide_trainerless' => false,
+        );
+
+        $args = wp_parse_args( $args, $defaults );
 
         $sports = get_terms( array(
             'taxonomy'   => 'sport',
             'order'      => 'ASC',
-            'hide_empty' => true,
+            'hide_empty' => $args['hide_empty'] ?? false,
         ) );
 
-        if ( ! empty( $sports ) ):
+        if ( $args['hide_trainerless'] ) {
+
+            $filtered = array();
+
+            foreach ( $sports as $sport ) {
+
+                $result = $wpdb->get_var( "
+                    SELECT COUNT(*) FROM $wpdb->posts p
+                    JOIN $wpdb->term_relationships rl ON p.ID = rl.object_id
+                    WHERE rl.term_taxonomy_id = $sport->term_id AND p.post_type = 'trainer'
+                    LIMIT 1
+                ");
+
+                if ( (int) $result > 0 ) {
+                    $filtered[] = $sport;
+                }
+
+            }
+
+            $sports = $filtered;
+
+        }
+
+        if ( ! empty( $filtered ) ):
         ?>
-            <select class="sports-list" name="sports">
+            <select class="sports-list" name="sports" autocomplete="off">
 
             <option value="0"><?php esc_html_e( 'All', 'lithe' ); ?></option>
 

@@ -25,7 +25,17 @@ class ConfigControllerTest extends \WP_UnitTestCase {
 		reset_db();
 		remove_all_actions( 'font_awesome_preferences' );
 
-		Mock_FontAwesome_Releases::mock();
+		(new Mock_FontAwesome_Metadata_Provider())->mock(
+			array(
+				wp_json_encode(
+					array(
+						'data' => graphql_releases_query_fixture(),
+					)
+				)
+			)
+		);
+
+		FontAwesome_Release_Provider::load_releases();
 
 		global $wp_rest_server;
 
@@ -116,6 +126,74 @@ class ConfigControllerTest extends \WP_UnitTestCase {
 		$this->assertArrayHasKey( 'options', $data );
 		$this->assertEquals( '5.4.1', $data['options']['version']);
 		$this->assertEquals( '5.4.1', fa()->version() );
+	}
+
+	/**
+	 * When we update the options to use a kit, and that kit's version is not
+	 * 'latest', but a major version range, '5.x' or '6.x' then that range
+	 * value is what is stored.
+	 */
+	public function test_update_kit_major_version_range() {
+		// Start with the version being something else.
+		$this->set_version( '5.3.1' );
+
+		$request_body = array(
+				'options' => array(
+					'usePro' => true,
+					'v4Compat' => true,
+					'technology' => 'webfont',
+					'pseudoElements' => true,
+					'kitToken' => '778ccf8260',
+					'apiToken' => true,
+					'version' => '5.x',
+				),
+				'conflicts' => array()
+			);
+
+		$request  = new \WP_REST_Request(
+			'PUT',
+			$this->namespaced_route
+		);
+
+    	$request->add_header('Content-Type', 'application/json');
+    	$request->set_body( wp_json_encode( $request_body ) );
+		$response = $this->server->dispatch( $request );
+		$this->assertEquals( 200, $response->get_status() );
+		$data = $response->get_data();
+		$this->assertArrayHasKey( 'conflicts', $data );
+		$this->assertArrayHasKey( 'options', $data );
+		$this->assertEquals( '5.x', $data['options']['version']);
+		$this->assertEquals( '5.x', fa()->version() );
+
+		// Now try 6.x
+
+		$request_body = array(
+				'options' => array(
+					'usePro' => true,
+					'v4Compat' => true,
+					'technology' => 'webfont',
+					'pseudoElements' => true,
+					'kitToken' => '778ccf8260',
+					'apiToken' => true,
+					'version' => '6.x',
+				),
+				'conflicts' => array()
+			);
+
+		$request  = new \WP_REST_Request(
+			'PUT',
+			$this->namespaced_route
+		);
+
+    	$request->add_header('Content-Type', 'application/json');
+    	$request->set_body( wp_json_encode( $request_body ) );
+		$response = $this->server->dispatch( $request );
+		$this->assertEquals( 200, $response->get_status() );
+		$data = $response->get_data();
+		$this->assertArrayHasKey( 'conflicts', $data );
+		$this->assertArrayHasKey( 'options', $data );
+		$this->assertEquals( '6.x', $data['options']['version']);
+		$this->assertEquals( '6.x', fa()->version() );
 	}
 
 	public function test_update_with_kit_using_symbolic_latest_version() {
@@ -348,8 +426,6 @@ class ConfigControllerTest extends \WP_UnitTestCase {
     	$request->add_header('Content-Type', 'application/json');
 		$request->set_body( wp_json_encode( $request_body ) );
 		
-		fa()->refresh_releases();
-
 		$response = $this->server->dispatch( $request );
 		$this->assertNotNull( fa()->latest_version() );
 		$this->assertEquals( 200, $response->get_status() );
