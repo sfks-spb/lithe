@@ -26,7 +26,11 @@ get_header();
 
     <div class="venue-selector">
 
-        <h2>Найдите ближайшую к вам площадку по интересующему вас виду спорта</h2>
+        <h2>
+
+            <?php esc_html_e( 'Find closest training ground', 'lithe' ); ?>
+
+        </h2>
 
         <div id="sports-selector-top" class="sports-selector">
 
@@ -35,8 +39,16 @@ get_header();
         </div>
 
         <div class="description">
-            В списке под картой, показаны тренеры по выбранному вами виду спорта.
-            Вы также можете нажать на значок площадки на карте, чтобы показывать тренеров только с выбранной площадки.
+
+            <?php
+
+                esc_html_e(
+                    'Use selector above to create list of trainers for specific sport. You can also click on placemark to filter trainer by the venue.' ,
+                    'lithe'
+                );
+
+            ?>
+
         </div>
 
         <div id="venues-map"></div>

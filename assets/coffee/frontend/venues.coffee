@@ -78,7 +78,7 @@ export class Venues
             venueDistance = ymaps.coordSystem.geo.getDistance @user.coordinates, venueCoordinates
             venue.dataset.venueDistance = venueDistance
             distanceContainer = venue.querySelector '.venue-distance'
-            distanceContainer.innerHTML = '~ ' + ymaps.formatter.distance(venueDistance) + ' от вас' if distanceContainer
+            distanceContainer.innerHTML = '~ ' + ymaps.formatter.distance(venueDistance) + ' ' + lithe_l10n.from_your_position if distanceContainer
 
         return
 

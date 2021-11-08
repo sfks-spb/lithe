@@ -8,6 +8,12 @@ return array(
 
             'src' => 'bundle.js',
 
+            'l10n' => array(
+
+                'from_your_position' => __( 'from your position', 'lithe' ),
+
+            ),
+
             'atts' => array( 'defer' => true ),
 
             'deps' => array( 'jquery', 'owlcarousel2', 'openapi' ),

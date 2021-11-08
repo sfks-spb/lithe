@@ -886,7 +886,7 @@
           venue.dataset.venueDistance = venueDistance;
           distanceContainer = venue.querySelector('.venue-distance');
           if (distanceContainer) {
-            distanceContainer.innerHTML = '~ ' + ymaps.formatter.distance(venueDistance) + ' от вас';
+            distanceContainer.innerHTML = '~ ' + ymaps.formatter.distance(venueDistance) + ' ' + lithe_l10n.from_your_position;
           }
         }
       }
