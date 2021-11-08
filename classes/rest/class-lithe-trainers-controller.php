@@ -41,12 +41,14 @@ if ( ! class_exists('Lithe_Trainers_Controller') ) {
          *
          */
         protected function get_tax_query( string $taxonomy, int $term_id ): array {
+
             return array(
                 'taxonomy'         => $taxonomy,
                 'field'            => 'term_id',
                 'terms'            => $term_id,
                 'include_children' => false,
             );
+
         }
 
         /**

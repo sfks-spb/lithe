@@ -690,7 +690,7 @@ if ( ! function_exists( 'lithe_sports' ) ) {
         ?>
             <select class="sports-list" name="sports" autocomplete="off">
 
-            <option value="0"><?php esc_html_e( 'All', 'lithe' ); ?></option>
+            <option value="0"><?php esc_html_e( 'Any sport', 'lithe' ); ?></option>
 
             <?php foreach( $sports as $sport ): ?>
 

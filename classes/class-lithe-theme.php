@@ -372,7 +372,7 @@ if ( ! class_exists('Lithe_Theme') ) {
                 wp_enqueue_media();
             }
 
-            $this->assets->load_packages( array( 'Lithe@1.0.1' ) );
+            $this->assets->load_packages( array( 'Lithe@1.0.2' ) );
         }
 
 

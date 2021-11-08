@@ -6,7 +6,7 @@ export default [
     {
       input: './assets/coffee/frontend/main.coffee',
       output: {
-        file: './assets/js/Lithe@1.0.1/bundle.js',
+        file: './assets/js/Lithe@1.0.2/bundle.js',
         format: 'iife'
       },
       plugins: [
@@ -18,7 +18,7 @@ export default [
     {
       input: './assets/coffee/admin/main.coffee',
       output: {
-        file: './assets/js/Lithe@1.0.1/admin.js',
+        file: './assets/js/Lithe@1.0.2/admin.js',
         format: 'iife'
       },
       plugins: [
