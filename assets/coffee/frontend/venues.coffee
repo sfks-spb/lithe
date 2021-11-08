@@ -42,7 +42,7 @@ export class Venues
             if venueId and Number(item.dataset.venueId) != venueId
                 item.className += ' hidden'
             else
-                item.className = 'venue-item'
+                item.className = 'venue-item loaded'
 
         return
 
