@@ -107,16 +107,19 @@ export class Venues
 
         for venue in response.data
             item = document.createElement 'div'
-            item.className = 'venue-item'
+            item.className = 'venue-item loading'
             item.dataset.venueId = venue.id
             item.dataset.venueCoordinates = venue.coords
             html = '<div class="venue-item-wrap"><header><h3 class="venue-title">' + venue.name + '</h3>'
             html += '<span class="venue-address">' + venue.address + '</span>'
             html += '<span class="venue-distance"></span></header>'
             html += '<div class="venue-description">' + venue.description + '</div>' if typeof venue.description != 'undefined' and venue.description != ''
+            html += @getTrainerPlaceholder 'primary'
+            html += @getTrainerPlaceholder 'secondary'
             item.innerHTML = html + '</div>'
+
             @trainers = new HttpClient
-            @trainers.on "load", @trainersComplete.bind item.querySelector('.venue-item-wrap'), this
+            @trainers.on "load", @trainersComplete.bind item.querySelector('.venue-item-wrap'), item, this
             @getTrainers venue.id
             @venueList.appendChild item
             @venuesItems.push item
@@ -129,7 +132,9 @@ export class Venues
         sportId = @venueList.dataset.sportId
         @trainers.get window.lithe.rest.root + '/trainers', { 'venue_id': venueId, 'sport_id': sportId }
 
-    trainersComplete: (self, response) ->
+    trainersComplete: (item, self, response) ->
+        item.className = 'venue-item loaded'
+
         for trainer in response.data
             sports = []
             sports.push ('<li>' + sport.name + '</li>') for sport in trainer.sports
@@ -163,3 +168,10 @@ export class Venues
             container.className += ' portrait'
 
         return container.outerHTML
+
+    getTrainerPlaceholder: (classnames) ->
+        html  = ''
+        html += '<div class="trainer-item placeholder ' + classnames + '"><header><span class="trainer-photo"></span></header>'
+        html += '<ul class="trainer-contact-info"><li class="trainer-phone"></li><li class="trainer-social"></li></ul></div>'
+
+        return html

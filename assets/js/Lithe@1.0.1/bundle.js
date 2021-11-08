@@ -926,7 +926,7 @@
         for (i = 0, len = ref.length; i < len; i++) {
           venue = ref[i];
           item = document.createElement('div');
-          item.className = 'venue-item';
+          item.className = 'venue-item loading';
           item.dataset.venueId = venue.id;
           item.dataset.venueCoordinates = venue.coords;
           html = '<div class="venue-item-wrap"><header><h3 class="venue-title">' + venue.name + '</h3>';
@@ -935,9 +935,11 @@
           if (typeof venue.description !== 'undefined' && venue.description !== '') {
             html += '<div class="venue-description">' + venue.description + '</div>';
           }
+          html += this.getTrainerPlaceholder('primary');
+          html += this.getTrainerPlaceholder('secondary');
           item.innerHTML = html + '</div>';
           this.trainers = new HttpClient();
-          this.trainers.on("load", this.trainersComplete.bind(item.querySelector('.venue-item-wrap'), this));
+          this.trainers.on("load", this.trainersComplete.bind(item.querySelector('.venue-item-wrap'), item, this));
           this.getTrainers(venue.id);
           this.venueList.appendChild(item);
           this.venuesItems.push(item);
@@ -954,8 +956,9 @@
         });
       }
 
-      trainersComplete(self, response) {
-        var html, i, item, j, len, len1, ref, ref1, sport, sports, trainer;
+      trainersComplete(item, self, response) {
+        var html, i, j, len, len1, ref, ref1, sport, sports, trainer;
+        item.className = 'venue-item loaded';
         ref = response.data;
         for (i = 0, len = ref.length; i < len; i++) {
           trainer = ref[i];
@@ -997,6 +1000,14 @@
           container.className += ' portrait';
         }
         return container.outerHTML;
+      }
+
+      getTrainerPlaceholder(classnames) {
+        var html;
+        html = '';
+        html += '<div class="trainer-item placeholder ' + classnames + '"><header><span class="trainer-photo"></span></header>';
+        html += '<ul class="trainer-contact-info"><li class="trainer-phone"></li><li class="trainer-social"></li></ul></div>';
+        return html;
       }
 
     };
