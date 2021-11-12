@@ -26,7 +26,7 @@ export class GTag
 
     withTimeout: (callback, timeout) ->
         called = false
-        fn =>
+        fn = () =>
             if not called
                 called = true
                 callback()

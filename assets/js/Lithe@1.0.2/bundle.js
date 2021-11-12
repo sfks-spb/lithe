@@ -614,14 +614,14 @@
       }
 
       withTimeout(callback, timeout) {
-        var called;
+        var called, fn;
         called = false;
-        fn(() => {
+        fn = () => {
           if (!called) {
             called = true;
             return callback();
           }
-        });
+        };
         setTimeout(fn, timeout || 1000);
         return fn;
       }
@@ -959,7 +959,7 @@
 
       init() {
         var slug, sportId;
-        slug = HashPath.get().search('sport');
+        slug = HashPath.get().search('sport') || 'all';
         if (sportId = this.initLists(slug)) {
           return this.getVenues(sportId);
         }

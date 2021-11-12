@@ -28,6 +28,7 @@ export class Venues
                     [61, 32]
                 ]
 
+            @venuesMap.behaviors.disable 'scrollZoom'
             @venuesMap.geoObjects.add @objectManager
             @venuesMap.geoObjects.events.add 'click', @redrawVenueLists
             @venuesMap.balloon.events.add 'close', @redrawVenueLists
@@ -39,7 +40,7 @@ export class Venues
         @venues.on "load", @venuesComplete
 
     init: =>
-        slug = HashPath.get().search 'sport'
+        slug = HashPath.get().search('sport') or 'all'
         @getVenues sportId if sportId = @initLists(slug)
 
     redrawVenueLists: (event) =>
