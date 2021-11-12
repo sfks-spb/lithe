@@ -946,6 +946,7 @@
           }, {
             restrictMapArea: [[59, 29], [61, 32]]
           });
+          this.venuesMap.behaviors.disable('scrollZoom');
           this.venuesMap.geoObjects.add(this.objectManager);
           this.venuesMap.geoObjects.events.add('click', this.redrawVenueLists);
           this.venuesMap.balloon.events.add('close', this.redrawVenueLists);
