@@ -6,9 +6,9 @@ export class trainerPhoto extends Media
         super '.button.upload', '.button.remove'
 
     init: =>
-        super.init()
-        @container = @metabox.querySelector '.trainer-photo-container'
-        @input = @metabox.querySelector '[name=photo_id]'
+        if super.init()
+            @container = @metabox.querySelector '.trainer-photo-container'
+            @input = @metabox.querySelector '[name=photo_id]'
 
     metaboxId: ->
         return '#trainer-photo.postbox'

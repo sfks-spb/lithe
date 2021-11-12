@@ -11,7 +11,9 @@
       }
 
       init() {
-        this.metabox = document.querySelector(this.metaboxId());
+        if (!(this.metabox = document.querySelector(this.metaboxId()))) {
+          return false;
+        }
         this.buttons.upload = this.metabox.querySelector(this.uploadButton);
         this.buttons.remove = this.metabox.querySelector(this.removeButton);
         if (this.buttons.upload) {
@@ -26,10 +28,11 @@
           });
         }
         if (this.buttons.remove) {
-          return this.buttons.remove.addEventListener('click', () => {
+          this.buttons.remove.addEventListener('click', () => {
             return this.onRemove();
           });
         }
+        return true;
       }
 
     };
@@ -46,9 +49,10 @@
 
       init() {
         boundMethodCheck(this, trainerPhoto);
-        super.init();
-        this.container = this.metabox.querySelector('.trainer-photo-container');
-        return this.input = this.metabox.querySelector('[name=photo_id]');
+        if (super.init()) {
+          this.container = this.metabox.querySelector('.trainer-photo-container');
+          return this.input = this.metabox.querySelector('[name=photo_id]');
+        }
       }
 
       metaboxId() {

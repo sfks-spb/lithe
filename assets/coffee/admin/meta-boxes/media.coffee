@@ -5,7 +5,7 @@ export class Media
         document.addEventListener 'DOMContentLoaded', @init, false
 
     init: =>
-        @metabox = document.querySelector @metaboxId()
+        return false if not @metabox = document.querySelector @metaboxId()
         @buttons.upload = @metabox.querySelector @uploadButton
         @buttons.remove = @metabox.querySelector @removeButton
 
@@ -21,3 +21,5 @@ export class Media
         if @buttons.remove
             @buttons.remove.addEventListener 'click', =>
                 @onRemove()
+
+        return true
