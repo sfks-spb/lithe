@@ -1,5 +1,5 @@
 import {HttpClient} from './httpClient.coffee'
-import {random_number} from './utils.coffee'
+import {randomNumber} from './utils.coffee'
 
 export class Venues
 
