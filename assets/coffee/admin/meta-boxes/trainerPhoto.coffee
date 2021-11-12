@@ -2,18 +2,18 @@ import {Media} from './media.coffee'
 
 export class trainerPhoto extends Media
 
-    constructor: () ->
+    constructor: ->
         super '.button.upload', '.button.remove'
 
-    init: () =>
+    init: =>
         super.init()
         @container = @metabox.querySelector '.trainer-photo-container'
         @input = @metabox.querySelector '[name=photo_id]'
 
-    metaboxId: () ->
+    metaboxId: ->
         return '#trainer-photo.postbox'
 
-    settings: () ->
+    settings: ->
         return
             title: litheAdmin_l10n.trainers_photo
             button:
@@ -25,7 +25,7 @@ export class trainerPhoto extends Media
         @input.value = attachment.id
         @buttons.remove.style = ''
 
-    onRemove: () =>
+    onRemove: =>
         @container.innerHTML = ''
         @input.value = ''
         @buttons.remove.style = 'display: none;'

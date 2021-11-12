@@ -6,7 +6,7 @@ export class ScrollTop
         @offset = offset || 200
         document.addEventListener "DOMContentLoaded", @init, false
 
-    init: () =>
+    init: =>
         @button = document.querySelector @selector
 
         if @button
@@ -14,15 +14,15 @@ export class ScrollTop
             document.addEventListener "scroll", @scroll, if Features.passiveListener then { passive: true } else false
             @scroll()
 
-    scroll: () =>
+    scroll: =>
         if document.documentElement.scrollTop > @offset then @showButton() else @hideButton()
 
-    hideButton: () ->
+    hideButton: ->
         @button.classList.remove 'active' if @button
 
-    showButton: () ->
+    showButton: ->
         @button.classList.add 'active' if @button
 
-    goTop: () =>
+    goTop: ->
         document.documentElement.scrollTop = 0
 

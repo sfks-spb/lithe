@@ -2,7 +2,7 @@ import {GTag} from './gTag.coffee'
 
 export class Forms extends GTag
 
-    constructor: () ->
+    constructor: ->
         super 'Contact Form', {
             wpcf7: {
                 'wpcf7mailsent': 'Send',

@@ -6,7 +6,7 @@ export class Widgets
         @http = new HttpClient
         document.addEventListener "DOMContentLoaded", @attach, false
 
-    attach: () =>
+    attach: =>
         @widgets = document.querySelectorAll @selector
 
         for widget in @widgets

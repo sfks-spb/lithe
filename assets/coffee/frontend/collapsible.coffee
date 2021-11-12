@@ -5,7 +5,7 @@ export class Collapsible
     constructor: (@selector) ->
         document.addEventListener "DOMContentLoaded", @attach, false
 
-    attach: () =>
+    attach: =>
         @toggles = document.querySelectorAll @selector
         toggle.addEventListener 'change', @changed, false for toggle in @toggles
         return

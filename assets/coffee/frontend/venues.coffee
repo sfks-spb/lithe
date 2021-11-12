@@ -1,13 +1,16 @@
 import {HttpClient} from './httpClient.coffee'
+import {HashPath} from './hashPath.coffee'
 import {randomNumber} from './utils.coffee'
 
 export class Venues
 
-    constructor: () ->
+    constructor: ->
         @user = {}
         @venuesItems = []
 
-        ymaps.ready () =>
+        HashPath.get().onChange @init
+
+        ymaps.ready =>
             @objectManager = new ymaps.ObjectManager()
             @objectManager.objects.options.set
                 iconLayout: 'default#image'
@@ -26,37 +29,49 @@ export class Venues
                 ]
 
             @venuesMap.geoObjects.add @objectManager
-            @venuesMap.geoObjects.events.add 'click', @redrawVenuesList
-            @venuesMap.balloon.events.add 'close', @redrawVenuesList
+            @venuesMap.geoObjects.events.add 'click', @redrawVenueLists
+            @venuesMap.balloon.events.add 'close', @redrawVenueLists
 
-            @initLists()
-            @getVenues()
+            @init()
 
         @venueList = document.querySelector '#venues-list'
         @venues = new HttpClient
         @venues.on "load", @venuesComplete
 
-    redrawVenuesList: (event) =>
+    init: =>
+        slug = HashPath.get().search 'sport'
+        @getVenues sportId if sportId = @initLists(slug)
+
+    redrawVenueLists: (event) =>
         venueId = event.get 'objectId'
+
         for item in document.querySelectorAll '.venue-item'
-            if venueId and Number(item.dataset.venueId) != venueId
-                item.className += ' hidden'
+            if venueId
+                item.classList.toggle 'hidden', ( Number(item.dataset.venueId) != venueId )
             else
-                item.className = 'venue-item loaded'
+                item.classList.remove 'hidden'
 
         return
 
-    initLists: () =>
+    initLists: (slug) =>
+        ret = false
         lists = document.querySelectorAll '.sports-list'
-        list.addEventListener 'change', (event) =>
-            sportId = event.target.value
-            list.value = sportId
-            @getVenues sportId
-        , false for list in lists
 
-        return
+        for list in lists
+            list.addEventListener 'change', =>
+                sportId = event.target.value
+                option = list.querySelector 'option[value="' + sportId + '"]'
+                slug = option.dataset.slug
+                HashPath.get().toggle 'sport', slug, (slug != 'all')
+                @getVenues sportId
 
-    getLocation: () =>
+            if slug
+                option = list.querySelector 'option[data-slug="' + slug + '"]'
+                ret = list.value = option.value if option
+
+        return ret
+
+    getLocation: =>
         if not @user.coordinates
             ymaps.geolocation.get().then (result) =>
                 result.geoObjects.options.set 'preset', 'islands#bluePersonCircleIcon'
@@ -72,7 +87,7 @@ export class Venues
         @calculateDistance()
         @sortVenues()
 
-    calculateDistance: () =>
+    calculateDistance: =>
         for venue in @venuesItems
             venueCoordinates = venue.dataset.venueCoordinates.split ','
             venueDistance = ymaps.coordSystem.geo.getDistance @user.coordinates, venueCoordinates
@@ -82,7 +97,7 @@ export class Venues
 
         return
 
-    sortVenues: () ->
+    sortVenues: ->
         @venuesItems.sort (a, b) =>
             return +a.dataset.venueDistance - +b.dataset.venueDistance
 
@@ -93,7 +108,9 @@ export class Venues
 
     getVenues: (sportId) =>
         sportId = 0 if typeof sportId == 'undefined'
+
         @venueList.dataset.sportId = sportId
+        @venueList.classList.add 'loading'
         @venues.get window.lithe.rest.root + '/venues', { 'sport_id': sportId }
 
     venuesComplete: (response) =>
@@ -107,7 +124,7 @@ export class Venues
 
         for venue in response.data
             item = document.createElement 'div'
-            item.className = 'venue-item loading'
+            item.classList.add 'venue-item', 'loading'
             item.dataset.venueId = venue.id
             item.dataset.venueCoordinates = venue.coords
             html = '<div class="venue-item-wrap"><header><h3 class="venue-title">' + venue.name + '</h3>'
@@ -124,6 +141,7 @@ export class Venues
             @venueList.appendChild item
             @venuesItems.push item
 
+        @venueList.classList.remove 'loading'
         @getLocation()
 
         return
@@ -133,14 +151,14 @@ export class Venues
         @trainers.get window.lithe.rest.root + '/trainers', { 'venue_id': venueId, 'sport_id': sportId }
 
     trainersComplete: (item, self, response) ->
-        item.className = 'venue-item loaded'
+        item.classList.remove 'loading'
 
         for trainer in response.data
             sports = []
             sports.push ('<li>' + sport.name + '</li>') for sport in trainer.sports
 
             item = document.createElement 'div'
-            item.className = 'trainer-item'
+            item.classList.add 'trainer-item'
             html = '<header><h4>' + trainer.last_name + ' ' + trainer.first_name + '</h4>'
             html += self.getTrainerPhoto trainer
             html += '<ul class="trainer-sports sport-tags">' + sports.join('') + '</ul></header>'
@@ -156,22 +174,22 @@ export class Venues
 
     getTrainerPhoto: (trainer) ->
         container = document.createElement 'span'
-        container.className = 'trainer-photo'
+        container.classList.add 'trainer-photo'
 
         if not trainer.photo
-            container.className += ' placeholder-' + random_number(1, 6)
+            container.classList.add 'placeholder-' + randomNumber(1, 6)
             return container.outerHTML
 
         container.innerHTML = '<img src="' + trainer.photo.src + '" alt="">'
 
         if trainer.photo.width < trainer.photo.height
-            container.className += ' portrait'
+            container.classList.add 'portrait'
 
         return container.outerHTML
 
-    getTrainerPlaceholder: (classnames) ->
+    getTrainerPlaceholder: (classNames) ->
         html  = ''
-        html += '<div class="trainer-item placeholder ' + classnames + '"><header><span class="trainer-photo"></span></header>'
+        html += '<div class="trainer-item placeholder ' + classNames + '"><header><span class="trainer-photo"></span></header>'
         html += '<ul class="trainer-contact-info"><li class="trainer-phone"></li><li class="trainer-social"></li></ul></div>'
 
         return html

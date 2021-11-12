@@ -3,7 +3,7 @@ export class Sticky
     constructor: (@selector) ->
         document.addEventListener "DOMContentLoaded", @init, false
 
-    init: () =>
+    init: =>
         @stickies = document.querySelectorAll @selector
 
         if @stickies

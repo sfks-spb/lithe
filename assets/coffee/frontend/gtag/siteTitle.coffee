@@ -2,7 +2,7 @@ import {GTag} from './gTag.coffee'
 
 export class SiteTitle extends GTag
 
-    constructor: () ->
+    constructor: ->
         super 'Site Title'
         @button = document.querySelector '#site-title a'
         @button.addEventListener 'click', @siteTitleClick, false if @button
@@ -11,5 +11,5 @@ export class SiteTitle extends GTag
         event.preventDefault();
         super.event 'Click',
             @button.getAttribute('title') || 'Site Logo'
-            'event_callback': super.withTimeout () =>
+            'event_callback': super.withTimeout =>
                 document.location = @button.getAttribute 'href'

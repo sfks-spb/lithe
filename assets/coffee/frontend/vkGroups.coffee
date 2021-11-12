@@ -23,7 +23,7 @@ export class VkGroups
     processMutations: (mutations) =>
         for mutation in mutations when mutation.type == "childList"
                 for node in mutation.addedNodes when node instanceof HTMLElement
-                    node.addEventListener "load", () =>
+                    node.addEventListener "load", =>
                         node.closest('.sidebar-widget').classList.add 'vk-widget-loaded'
 
         return

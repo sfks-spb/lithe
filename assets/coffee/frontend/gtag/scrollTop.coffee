@@ -2,7 +2,7 @@ import {GTag} from './gTag.coffee'
 
 export class ScrollTop extends GTag
 
-    constructor: () ->
+    constructor: ->
         super 'Scroll Top'
         button = document.querySelector '#go-top'
         button.addEventListener 'click', @scrollTopClick, false if button

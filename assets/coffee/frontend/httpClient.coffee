@@ -1,6 +1,6 @@
 export class HttpClient
 
-    constructor: () ->
+    constructor: ->
         @xhr = new XMLHttpRequest
 
     on: (event, callback, type) ->

@@ -3,14 +3,14 @@ import {range} from './utils.coffee'
 
 export class Views
 
-    constructor: () ->
+    constructor: ->
         @http = new HttpClient
         @http.on "load", @transferComplete
         @storage = window.localStorage
         @views = @getViews()
         window.addEventListener "load", @init, false
 
-    init: () =>
+    init: =>
         @posts = document.querySelectorAll '.post'
 
         if @posts
@@ -39,7 +39,7 @@ export class Views
             else
                 @http.get restUri
 
-    getViews: () ->
+    getViews: ->
         postViews = @storage.getItem 'postViews'
         return if postViews then JSON.parse postViews else []
 
@@ -62,7 +62,7 @@ export class Views
 
     animateCounter: (element, views) ->
         cursor = 0
-        animationInterval = setInterval () =>
+        animationInterval = setInterval =>
             element.innerHTML = views[cursor]
             clearInterval animationInterval if typeof views[++cursor] == 'undefined'
         , 20

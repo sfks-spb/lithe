@@ -6,7 +6,7 @@ export default class HiddenData
         @http = new httpClient
         document.addEventListener "DOMContentLoaded", @attach
 
-    attach: () =>
+    attach: =>
         @fields = document.querySelectorAll @selector
 
         if @fields
@@ -31,7 +31,7 @@ export default class HiddenData
         if till and now > till
             clearInterval interval if interval
             field.classList.add "hidden"
-            setTimeout () ->
+            setTimeout ->
                 field.innerHTML = "";
             , 2000
 
@@ -41,12 +41,12 @@ export default class HiddenData
             hidden = false
 
     observeRealtime: (field) ->
-        callback = () ->
+        callback = ->
             @observe field, observeInterval
 
         callback = callback.bind @
 
-        observeInterval = setInterval () ->
+        observeInterval = setInterval ->
             callback()
         , 1000
 

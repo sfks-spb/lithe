@@ -4,7 +4,7 @@ export class GTag
         window.dataLayer = window.dataLayer || []
         @handleEvents() if @events
 
-    handleEvents: () ->
+    handleEvents: ->
         for eventHandler, events of @events
             for eventName in Object.keys(events)
                 document.addEventListener eventName, (event) =>
@@ -13,7 +13,7 @@ export class GTag
 
         return null
 
-    dataLayerPush: () ->
+    dataLayerPush: ->
         if 'object' == typeof window.dataLayer and 'function' == typeof window.dataLayer.push
             window.dataLayer.push arguments
 
@@ -26,7 +26,7 @@ export class GTag
 
     withTimeout: (callback, timeout) ->
         called = false
-        fn = () =>
+        fn =>
             if not called
                 called = true
                 callback()

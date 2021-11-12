@@ -15,18 +15,20 @@
 
     Html.node = document.html || document.getElementsByTagName('html')[0];
 
-    var Features = () => {
-      var passiveSupported;
-      passiveSupported = false;
-      try {
-        window.addEventListener('test', null, Object.defineProperty({}, 'passive', {
-          get: () => {
-            return passiveSupported = true;
-          }
-        }));
-      } catch (error) {
+    var Features = {
+      passiveListener: () => {
+        var passiveSupported;
+        passiveSupported = false;
+        try {
+          window.addEventListener('test', null, Object.defineProperty({}, 'passive', {
+            get: function() {
+              return passiveSupported = true;
+            }
+          }));
+        } catch (error) {
+        }
+        return passiveSupported;
       }
-      return passiveSupported;
     };
 
     var VkGroups = class VkGroups {
@@ -388,7 +390,6 @@
       constructor(selector, offset) {
         this.init = this.init.bind(this);
         this.scroll = this.scroll.bind(this);
-        this.goTop = this.goTop.bind(this);
         this.selector = selector;
         this.offset = offset || 200;
         document.addEventListener("DOMContentLoaded", this.init, false);
@@ -463,7 +464,7 @@
 
     };
 
-    var random_number, range;
+    var randomNumber, range;
 
     range = function(size, startAt = 0) {
       return Array.from(new Array(size), (x, i) => {
@@ -471,7 +472,7 @@
       });
     };
 
-    random_number = function(min, max) {
+    randomNumber = function(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -613,14 +614,14 @@
       }
 
       withTimeout(callback, timeout) {
-        var called, fn;
+        var called;
         called = false;
-        fn = () => {
+        fn(() => {
           if (!called) {
             called = true;
             return callback();
           }
-        };
+        });
         setTimeout(fn, timeout || 1000);
         return fn;
       }
@@ -793,9 +794,134 @@
       comments: new Comments()
     });
 
+    var _HashPath;
+
+    var HashPath = {
+      instance: null,
+      get: function() {
+        return this.instance != null ? this.instance : this.instance = new _HashPath();
+      }
+    };
+
+    _HashPath = class _HashPath {
+      constructor() {
+        this.update = this.update.bind(this);
+        this.getPath = this.getPath.bind(this);
+        this.setPath = this.setPath.bind(this);
+        this.resetPath = this.resetPath.bind(this);
+        this.syncPath = this.syncPath.bind(this);
+        this.search = this.search.bind(this);
+        this.set = this.set.bind(this);
+        this.toggle = this.toggle.bind(this);
+        this.remove = this.remove.bind(this);
+        this.path = null;
+        window.addEventListener('hashchange', () => {
+          this.path = this.update();
+          if (this.changeCallback) {
+            return this.changeCallback();
+          }
+        }, false);
+      }
+
+      onChange(changeCallback) {
+        this.changeCallback = changeCallback;
+      }
+
+      update() {
+        var hashArray, hashString, index, key, path, value;
+        path = {};
+        hashString = window.location.hash;
+        if (hashString.length < 2 || !hashString.indexOf('/')) {
+          return path;
+        }
+        hashArray = hashString.substring(1).split('/');
+        index = 0;
+        while (index < hashArray.length) {
+          key = hashArray[index];
+          value = hashArray[index + 1];
+          path[key] = value;
+          index += 2;
+        }
+        return path;
+      }
+
+      removeLocationHash() {
+        var noHashURL;
+        noHashURL = window.location.href.replace(/#.*$/, '');
+        return window.history.replaceState('', document.title, noHashURL);
+      }
+
+      getPath() {
+        return this.path != null ? this.path : this.path = this.update();
+      }
+
+      setPath(path1) {
+        this.path = path1;
+        return this.syncPath();
+      }
+
+      resetPath() {
+        return this.setPath({});
+      }
+
+      syncPath() {
+        var hashString, key, ref, value;
+        hashString = '';
+        ref = this.getPath();
+        for (key in ref) {
+          value = ref[key];
+          hashString += '/' + key + '/' + value;
+        }
+        if (hashString.length === 0) {
+          return this.removeLocationHash();
+        } else {
+          return window.location.hash = hashString.substring(1);
+        }
+      }
+
+      search(query) {
+        var path;
+        path = this.getPath();
+        if (path[query] || false) {
+          return path[query];
+        }
+      }
+
+      set(key, value) {
+        var path;
+        path = this.getPath();
+        path[key] = value;
+        return this.setPath(path);
+      }
+
+      toggle(key, value, toggle) {
+        if (typeof toggle === 'undefined') {
+          if (this.search(key)) {
+            this.remove(key);
+          } else {
+            this.set(key, value);
+          }
+        }
+        if (toggle === false) {
+          return this.remove(key);
+        } else {
+          return this.set(key, value);
+        }
+      }
+
+      remove(key) {
+        var path;
+        path = this.getPath();
+        delete path[key];
+        return this.setPath(path);
+      }
+
+    };
+
     var Venues = class Venues {
       constructor() {
-        this.redrawVenuesList = this.redrawVenuesList.bind(this);
+        this.init = this.init.bind(this);
+        this.redrawVenueLists = this.redrawVenueLists.bind(this);
         this.initLists = this.initLists.bind(this);
         this.getLocation = this.getLocation.bind(this);
         this.calculateDistance = this.calculateDistance.bind(this);
@@ -804,6 +930,7 @@
         this.getTrainers = this.getTrainers.bind(this);
         this.user = {};
         this.venuesItems = [];
+        HashPath.get().onChange(this.init);
         ymaps.ready(() => {
           this.objectManager = new ymaps.ObjectManager();
           this.objectManager.objects.options.set({
@@ -820,42 +947,59 @@
             restrictMapArea: [[59, 29], [61, 32]]
           });
           this.venuesMap.geoObjects.add(this.objectManager);
-          this.venuesMap.geoObjects.events.add('click', this.redrawVenuesList);
-          this.venuesMap.balloon.events.add('close', this.redrawVenuesList);
-          this.initLists();
-          return this.getVenues();
+          this.venuesMap.geoObjects.events.add('click', this.redrawVenueLists);
+          this.venuesMap.balloon.events.add('close', this.redrawVenueLists);
+          return this.init();
         });
         this.venueList = document.querySelector('#venues-list');
         this.venues = new HttpClient();
         this.venues.on("load", this.venuesComplete);
       }
 
-      redrawVenuesList(event) {
+      init() {
+        var slug, sportId;
+        slug = HashPath.get().search('sport');
+        if (sportId = this.initLists(slug)) {
+          return this.getVenues(sportId);
+        }
+      }
+
+      redrawVenueLists(event) {
         var i, item, len, ref, venueId;
         venueId = event.get('objectId');
         ref = document.querySelectorAll('.venue-item');
         for (i = 0, len = ref.length; i < len; i++) {
           item = ref[i];
-          if (venueId && Number(item.dataset.venueId) !== venueId) {
-            item.className += ' hidden';
+          if (venueId) {
+            item.classList.toggle('hidden', Number(item.dataset.venueId) !== venueId);
           } else {
-            item.className = 'venue-item loaded';
+            item.classList.remove('hidden');
           }
         }
       }
 
-      initLists() {
-        var i, len, list, lists;
+      initLists(slug) {
+        var i, len, list, lists, option, ret;
+        ret = false;
         lists = document.querySelectorAll('.sports-list');
         for (i = 0, len = lists.length; i < len; i++) {
           list = lists[i];
-          list.addEventListener('change', (event) => {
-            var sportId;
+          list.addEventListener('change', () => {
+            var option, sportId;
             sportId = event.target.value;
-            list.value = sportId;
+            option = list.querySelector('option[value="' + sportId + '"]');
+            slug = option.dataset.slug;
+            HashPath.get().toggle('sport', slug, slug !== 'all');
             return this.getVenues(sportId);
-          }, false);
+          });
+          if (slug) {
+            option = list.querySelector('option[data-slug="' + slug + '"]');
+            if (option) {
+              ret = list.value = option.value;
+            }
+          }
         }
+        return ret;
       }
 
       getLocation() {
@@ -909,6 +1053,7 @@
           sportId = 0;
         }
         this.venueList.dataset.sportId = sportId;
+        this.venueList.classList.add('loading');
         return this.venues.get(window.lithe.rest.root + '/venues', {
           'sport_id': sportId
         });
@@ -926,7 +1071,7 @@
         for (i = 0, len = ref.length; i < len; i++) {
           venue = ref[i];
           item = document.createElement('div');
-          item.className = 'venue-item loading';
+          item.classList.add('venue-item', 'loading');
           item.dataset.venueId = venue.id;
           item.dataset.venueCoordinates = venue.coords;
           html = '<div class="venue-item-wrap"><header><h3 class="venue-title">' + venue.name + '</h3>';
@@ -944,6 +1089,7 @@
           this.venueList.appendChild(item);
           this.venuesItems.push(item);
         }
+        this.venueList.classList.remove('loading');
         this.getLocation();
       }
 
@@ -958,7 +1104,7 @@
 
       trainersComplete(item, self, response) {
         var html, i, j, len, len1, ref, ref1, sport, sports, trainer;
-        item.className = 'venue-item loaded';
+        item.classList.remove('loading');
         ref = response.data;
         for (i = 0, len = ref.length; i < len; i++) {
           trainer = ref[i];
@@ -969,7 +1115,7 @@
             sports.push('<li>' + sport.name + '</li>');
           }
           item = document.createElement('div');
-          item.className = 'trainer-item';
+          item.classList.add('trainer-item');
           html = '<header><h4>' + trainer.last_name + ' ' + trainer.first_name + '</h4>';
           html += self.getTrainerPhoto(trainer);
           html += '<ul class="trainer-sports sport-tags">' + sports.join('') + '</ul></header>';
@@ -990,22 +1136,22 @@
       getTrainerPhoto(trainer) {
         var container;
         container = document.createElement('span');
-        container.className = 'trainer-photo';
+        container.classList.add('trainer-photo');
         if (!trainer.photo) {
-          container.className += ' placeholder-' + random_number(1, 6);
+          container.classList.add('placeholder-' + randomNumber(1, 6));
           return container.outerHTML;
         }
         container.innerHTML = '<img src="' + trainer.photo.src + '" alt="">';
         if (trainer.photo.width < trainer.photo.height) {
-          container.className += ' portrait';
+          container.classList.add('portrait');
         }
         return container.outerHTML;
       }
 
-      getTrainerPlaceholder(classnames) {
+      getTrainerPlaceholder(classNames) {
         var html;
         html = '';
-        html += '<div class="trainer-item placeholder ' + classnames + '"><header><span class="trainer-photo"></span></header>';
+        html += '<div class="trainer-item placeholder ' + classNames + '"><header><span class="trainer-photo"></span></header>';
         html += '<ul class="trainer-contact-info"><li class="trainer-phone"></li><li class="trainer-social"></li></ul></div>';
         return html;
       }

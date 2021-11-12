@@ -1,11 +1,11 @@
 export class Switcheroo
-    constructor: () ->
+    constructor: ->
         @map = {}
         @inputs = [ '_wpcf7', '_wpcf7_unit_tag', '_wpcf7_container_post' ]
 
         document.addEventListener "DOMContentLoaded", @init, false
 
-    init: () =>
+    init: =>
         @processSwicheroo form.querySelector "[data-switcheroo]" for form in document.querySelectorAll '.wpcf7-form'
         return null
 

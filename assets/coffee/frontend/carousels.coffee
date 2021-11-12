@@ -1,9 +1,9 @@
 export class Carousels
 
-    constructor: () ->
+    constructor: ->
         document.addEventListener "DOMContentLoaded", @init, false
 
-    init: () =>
+    init: =>
         carousels = {}
         carousels[id] = jQuery("#owl-" + id).owlCarousel options for id, options of Carousels.settings when Carousels.settings[id]
         return carousels

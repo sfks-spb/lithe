@@ -2,7 +2,7 @@ import {GTag} from './gTag.coffee'
 
 export class Comments extends GTag
 
-    constructor: () ->
+    constructor: ->
         super 'Comments'
         @form = document.querySelector '#commentform'
         @form.addEventListener 'submit', @commentFormSubmit, false if @form
@@ -12,5 +12,4 @@ export class Comments extends GTag
         title = document.querySelector 'h1.entry-title'
         super.event 'Comment',
             if title then title.innerText else ''
-            'event_callback': super.withTimeout () =>
-                @form.submit()
+            'event_callback': super.withTimeout => @form.submit()

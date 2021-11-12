@@ -2,7 +2,7 @@ import {GTag} from './gTag.coffee'
 
 export class Infobar extends GTag
 
-    constructor: () ->
+    constructor: ->
         super 'Infobar'
         links = document.querySelectorAll '.infobar-link > a'
         if links
@@ -14,5 +14,5 @@ export class Infobar extends GTag
         label = document.querySelector '.infobar-content'
         super.event 'Click',
             label.innerText || 'Infobar Link',
-            'event_callback': super.withTimeout () =>
+            'event_callback': super.withTimeout =>
                 document.location = link.getAttribute 'href'

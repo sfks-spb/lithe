@@ -643,7 +643,7 @@ if ( ! function_exists( 'lithe_sports' ) ) {
     /**
      * Outputs sports list.
      *
-     * @param  array $args
+     * @param  array|string $args
      *
      * @return void
      */
@@ -690,11 +690,11 @@ if ( ! function_exists( 'lithe_sports' ) ) {
         ?>
             <select class="sports-list" name="sports" autocomplete="off">
 
-            <option value="0"><?php esc_html_e( 'Any sport', 'lithe' ); ?></option>
+            <option data-slug="all" value="0"><?php esc_html_e( 'Any sport', 'lithe' ); ?></option>
 
             <?php foreach( $sports as $sport ): ?>
 
-                <option value="<?php echo esc_attr( $sport->term_id ); ?>"><?php echo esc_html( $sport->name ) ?></option>
+                <option data-slug="<?php echo esc_attr( $sport->slug ); ?>" value="<?php echo esc_attr( $sport->term_id ); ?>"><?php echo esc_html( $sport->name ) ?></option>
 
             <?php endforeach; ?>
 

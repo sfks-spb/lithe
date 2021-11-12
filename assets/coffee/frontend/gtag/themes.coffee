@@ -2,7 +2,7 @@ import {GTag} from './gTag.coffee'
 
 export class Themes extends GTag
 
-    constructor: () ->
+    constructor: ->
         super 'Theme', {
             themeChange: {
                 'ThemeChanged': 'Change',
