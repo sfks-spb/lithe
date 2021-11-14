@@ -30,5 +30,5 @@ export class GTag
             if not called
                 called = true
                 callback()
-        setTimeout fn, timeout || 1000
+        setTimeout fn, (timeout || 1000)
         return fn

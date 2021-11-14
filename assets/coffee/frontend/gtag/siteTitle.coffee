@@ -4,12 +4,15 @@ export class SiteTitle extends GTag
 
     constructor: ->
         super 'Site Title'
-        @button = document.querySelector '#site-title a'
-        @button.addEventListener 'click', @siteTitleClick, false if @button
+        button = document.querySelector '#site-title a'
+        button.addEventListener 'click', @siteTitleClick, false if button
+        compact = document.querySelector '.compact-logo'
+        compact.addEventListener 'click', @siteTitleClick, false if compact
 
     siteTitleClick: (event) =>
         event.preventDefault()
+        link = event.currentTarget
         super.event 'Click',
-            @button.getAttribute('title') || 'Site Logo'
+            link.getAttribute('title') or 'Site Logo'
             'event_callback': super.withTimeout =>
-                document.location = @button.getAttribute 'href'
+                document.location = link.getAttribute 'href'

@@ -628,7 +628,7 @@
 
     };
 
-    var boundMethodCheck$6 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$5 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var Forms = class Forms extends GTag {
       constructor() {
@@ -645,7 +645,7 @@
 
       wpcf7(form, event) {
         var formMeta;
-        boundMethodCheck$6(this, Forms);
+        boundMethodCheck$5(this, Forms);
         formMeta = this.getFormMeta(form.contactFormId);
         if (formMeta) {
           if (formMeta.isRegistrationForm) {
@@ -663,31 +663,38 @@
 
     };
 
-    var boundMethodCheck$5 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$4 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var SiteTitle = class SiteTitle extends GTag {
       constructor() {
+        var button, compact;
         super('Site Title');
         this.siteTitleClick = this.siteTitleClick.bind(this);
-        this.button = document.querySelector('#site-title a');
-        if (this.button) {
-          this.button.addEventListener('click', this.siteTitleClick, false);
+        button = document.querySelector('#site-title a');
+        if (button) {
+          button.addEventListener('click', this.siteTitleClick, false);
+        }
+        compact = document.querySelector('.compact-logo');
+        if (compact) {
+          compact.addEventListener('click', this.siteTitleClick, false);
         }
       }
 
       siteTitleClick(event) {
-        boundMethodCheck$5(this, SiteTitle);
+        var link;
+        boundMethodCheck$4(this, SiteTitle);
         event.preventDefault();
-        return super.event('Click', this.button.getAttribute('title') || 'Site Logo', {
+        link = event.currentTarget;
+        return super.event('Click', link.getAttribute('title') || 'Site Logo', {
           'event_callback': super.withTimeout(() => {
-            return document.location = this.button.getAttribute('href');
+            return document.location = link.getAttribute('href');
           })
         });
       }
 
     };
 
-    var boundMethodCheck$4 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$3 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var Infobar = class Infobar extends GTag {
       constructor() {
@@ -705,9 +712,9 @@
 
       detailsClick(event) {
         var label, link;
-        boundMethodCheck$4(this, Infobar);
+        boundMethodCheck$3(this, Infobar);
         event.preventDefault();
-        link = event.target;
+        link = event.currentTarget;
         label = document.querySelector('.infobar-content');
         return super.event('Click', label.innerText || 'Infobar Link', {
           'event_callback': super.withTimeout(() => {
@@ -718,7 +725,7 @@
 
     };
 
-    var boundMethodCheck$3 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$2 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var ScrollTop = class ScrollTop extends GTag {
       constructor() {
@@ -733,14 +740,14 @@
 
       scrollTopClick(event) {
         var title;
-        boundMethodCheck$3(this, ScrollTop);
+        boundMethodCheck$2(this, ScrollTop);
         title = document.querySelector('h1.entry-title');
         return super.event('Click', title ? title.innerText : 'Scroll Top Button');
       }
 
     };
 
-    var boundMethodCheck$2 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$1 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var Themes = class Themes extends GTag {
       constructor() {
@@ -753,32 +760,29 @@
       }
 
       themeChange(theme, event) {
-        boundMethodCheck$2(this, Themes);
+        boundMethodCheck$1(this, Themes);
         return super.event(this.events.themeChange[event.type], theme === 'dark' ? 'Dark' : 'Light');
       }
 
     };
 
-    var boundMethodCheck$1 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
-
     var Comments = class Comments extends GTag {
       constructor() {
+        var form;
         super('Comments');
-        this.commentFormSubmit = this.commentFormSubmit.bind(this);
-        this.form = document.querySelector('#commentform');
-        if (this.form) {
-          this.form.addEventListener('submit', this.commentFormSubmit, false);
+        form = document.querySelector('#commentform');
+        if (form) {
+          form.addEventListener('submit', this.commentFormSubmit, false);
         }
       }
 
       commentFormSubmit(event) {
         var title;
-        boundMethodCheck$1(this, Comments);
         event.preventDefault();
         title = document.querySelector('h1.entry-title');
         return super.event('Comment', title ? title.innerText : '', {
           'event_callback': super.withTimeout(() => {
-            return this.form.submit();
+            return event.target.submit();
           })
         });
       }
