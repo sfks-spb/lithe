@@ -628,7 +628,7 @@
 
     };
 
-    var boundMethodCheck$5 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$6 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var Forms = class Forms extends GTag {
       constructor() {
@@ -645,7 +645,7 @@
 
       wpcf7(form, event) {
         var formMeta;
-        boundMethodCheck$5(this, Forms);
+        boundMethodCheck$6(this, Forms);
         formMeta = this.getFormMeta(form.contactFormId);
         if (formMeta) {
           if (formMeta.isRegistrationForm) {
@@ -663,7 +663,7 @@
 
     };
 
-    var boundMethodCheck$4 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$5 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var SiteTitle = class SiteTitle extends GTag {
       constructor() {
@@ -676,7 +676,7 @@
       }
 
       siteTitleClick(event) {
-        boundMethodCheck$4(this, SiteTitle);
+        boundMethodCheck$5(this, SiteTitle);
         event.preventDefault();
         return super.event('Click', this.button.getAttribute('title') || 'Site Logo', {
           'event_callback': super.withTimeout(() => {
@@ -687,7 +687,7 @@
 
     };
 
-    var boundMethodCheck$3 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$4 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var Infobar = class Infobar extends GTag {
       constructor() {
@@ -705,7 +705,7 @@
 
       detailsClick(event) {
         var label, link;
-        boundMethodCheck$3(this, Infobar);
+        boundMethodCheck$4(this, Infobar);
         event.preventDefault();
         link = event.target;
         label = document.querySelector('.infobar-content');
@@ -718,7 +718,7 @@
 
     };
 
-    var boundMethodCheck$2 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$3 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var ScrollTop = class ScrollTop extends GTag {
       constructor() {
@@ -733,14 +733,14 @@
 
       scrollTopClick(event) {
         var title;
-        boundMethodCheck$2(this, ScrollTop);
+        boundMethodCheck$3(this, ScrollTop);
         title = document.querySelector('h1.entry-title');
         return super.event('Click', title ? title.innerText : 'Scroll Top Button');
       }
 
     };
 
-    var boundMethodCheck$1 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$2 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var Themes = class Themes extends GTag {
       constructor() {
@@ -753,13 +753,13 @@
       }
 
       themeChange(theme, event) {
-        boundMethodCheck$1(this, Themes);
+        boundMethodCheck$2(this, Themes);
         return super.event(this.events.themeChange[event.type], theme === 'dark' ? 'Dark' : 'Light');
       }
 
     };
 
-    var boundMethodCheck = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+    var boundMethodCheck$1 = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
 
     var Comments = class Comments extends GTag {
       constructor() {
@@ -773,12 +773,80 @@
 
       commentFormSubmit(event) {
         var title;
-        boundMethodCheck(this, Comments);
+        boundMethodCheck$1(this, Comments);
         event.preventDefault();
         title = document.querySelector('h1.entry-title');
         return super.event('Comment', title ? title.innerText : '', {
           'event_callback': super.withTimeout(() => {
             return this.form.submit();
+          })
+        });
+      }
+
+    };
+
+    var boundMethodCheck = function(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new Error('Bound instance method accessed before binding'); } };
+
+    var Sports = class Sports extends GTag {
+      constructor() {
+        var i, len, select, selects;
+        super('Sport');
+        this.sportSelected = this.sportSelected.bind(this);
+        selects = document.querySelectorAll('select.sports-list');
+        for (i = 0, len = selects.length; i < len; i++) {
+          select = selects[i];
+          select.addEventListener('change', this.sportSelected, false);
+        }
+      }
+
+      sportSelected(event) {
+        var option, select;
+        boundMethodCheck(this, Sports);
+        event.preventDefault();
+        select = event.target;
+        option = select.querySelector('option[value="' + select.value + '"]');
+        return super.event('Selected', option ? option.textContent : select.value);
+      }
+
+    };
+
+    var TrainerContact = class TrainerContact extends GTag {
+      constructor() {
+        var list;
+        super('Contact');
+        list = document.querySelector('#venues-list');
+        if (list) {
+          list.addEventListener('click', (event) => {
+            var trainer;
+            if (!event.target) {
+              return;
+            }
+            if (event.target.className === 'trainer-phone-link' || event.target.className === 'trainer-social-link') {
+              event.preventDefault();
+              trainer = event.target.closest('.trainer-item').querySelector('h4').textContent;
+              if (event.target.className === 'trainer-phone-link') {
+                this.phoneClick(event.target, trainer);
+              }
+              if (event.target.className === 'trainer-social-link') {
+                return this.socialClick(event.target, trainer);
+              }
+            }
+          });
+        }
+      }
+
+      phoneClick(link, trainer) {
+        return super.event('Phone Click', trainer, {
+          'event_callback': super.withTimeout(() => {
+            return document.location = link.getAttribute('href');
+          })
+        });
+      }
+
+      socialClick(link, trainer) {
+        return super.event('Social Click', trainer, {
+          'event_callback': super.withTimeout(() => {
+            return document.location = link.getAttribute('href');
           })
         });
       }
@@ -791,7 +859,9 @@
       infobar: new Infobar(),
       scrollTop: new ScrollTop(),
       themes: new Themes(),
-      comments: new Comments()
+      comments: new Comments(),
+      sport: new Sports(),
+      trainerContact: new TrainerContact()
     });
 
     var _HashPath;
@@ -1121,9 +1191,9 @@
           html += self.getTrainerPhoto(trainer);
           html += '<ul class="trainer-sports sport-tags">' + sports.join('') + '</ul></header>';
           html += '<ul class="trainer-contact-info">';
-          html += '<li class="trainer-phone"><a href="tel:' + trainer.phone + '"><i class="fas fa-phone fa-fw"></i><span>' + trainer.phone + '</span></a></li>';
+          html += '<li class="trainer-phone"><a class="trainer-phone-link" href="tel:' + trainer.phone + '"><i class="fas fa-phone fa-fw ignores-pointer-events"></i>' + trainer.phone + '</a></li>';
           if (trainer.social) {
-            html += '<li class="trainer-social"><a href="' + trainer.social + '"><i class="fab fa-vk fa-fw"></i></a></li>';
+            html += '<li class="trainer-social"><a class="trainer-social-link" href="' + trainer.social + '"><i class="fab fa-vk fa-fw ignores-pointer-events"></i></a></li>';
           }
           html += '</ul>';
           if (typeof trainer.timetable !== 'undefined' && trainer.timetable !== '') {

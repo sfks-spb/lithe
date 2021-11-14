@@ -9,7 +9,7 @@ export class Infobar extends GTag
             link.addEventListener 'click', @detailsClick, false for link in links
 
     detailsClick: (event) =>
-        event.preventDefault();
+        event.preventDefault()
         link = event.target
         label = document.querySelector '.infobar-content'
         super.event 'Click',

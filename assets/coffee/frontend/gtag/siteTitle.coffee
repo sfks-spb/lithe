@@ -8,7 +8,7 @@ export class SiteTitle extends GTag
         @button.addEventListener 'click', @siteTitleClick, false if @button
 
     siteTitleClick: (event) =>
-        event.preventDefault();
+        event.preventDefault()
         super.event 'Click',
             @button.getAttribute('title') || 'Site Logo'
             'event_callback': super.withTimeout =>

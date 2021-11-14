@@ -8,6 +8,10 @@
     display: none !important;
 }
 
+.ignores-pointer-events {
+    pointer-events: none;
+}
+
 .separator {
     width: 100%;
     height: 1px;

@@ -164,8 +164,8 @@ export class Venues
             html += self.getTrainerPhoto trainer
             html += '<ul class="trainer-sports sport-tags">' + sports.join('') + '</ul></header>'
             html += '<ul class="trainer-contact-info">'
-            html += '<li class="trainer-phone"><a href="tel:' + trainer.phone + '"><i class="fas fa-phone fa-fw"></i><span>' + trainer.phone + '</span></a></li>'
-            html += '<li class="trainer-social"><a href="' + trainer.social + '"><i class="fab fa-vk fa-fw"></i></a></li>' if trainer.social
+            html += '<li class="trainer-phone"><a class="trainer-phone-link" href="tel:' + trainer.phone + '"><i class="fas fa-phone fa-fw ignores-pointer-events"></i>' + trainer.phone + '</a></li>'
+            html += '<li class="trainer-social"><a class="trainer-social-link" href="' + trainer.social + '"><i class="fab fa-vk fa-fw ignores-pointer-events"></i></a></li>' if trainer.social
             html += '</ul>'
             html += '<div class="trainer-timetable">' + trainer.timetable + '</div>' if typeof trainer.timetable != 'undefined' and trainer.timetable != ''
             item.innerHTML = html
