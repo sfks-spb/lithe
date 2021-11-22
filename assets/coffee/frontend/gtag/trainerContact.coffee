@@ -8,20 +8,23 @@ export class TrainerContact extends GTag
         if list
             list.addEventListener 'click', (event) =>
                 return if not event.target
-                if event.target.className == 'trainer-phone-link' or event.target.className == 'trainer-social-link'
+                link = event.target
+                if link.className == 'trainer-phone-link' or link.className == 'trainer-social-link'
                     event.preventDefault()
-                    trainer = event.target.closest('.trainer-item').querySelector('h4').textContent
-                    @phoneClick event.target, trainer if event.target.className == 'trainer-phone-link'
-                    @socialClick event.target, trainer if event.target.className == 'trainer-social-link'
+                    trainer = link.closest('.trainer-item').querySelector('h4').textContent
+                    @phoneClick link, trainer if link.className == 'trainer-phone-link'
+                    @socialClick link, trainer if link.className == 'trainer-social-link'
 
     phoneClick: (link, trainer) ->
-        super.event 'Phone Click',
-            trainer,
+        super.event 'Click',
+            trainer + ' (' + link.textContent + ')',
             'event_callback': super.withTimeout =>
-                document.location = link.getAttribute 'href'
+                document.location = link.getAttribute 'href',
+            'value': 50
 
     socialClick: (link, trainer) ->
-        super.event 'Social Click',
-            trainer,
+        super.event 'Click',
+            trainer + ' (' + link.getAttribute('href') + ')',
             'event_callback': super.withTimeout =>
-                document.location = link.getAttribute 'href'
+                document.location = link.getAttribute 'href',
+            'value': 10

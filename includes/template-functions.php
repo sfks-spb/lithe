@@ -688,6 +688,7 @@ if ( ! function_exists( 'lithe_sports' ) ) {
 
         if ( ! empty( $filtered ) ):
         ?>
+
             <select class="sports-list" name="sports" autocomplete="off">
 
             <option data-slug="all" value="0"><?php esc_html_e( 'Any sport', 'lithe' ); ?></option>
@@ -699,6 +700,7 @@ if ( ! function_exists( 'lithe_sports' ) ) {
             <?php endforeach; ?>
 
             </select>
+
         <?php
         endif;
 

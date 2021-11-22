@@ -821,18 +821,19 @@
         list = document.querySelector('#venues-list');
         if (list) {
           list.addEventListener('click', (event) => {
-            var trainer;
+            var link, trainer;
             if (!event.target) {
               return;
             }
-            if (event.target.className === 'trainer-phone-link' || event.target.className === 'trainer-social-link') {
+            link = event.target;
+            if (link.className === 'trainer-phone-link' || link.className === 'trainer-social-link') {
               event.preventDefault();
-              trainer = event.target.closest('.trainer-item').querySelector('h4').textContent;
-              if (event.target.className === 'trainer-phone-link') {
-                this.phoneClick(event.target, trainer);
+              trainer = link.closest('.trainer-item').querySelector('h4').textContent;
+              if (link.className === 'trainer-phone-link') {
+                this.phoneClick(link, trainer);
               }
-              if (event.target.className === 'trainer-social-link') {
-                return this.socialClick(event.target, trainer);
+              if (link.className === 'trainer-social-link') {
+                return this.socialClick(link, trainer);
               }
             }
           });
@@ -840,7 +841,7 @@
       }
 
       phoneClick(link, trainer) {
-        return super.event('Phone Click', trainer, {
+        return super.event('Click', trainer + ' (' + link.textContent + ')', {
           'event_callback': super.withTimeout(() => {
             return document.location = link.getAttribute('href');
           })
@@ -848,7 +849,7 @@
       }
 
       socialClick(link, trainer) {
-        return super.event('Social Click', trainer, {
+        return super.event('Click', trainer + ' (' + link.getAttribute('href') + ')', {
           'event_callback': super.withTimeout(() => {
             return document.location = link.getAttribute('href');
           })
