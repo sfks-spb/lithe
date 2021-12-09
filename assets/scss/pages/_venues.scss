@@ -63,9 +63,33 @@
     }
 
     @include respond-to('podenco') {
-        flex-basis: 25%;
-        max-width: 25%;
+
+        @at-root #venues-list {
+
+            &.single-column .venue-item {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+
+            &.two-columns .venue-item {
+                flex-basis: 50%;
+                max-width: 50%;
+            }
+
+            &.three-columns .venue-item {
+                flex-basis: 33.333%;
+                max-width: 33.333%;
+            }
+
+            &.four-columns .venue-item {
+                flex-basis: 25%;
+                max-width: 25%;
+            }
+
+        }
+
     }
+
 }
 
 @keyframes pulse-down-1 {

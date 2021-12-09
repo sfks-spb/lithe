@@ -844,7 +844,8 @@
         return super.event('Click', trainer + ' (' + link.textContent + ')', {
           'event_callback': super.withTimeout(() => {
             return document.location = link.getAttribute('href');
-          })
+          }),
+          'value': 50
         });
       }
 
@@ -852,7 +853,8 @@
         return super.event('Click', trainer + ' (' + link.getAttribute('href') + ')', {
           'event_callback': super.withTimeout(() => {
             return document.location = link.getAttribute('href');
-          })
+          }),
+          'value': 10
         });
       }
 
@@ -1142,6 +1144,18 @@
           this.objectManager.add(response.meta.placemarks);
         }
         this.venueList.innerHTML = '';
+        if (response.meta.count === 1) {
+          this.venueList.classList.add('single-column');
+        }
+        if (response.meta.count === 2) {
+          this.venueList.classList.add('two-columns');
+        }
+        if (response.meta.count === 3) {
+          this.venueList.classList.add('three-columns');
+        }
+        if (response.meta.count > 3) {
+          this.venueList.classList.add('four-columns');
+        }
         this.venuesItems = [];
         ref = response.data;
         for (i = 0, len = ref.length; i < len; i++) {

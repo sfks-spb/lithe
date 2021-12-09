@@ -120,6 +120,10 @@ export class Venues
             @objectManager.add response.meta.placemarks
 
         @venueList.innerHTML = ''
+        @venueList.classList.add 'single-column'  if response.meta.count == 1
+        @venueList.classList.add 'two-columns'    if response.meta.count == 2
+        @venueList.classList.add 'three-columns'  if response.meta.count == 3
+        @venueList.classList.add 'four-columns'   if response.meta.count > 3
 
         @venuesItems = []
 

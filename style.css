@@ -355,6 +355,7 @@ template {
 
 .wp-block-image img {
   height: auto;
+  width: 100%;
 }
 .wp-block-image figure.alignleft,
 .wp-block-image figure.alignright {
@@ -3348,7 +3349,19 @@ div.wpcf7 .input-group > span {
   }
 }
 @media (min-width: 1200px) {
-  .venue-item {
+  #venues-list.single-column .venue-item {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  #venues-list.two-columns .venue-item {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  #venues-list.three-columns .venue-item {
+    flex-basis: 33.333%;
+    max-width: 33.333%;
+  }
+  #venues-list.four-columns .venue-item {
     flex-basis: 25%;
     max-width: 25%;
   }
