@@ -1103,12 +1103,14 @@
         ref = this.venuesItems;
         for (i = 0, len = ref.length; i < len; i++) {
           venue = ref[i];
-          venueCoordinates = venue.dataset.venueCoordinates.split(',');
-          venueDistance = ymaps.coordSystem.geo.getDistance(this.user.coordinates, venueCoordinates);
-          venue.dataset.venueDistance = venueDistance;
-          distanceContainer = venue.querySelector('.venue-distance');
-          if (distanceContainer) {
-            distanceContainer.innerHTML = '~ ' + ymaps.formatter.distance(venueDistance) + ' ' + lithe_l10n.from_your_position;
+          if (venue.dataset.venueCoordinates) {
+            venueCoordinates = venue.dataset.venueCoordinates.split(',');
+            venueDistance = ymaps.coordSystem.geo.getDistance(this.user.coordinates, venueCoordinates);
+            venue.dataset.venueDistance = venueDistance;
+            distanceContainer = venue.querySelector('.venue-distance');
+            if (distanceContainer) {
+              distanceContainer.innerHTML = '~ ' + ymaps.formatter.distance(venueDistance) + ' ' + lithe_l10n.from_your_position;
+            }
           }
         }
       }
@@ -1166,7 +1168,10 @@
           item.dataset.venueCoordinates = venue.coords;
           html = '<div class="venue-item-wrap"><header><h3 class="venue-title">' + venue.name + '</h3>';
           html += '<span class="venue-address">' + venue.address + '</span>';
-          html += '<span class="venue-distance"></span></header>';
+          if (venue.coords) {
+            html += '<span class="venue-distance"></span>';
+          }
+          html += '</header>';
           if (typeof venue.description !== 'undefined' && venue.description !== '') {
             html += '<div class="venue-description">' + venue.description + '</div>';
           }

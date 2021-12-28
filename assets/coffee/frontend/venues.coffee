@@ -90,11 +90,12 @@ export class Venues
 
     calculateDistance: =>
         for venue in @venuesItems
-            venueCoordinates = venue.dataset.venueCoordinates.split ','
-            venueDistance = ymaps.coordSystem.geo.getDistance @user.coordinates, venueCoordinates
-            venue.dataset.venueDistance = venueDistance
-            distanceContainer = venue.querySelector '.venue-distance'
-            distanceContainer.innerHTML = '~ ' + ymaps.formatter.distance(venueDistance) + ' ' + lithe_l10n.from_your_position if distanceContainer
+            if venue.dataset.venueCoordinates
+                venueCoordinates = venue.dataset.venueCoordinates.split ','
+                venueDistance = ymaps.coordSystem.geo.getDistance @user.coordinates, venueCoordinates
+                venue.dataset.venueDistance = venueDistance
+                distanceContainer = venue.querySelector '.venue-distance'
+                distanceContainer.innerHTML = '~ ' + ymaps.formatter.distance(venueDistance) + ' ' + lithe_l10n.from_your_position if distanceContainer
 
         return
 
@@ -134,7 +135,8 @@ export class Venues
             item.dataset.venueCoordinates = venue.coords
             html = '<div class="venue-item-wrap"><header><h3 class="venue-title">' + venue.name + '</h3>'
             html += '<span class="venue-address">' + venue.address + '</span>'
-            html += '<span class="venue-distance"></span></header>'
+            html += '<span class="venue-distance"></span>' if venue.coords
+            html += '</header>'
             html += '<div class="venue-description">' + venue.description + '</div>' if typeof venue.description != 'undefined' and venue.description != ''
             html += @getTrainerPlaceholder 'primary'
             html += @getTrainerPlaceholder 'secondary'
