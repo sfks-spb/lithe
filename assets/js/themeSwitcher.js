@@ -2,34 +2,34 @@ var TS = function(d, w, s, h) {
     return class ThemeSwitcher {
 
         constructor(selector) {
-            this.selector = selector;
-            this.loaded = this.loaded.bind(this);
-            this.switch = this.switch.bind(this);
-            d.addEventListener("DOMContentLoaded", this.loaded);
+            this.selector = selector
+            this.loaded = this.loaded.bind(this)
+            this.switch = this.switch.bind(this)
+            d.addEventListener("DOMContentLoaded", this.loaded)
         },
 
         loaded() {
-            this.toggle = d.querySelector(this.selector);
+            this.toggle = d.querySelector(this.selector)
 
             if (this.toggle) {
-                return this.toggle.addEventListener("click", this.switch);
+                return this.toggle.addEventListener("click", this.switch)
             }
 
             console.error("ThemeSwitcher: error: theme switcher element [" + this.selector + "] not found")
         },
 
         switch () {
-            this.setTheme("dark" == this.theme ? "light" : "dark");
-            s.setItem("theme", this.theme);
+            this.setTheme("dark" == this.theme ? "light" : "dark")
+            s.setItem("theme", this.theme)
         },
 
         animate() {
             if (this.toggle) {
                 var toggle = this.toggle;
-                toggle.classList.add("switching");
-                setTimeout(() => {
-                    toggle.classList.remove("switching");
-                }, 700)
+                toggle.classList.add("switching")
+                setTimeout( () => {
+                    toggle.classList.remove("switching")
+                }, 700 )
             }
         },
 
@@ -50,7 +50,7 @@ var TS = function(d, w, s, h) {
             this.removeClass(this.theme + "-theme");
             this.theme = theme;
             this.addClass(theme + "-theme");
-            d.dispatchEvent(new CustomEvent( "ThemeChanged", { detail: theme } ));
+            d.dispatchEvent( new CustomEvent( "ThemeChanged", { detail: theme } ) );
             return this.theme;
         },
 

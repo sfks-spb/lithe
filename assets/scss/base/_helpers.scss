@@ -8,6 +8,10 @@
     display: none !important;
 }
 
+.translucent {
+    opacity: .2;
+}
+
 .ignores-pointer-events {
     pointer-events: none;
 }

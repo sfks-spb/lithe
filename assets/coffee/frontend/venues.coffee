@@ -48,9 +48,9 @@ export class Venues
 
         for item in document.querySelectorAll '.venue-item'
             if venueId
-                item.classList.toggle 'hidden', ( Number(item.dataset.venueId) != venueId )
+                item.classList.toggle 'translucent', ( Number(item.dataset.venueId) != venueId )
             else
-                item.classList.remove 'hidden'
+                item.classList.remove 'translucent'
 
         return
 
@@ -120,10 +120,10 @@ export class Venues
             @objectManager.add response.meta.placemarks
 
         @venueList.innerHTML = ''
-        @venueList.classList.add 'single-column'  if response.meta.count == 1
-        @venueList.classList.add 'two-columns'    if response.meta.count == 2
-        @venueList.classList.add 'three-columns'  if response.meta.count == 3
-        @venueList.classList.add 'four-columns'   if response.meta.count > 3
+        @venueList.className = 'single-column' if response.meta.count == 1
+        @venueList.className = 'two-columns'   if response.meta.count == 2
+        @venueList.className = 'three-columns' if response.meta.count == 3
+        @venueList.className = 'four-columns'  if response.meta.count > 3
 
         @venuesItems = []
 

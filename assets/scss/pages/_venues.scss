@@ -51,6 +51,8 @@
     max-width: 100%;
     padding: 0 10px;
     margin-bottom: 30px;
+    -webkit-transition: opacity .3s ease-out;
+    transition: opacity .3s ease-out;
 
     @include respond-to('aussie') {
         flex-basis: 50%;

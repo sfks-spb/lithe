@@ -1,0 +1,22 @@
+.newyear-theme {
+
+    #sticky-nav::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: url(assets/images/newyear/stickynav-bg.png) 0 0 repeat-x;
+        height: 100%;
+        content: '';
+        display: block;
+    }
+
+    .separator:not(#aside-nav):not(.wp-block-separator) {
+        background-image: url(assets/images/newyear/lights.svg);
+        height: 60px;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        opacity: .7;
+    }
+
+}

@@ -1049,9 +1049,9 @@
         for (i = 0, len = ref.length; i < len; i++) {
           item = ref[i];
           if (venueId) {
-            item.classList.toggle('hidden', Number(item.dataset.venueId) !== venueId);
+            item.classList.toggle('translucent', Number(item.dataset.venueId) !== venueId);
           } else {
-            item.classList.remove('hidden');
+            item.classList.remove('translucent');
           }
         }
       }
@@ -1145,16 +1145,16 @@
         }
         this.venueList.innerHTML = '';
         if (response.meta.count === 1) {
-          this.venueList.classList.add('single-column');
+          this.venueList.className = 'single-column';
         }
         if (response.meta.count === 2) {
-          this.venueList.classList.add('two-columns');
+          this.venueList.className = 'two-columns';
         }
         if (response.meta.count === 3) {
-          this.venueList.classList.add('three-columns');
+          this.venueList.className = 'three-columns';
         }
         if (response.meta.count > 3) {
-          this.venueList.classList.add('four-columns');
+          this.venueList.className = 'four-columns';
         }
         this.venuesItems = [];
         ref = response.data;
