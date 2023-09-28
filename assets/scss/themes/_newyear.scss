@@ -11,7 +11,8 @@
         display: block;
     }
 
-    .separator:not(#aside-nav):not(.wp-block-separator) {
+    article.hentry:first-of-type::before,
+    article.hentry:not(:last-of-type)::after {
         background-image: url(assets/images/newyear/lights.svg);
         height: 60px;
         background-repeat: no-repeat;

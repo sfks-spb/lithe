@@ -61,4 +61,4 @@
 
         <div id="wrapper">
 
-            <div class="content-center has-white-background-color">
+            <div class="content-center">

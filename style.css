@@ -18,10 +18,8 @@ License URI: https://opensource.org/licenses/MIT
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 html {
-  line-height: 1.15;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
@@ -56,12 +54,9 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  box-sizing: content-box;
-  /* 1 */
-  height: 0;
-  /* 1 */
-  overflow: visible;
-  /* 2 */
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
 }
 
 /**
@@ -69,10 +64,8 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /* Text-level semantics
@@ -89,12 +82,9 @@ a {
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
-  border-bottom: none;
-  /* 1 */
-  text-decoration: underline;
-  /* 2 */
-  text-decoration: underline dotted;
-  /* 2 */
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -112,10 +102,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -165,14 +153,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
-  margin: 0;
-  /* 2 */
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
 }
 
 /**
@@ -180,8 +164,7 @@ textarea {
  * 1. Show the overflow in Edge.
  */
 button,
-input {
-  /* 1 */
+input { /* 1 */
   overflow: visible;
 }
 
@@ -190,8 +173,7 @@ input {
  * 1. Remove the inheritance of text transform in Firefox.
  */
 button,
-select {
-  /* 1 */
+select { /* 1 */
   text-transform: none;
 }
 
@@ -240,18 +222,12 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  box-sizing: border-box;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  display: table;
-  /* 1 */
-  max-width: 100%;
-  /* 1 */
-  padding: 0;
-  /* 3 */
-  white-space: normal;
-  /* 1 */
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
 }
 
 /**
@@ -274,10 +250,8 @@ textarea {
  */
 [type=checkbox],
 [type=radio] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
 }
 
 /**
@@ -293,10 +267,8 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 [type=search] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -311,10 +283,8 @@ textarea {
  * 2. Change font properties to `inherit` in Safari.
  */
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
 
 /* Interactive
@@ -792,94 +762,94 @@ div.sl-overlay {
   color: var(--lt-red-color);
 }
 :root .has-white-background-color {
-  background-color: var(--lt-white-color);
+  background-color: var(--lt-white-color) !important;
 }
 :root .has-white-color {
-  color: var(--lt-white-color);
+  color: var(--lt-white-color) !important;
 }
 :root .has-white-border-color {
-  border-color: var(--lt-white-color);
+  border-color: var(--lt-white-color) !important;
 }
 :root .has-very-light-gray-background-color {
-  background-color: var(--lt-very-light-gray-color);
+  background-color: var(--lt-very-light-gray-color) !important;
 }
 :root .has-very-light-gray-color {
-  color: var(--lt-very-light-gray-color);
+  color: var(--lt-very-light-gray-color) !important;
 }
 :root .has-very-light-gray-border-color {
-  border-color: var(--lt-very-light-gray-color);
+  border-color: var(--lt-very-light-gray-color) !important;
 }
 :root .has-light-gray-background-color {
-  background-color: var(--lt-light-gray-color);
+  background-color: var(--lt-light-gray-color) !important;
 }
 :root .has-light-gray-color {
-  color: var(--lt-light-gray-color);
+  color: var(--lt-light-gray-color) !important;
 }
 :root .has-light-gray-border-color {
-  border-color: var(--lt-light-gray-color);
+  border-color: var(--lt-light-gray-color) !important;
 }
 :root .has-gray-background-color {
-  background-color: var(--lt-gray-color);
+  background-color: var(--lt-gray-color) !important;
 }
 :root .has-gray-color {
-  color: var(--lt-gray-color);
+  color: var(--lt-gray-color) !important;
 }
 :root .has-gray-border-color {
-  border-color: var(--lt-gray-color);
+  border-color: var(--lt-gray-color) !important;
 }
 :root .has-dark-gray-background-color {
-  background-color: var(--lt-dark-gray-color);
+  background-color: var(--lt-dark-gray-color) !important;
 }
 :root .has-dark-gray-color {
-  color: var(--lt-dark-gray-color);
+  color: var(--lt-dark-gray-color) !important;
 }
 :root .has-dark-gray-border-color {
-  border-color: var(--lt-dark-gray-color);
+  border-color: var(--lt-dark-gray-color) !important;
 }
 :root .has-very-dark-gray-background-color {
-  background-color: var(--lt-very-dark-gray-color);
+  background-color: var(--lt-very-dark-gray-color) !important;
 }
 :root .has-very-dark-gray-color {
-  color: var(--lt-very-dark-gray-color);
+  color: var(--lt-very-dark-gray-color) !important;
 }
 :root .has-very-dark-gray-border-color {
-  border-color: var(--lt-very-dark-gray-color);
+  border-color: var(--lt-very-dark-gray-color) !important;
 }
 :root .has-blue-background-color {
-  background-color: var(--lt-blue-color);
+  background-color: var(--lt-blue-color) !important;
 }
 :root .has-blue-color {
-  color: var(--lt-blue-color);
+  color: var(--lt-blue-color) !important;
 }
 :root .has-blue-border-color {
-  border-color: var(--lt-blue-color);
+  border-color: var(--lt-blue-color) !important;
 }
 :root .has-dark-blue-background-color {
-  background-color: var(--lt-dark-blue-color);
+  background-color: var(--lt-dark-blue-color) !important;
 }
 :root .has-dark-blue-color {
-  color: var(--lt-dark-blue-color);
+  color: var(--lt-dark-blue-color) !important;
 }
 :root .has-dark-blue-border-color {
-  border-color: var(--lt-dark-blue-color);
+  border-color: var(--lt-dark-blue-color) !important;
 }
 :root .has-red-background-color {
-  background-color: var(--lt-red-color);
+  background-color: var(--lt-red-color) !important;
 }
 :root .has-red-color {
-  color: var(--lt-red-color);
+  color: var(--lt-red-color) !important;
 }
 :root .has-red-border-color {
-  border-color: var(--lt-red-color);
+  border-color: var(--lt-red-color) !important;
 }
 :root .has-dark-red-background-color {
-  background-color: var(--lt-dark-red-color);
+  background-color: var(--lt-dark-red-color) !important;
 }
 :root .has-dark-red-color {
-  color: var(--lt-dark-red-color);
+  color: var(--lt-dark-red-color) !important;
 }
 :root .has-dark-red-border-color {
-  border-color: var(--lt-dark-red-color);
+  border-color: var(--lt-dark-red-color) !important;
 }
 
 html {
@@ -1403,8 +1373,7 @@ select {
 }
 
 select::-ms-expand {
-  display: none;
-  /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
+  display: none; /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
 }
 
 textarea, select {
@@ -3788,7 +3757,8 @@ h3.venue-title {
   content: "";
   display: block;
 }
-.newyear-theme .separator:not(#aside-nav):not(.wp-block-separator), .newyear-theme body:not(.single):not(.page) .hentry:not(#aside-nav):not(.wp-block-separator):first-of-type::before, body:not(.single):not(.page) .newyear-theme .hentry:not(#aside-nav):not(.wp-block-separator):first-of-type::before, .newyear-theme body:not(.single) .hentry:not(#aside-nav):not(.wp-block-separator):not(:last-of-type)::after, body:not(.single) .newyear-theme .hentry:not(#aside-nav):not(.wp-block-separator):not(:last-of-type)::after, .newyear-theme .hentry hr:not(#aside-nav):not(.wp-block-separator), .hentry .newyear-theme hr:not(#aside-nav):not(.wp-block-separator), .newyear-theme #mobile-nav .menu-item:not(#aside-nav):not(.wp-block-separator):not(:last-of-type)::after, #mobile-nav .newyear-theme .menu-item:not(#aside-nav):not(.wp-block-separator):not(:last-of-type)::after, .newyear-theme #aside-nav:not(#aside-nav):not(.wp-block-separator):after {
+.newyear-theme article.hentry:first-of-type::before,
+.newyear-theme article.hentry:not(:last-of-type)::after {
   background-image: url(assets/images/newyear/lights.svg);
   height: 60px;
   background-repeat: no-repeat;
